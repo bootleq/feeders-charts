@@ -2,7 +2,18 @@
 
 
 
-## Getting Startedo
+## Getting Started
+
+Prepare data source:
+
+```bash
+pnpm fetch:country
+```
+
+Then serve output data file with available URL, for example move it to `public/`.
+
+Copy `.env.sample` to `.env` and set:
+`NEXT_PUBLIC_SRC_COUNTRY_URL=http://localhost:3000/country.json`
 
 Run the development server:
 
