@@ -8,10 +8,16 @@ const BUILD_DIR = 'scripts/build';
 
 const sources = {
   population: {
-    // 年度犬貓統計表
-    // https://data.gov.tw/dataset/41771
+    title: '年度犬貓統計表',
+    docUrl: 'https://data.gov.tw/dataset/41771',
     name: 'population',
     url: 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=ccezNvv4oYbO',
+  },
+  shelter: {
+    title: '全國公立動物收容所收容處理情形統計表(細項)',
+    docUrl: 'https://data.gov.tw/dataset/73396',
+    name: 'shelter',
+    url: 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=p9yPwrCs2OtC',
   },
 }
 
@@ -64,9 +70,11 @@ async function saveData(resourceName, data) {
   }
 }
 
-(async function main() {
+async function download(resourceName, title) {
+  console.log(`Download resource from ${title} (${resourceName}) ...`);
+
   try {
-    const { name, url } = sources.population;
+    const { name, url } = sources[resourceName];
     const remoteData = await fetchData(url);
     const needsUpdate = await checkForUpdate(name, remoteData);
 
@@ -76,4 +84,14 @@ async function saveData(resourceName, data) {
   } catch (error) {
     console.error("Error：", error.message);
   }
+
+  console.log('');
+}
+
+(async function main() {
+  for (const [resourceName, { title }] of Object.entries(sources)) {
+    await download(resourceName, title);
+  }
+
+  console.log("\nDone.");
 })();
