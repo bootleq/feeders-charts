@@ -239,22 +239,49 @@ function CitiesInput({ formRef }: {
   );
 }
 
-function YearsInput({ min, max }: {
+function YearsInput({ min, max, formRef }: {
   min: number,
   max: number,
+  formRef: React.RefObject<HTMLFormElement | null>,
 }) {
   const yearRange = makeYearRange(min, max);
+  const textCls = [
+    'font-mono pb-2 border-gray-400/0 border-b-4 text-slate-400',
+    'peer-checked:text-slate-900 peer-checked:border-double peer-checked:border-gray-300',
+    'peer-focus-visible:ring ring-offset-2',
+  ].join(' ');
+
+  const onToggleAll = useCallback((e: React.MouseEvent<HTMLInputElement>) => {
+    const form = formRef.current;
+    if (!form) return;
+
+    const toChecked = e.currentTarget.checked;
+    const boxes = form.querySelectorAll<HTMLInputElement>('input[name="years"]');
+    boxes.forEach(box => box.checked = toChecked);
+  }, [formRef]);
 
   return (
-    <div>
-      {yearRange.map((year) => {
-        return (
-          <label key={year}>
-            <input type='checkbox' name='years' value={year} />
-            {year}
-          </label>
-        );
-      })}
+    <div className='flex items-center pb-0.5'>
+      <label className='cursor-pointer px-1 hover:bg-slate-200/75 rounded self-stretch flex items-center'>
+        <input type='checkbox' defaultChecked={true} className='peer sr-only' onClick={onToggleAll} />
+        <div className='writing-vertical tracking-[6px] pb-1.5 text-slate-400 peer-checked:text-slate-700 peer-focus-visible:ring'>
+          全選
+        </div>
+      </label>
+      <ul className='flex items-center -translate-y-1'>
+        {yearRange.map((year) => {
+          return (
+            <li key={year} className=''>
+              <label className='cursor-pointer px-1 py-2 block rounded transition hover:bg-amber-200 hover:-translate-y-1 hover:drop-shadow'>
+                <input type='checkbox' name='years' value={year} defaultChecked={true} className='peer mb-1 sr-only' />
+                <span className={textCls}>
+                  {year}
+                </span>
+              </label>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
@@ -328,12 +355,10 @@ export default function Chart({ items, meta }: {
           <CitiesInput formRef={formRef} />
         </fieldset>
 
-        <fieldset>
-          <legend>年度</legend>
-
-          <YearsInput min={meta.minYear} max={meta.maxYear} />
+        <fieldset className='flex items-center ring rounded p-2'>
+          <legend className='bg-white px-1'>年度</legend>
+          <YearsInput min={meta.minYear} max={meta.maxYear} formRef={formRef} />
         </fieldset>
-
 
         <button type='submit'>套用</button>
       </form>
