@@ -160,16 +160,15 @@ function makeSeries(
 
   const series = items.reduce((acc, item) => {
     const {
-      rpt_year: year,
-      rpt_country_code: cityCode,
-      calcu_dog_num: domestic,
-      stray_dog_num: roaming,
-      // els_note: notes,
+      year,
+      city,
+      domestic,
+      roaming,
     } = item;
 
     const yearIdx = yearRange.indexOf(year);
 
-    if (yearIdx > -1 && (!validCities || validCities.includes(cityCode))) {
+    if (yearIdx > -1 && (!validCities || validCities.includes(city))) {
       if (roaming > 0) {
         acc = R.over(
           R.lensPath(['roaming', 'data', yearIdx]),
