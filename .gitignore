@@ -30,6 +30,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# dev
+public/dev.combined.json
+
 # scripts
 scripts/build
 

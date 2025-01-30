@@ -1,10 +1,8 @@
 export type CountryItem = {
-  rpt_year: number,
-  rpt_country: string,
-  rpt_country_code: string,
-  calcu_dog_num: number,
-  stray_dog_num: number,
-  els_note: string | null,
+  year: number,     // 年度
+  city: string,     // 縣市代碼
+  domestic: number, // 家犬估計數
+  roaming: number,  // 遊蕩犬估計數
 }
 
 export type ItemsMeta = {

@@ -2,10 +2,10 @@ import * as R from 'ramda';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
 import Chart from './chart';
 
-const SRC_COUNTRY_URL = process.env.NEXT_PUBLIC_SRC_COUNTRY_URL;
+const RESOURCE_URL = process.env.NEXT_PUBLIC_RESOURCE_URL;
 
 async function fetchResource() {
-  const response = await fetch(SRC_COUNTRY_URL!);
+  const response = await fetch(RESOURCE_URL!);
   const items = await response.json();
   return items;
 }
@@ -13,7 +13,7 @@ async function fetchResource() {
 export default async function Page() {
   const items: CountryItem[] = await fetchResource();
   const years = R.pipe(
-    R.pluck('rpt_year'),
+    R.pluck('year'),
     R.uniq,
     R.filter(R.isNotNil),
     R.map(Number),
