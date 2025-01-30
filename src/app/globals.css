@@ -19,3 +19,9 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer utilities {
+  .writing-vertical {
+    writing-mode: vertical-lr;
+  }
+}
