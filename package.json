@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "fetch:country": "tsx scripts/fetch_country.mjs"
+    "data:download": "tsx scripts/fetch_country.mjs",
+    "data:reduce": "tsx scripts/reduce_data.mjs"
   },
   "dependencies": {
     "date-fns": "^4.1.0",
