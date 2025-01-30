@@ -8,6 +8,10 @@ import {
   buildingPath,
 } from '@/lib/data_source';
 
+const manuallyResources = [
+  'population113',
+];
+
 async function jqProcess(jqScript, inputFiles) {
   const files = Array.isArray(inputFiles) ? inputFiles : [inputFiles];
   const filesArg = files.length > 1 ? ['--slurp', ...files] : files;
@@ -36,7 +40,7 @@ async function normalize( resourceName ) {
     const outFile = buildingPath(resourceName, 'json');
     const result = await jqProcess(script, inFile);
     await fsp.writeFile(outFile, JSON.stringify(result, null, 2));
-    return true;
+    return result;
   } catch (error) {
     console.error(`Fail normalizing ${resourceName}：`, error.message);
     throw error;
@@ -69,11 +73,30 @@ async function combine( resourceNames ) {
 }
 
 (async function main() {
+  let valid = true;
+
   for (const [resourceName] of Object.entries(sources)) {
-    await normalize(resourceName);
+    const data = await normalize(resourceName);
+
+    if (resourceName === 'population') {
+      const item2024 = data.find(({ year, roaming }) => {
+        return year > 111 && roaming;
+      });
+      if (item2024) {
+        console.error(`Unexpected data, we assume 113 (2024) population data not included yet.`);
+        valid = false;
+      }
+    }
   }
 
-  if (await combine(Object.keys(sources))) {
+  if (!valid) {
+    console.log('Aborted.');
+    return;
+  }
+
+  const allResources = Object.keys(sources).concat(manuallyResources);
+
+  if (await combine(allResources)) {
     console.log("\nDone.");
   }
 })();

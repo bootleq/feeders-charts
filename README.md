@@ -43,6 +43,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   4. 下載 CSV
   5. 存檔到 `HUMAN_POPULATION_CSV_PATH`，預設位置為 `scripts/build/human_population.csv`
 
+- 113年各縣市遊蕩犬估計數調查結果
+  https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000864?parentID=Tab0000143
+
+  2024 年的資料還未加入「年度犬貓統計表」，故手動將數字以 CSV 格式放在 `data` 目錄中
+
+
 註：收容所與人口資料，和動保資訊網提供的數字略有落差
 
 
