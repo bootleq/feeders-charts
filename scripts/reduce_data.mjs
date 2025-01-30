@@ -46,12 +46,22 @@ async function normalize( resourceName ) {
 async function combine( resourceNames ) {
   console.log('Combile resources...');
 
+  const inFiles = resourceNames.map(name => buildingPath(name, 'json'));
+
+  for (const file of inFiles) {
+    if (!fs.existsSync(file)) {
+      console.error(`Aborted, missing file ${file}`);
+      return false;
+    }
+  }
+
   try {
     const script = path.resolve('scripts/combine.jq');
-    const inFiles = resourceNames.map(name => buildingPath(name, 'json'));
     const outFile = buildingPath('combined', 'json');
     const result = await jqProcess(script, inFiles);
+    console.log(`Write file to ${outFile}...`);
     await fsp.writeFile(outFile, JSON.stringify(result, null, 2));
+    return true;
   } catch (error) {
     console.error('Fail combining：', error.message);
     throw error;
@@ -59,16 +69,11 @@ async function combine( resourceNames ) {
 }
 
 (async function main() {
-  const normalized = [];
-
   for (const [resourceName] of Object.entries(sources)) {
-    const done = await normalize(resourceName);
-    if (done) {
-      normalized.push(resourceName);
-    }
+    await normalize(resourceName);
   }
 
-  await combine(normalized);
-
-  console.log("\nDone.");
+  if (await combine(Object.keys(sources))) {
+    console.log("\nDone.");
+  }
 })();

@@ -78,7 +78,10 @@ async function download(resourceName, title) {
 }
 
 (async function main() {
-  for (const [resourceName, { title }] of Object.entries(sources)) {
+  for (const [resourceName, { title, url }] of Object.entries(sources)) {
+    if (!url) {
+      continue;
+    }
     await download(resourceName, title);
   }
 

@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "data:download": "tsx scripts/download_data.mjs",
+    "data:human_pop": "tsx --env-file=.env scripts/prepare_human_populations.mjs",
     "data:reduce": "tsx scripts/reduce_data.mjs",
     "data:dev_serve": "cp scripts/build/combined.json public/dev.combined.json"
   },
@@ -26,6 +27,7 @@
     "@types/ramda": "^0.30.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "csv-parser": "^3.2.0",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "node-fetch": "^3.3.2",
