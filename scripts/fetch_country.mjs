@@ -4,22 +4,10 @@ import crypto from "crypto";
 import fetch from "node-fetch";
 import { format } from "date-fns";
 
-const BUILD_DIR = 'scripts/build';
-
-const sources = {
-  population: {
-    title: '年度犬貓統計表',
-    docUrl: 'https://data.gov.tw/dataset/41771',
-    name: 'population',
-    url: 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=ccezNvv4oYbO',
-  },
-  shelter: {
-    title: '全國公立動物收容所收容處理情形統計表(細項)',
-    docUrl: 'https://data.gov.tw/dataset/73396',
-    name: 'shelter',
-    url: 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=p9yPwrCs2OtC',
-  },
-}
+import {
+  sources,
+  buildingPath,
+} from '@/lib/data_source';
 
 async function calculateHash(content) {
   return crypto.createHash("sha256").update(content).digest("hex");
@@ -39,8 +27,8 @@ async function writeTimestamp(filePath) {
 
 async function checkForUpdate(resourceName, remoteData) {
   const remoteHash = await calculateHash(remoteData);
-  const hashFile = path.resolve(`${BUILD_DIR}/${resourceName}.hash`)
-  const timeFile = path.resolve(`${BUILD_DIR}/${resourceName}.time`)
+  const hashFile = buildingPath(resourceName, 'hash');
+  const timeFile = buildingPath(resourceName, 'time');
 
   try {
     const localHash = await fs.readFile(hashFile, "utf-8");
@@ -60,10 +48,10 @@ async function checkForUpdate(resourceName, remoteData) {
 async function saveData(resourceName, data) {
   try {
     const parsed = JSON.parse(data); // ensure JSON format
-    const filePath = path.resolve(`${BUILD_DIR}/${resourceName}.json`)
+    const filePath = buildingPath(resourceName, 'raw.json');
 
     await fs.writeFile(filePath, JSON.stringify(parsed, null, 2));
-    console.log(`Resource data saved in ${filePath}`);
+    console.log(`Data saved in ${filePath}`);
   } catch (error) {
     console.error(`Fail saving resource for ${resourceName}：`, error.message);
     throw error;
@@ -80,12 +68,13 @@ async function download(resourceName, title) {
 
     if (needsUpdate) {
       await saveData(name, remoteData);
+      return true;
     }
   } catch (error) {
     console.error("Error：", error.message);
   }
 
-  console.log('');
+  return false;
 }
 
 (async function main() {
