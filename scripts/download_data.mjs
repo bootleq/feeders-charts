@@ -1,5 +1,4 @@
 import fs from 'node:fs/promises';
-import path from "path";
 import crypto from "crypto";
 import fetch from "node-fetch";
 import { format } from "date-fns";
