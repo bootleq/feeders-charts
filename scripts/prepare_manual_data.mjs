@@ -10,6 +10,53 @@ const cityCodeMapping = new Map(Object.entries(CITY_MAPPING).map(([code, name]) 
 
 const resources = [
   {
+    basename: 'populations_112',
+    parserOptions: {
+      skipLines: 1,
+      headers: ['city', 'domestic'],
+      mapValues: ({ header, value }) => {
+        switch (header) {
+          case 'city':
+            return cityCodeMapping.get(value) || ''; // there are invalid cities like "全國"
+            break;
+          case 'domestic':
+            return Number(value.toString().replaceAll(',', ''));
+            break;
+          default:
+            break;
+        }
+      }
+    },
+    postProcess: (data) => {
+      return data.reduce((acc, obj) => {
+        if (obj['city'].length) {
+          obj['year'] = 112;
+          acc.push(obj);
+        }
+        return acc;
+      }, []);
+    },
+    validator: (data) => {
+      const samples = [
+        {year: 112, city: 'City000002', domestic: 118739}, // 臺北市 https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000817?parentID=Tab0000143
+        {year: 112, city: 'City000004', domestic: 150174}, // 桃園市
+      ];
+
+      return samples.every(sample => {
+        const found = data.find(obj => {
+          return Object.entries(sample).every(([k, v]) => obj[k] === v);
+        });
+
+        if (!found) {
+          console.error('validation failed, missing data:', sample);
+          return false;
+        }
+
+        return true;
+      });
+    },
+  },
+  {
     basename: 'populations_113',
     parserOptions: {
       skipLines: 1,
