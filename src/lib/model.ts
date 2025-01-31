@@ -3,6 +3,10 @@ export type CountryItem = {
   city: string,     // 縣市代碼
   domestic: number, // 家犬估計數
   roaming: number,  // 遊蕩犬估計數
+  s_in: number,     // 收容（收容隻數、合計入所數）
+  adp: number,      // 認領（認養隻數、領出（領養 + 領回））
+  kill: number,     // 依法人道處理
+  die: number,      // 所內死亡
 }
 
 export type ItemsMeta = {

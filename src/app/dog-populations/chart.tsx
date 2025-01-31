@@ -60,6 +60,8 @@ const defaultOptions = {
     selected: {
       '遊蕩犬估計': true,
       '家犬估計': false,
+      '收容': true,
+      '認領': true,
     },
   },
   xAxis: [
@@ -120,6 +122,8 @@ const defaultOptions = {
         fontFamily: fontFamily,
       },
     },
+    { name: '收容', type: 'line', },
+    { name: '認領', type: 'line', },
   ],
 };
 
@@ -156,31 +160,33 @@ function makeSeries(
     domestic: {
       data: initialData,
       type: 'line',
-    }
+    },
+    s_in: {
+      data: initialData,
+      type: 'line',
+    },
+    adp: {
+      data: initialData,
+      type: 'line',
+    },
   };
 
   const series = items.reduce((acc, item) => {
-    const {
-      year,
-      city,
-      domestic,
-      roaming,
-    } = item;
-
+    const { year, city } = item;
     const yearIdx = yearRange.indexOf(year);
 
     if (yearIdx > -1 && (!validCities || validCities.includes(city))) {
-      if (roaming > 0) {
+      const qtyKeys: (keyof CountryItem)[] = ['roaming', 'domestic', 's_in', 'adp'];
+      const toAdd = qtyKeys.reduce((memo, key) => {
+        const qty = item[key] as number;
+        if (qty > 0) return R.assoc(key, qty, memo);
+        return memo;
+      }, {});
+
+      for (const [key, qty] of Object.entries(toAdd)) {
         acc = R.over(
-          R.lensPath(['roaming', 'data', yearIdx]),
-          R.pipe(Number, R.add(roaming)),
-          acc
-        );
-      }
-      if (domestic > 0) {
-        acc = R.over(
-          R.lensPath(['domestic', 'data', yearIdx]),
-          R.pipe(Number, R.add(domestic)),
+          R.lensPath([key, 'data', yearIdx]),
+          R.pipe(Number, R.add(qty as number)),
           acc
         );
       }
@@ -192,6 +198,8 @@ function makeSeries(
   return [
     series.roaming,
     series.domestic,
+    series.s_in,
+    series.adp,
   ];
 }
 
