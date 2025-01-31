@@ -9,7 +9,8 @@ import {
 } from '@/lib/data_source';
 
 const manuallyResources = [
-  'population113',
+  'populations_112',
+  'populations_113',
 ];
 
 async function jqProcess(jqScript, inputFiles) {
@@ -79,11 +80,11 @@ async function combine( resourceNames ) {
     const data = await normalize(resourceName);
 
     if (resourceName === 'population') {
-      const item2024 = data.find(({ year, roaming }) => {
+      const item112 = data.find(({ year, roaming }) => {
         return year > 111 && roaming;
       });
-      if (item2024) {
-        console.error(`Unexpected data, we assume 113 (2024) population data not included yet.`);
+      if (item112) {
+        console.error(`Unexpected data, we assume 112 (2023), 113 (2024) population data not included yet.`);
         valid = false;
       }
     }
