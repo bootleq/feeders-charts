@@ -10,6 +10,7 @@ import {
 import { jqProcess } from './utils';
 import { normalizeShelterXLSX } from './normalizers/shelter_xlsx';
 import { normalizeByJq } from './normalizers/jq';
+import { normalizePopulation } from './normalizers/population_jq';
 
 const manuallyResources = [
   'populations_112',
@@ -25,6 +26,9 @@ async function normalize( resourceName ) {
       break;
     case 'shelter_xlsx':
       return normalizeShelterXLSX(resourceName);
+      break;
+    case 'population_jq':
+      return normalizePopulation(resourceName);
       break;
 
     default:

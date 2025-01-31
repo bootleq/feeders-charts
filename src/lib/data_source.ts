@@ -54,7 +54,7 @@ export const sources: Sources = {
     name: 'population',
     url: 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=ccezNvv4oYbO',
     extname: 'json',
-    normalizer: 'jq',
+    normalizer: 'population_jq',
   },
   human_population: {
     title: '戶籍登記人口數(人)',

@@ -29,6 +29,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - 年度犬貓統計表
   https://data.gov.tw/dataset/41771
 
+  其中 90 年的遊蕩犬資料應為誤植，實際年度應為 93 年，故處理時程式會將 90 改成 93
+
+  參考「93年全國流浪狗狗數及92年公立動物收容所收容數總表」
+  https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000198?parentID=Tab0000004
+
 - 公立動物收容所統計（97 ~ 113 年）
   https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab3
 
