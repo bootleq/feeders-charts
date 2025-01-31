@@ -8,6 +8,21 @@ import { CITY_MAPPING } from '@/lib/model';
 const DATA_DIR = path.resolve('data');
 const cityCodeMapping = new Map(Object.entries(CITY_MAPPING).map(([code, name]) => [name, code]));
 
+function testSamplesExist(samples, data) {
+  return samples.every(sample => {
+    const found = data.find(obj => {
+      return Object.entries(sample).every(([k, v]) => obj[k] === v);
+    });
+
+    if (!found) {
+      console.error('validation failed, missing data:', sample);
+      return false;
+    }
+
+    return true;
+  });
+}
+
 const resources = [
   {
     basename: 'populations_112',
@@ -41,19 +56,7 @@ const resources = [
         {year: 112, city: 'City000002', domestic: 118739}, // 臺北市 https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000817?parentID=Tab0000143
         {year: 112, city: 'City000004', domestic: 150174}, // 桃園市
       ];
-
-      return samples.every(sample => {
-        const found = data.find(obj => {
-          return Object.entries(sample).every(([k, v]) => obj[k] === v);
-        });
-
-        if (!found) {
-          console.error('validation failed, missing data:', sample);
-          return false;
-        }
-
-        return true;
-      });
+      return testSamplesExist(samples, data);
     },
   },
   {
@@ -88,19 +91,7 @@ const resources = [
         {year: 113, city: 'City000003', roaming: 9982}, // 新北市 https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000864?parentID=Tab0000143
         {year: 113, city: 'City000001', roaming: 3112}, // 基隆市
       ];
-
-      return samples.every(sample => {
-        const found = data.find(obj => {
-          return Object.entries(sample).every(([k, v]) => obj[k] === v);
-        });
-
-        if (!found) {
-          console.error('validation failed, missing data:', sample);
-          return false;
-        }
-
-        return true;
-      });
+      return testSamplesExist(samples, data);
     },
   }
 ];
