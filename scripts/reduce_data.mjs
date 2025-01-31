@@ -8,6 +8,8 @@ import {
   buildingPath,
 } from '@/lib/data_source';
 
+import { normalizeShelterXLSX } from './normalizers/shelter_xlsx';
+
 const manuallyResources = [
   'populations_112',
   'populations_113',
@@ -31,6 +33,11 @@ async function jqProcess(jqScript, inputFiles) {
 }
 
 async function normalize( resourceName ) {
+  const normalizer = sources[resourceName]['normalizer'];
+  if (normalizer === 'shelter_xlsx') {
+    return normalizeShelterXLSX(resourceName);
+  }
+
   const script = path.resolve(`scripts/${resourceName}.jq`);
 
   if (!fs.existsSync(script)) return false;

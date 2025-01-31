@@ -38,3 +38,11 @@ export const CITY_MAPPING = {
   City000021: "金門縣",
   City000022: "連江縣",
 };
+
+export const LEGACY_CITY_MAPPING = {
+  City000003: "臺北縣",
+  City000009: "臺中縣",
+  City000014: "臺南縣",
+  City000015: "高雄縣",
+  City000004: "桃園縣",
+};

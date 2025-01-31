@@ -9,13 +9,25 @@ import {
 } from '@/lib/data_source';
 
 async function calculateHash(content) {
-  return crypto.createHash("sha256").update(content).digest("hex");
+  if (content instanceof ArrayBuffer) {
+    const hashBuffer = await crypto.subtle.digest("SHA-256", content);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashHex;
+  } else {
+    return crypto.createHash("sha256").update(content).digest("hex");
+  }
 }
 
-async function fetchData(url) {
+async function fetchData(url, extname) {
   const response = await fetch(url);
   if (!response.ok) throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
-  return response.text();
+
+  if (extname === 'json') {
+    return response.text();
+  } else {
+    return response.arrayBuffer();
+  }
 }
 
 async function writeTimestamp(filePath) {
@@ -44,12 +56,27 @@ async function checkForUpdate(resourceName, remoteData) {
   return true;
 }
 
-async function saveData(resourceName, data) {
+async function saveData(resourceName, data, extname) {
   try {
-    const parsed = JSON.parse(data); // ensure JSON format
-    const filePath = buildingPath(resourceName, 'raw.json');
+    const filePath = buildingPath(resourceName, `raw.${extname}`);
 
-    await fs.writeFile(filePath, JSON.stringify(parsed, null, 2));
+    switch (extname) {
+      case 'json':
+        const parsed = JSON.parse(data); // ensure JSON format
+        await fs.writeFile(filePath, JSON.stringify(parsed, null, 2));
+        break;
+      case 'xlsx':
+      case 'xls':
+      case 'ods':
+        const buffer = Buffer.from(data);
+        await fs.writeFile(filePath, buffer);
+        break;
+
+      default:
+        throw new Error(`Unexpected extname ${extname}`);
+        break;
+    }
+
     console.log(`Data saved in ${filePath}`);
   } catch (error) {
     console.error(`Fail saving resource for ${resourceName}：`, error.message);
@@ -61,12 +88,12 @@ async function download(resourceName, title) {
   console.log(`Download resource from ${title} (${resourceName}) ...`);
 
   try {
-    const { name, url } = sources[resourceName];
-    const remoteData = await fetchData(url);
+    const { name, url, extname } = sources[resourceName];
+    const remoteData = await fetchData(url, extname);
     const needsUpdate = await checkForUpdate(name, remoteData);
 
     if (needsUpdate) {
-      await saveData(name, remoteData);
+      await saveData(name, remoteData, extname);
       return true;
     }
   } catch (error) {

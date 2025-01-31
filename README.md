@@ -29,11 +29,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - 年度犬貓統計表
   https://data.gov.tw/dataset/41771
 
-- 全國公立動物收容所收容處理情形統計表 (106~113)
-  https://data.gov.tw/dataset/41236
+- 公立動物收容所統計（97 ~ 113 年）
+  https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab3
 
-- 全國公立動物收容所收容處理情形統計表(細項)
-  https://data.gov.tw/dataset/73396
+  「動物保護資訊網」每年公布的統計數字，多為 Excel 檔案
 
 - 戶籍登記人口數(人)
   https://winstacity.dgbas.gov.tw/DgbasWeb/ZWeb/StateFile_ZWeb.aspx
@@ -46,13 +45,25 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   4. 下載 CSV
   5. 存檔到 `HUMAN_POPULATION_CSV_PATH`，預設位置為 `scripts/build/human_population.csv`
 
+  註：人口資料和動保資訊網提供的數字略有落差
+
 - 113年各縣市遊蕩犬估計數調查結果
   https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000864?parentID=Tab0000143
 
   2024 年的資料還未加入「年度犬貓統計表」，故手動將數字以 CSV 格式放在 `data` 目錄中
 
 
-註：收容所與人口資料，和動保資訊網提供的數字略有落差
+以下有機會處理，但最終未使用：
+
+- 全國公立動物收容所收容處理情形統計表 (106 ~ 113 年)
+  https://data.gov.tw/dataset/41236
+
+  和動保資訊網提供的數字對不起來，年度也不齊全
+
+- 全國公立動物收容所收容處理情形統計表(細項)
+  https://data.gov.tw/dataset/73396
+
+  年度不齊全
 
 
 
