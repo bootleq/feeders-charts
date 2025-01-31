@@ -2,7 +2,7 @@
 
 import * as R from 'ramda';
 import React from 'react';
-import { useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 
 import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
@@ -244,6 +244,7 @@ function YearsInput({ min, max, formRef }: {
   max: number,
   formRef: React.RefObject<HTMLFormElement | null>,
 }) {
+  const [handle, setHandle] = useState<number | null>();
   const yearRange = makeYearRange(min, max);
   const textCls = [
     'font-mono text-stone-400',
@@ -257,10 +258,33 @@ function YearsInput({ min, max, formRef }: {
     const form = formRef.current;
     if (!form) return;
 
+    setHandle(null);
+
     const toChecked = e.currentTarget.checked;
     const boxes = form.querySelectorAll<HTMLInputElement>('input[name="years"]');
     boxes.forEach(box => box.checked = toChecked);
   }, [formRef]);
+
+  const onClickYear = useCallback((e: React.MouseEvent<HTMLLabelElement>) => {
+    const label = e.currentTarget;
+    const year = Number(label.dataset.year);
+    const form = formRef.current;
+
+    if (handle && e.shiftKey && form) {
+      e.preventDefault();
+      const [min, max] = [handle, year].toSorted(R.ascend(R.identity));
+      const range = makeYearRange(min, max);
+      const handleChecked = form.querySelector<HTMLInputElement>(`input[name="years"][value='${handle}']`)?.checked;
+      const boxes = form.querySelectorAll<HTMLInputElement>('input[name="years"]');
+      boxes.forEach(box => {
+        if (range.includes(Number(box.value))) {
+          box.checked = !!handleChecked;
+        }
+      })
+    } else {
+      setHandle(Number(year));
+    }
+  }, [handle, formRef]);
 
   return (
     <div className='flex flex-wrap items-center pb-0.5'>
@@ -275,8 +299,11 @@ function YearsInput({ min, max, formRef }: {
         </li>
         {yearRange.map((year) => {
           return (
-            <li key={year} className=''>
-              <label className='cursor-pointer px-1 py-2 block rounded transition hover:bg-amber-200 hover:drop-shadow'>
+            <li key={year} className={handle ? 'select-none' : ''}>
+              <label className='cursor-pointer px-1 py-2 block rounded relative transition hover:bg-amber-200 hover:drop-shadow' data-year={year} onClick={onClickYear}>
+                { year === handle &&
+                  <div className='absolute left-1/2 translate-x-1/2 z-40 ring ring-blue-400'></div>
+                }
                 <input type='checkbox' name='years' value={year} defaultChecked={true} className='peer mb-1 sr-only' />
                 <span className={textCls}>
                   {year}
