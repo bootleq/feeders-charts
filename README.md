@@ -29,6 +29,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - 年度犬貓統計表
   https://data.gov.tw/dataset/41771
 
+- 全國公立動物收容所收容處理情形統計表 (106~113)
+  https://data.gov.tw/dataset/41236
+
 - 全國公立動物收容所收容處理情形統計表(細項)
   https://data.gov.tw/dataset/73396
 

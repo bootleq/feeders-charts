@@ -161,11 +161,11 @@ function makeSeries(
       data: initialData,
       type: 'line',
     },
-    s_in: {
+    accept: {
       data: initialData,
       type: 'line',
     },
-    adp: {
+    adopt: {
       data: initialData,
       type: 'line',
     },
@@ -176,7 +176,7 @@ function makeSeries(
     const yearIdx = yearRange.indexOf(year);
 
     if (yearIdx > -1 && (!validCities || validCities.includes(city))) {
-      const qtyKeys: (keyof CountryItem)[] = ['roaming', 'domestic', 's_in', 'adp'];
+      const qtyKeys: (keyof CountryItem)[] = ['roaming', 'domestic', 'accept', 'adopt'];
       const toAdd = qtyKeys.reduce((memo, key) => {
         const qty = item[key] as number;
         if (qty > 0) return R.assoc(key, qty, memo);
@@ -198,8 +198,8 @@ function makeSeries(
   return [
     series.roaming,
     series.domestic,
-    series.s_in,
-    series.adp,
+    series.accept,
+    series.adopt,
   ];
 }
 
