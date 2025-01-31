@@ -1,58 +1,38 @@
 import fs from 'node:fs';
 import fsp from 'node:fs/promises';
 import path from "path";
-import { spawn } from 'child_process';
 
 import {
   sources,
   buildingPath,
 } from '@/lib/data_source';
 
+import { jqProcess } from './utils';
 import { normalizeShelterXLSX } from './normalizers/shelter_xlsx';
+import { normalizeByJq } from './normalizers/jq';
 
 const manuallyResources = [
   'populations_112',
   'populations_113',
 ];
 
-async function jqProcess(jqScript, inputFiles) {
-  const files = Array.isArray(inputFiles) ? inputFiles : [inputFiles];
-  const filesArg = files.length > 1 ? ['--slurp', ...files] : files;
-  const process = spawn('jq', ['-f', jqScript, ...filesArg]);
-  let output = '';
-  let error = '';
-
-  for await (const chunk of process.stdout) { output += chunk; }
-  for await (const chunk of process.stderr) { error += chunk; }
-
-  const exitCode = await new Promise((resolve) => process.on('close', resolve));
-
-  if (exitCode !== 0) throw new Error(`jq error: ${error}`);
-
-  return JSON.parse(output);
-}
-
 async function normalize( resourceName ) {
-  const normalizer = sources[resourceName]['normalizer'];
-  if (normalizer === 'shelter_xlsx') {
-    return normalizeShelterXLSX(resourceName);
+  const { normalizer } = sources[resourceName];
+
+  switch (normalizer) {
+    case 'jq':
+      return normalizeByJq(resourceName);
+      break;
+    case 'shelter_xlsx':
+      return normalizeShelterXLSX(resourceName);
+      break;
+
+    default:
+      break;
   }
 
-  const script = path.resolve(`scripts/${resourceName}.jq`);
-
-  if (!fs.existsSync(script)) return false;
-
-  console.log(`Normalize resource '${resourceName}' ...`);
-  try {
-    const inFile = buildingPath(resourceName, 'raw.json');
-    const outFile = buildingPath(resourceName, 'json');
-    const result = await jqProcess(script, inFile);
-    await fsp.writeFile(outFile, JSON.stringify(result, null, 2));
-    return result;
-  } catch (error) {
-    console.error(`Fail normalizing ${resourceName}：`, error.message);
-    throw error;
-  }
+  // No normalizer
+  return false;
 }
 
 async function combine( resourceNames ) {

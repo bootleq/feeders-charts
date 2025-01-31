@@ -54,12 +54,13 @@ export const sources: Sources = {
     name: 'population',
     url: 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=ccezNvv4oYbO',
     extname: 'json',
+    normalizer: 'jq',
   },
   human_population: {
     title: '戶籍登記人口數(人)',
     docUrl: 'https://winstacity.dgbas.gov.tw/DgbasWeb/ZWeb/StateFile_ZWeb.aspx',
     name: 'human_population',
-    extname: 'json',
+    extname: 'csv',
     // 中華民國統計資訊網 - 縣市重要統計指標查詢系統
     // 資料來源：內政部
   },
@@ -73,6 +74,7 @@ export const unusedSources = {
     name: 'shelter',
     url: 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=DyplMIk3U1hf',
     extname: 'json',
+    normalizer: 'jq',
   },
   shelter_details: {
     title: '全國公立動物收容所收容處理情形統計表(細項)',
