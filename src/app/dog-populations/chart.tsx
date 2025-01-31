@@ -200,7 +200,7 @@ function CitiesInput({ formRef }: {
 }) {
   const textCls = [
     'pb-2 border-gray-400/0 border-b-4 text-slate-400',
-    'peer-checked:text-slate-900 peer-checked:border-double peer-checked:border-gray-300',
+    'peer-checked:text-slate-900 peer-checked:border-dotted peer-checked:border-stone-400',
     'peer-focus-visible:ring ring-offset-2'
   ].join(' ');
 
@@ -221,7 +221,7 @@ function CitiesInput({ formRef }: {
           全選
         </div>
       </label>
-      <ul className='flex items-center -translate-y-1'>
+      <ul className='flex flex-wrap items-center -translate-y-1'>
         {
           Object.entries(CITY_MAPPING).map(([code, name]) => (
             <li key={code} className='writing-vertical relative'>
@@ -246,8 +246,8 @@ function YearsInput({ min, max, formRef }: {
 }) {
   const yearRange = makeYearRange(min, max);
   const textCls = [
-    'font-mono pb-2 border-gray-400/0 border-b-4 text-slate-400',
-    'peer-checked:text-slate-900 peer-checked:border-double peer-checked:border-gray-300',
+    'font-mono pb-2 text-slate-300',
+    'peer-checked:text-slate-950',
     'peer-focus-visible:ring ring-offset-2',
   ].join(' ');
 
@@ -261,18 +261,20 @@ function YearsInput({ min, max, formRef }: {
   }, [formRef]);
 
   return (
-    <div className='flex items-center pb-0.5'>
-      <label className='cursor-pointer px-1 hover:bg-slate-200/75 rounded self-stretch flex items-center'>
-        <input type='checkbox' defaultChecked={true} className='peer sr-only' onClick={onToggleAll} />
-        <div className='writing-vertical tracking-[6px] pb-1.5 text-slate-400 peer-checked:text-slate-700 peer-focus-visible:ring'>
-          全選
-        </div>
-      </label>
-      <ul className='flex items-center -translate-y-1'>
+    <div className='flex flex-wrap items-center pb-0.5'>
+      <ul className='flex items-center flex-wrap max-w-96'>
+        <li>
+          <label className='cursor-pointer px-1 py-2 hover:bg-slate-200/75 rounded self-stretch flex items-center'>
+            <input type='checkbox' defaultChecked={true} className='peer sr-only' onClick={onToggleAll} />
+            <div className='text-slate-400 peer-checked:text-slate-700 peer-focus-visible:ring'>
+              ALL
+            </div>
+          </label>
+        </li>
         {yearRange.map((year) => {
           return (
             <li key={year} className=''>
-              <label className='cursor-pointer px-1 py-2 block rounded transition hover:bg-amber-200 hover:-translate-y-1 hover:drop-shadow'>
+              <label className='cursor-pointer px-1 py-2 block rounded transition hover:bg-amber-200 hover:drop-shadow'>
                 <input type='checkbox' name='years' value={year} defaultChecked={true} className='peer mb-1 sr-only' />
                 <span className={textCls}>
                   {year}
@@ -347,20 +349,20 @@ export default function Chart({ items, meta }: {
   }, [items, meta, updateYearAxis]);
 
   return (
-    <div className='min-w-lg min-h-80'>
-      <form ref={formRef} onSubmit={onApply} className={`flex flex-wrap items-center gap-x-1 my-1 text-sm`}>
-        <fieldset className='flex items-center ring rounded p-2'>
-          <legend className='bg-white px-1'>縣市</legend>
+    <div className='min-w-lg min-h-80 w-full'>
+      <form ref={formRef} onSubmit={onApply} className='flex flex-wrap items-start justify-center gap-x-4 gap-y-3 my-1 mx-auto max-w-[96vw] text-sm'>
+        <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
+          <legend className='font-bold px-1.5'>縣市</legend>
 
           <CitiesInput formRef={formRef} />
         </fieldset>
 
-        <fieldset className='flex items-center ring rounded p-2'>
-          <legend className='bg-white px-1'>年度</legend>
+        <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
+          <legend className='font-bold px-1.5'>年度</legend>
           <YearsInput min={meta.minYear} max={meta.maxYear} formRef={formRef} />
         </fieldset>
 
-        <button type='submit'>套用</button>
+        <button type='submit' className='self-center p-3 pb-4 rounded hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>↵<br />套用</button>
       </form>
 
       <ReactEChartsCore
@@ -369,6 +371,8 @@ export default function Chart({ items, meta }: {
         option={defaultOptions}
         notMerge={true}
         lazyUpdate={true}
+        style={{ height: '70vh', minHeight: '600px' }}
+        className='mt-8 px-4 py-6 bg-white resize overflow-auto'
       />
     </div>
   );
