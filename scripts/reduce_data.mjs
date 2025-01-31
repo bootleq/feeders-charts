@@ -9,7 +9,7 @@ import {
 } from '@/lib/data_source';
 
 const manuallyResources = [
-  'population113',
+  'populations_113',
 ];
 
 async function jqProcess(jqScript, inputFiles) {
