@@ -201,7 +201,7 @@ function CitiesInput({ formRef }: {
   const textCls = [
     'pb-2 border-gray-400/0 border-b-4 text-slate-400',
     'peer-checked:text-slate-900 peer-checked:border-dotted peer-checked:border-stone-400',
-    'peer-focus-visible:ring ring-offset-2'
+    'peer-focus-visible:outline outline-offset-2 outline-blue-400',
   ].join(' ');
 
   const onToggleAll = useCallback((e: React.MouseEvent<HTMLInputElement>) => {
@@ -217,7 +217,7 @@ function CitiesInput({ formRef }: {
     <div className='flex items-center pb-0.5'>
       <label className='cursor-pointer px-1 hover:bg-slate-200/75 rounded self-stretch flex items-center'>
         <input type='checkbox' defaultChecked={true} className='peer sr-only' onClick={onToggleAll} />
-        <div className='writing-vertical tracking-[6px] pb-1.5 text-slate-400 peer-checked:text-slate-700 peer-focus-visible:ring'>
+        <div className='writing-vertical tracking-[6px] pt-px pb-1.5 text-slate-400 outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
           全選
         </div>
       </label>
@@ -246,9 +246,11 @@ function YearsInput({ min, max, formRef }: {
 }) {
   const yearRange = makeYearRange(min, max);
   const textCls = [
-    'font-mono pb-2 text-slate-300',
-    'peer-checked:text-slate-950',
-    'peer-focus-visible:ring ring-offset-2',
+    'font-mono text-stone-400',
+    'pb-px border-b [border-image-slice:1]',
+    'peer-checked:text-slate-900 peer-checked:border-solid',
+    'peer-checked:[border-image-source:linear-gradient(to_right,transparent_30%,#888_30%,#888_70%,transparent_70%)]',
+    'peer-focus-visible:outline outline-offset-2 outline-blue-400',
   ].join(' ');
 
   const onToggleAll = useCallback((e: React.MouseEvent<HTMLInputElement>) => {
@@ -266,7 +268,7 @@ function YearsInput({ min, max, formRef }: {
         <li>
           <label className='cursor-pointer px-1 py-2 hover:bg-slate-200/75 rounded self-stretch flex items-center'>
             <input type='checkbox' defaultChecked={true} className='peer sr-only' onClick={onToggleAll} />
-            <div className='text-slate-400 peer-checked:text-slate-700 peer-focus-visible:ring'>
+            <div className='text-slate-400 outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
               ALL
             </div>
           </label>
