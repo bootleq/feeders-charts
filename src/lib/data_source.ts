@@ -44,6 +44,7 @@ type Sources = Record<string, {
   name: string,
   url?: string,
   extname: string,
+  normalizer?: string,
 }>;
 
 export const sources: Sources = {
