@@ -47,10 +47,19 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
   註：人口資料和動保資訊網提供的數字略有落差
 
+- 112年度全國家犬貓數量調查結果統計表
+  https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000817?parentID=Tab0000143
+
+  2023 年的「家犬」資料還未加入「年度犬貓統計表」，故手動將數字以 CSV 格式放在 `data` 目錄中
+
+  `data/populations_112.csv`
+
 - 113年各縣市遊蕩犬估計數調查結果
   https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000864?parentID=Tab0000143
 
-  2024 年的資料還未加入「年度犬貓統計表」，故手動將數字以 CSV 格式放在 `data` 目錄中
+  2024 年的「遊蕩犬」資料還未加入「年度犬貓統計表」，故手動將數字以 CSV 格式放在 `data` 目錄中
+
+  `data/populations_113.csv`
 
 
 以下有機會處理，但最終未使用：
