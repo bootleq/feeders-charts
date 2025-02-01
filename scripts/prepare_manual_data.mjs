@@ -101,6 +101,8 @@ const resources = [
       mapHeaders: (({ header }) => {
         const mapping = {
           民國: 'year',
+          家犬: 'domestic',
+          遊蕩犬: 'roaming',
           收容: 'accept',
           認領: 'adopt',
           人道處理: 'kill',
@@ -116,16 +118,24 @@ const resources = [
     },
     postProcess: (data) => {
       return data.reduce((acc, obj) => {
-        if (obj['year'] <= 96) {
+        const { year } = obj;
+
+        if (year <= 96) {
           obj['city'] = '_';
+
+          if (year >= 92) {
+            delete obj['domestic'];
+            delete obj['roaming'];
+          }
           acc.push(obj);
         }
+
         return acc;
       }, []);
     },
     validator: (data) => {
       const samples = [
-        {year: 88, city: '_', kill: 70231},
+        {year: 88, city: '_', domestic: 2101493, roaming: 666594, kill: 70231, adopt: 5881},
         {year: 96, city: '_', adopt: 19348},
       ];
       return testSamplesExist(samples, data);
