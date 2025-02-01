@@ -47,6 +47,7 @@ type Sources = Record<string, {
   normalizer?: string,
 }>;
 
+// NOTE: Not all data were defined in `sources`, see README for full resource list.
 export const sources: Sources = {
   population: {
     title: '年度犬貓統計表',
