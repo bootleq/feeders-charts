@@ -52,19 +52,33 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
   註：人口資料和動保資訊網提供的數字略有落差
 
+
+以下為人工收集資料，並建檔於 `data` 目錄中：
+
 - 112年度全國家犬貓數量調查結果統計表
   https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000817?parentID=Tab0000143
 
-  2023 年的「家犬」資料還未加入「年度犬貓統計表」，故手動將數字以 CSV 格式放在 `data` 目錄中
+  2023 年的「家犬」資料還未加入「年度犬貓統計表」，故先手動處理
 
   `data/populations_112.csv`
 
 - 113年各縣市遊蕩犬估計數調查結果
   https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000864?parentID=Tab0000143
 
-  2024 年的「遊蕩犬」資料還未加入「年度犬貓統計表」，故手動將數字以 CSV 格式放在 `data` 目錄中
+  2024 年的「遊蕩犬」資料還未加入「年度犬貓統計表」，故先手動處理
 
   `data/populations_113.csv`
+
+- 民國 96 年以前的收容所資料
+
+  未找到正式來源，故採用台灣之心 HOTAC 網站[整理數字][HOTAC 2020]，其資料來源為「行政院農委會動植物防疫檢疫局-統計年報」
+
+  另有與動社的「從生命到垃圾」網站[整理數字][EAST 2009]比較，其來源為農委會防檢局提供立委資料，兩者差距不大
+
+  CSV 統整資料取自[個人文章][全國遊蕩犬數量整理成圖表]附錄的 [google doc 文件][年度資料 gdoc]
+
+  `data/countrywide.csv`
+
 
 
 以下有機會處理，但最終未使用：
@@ -98,3 +112,9 @@ location /feeders-charts {
 }
 ```
 
+
+
+[HOTAC 2020]: https://www.hotac.org.tw/news-4169
+[EAST 2009]: https://www.east.org.tw/sites/east/files/content/upload/File/2009-ISSUES/20091104.pdf
+[全國遊蕩犬數量整理成圖表]: https://bootleq.blogspot.com/2024/09/taiwan-roaming-dog-populations-chart.html
+[年度資料 gdoc]: https://docs.google.com/spreadsheets/d/1ajrN-ok3wnSI8X2-W8B2rXIz5ScnZWyUzt-G4/edit?gid=0#gid=0

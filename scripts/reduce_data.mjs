@@ -15,6 +15,7 @@ import { normalizePopulation } from './normalizers/population_jq';
 const manuallyResources = [
   'populations_112',
   'populations_113',
+  'countrywide',
 ];
 
 async function normalize( resourceName ) {

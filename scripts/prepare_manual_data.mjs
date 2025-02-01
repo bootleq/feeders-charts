@@ -1,3 +1,4 @@
+import * as R from 'ramda';
 import fs from "fs";
 import fsp from 'node:fs/promises';
 import path from "path";
@@ -93,6 +94,42 @@ const resources = [
       ];
       return testSamplesExist(samples, data);
     },
+  },
+  {
+    basename: 'countrywide',
+    parserOptions: {
+      mapHeaders: (({ header }) => {
+        const mapping = {
+          民國: 'year',
+          收容: 'accept',
+          認領: 'adopt',
+          人道處理: 'kill',
+        };
+        return mapping[header] || null;
+      }),
+      mapValues: ({ header, value }) => {
+        if (header) {
+          const qty = Number(value.toString().replaceAll(',', ''));
+          return qty > 0 ? qty : null;
+        }
+      },
+    },
+    postProcess: (data) => {
+      return data.reduce((acc, obj) => {
+        if (obj['year'] <= 96) {
+          obj['city'] = '_';
+          acc.push(obj);
+        }
+        return acc;
+      }, []);
+    },
+    validator: (data) => {
+      const samples = [
+        {year: 88, city: '_', kill: 70231},
+        {year: 96, city: '_', adopt: 19348},
+      ];
+      return testSamplesExist(samples, data);
+    },
   }
 ];
 
@@ -134,19 +171,26 @@ async function parseCSV(file, csvOptions = {}) {
       throw error;
     }
 
-    data = postProcess(data);
-    if (validator(data)) {
+    if (R.type(postProcess) === 'Function') {
+      data = postProcess(data);
+    }
+
+    if (R.type(validator) === 'Function') {
+      if (!validator(data)) {
+        console.error('Aborted, validation failed.');
+        valid = false;
+        break;
+      }
+    }
+
+    if (valid) {
       const outFile = buildingPath(basename, 'json');
       await fsp.writeFile(outFile, JSON.stringify(data, null, 2));
       console.log(`Successfully wrote file to ${outFile}\n`);
-    } else {
-      console.error('Aborted, validation failed.');
-      valid = false;
-      break;
     }
   }
 
-  if (valid) {
+  if (valid && data) {
     console.log("\nDone.");
   }
 })();
