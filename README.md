@@ -7,7 +7,10 @@
 Prepare data source:
 
 - `pnpm data:download`: Download raw data from data sources
-- `pnpm data:reduce`: Transform downloaded data
+- `pnpm data:human_pop`: Transform human_population data (require download source manually)
+- `pnpm data:heat_map`: Fetch and transform heat map data
+- `pnpm data:manually`: Transform manually collected (built-in in repo) data
+- `pnpm data:reduce`: Transform downloaded data and combine all processed data
 - `pnpm data:dev_serve`: Copy transformed data to `public/` folder for development convenience.
 
 

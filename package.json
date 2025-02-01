@@ -9,6 +9,7 @@
     "lint": "next lint",
     "data:download": "tsx scripts/download_data.mjs",
     "data:human_pop": "tsx --env-file=.env scripts/prepare_human_populations.mjs",
+    "data:heat_map": "tsx scripts/fetch_heat_map.mjs",
     "data:manually": "tsx scripts/prepare_manual_data.mjs",
     "data:reduce": "tsx scripts/reduce_data.mjs",
     "data:dev_serve": "cp data/build/combined.json public/dev.combined.json"
