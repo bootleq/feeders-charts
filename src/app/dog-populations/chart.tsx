@@ -371,8 +371,16 @@ export default function Chart({ items, meta }: {
     if (!chart) return;
 
     const formData = new FormData(form);
-    const cities = formData.getAll('cities').map(String);
-    const years = formData.getAll('years').map(Number);
+    let cities = formData.getAll('cities').map(String);
+    let years = formData.getAll('years').map(Number);
+
+    // When select all items, treat as no filters
+    if (cities.length === Object.keys(CITY_MAPPING).length) {
+      cities = [];
+    }
+    if (years.length === meta.maxYear - meta.minYear + 1) {
+      years = [];
+    }
 
     let newOptions = {
       series: makeSeries(items, meta, { cities, years })
