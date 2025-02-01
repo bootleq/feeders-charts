@@ -4,7 +4,7 @@ import fsp from 'node:fs/promises';
 import path from "path";
 import { jqProcess } from '../utils';
 import type { CountryItem } from '@/lib/model';
-import { buildingPath } from '@/lib/data_source';
+import { downloadPath, buildingPath } from '@/lib/data_source';
 
 // Same as "jq" normalizer but has special fix filter
 
@@ -31,7 +31,7 @@ export async function normalizePopulation(resourceName: string) {
 
   console.log(`Normalize resource '${resourceName}' ...`);
   try {
-    const inFile = buildingPath(resourceName, 'raw.json');
+    const inFile = downloadPath(resourceName, 'raw.json');
     const outFile = buildingPath(resourceName, 'json');
     const result = await jqProcess(script, inFile);
 

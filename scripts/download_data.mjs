@@ -5,7 +5,7 @@ import { format } from "date-fns";
 
 import {
   sources,
-  buildingPath,
+  downloadPath,
 } from '@/lib/data_source';
 
 async function calculateHash(content) {
@@ -38,8 +38,8 @@ async function writeTimestamp(filePath) {
 
 async function checkForUpdate(resourceName, remoteData) {
   const remoteHash = await calculateHash(remoteData);
-  const hashFile = buildingPath(resourceName, 'hash');
-  const timeFile = buildingPath(resourceName, 'time');
+  const hashFile = downloadPath(resourceName, 'hash');
+  const timeFile = downloadPath(resourceName, 'time');
 
   try {
     const localHash = await fs.readFile(hashFile, "utf-8");
@@ -58,7 +58,7 @@ async function checkForUpdate(resourceName, remoteData) {
 
 async function saveData(resourceName, data, extname) {
   try {
-    const filePath = buildingPath(resourceName, `raw.${extname}`);
+    const filePath = downloadPath(resourceName, `raw.${extname}`);
 
     switch (extname) {
       case 'json':

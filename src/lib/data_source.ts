@@ -1,6 +1,6 @@
 import path from "path";
 
-export const BUILD_DIR = 'scripts/build';
+export const DATA_DIR = 'data';
 
 const shelter_reports_table = [
   [113, '113年度全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/250117114614324698T87CD.xlsx'],
@@ -86,6 +86,10 @@ export const unusedSources = {
   },
 }
 
+export function downloadPath(resourceName: string, extension: string) {
+  return path.resolve(`${DATA_DIR}/download/${resourceName}.${extension}`);
+}
+
 export function buildingPath(resourceName: string, extension: string) {
-  return path.resolve(`${BUILD_DIR}/${resourceName}.${extension}`);
+  return path.resolve(`${DATA_DIR}/build/${resourceName}.${extension}`);
 }

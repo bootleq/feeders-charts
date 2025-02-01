@@ -4,7 +4,7 @@ import fsp from 'node:fs/promises';
 import * as XLSX from 'xlsx';
 
 import { CITY_MAPPING, LEGACY_CITY_MAPPING } from '@/lib/model';
-import { sources, buildingPath } from '@/lib/data_source';
+import { sources, downloadPath, buildingPath } from '@/lib/data_source';
 
 type ExcelRow = Record<string, string|number>;
 
@@ -67,7 +67,7 @@ function validate(items: ParsedRow[], year: number) {
 
 export async function normalizeShelterXLSX(resourceName: string) {
   const { name, extname } = sources[resourceName];
-  const inFile = buildingPath(name, `raw.${extname}`);
+  const inFile = downloadPath(name, `raw.${extname}`);
   const outFile = buildingPath(name, 'json');
   const year = Number(name.match(/_(\d+)$/)?.pop());
   let items;
