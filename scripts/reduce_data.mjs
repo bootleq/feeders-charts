@@ -16,6 +16,7 @@ const manuallyResources = [
   'populations_112',
   'populations_113',
   'countrywide',
+  'human_population',
   'heat_map',
 ];
 
