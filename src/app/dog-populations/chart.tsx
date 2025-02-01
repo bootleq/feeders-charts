@@ -22,6 +22,8 @@ import {
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/Tooltip';
+
 echarts.use(
   [
     GridComponent,
@@ -310,7 +312,14 @@ function YearsInput({ min, max, formRef }: {
             <li key={year} className={handle ? 'select-none' : ''}>
               <label className='cursor-pointer px-1 py-2 block rounded relative transition hover:bg-amber-200 hover:drop-shadow' data-year={year} onClick={onClickYear}>
                 { year === handle &&
-                  <div className='absolute left-1/2 translate-x-1/2 z-40 ring ring-blue-400'></div>
+                  <Tooltip placement='top'>
+                    <TooltipTrigger className='mb-1 block truncate'>
+                      <div className='absolute left-1/2 -translate-x-1/2 -translate-y-1 z-40 bg-blue-400 w-1.5 h-1.5'></div>
+                    </TooltipTrigger>
+                    <TooltipContent className="p-1 text-xs rounded box-border w-max z-[1002] bg-slate-100 ring-1">
+                      按住 <kbd>SHIFT</kbd> 選擇範圍
+                    </TooltipContent>
+                  </Tooltip>
                 }
                 <input type='checkbox' name='years' value={year} defaultChecked={true} className='peer mb-1 sr-only' />
                 <span className={textCls}>
