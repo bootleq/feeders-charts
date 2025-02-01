@@ -3,10 +3,14 @@ export type CountryItem = {
   city: string,     // 縣市代碼
   domestic: number, // 家犬估計數
   roaming: number,  // 遊蕩犬估計數
-  s_in: number,     // 收容（收容隻數、合計入所數）
-  adp: number,      // 認領（認養隻數、領出（領養 + 領回））
-  kill: number,     // 依法人道處理
+  accept: number,   // 收容
+  adopt: number,    // 認領
+  kill: number,     // 人道處理
   die: number,      // 所內死亡
+  h_visit: number,  // 熱區 家訪戶數
+  h_roam: number,   // 熱區 無主犬清查
+  h_feed: number,   // 熱區 餵食者人數
+  h_stop: number,   // 熱區 疏導餵食成功
 }
 
 export type ItemsMeta = {
@@ -37,4 +41,12 @@ export const CITY_MAPPING = {
   City000001: "基隆市",
   City000021: "金門縣",
   City000022: "連江縣",
+};
+
+export const LEGACY_CITY_MAPPING = {
+  City000003: "臺北縣",
+  City000009: "臺中縣",
+  City000014: "臺南縣",
+  City000015: "高雄縣",
+  City000004: "桃園縣",
 };

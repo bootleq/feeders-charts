@@ -161,11 +161,11 @@ function makeSeries(
       data: initialData,
       type: 'line',
     },
-    s_in: {
+    accept: {
       data: initialData,
       type: 'line',
     },
-    adp: {
+    adopt: {
       data: initialData,
       type: 'line',
     },
@@ -176,7 +176,7 @@ function makeSeries(
     const yearIdx = yearRange.indexOf(year);
 
     if (yearIdx > -1 && (!validCities || validCities.includes(city))) {
-      const qtyKeys: (keyof CountryItem)[] = ['roaming', 'domestic', 's_in', 'adp'];
+      const qtyKeys: (keyof CountryItem)[] = ['roaming', 'domestic', 'accept', 'adopt'];
       const toAdd = qtyKeys.reduce((memo, key) => {
         const qty = item[key] as number;
         if (qty > 0) return R.assoc(key, qty, memo);
@@ -198,8 +198,8 @@ function makeSeries(
   return [
     series.roaming,
     series.domestic,
-    series.s_in,
-    series.adp,
+    series.accept,
+    series.adopt,
   ];
 }
 
@@ -371,8 +371,16 @@ export default function Chart({ items, meta }: {
     if (!chart) return;
 
     const formData = new FormData(form);
-    const cities = formData.getAll('cities').map(String);
-    const years = formData.getAll('years').map(Number);
+    let cities = formData.getAll('cities').map(String);
+    let years = formData.getAll('years').map(Number);
+
+    // When select all items, treat as no filters
+    if (cities.length === Object.keys(CITY_MAPPING).length) {
+      cities = [];
+    }
+    if (years.length === meta.maxYear - meta.minYear + 1) {
+      years = [];
+    }
 
     let newOptions = {
       series: makeSeries(items, meta, { cities, years })
