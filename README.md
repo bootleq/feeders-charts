@@ -7,7 +7,10 @@
 Prepare data source:
 
 - `pnpm data:download`: Download raw data from data sources
-- `pnpm data:reduce`: Transform downloaded data
+- `pnpm data:human_pop`: Transform human_population data (require download source manually)
+- `pnpm data:heat_map`: Fetch and transform heat map data
+- `pnpm data:manually`: Transform manually collected (built-in in repo) data
+- `pnpm data:reduce`: Transform downloaded data and combine all processed data
 - `pnpm data:dev_serve`: Copy transformed data to `public/` folder for development convenience.
 
 
@@ -48,7 +51,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   2. 改制後 - 人口概況 - 戶籍登記人口數(人) - 完成挑選
   3. 「指標」與「期間」全選，「縣市」除「台灣地區」外全選 - 繼續
   4. 下載 CSV
-  5. 存檔到 `HUMAN_POPULATION_CSV_PATH`，預設位置為 `scripts/build/human_population.csv`
+  5. 存檔到 `HUMAN_POPULATION_CSV_PATH`，預設位置為 `data/download/human_population.csv`
 
   註：人口資料和動保資訊網提供的數字略有落差
 
