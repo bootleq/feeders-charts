@@ -16,6 +16,7 @@ const manuallyResources = [
   'populations_112',
   'populations_113',
   'countrywide',
+  'heat_map',
 ];
 
 async function normalize( resourceName ) {

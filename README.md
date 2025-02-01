@@ -52,6 +52,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
   註：人口資料和動保資訊網提供的數字略有落差
 
+- 遊蕩犬熱區圖 (2023 ~ 2024)
+  https://www.pet.gov.tw/Wandering/HeatMapV1.aspx
+
 
 以下為人工收集資料，並建檔於 `data` 目錄中：
 

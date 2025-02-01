@@ -7,6 +7,10 @@ export type CountryItem = {
   adopt: number,    // 認領
   kill: number,     // 人道處理
   die: number,      // 所內死亡
+  h_visit: number,  // 熱區 家訪戶數
+  h_roam: number,   // 熱區 無主犬清查
+  h_feed: number,   // 熱區 餵食者人數
+  h_stop: number,   // 熱區 疏導餵食成功
 }
 
 export type ItemsMeta = {
