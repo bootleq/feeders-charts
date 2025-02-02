@@ -9,7 +9,7 @@ import {
   shift,
   useHover,
   useFocus,
-  // safePolygon,
+  safePolygon,
   useDismiss,
   useRole,
   useInteractions,
@@ -27,6 +27,11 @@ interface TooltipOptions {
   transform?: boolean,
   hoverProps?: UseHoverProps;
 }
+
+export const menuHoverProps = {
+  delay: { open: 0, close: 240 },
+  handleClose: safePolygon(),
+};
 
 export function useTooltip({
   initialOpen = false,
