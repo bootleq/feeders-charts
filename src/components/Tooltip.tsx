@@ -4,7 +4,7 @@ import * as React from "react";
 import {
   useFloating,
   autoUpdate,
-  offset,
+  offset as offsetMiddleware,
   flip,
   shift,
   useHover,
@@ -16,11 +16,12 @@ import {
   useMergeRefs,
   FloatingPortal
 } from "@floating-ui/react";
-import type { Placement, UseHoverProps } from "@floating-ui/react";
+import type { Placement, OffsetOptions, UseHoverProps } from "@floating-ui/react";
 
 interface TooltipOptions {
   initialOpen?: boolean;
   placement?: Placement;
+  offset?: OffsetOptions;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
   transform?: boolean,
@@ -30,6 +31,7 @@ interface TooltipOptions {
 export function useTooltip({
   initialOpen = false,
   placement = "top",
+  offset,
   transform = true,
   hoverProps = {
     delay: { open: 0, close: 240 },
@@ -49,7 +51,7 @@ export function useTooltip({
     onOpenChange: setOpen,
     whileElementsMounted: autoUpdate,
     middleware: [
-      offset(5),
+      offsetMiddleware(offset),
       flip({
         crossAxis: placement.includes("-"),
         fallbackAxisSideDirection: "start",
