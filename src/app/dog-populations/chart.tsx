@@ -5,7 +5,9 @@ import React from 'react';
 import { useState, useCallback, useEffect, useRef } from 'react';
 
 import { CITY_MAPPING } from '@/lib/model';
-import type { CountryItem, ItemsMeta } from '@/lib/model';
+import type { CountryItem } from '@/lib/model';
+import { makeYearRange } from '@/lib/utils';
+import { makeSeries } from '@/lib/series';
 
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import * as echarts from 'echarts/core';
@@ -147,83 +149,6 @@ const defaultOptions = {
     { name: '認領', type: 'line', connectNulls: true, },
   ],
 };
-
-function makeYearRange(min: number, max: number) {
-  return Array.from(
-    {length: max - min + 1},
-    (_, i) => min + i
-  );
-}
-
-type SeriesFilters = {
-  cities?: string[] | FormDataEntryValue[],
-  years?: number[] | FormDataEntryValue[],
-}
-
-function makeSeries(
-  items: CountryItem[],
-  meta: ItemsMeta,
-  filters?: SeriesFilters
-) {
-  const validCities = filters?.cities?.length ? filters.cities.map(String) : false;
-  const validYears = filters?.years?.length ? filters.years.map(Number) : false;
-
-  const minYear = validYears ? Math.min(...validYears) : meta.minYear;
-  const maxYear = validYears ? Math.max(...validYears) : meta.maxYear;
-  const yearRange = makeYearRange(minYear, maxYear);
-  const initialData: Array<number | null> = Array(yearRange.length).fill(null);
-  const initialSeries = {
-    roaming: {
-      data: initialData,
-      type: 'bar',
-      smooth: true,
-    },
-    domestic: {
-      data: initialData,
-      type: 'line',
-    },
-    accept: {
-      data: initialData,
-      type: 'line',
-    },
-    adopt: {
-      data: initialData,
-      type: 'line',
-    },
-  };
-
-  const series = items.reduce((acc, item) => {
-    const { year, city } = item;
-    const yearIdx = yearRange.indexOf(year);
-
-    if (validYears && !validYears.includes(year)) return acc;
-    if (validCities && !validCities.includes(city)) return acc;
-
-    const qtyKeys: (keyof CountryItem)[] = ['roaming', 'domestic', 'accept', 'adopt'];
-    const toAdd = qtyKeys.reduce((memo, key) => {
-      const qty = item[key] as number;
-      if (qty > 0) return R.assoc(key, qty, memo);
-      return memo;
-    }, {});
-
-    for (const [key, qty] of Object.entries(toAdd)) {
-      acc = R.over(
-        R.lensPath([key, 'data', yearIdx]),
-        R.pipe(Number, R.add(qty as number)),
-        acc
-      );
-    }
-
-    return acc;
-  }, initialSeries);
-
-  return [
-    series.roaming,
-    series.domestic,
-    series.accept,
-    series.adopt,
-  ];
-}
 
 function CitiesInput({ formRef }: {
   formRef: React.RefObject<HTMLFormElement | null>,
