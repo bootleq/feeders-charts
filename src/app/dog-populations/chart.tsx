@@ -142,8 +142,8 @@ const defaultOptions = {
         fontFamily: fontFamily,
       },
     },
-    { name: '收容', type: 'line', },
-    { name: '認領', type: 'line', },
+    { name: '收容', type: 'line', connectNulls: true, },
+    { name: '認領', type: 'line', connectNulls: true, },
   ],
 };
 
@@ -195,21 +195,22 @@ function makeSeries(
     const { year, city } = item;
     const yearIdx = yearRange.indexOf(year);
 
-    if (yearIdx > -1 && (!validCities || validCities.includes(city))) {
-      const qtyKeys: (keyof CountryItem)[] = ['roaming', 'domestic', 'accept', 'adopt'];
-      const toAdd = qtyKeys.reduce((memo, key) => {
-        const qty = item[key] as number;
-        if (qty > 0) return R.assoc(key, qty, memo);
-        return memo;
-      }, {});
+    if (validYears && !validYears.includes(year)) return acc;
+    if (validCities && !validCities.includes(city)) return acc;
 
-      for (const [key, qty] of Object.entries(toAdd)) {
-        acc = R.over(
-          R.lensPath([key, 'data', yearIdx]),
-          R.pipe(Number, R.add(qty as number)),
-          acc
-        );
-      }
+    const qtyKeys: (keyof CountryItem)[] = ['roaming', 'domestic', 'accept', 'adopt'];
+    const toAdd = qtyKeys.reduce((memo, key) => {
+      const qty = item[key] as number;
+      if (qty > 0) return R.assoc(key, qty, memo);
+      return memo;
+    }, {});
+
+    for (const [key, qty] of Object.entries(toAdd)) {
+      acc = R.over(
+        R.lensPath([key, 'data', yearIdx]),
+        R.pipe(Number, R.add(qty as number)),
+        acc
+      );
     }
 
     return acc;
