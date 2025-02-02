@@ -1,6 +1,6 @@
 import { spawn } from 'child_process';
 
-export async function jqProcess(jqScript, inputFiles) {
+export async function jqProcess(jqScript: string, inputFiles: string|Array<string>) {
   const files = Array.isArray(inputFiles) ? inputFiles : [inputFiles];
   const filesArg = files.length > 1 ? ['--slurp', ...files] : files;
   const process = spawn('jq', ['-f', jqScript, ...filesArg]);
