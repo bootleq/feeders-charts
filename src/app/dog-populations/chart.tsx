@@ -27,6 +27,7 @@ import { Tooltip, TooltipTrigger, TooltipContent, menuHoverProps } from '@/compo
 import {
   MenuIcon,
   ScaleIcon,
+  CornerDownLeftIcon,
 } from "lucide-react";
 import Years04Icon from '@/assets/year-set-04.svg';
 import Years14Icon from '@/assets/year-set-14.svg';
@@ -496,7 +497,10 @@ export default function Chart({ items, meta }: {
           <YearsInput min={meta.minYear} max={meta.maxYear} formRef={formRef} />
         </fieldset>
 
-        <button type='submit' className='self-center p-3 pb-4 rounded hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>↵<br />套用</button>
+        <button type='submit' className='self-center p-3 pb-4 rounded hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
+          <CornerDownLeftIcon size={20} className='pl-1 pb-1' />
+          套用
+        </button>
       </form>
 
       <ReactEChartsCore
