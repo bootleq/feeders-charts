@@ -85,6 +85,8 @@ const defaultOptions = {
       '家犬估計': false,
       '收容': true,
       '認領': true,
+      '人道處理': true,
+      '所內死亡': true,
     },
   },
   xAxis: [
@@ -147,6 +149,8 @@ const defaultOptions = {
     },
     { name: '收容', type: 'line', connectNulls: true, },
     { name: '認領', type: 'line', connectNulls: true, },
+    { name: '人道處理', type: 'line', connectNulls: true, },
+    { name: '所內死亡', type: 'line', connectNulls: true, },
   ],
 };
 

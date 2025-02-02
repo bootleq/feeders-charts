@@ -37,6 +37,14 @@ export function makeSeries(
       data: initialData,
       type: 'line',
     },
+    kill: {
+      data: initialData,
+      type: 'line',
+    },
+    die: {
+      data: initialData,
+      type: 'line',
+    },
   };
 
   const series = items.reduce((acc, item) => {
@@ -46,7 +54,7 @@ export function makeSeries(
     if (validYears && !validYears.includes(year)) return acc;
     if (validCities && !validCities.includes(city)) return acc;
 
-    const qtyKeys: (keyof CountryItem)[] = ['roaming', 'domestic', 'accept', 'adopt'];
+    const qtyKeys: (keyof CountryItem)[] = ['roaming', 'domestic', 'accept', 'adopt', 'kill', 'die'];
     const toAdd = qtyKeys.reduce((memo, key) => {
       const qty = item[key] as number;
       if (qty > 0) return R.assoc(key, qty, memo);
@@ -69,6 +77,8 @@ export function makeSeries(
     series.domestic,
     series.accept,
     series.adopt,
+    series.kill,
+    series.die,
   ];
 }
 
