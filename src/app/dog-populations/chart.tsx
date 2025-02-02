@@ -22,7 +22,14 @@ import {
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 
-import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/Tooltip';
+import { Tooltip, TooltipTrigger, TooltipContent, menuHoverProps } from '@/components/Tooltip';
+
+import {
+  MenuIcon,
+  ScaleIcon,
+} from "lucide-react";
+import Years04Icon from '@/assets/year-set-04.svg';
+import Years14Icon from '@/assets/year-set-14.svg';
 
 echarts.use(
   [
@@ -36,6 +43,17 @@ echarts.use(
     CanvasRenderer,
   ]
 );
+
+function tooltipClass(className?: string) {
+  return `rounded box-border w-max z-[1002] bg-slate-100 ${className || ''}`;
+}
+function tooltipMenuCls(className?: string) {
+  return [
+    'flex flex-col divide-y w-full items-center justify-between',
+    'rounded bg-gradient-to-br from-stone-50 to-slate-100 ring-2 ring-offset-1 ring-slate-300',
+    className || '',
+  ].join(' ');
+}
 
 const fontFamily = "'Noto Mono TC', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'";
 
@@ -249,6 +267,26 @@ function CitiesInput({ formRef }: {
   );
 }
 
+const YearPresets: Record<string, [any, (value: number) => boolean]> = {
+  '2004': [Years04Icon, R.lt(93)],
+  '2014': [Years14Icon, R.lt(103)],
+  'post12': [ScaleIcon, R.lt(105)],
+};
+
+function YearPresetItem({ dataKey, children }: {
+  dataKey: string,
+  children: React.ReactNode,
+}) {
+  const Icon = YearPresets[dataKey]?.[0];
+
+  return (
+    <button className='p-2 w-full flex items-center rounded hover:bg-amber-200' data-preset={dataKey}>
+      {Icon && <Icon className='w-[1.25em] aspect-square box-content pr-1.5 mr-1 border-r ' />}
+      {children}
+    </button>
+  );
+}
+
 function YearsInput({ min, max, formRef }: {
   min: number,
   max: number,
@@ -296,9 +334,32 @@ function YearsInput({ min, max, formRef }: {
     }
   }, [handle, formRef]);
 
+  const onPickPreset = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    const target = e.target;
+    const form = formRef.current;
+    if (!form) return;
+
+    if (target instanceof HTMLElement) {
+      const btn = target.closest<HTMLElement>('button[data-preset]');
+      if (btn) {
+        const key = btn.dataset.preset!;
+        const cb = YearPresets[key]?.[1];
+
+        const boxes = form.querySelectorAll<HTMLInputElement>('input[name="years"]');
+        boxes.forEach(box => {
+          box.checked = cb(Number(box.value));
+        });
+
+        form.dispatchEvent(
+          new Event("submit", { bubbles: true, cancelable: true })
+        );
+      }
+    }
+  }, [formRef]);
+
   return (
     <div className='flex flex-wrap items-center pb-0.5'>
-      <ul className='flex items-center flex-wrap max-w-96'>
+      <ul className='flex items-center justify-around flex-wrap max-w-[26rem]'>
         <li>
           <label className='cursor-pointer px-1 py-2 hover:bg-slate-200/75 rounded self-stretch flex items-center'>
             <input type='checkbox' defaultChecked={true} className='peer sr-only' onClick={onToggleAll} />
@@ -316,7 +377,7 @@ function YearsInput({ min, max, formRef }: {
                     <TooltipTrigger className='mb-1 block truncate'>
                       <div className='absolute left-1/2 -translate-x-1/2 -translate-y-1 z-40 bg-blue-400 w-1.5 h-1.5'></div>
                     </TooltipTrigger>
-                    <TooltipContent className="p-1 text-xs rounded box-border w-max z-[1002] bg-slate-100 ring-1">
+                    <TooltipContent className={tooltipClass('p-1 text-xs ring-1')}>
                       按住 <kbd>SHIFT</kbd> 選擇範圍
                     </TooltipContent>
                   </Tooltip>
@@ -329,6 +390,24 @@ function YearsInput({ min, max, formRef }: {
             </li>
           );
         })}
+        <li className='ml-auto'>
+          <Tooltip placement='bottom-end' offset={0} hoverProps={menuHoverProps}>
+            <TooltipTrigger className='mb-1 block truncate'>
+              <div className='cursor-help p-1 pt-2 hover:bg-slate-200/75 rounded self-stretch flex items-center' tabIndex={0}>
+                <div className='text-slate-400 outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
+                  <MenuIcon size={20} />
+                </div>
+              </div>
+            </TooltipTrigger>
+            <TooltipContent className={tooltipClass('text-sm')}>
+              <div className={tooltipMenuCls()} onClick={onPickPreset}>
+                <YearPresetItem dataKey='2004'>從 <code className='mx-1'>2004</code> 開始</YearPresetItem>
+                <YearPresetItem dataKey='2014'>從 <code className='mx-1'>2014</code> 開始</YearPresetItem>
+                <YearPresetItem dataKey='post12'>零撲殺後</YearPresetItem>
+              </div>
+            </TooltipContent>
+          </Tooltip>
+        </li>
       </ul>
     </div>
   );
