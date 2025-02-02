@@ -29,6 +29,10 @@ export function makeSeries(
       data: initialData,
       type: 'line',
     },
+    human: {
+      data: initialData,
+      type: 'line',
+    },
     accept: {
       data: initialData,
       type: 'line',
@@ -45,6 +49,18 @@ export function makeSeries(
       data: initialData,
       type: 'line',
     },
+    h_roam: {
+      data: initialData,
+      type: 'line',
+    },
+    h_feed: {
+      data: initialData,
+      type: 'line',
+    },
+    h_stop: {
+      data: initialData,
+      type: 'line',
+    },
   };
 
   const series = items.reduce((acc, item) => {
@@ -54,7 +70,7 @@ export function makeSeries(
     if (validYears && !validYears.includes(year)) return acc;
     if (validCities && !validCities.includes(city)) return acc;
 
-    const qtyKeys: (keyof CountryItem)[] = ['roaming', 'domestic', 'accept', 'adopt', 'kill', 'die'];
+    const qtyKeys: (keyof CountryItem)[] = ['roaming', 'domestic', 'human', 'accept', 'adopt', 'kill', 'die', 'h_roam', 'h_feed', 'h_stop'];
     const toAdd = qtyKeys.reduce((memo, key) => {
       const qty = item[key] as number;
       if (qty > 0) return R.assoc(key, qty, memo);
@@ -75,10 +91,14 @@ export function makeSeries(
   return [
     series.roaming,
     series.domestic,
+    series.human,
     series.accept,
     series.adopt,
     series.kill,
     series.die,
+    series.h_roam,
+    series.h_feed,
+    series.h_stop,
   ];
 }
 

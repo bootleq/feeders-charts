@@ -83,10 +83,14 @@ const defaultOptions = {
     selected: {
       '遊蕩犬估計': true,
       '家犬估計': false,
+      '人口': false,
       '收容': true,
       '認領': true,
       '人道處理': true,
       '所內死亡': true,
+      '熱區無主犬': true,
+      '餵食者': true,
+      '疏導餵食': true,
     },
   },
   xAxis: [
@@ -150,10 +154,14 @@ const defaultOptions = {
         fontFamily: fontFamily,
       },
     },
+    { name: '人口', type: 'line', connectNulls: true, },
     { name: '收容', type: 'line', connectNulls: true, },
     { name: '認領', type: 'line', connectNulls: true, },
     { name: '人道處理', type: 'line', connectNulls: true, },
     { name: '所內死亡', type: 'line', connectNulls: true, },
+    { name: '熱區無主犬', type: 'line', connectNulls: true, },
+    { name: '餵食者', type: 'line', connectNulls: true, },
+    { name: '疏導餵食', type: 'line', connectNulls: true, },
   ],
 };
 
