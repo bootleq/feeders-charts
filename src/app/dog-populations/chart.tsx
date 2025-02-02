@@ -95,6 +95,9 @@ const defaultOptions = {
       axisLabel: {
         fontFamily: fontFamily,
       },
+      axisTick: {
+        alignWithLabel: true,
+      },
     },
     {
       // 西元年
