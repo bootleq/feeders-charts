@@ -199,9 +199,9 @@ function CitiesInput({ formRef }: {
 }
 
 const YearPresets: Record<string, [any, (value: number) => boolean]> = {
-  '2004': [Years04Icon, R.lt(93)],
-  '2014': [Years14Icon, R.lt(103)],
-  'post12': [ScaleIcon, R.lt(105)],
+  '2004': [Years04Icon, R.lte(93)],
+  '2014': [Years14Icon, R.lte(103)],
+  'post12': [ScaleIcon, R.lte(106)],
 };
 
 function YearPresetItem({ dataKey, children }: {
