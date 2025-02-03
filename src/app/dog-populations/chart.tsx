@@ -8,9 +8,10 @@ import { useAtom } from 'jotai';
 import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem } from '@/lib/model';
 import { makeYearRange } from '@/lib/utils';
-import { makeSeries, SERIES_NAMES } from '@/lib/series';
+import { makeSeries } from '@/lib/series';
 
 import { seriesMenuItemAtom } from './store';
+import { defaultIncludedSeries, defaultOptions } from './defaults';
 
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import * as echarts from 'echarts/core';
@@ -63,125 +64,6 @@ function tooltipMenuCls(className?: string) {
     className || '',
   ].join(' ');
 }
-
-const fontFamily = "'Noto Mono TC', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'";
-
-const numberFormatter = (number: number) => Intl.NumberFormat("zh-TW").format(number);
-
-const tooltipOptions = {
-  trigger: 'item',
-  enterable: true,
-  extraCssText: 'user-select: text',  // allow mouse selection
-  textStyle: {
-    fontFamily: fontFamily,
-  },
-  axisPointer: {
-    type: 'cross',
-    crossStyle: {
-      color: '#999'
-    }
-  }
-};
-
-const defaultIncludedSeries = [
-  'roaming',
-  'domestic',
-  'human',
-  'accept',
-  'adopt',
-  'kill',
-  'die',
-  'h_roam',
-  'h_feed',
-  'h_stop'
-];
-
-const defaultSeriesSettings: Record<string, any> = {
-  roaming: {
-    type: 'bar',
-    label: {
-      show: true,
-      position: 'top',
-      formatter: (params: {data: number}) => numberFormatter(params.data),
-      fontFamily: fontFamily,
-    }
-  },
-  domestic: {
-    type: 'line',
-    connectNulls: true,
-    label: {
-      show: true,
-      formatter: (params: {data: number}) => numberFormatter(params.data),
-      fontFamily: fontFamily,
-    },
-  },
-  fallback: {
-    type: 'line',
-    connectNulls: true
-  },
-};
-
-const defaultOptions = {
-  tooltip: tooltipOptions,
-  legend: {
-    selected: Object.entries({
-      roaming: true,
-      domestic: false,
-      human: false,
-      accept: true,
-      adopt: true,
-      kill: true,
-      die: true,
-      h_roam: true,
-      h_feed: true,
-      h_stop: true,
-    }).reduce((acc, [k, v]) => {
-      return R.assoc(SERIES_NAMES[k], v, acc);
-    }, {}),
-  },
-  xAxis: [
-    {
-      type: 'category',
-      axisLabel: {
-        fontFamily: fontFamily,
-      },
-      axisTick: {
-        alignWithLabel: true,
-      },
-    },
-    {
-      // 西元年
-      type: 'category',
-      position: 'bottom',
-      offset: 22,
-      axisLine: { show: false },
-      axisTick: { show: false },
-      splitLine: { show: false },
-      axisPointer: { show: false },
-      axisLabel: {
-        fontFamily,
-        fontStyle: 'italic',
-        color: '#aab',
-      },
-    },
-  ],
-  yAxis: {
-    type: 'value',
-    name: '數量（萬）',
-    min: 0,
-    axisLabel: {
-      fontFamily: fontFamily,
-      formatter: (value: number) => numberFormatter(value / 10000)
-    },
-    axisPointer: {
-      show: false,
-    }
-  },
-
-  series: defaultIncludedSeries.map(name => {
-    return defaultSeriesSettings[name] || defaultSeriesSettings.fallback
-  }),
-};
 
 function CitiesInput({ formRef }: {
   formRef: React.RefObject<HTMLFormElement | null>,
