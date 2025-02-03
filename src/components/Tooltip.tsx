@@ -14,7 +14,8 @@ import {
   useRole,
   useInteractions,
   useMergeRefs,
-  FloatingPortal
+  FloatingPortal,
+  FloatingFocusManager,
 } from "@floating-ui/react";
 import type { Placement, OffsetOptions, UseHoverProps } from "@floating-ui/react";
 
@@ -173,6 +174,37 @@ export const TooltipContent = React.forwardRef<
         }}
         {...context.getFloatingProps(props)}
       />
+    </FloatingPortal>
+  );
+});
+
+export const TooltipContentMenu = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLProps<HTMLDivElement>
+>(function TooltipContent({ style, ...props }, propRef) {
+  const context = useTooltipContext();
+  const ref = useMergeRefs([context.refs.setFloating, propRef]);
+  const focusOptions = {
+    context: context.context,
+    initialFocus: -1,
+    modal: false,
+    closeOnFocusOut: true,
+  };
+
+  if (!context.open) return null;
+
+  return (
+    <FloatingPortal>
+      <FloatingFocusManager {...focusOptions}>
+        <div
+          ref={ref}
+          style={{
+            ...context.floatingStyles,
+            ...style
+          }}
+          {...context.getFloatingProps(props)}
+        />
+      </FloatingFocusManager>
     </FloatingPortal>
   );
 });

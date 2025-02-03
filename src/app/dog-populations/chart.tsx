@@ -24,7 +24,7 @@ import {
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 
-import { Tooltip, TooltipTrigger, TooltipContent, menuHoverProps } from '@/components/Tooltip';
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 
 import {
   MenuIcon,
@@ -315,7 +315,7 @@ function YearsInput({ min, max, formRef }: {
             <li key={year} className={handle ? 'select-none' : ''}>
               <label className='cursor-pointer px-1 py-2 block rounded relative transition hover:bg-amber-200 hover:drop-shadow' data-year={year} onClick={onClickYear}>
                 { year === handle &&
-                  <Tooltip placement='top'>
+                  <Tooltip placement='top' hoverProps={menuHoverProps}>
                     <TooltipTrigger className='mb-1 block truncate'>
                       <div className='absolute left-1/2 -translate-x-1/2 -translate-y-1 z-40 bg-blue-400 w-1.5 h-1.5'></div>
                     </TooltipTrigger>
@@ -341,7 +341,7 @@ function YearsInput({ min, max, formRef }: {
                 </div>
               </div>
             </TooltipTrigger>
-            <TooltipContent className={tooltipClass('text-sm')}>
+            <TooltipContentMenu className={tooltipClass('text-sm')}>
               <div className={tooltipMenuCls()} onClick={onPickPreset}>
                 <YearPresetItem dataKey='2004'>從 <code className='mx-1'>2004</code> 開始</YearPresetItem>
                 <YearPresetItem dataKey='2014'>從 <code className='mx-1'>2014</code> 開始</YearPresetItem>
