@@ -2,12 +2,15 @@
 
 import * as R from 'ramda';
 import React from 'react';
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
+import { useAtom } from 'jotai';
 
 import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem } from '@/lib/model';
 import { makeYearRange } from '@/lib/utils';
 import { makeSeries } from '@/lib/series';
+
+import { seriesMenuItemAtom } from './store';
 
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import * as echarts from 'echarts/core';
@@ -30,6 +33,9 @@ import {
   MenuIcon,
   ScaleIcon,
   CornerDownLeftIcon,
+  UsersIcon,
+  HouseIcon,
+  CornerDownRightIcon,
 } from "lucide-react";
 import Years04Icon from '@/assets/year-set-04.svg';
 import Years14Icon from '@/assets/year-set-14.svg';
@@ -347,7 +353,64 @@ function YearsInput({ min, max, formRef }: {
                 <YearPresetItem dataKey='2014'>從 <code className='mx-1'>2014</code> 開始</YearPresetItem>
                 <YearPresetItem dataKey='post12'>零撲殺後</YearPresetItem>
               </div>
-            </TooltipContent>
+            </TooltipContentMenu>
+          </Tooltip>
+        </li>
+      </ul>
+    </div>
+  );
+}
+
+function SeriesMenuItem({ Icon, name, children, sub }: {
+  Icon?: any,
+  name: string,
+  children: React.ReactNode,
+  sub?: boolean,
+}) {
+  const itemAtom = useMemo(() => seriesMenuItemAtom(name), [name]);
+  const [checked, toggle] = useAtom(itemAtom);
+
+  const menuBtnCls = 'p-2 w-full cursor-pointer flex items-center rounded hover:bg-amber-200';
+  const menuIconCls = 'w-[1.25em] aspect-square box-content pr-1.5 mr-1 border-r';
+  const IconElement = Icon || (sub ? CornerDownRightIcon : 'div');
+
+  return (
+    <label className={menuBtnCls}>
+      <IconElement className={`${menuIconCls} ${sub && 'stroke-slate-400'}`} />
+      <input type='checkbox' name='series' checked={checked} onChange={toggle} className='peer mb-1 sr-only' />
+      <div className='text-slate-400 outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
+        {children}
+      </div>
+    </label>
+  );
+}
+
+function SeriesControl() {
+  const textCls = [
+    'font-mono text-stone-400 peer-checked:text-slate-900',
+    'peer-focus-visible:outline outline-offset-2 outline-blue-400',
+  ].join(' ');
+
+  return (
+    <div className='flex flex-wrap items-center pb-0.5'>
+      <ul className='flex items-center justify-around flex-wrap max-w-[26rem]'>
+        <li>
+          <Tooltip placement='bottom-end' offset={0} hoverProps={menuHoverProps}>
+            <TooltipTrigger className='mb-1 block truncate'>
+              <label className='cursor-pointer px-1 py-2 block rounded relative transition hover:bg-amber-200 hover:drop-shadow'>
+                <input type='checkbox' defaultChecked={true} className='peer mb-1 sr-only' />
+                <span className={textCls}>
+                  人口與家犬
+                </span>
+              </label>
+            </TooltipTrigger>
+            <TooltipContentMenu className={tooltipClass('text-sm')}>
+              <div className={tooltipMenuCls()}>
+                <SeriesMenuItem Icon={UsersIcon} name='human'>人口數</SeriesMenuItem>
+                <SeriesMenuItem sub name='human100'>每百人遊蕩犬數</SeriesMenuItem>
+                <SeriesMenuItem Icon={HouseIcon} name='domestic'>家犬估計數</SeriesMenuItem>
+              </div>
+            </TooltipContentMenu>
           </Tooltip>
         </li>
       </ul>
@@ -435,6 +498,11 @@ export default function Chart({ items, meta }: {
         <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
           <legend className='font-bold px-1.5'>年度</legend>
           <YearsInput min={meta.minYear} max={meta.maxYear} formRef={formRef} />
+        </fieldset>
+
+        <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
+          <legend className='font-bold px-1.5'>資料項目</legend>
+          <SeriesControl />
         </fieldset>
 
         <button type='submit' className='self-center p-3 pb-4 rounded hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
