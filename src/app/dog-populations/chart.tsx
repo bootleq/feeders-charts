@@ -8,7 +8,7 @@ import { useAtom } from 'jotai';
 import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem } from '@/lib/model';
 import { makeYearRange } from '@/lib/utils';
-import { makeSeries } from '@/lib/series';
+import { makeSeries, SERIES_NAMES } from '@/lib/series';
 
 import { seriesMenuItemAtom } from './store';
 
@@ -83,21 +83,61 @@ const tooltipOptions = {
   }
 };
 
+const defaultIncludedSeries = [
+  'roaming',
+  'domestic',
+  'human',
+  'accept',
+  'adopt',
+  'kill',
+  'die',
+  'h_roam',
+  'h_feed',
+  'h_stop'
+];
+
+const defaultSeriesSettings: Record<string, any> = {
+  roaming: {
+    type: 'bar',
+    label: {
+      show: true,
+      position: 'top',
+      formatter: (params: {data: number}) => numberFormatter(params.data),
+      fontFamily: fontFamily,
+    }
+  },
+  domestic: {
+    type: 'line',
+    connectNulls: true,
+    label: {
+      show: true,
+      formatter: (params: {data: number}) => numberFormatter(params.data),
+      fontFamily: fontFamily,
+    },
+  },
+  fallback: {
+    type: 'line',
+    connectNulls: true
+  },
+};
+
 const defaultOptions = {
   tooltip: tooltipOptions,
   legend: {
-    selected: {
-      '遊蕩犬估計': true,
-      '家犬估計': false,
-      '人口': false,
-      '收容': true,
-      '認領': true,
-      '人道處理': true,
-      '所內死亡': true,
-      '熱區無主犬': true,
-      '餵食者': true,
-      '疏導餵食': true,
-    },
+    selected: Object.entries({
+      roaming: true,
+      domestic: false,
+      human: false,
+      accept: true,
+      adopt: true,
+      kill: true,
+      die: true,
+      h_roam: true,
+      h_feed: true,
+      h_stop: true,
+    }).reduce((acc, [k, v]) => {
+      return R.assoc(SERIES_NAMES[k], v, acc);
+    }, {}),
   },
   xAxis: [
     {
@@ -138,37 +178,9 @@ const defaultOptions = {
     }
   },
 
-  series: [
-    {
-      name: '遊蕩犬估計',
-      data: [],
-      type: 'bar',
-      label: {
-        show: true,
-        position: 'top',
-        formatter: (params: {data: number}) => numberFormatter(params.data),
-        fontFamily: fontFamily,
-      },
-    },
-    {
-      name: '家犬估計',
-      type: 'line',
-      connectNulls: true,
-      label: {
-        show: true,
-        formatter: (params: {data: number}) => numberFormatter(params.data),
-        fontFamily: fontFamily,
-      },
-    },
-    { name: '人口', type: 'line', connectNulls: true, },
-    { name: '收容', type: 'line', connectNulls: true, },
-    { name: '認領', type: 'line', connectNulls: true, },
-    { name: '人道處理', type: 'line', connectNulls: true, },
-    { name: '所內死亡', type: 'line', connectNulls: true, },
-    { name: '熱區無主犬', type: 'line', connectNulls: true, },
-    { name: '餵食者', type: 'line', connectNulls: true, },
-    { name: '疏導餵食', type: 'line', connectNulls: true, },
-  ],
+  series: defaultIncludedSeries.map(name => {
+    return defaultSeriesSettings[name] || defaultSeriesSettings.fallback
+  }),
 };
 
 function CitiesInput({ formRef }: {
@@ -448,7 +460,7 @@ export default function Chart({ items, meta }: {
     if (chart) {
       chart.setOption(
         updateYearAxis(meta.minYear, meta.maxYear)(
-          { series: makeSeries(items, meta) }
+          { series: makeSeries(items, meta, defaultIncludedSeries) }
         )
       );
     }
@@ -464,6 +476,7 @@ export default function Chart({ items, meta }: {
     if (!chart) return;
 
     const formData = new FormData(form);
+    const series = defaultIncludedSeries; // TODO: use const series = formData.getAll('series').map(String);
     let cities = formData.getAll('cities').map(String);
     let years = formData.getAll('years').map(Number);
 
@@ -476,7 +489,7 @@ export default function Chart({ items, meta }: {
     }
 
     let newOptions = {
-      series: makeSeries(items, meta, { cities, years })
+      series: makeSeries(items, meta, series, { cities, years })
     };
 
     const minYear = years.length ? years[0] : meta.minYear;

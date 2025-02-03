@@ -7,10 +7,25 @@ type SeriesFilters = {
   years?: number[] | FormDataEntryValue[],
 }
 
+export const SERIES_NAMES: Record<string, string> = {
+  domestic: '家犬',
+  roaming: '遊蕩犬估計',
+  accept: '收容',
+  adopt: '認領',
+  kill: '人道處理',
+  die: '所內死亡',
+  h_visit: '熱區家訪',
+  h_roam: '熱區無主犬',
+  h_feed: '熱區餵食',
+  h_stop: '疏導餵食',
+  human: '人口',
+} as const;
+
 export function makeSeries(
   items: CountryItem[],
   meta: ItemsMeta,
-  filters?: SeriesFilters
+  seriesSet: string[],
+  filters?: SeriesFilters,
 ) {
   const validCities = filters?.cities?.length ? filters.cities.map(String) : false;
   const validYears = filters?.years?.length ? filters.years.map(Number) : false;
@@ -19,49 +34,14 @@ export function makeSeries(
   const maxYear = validYears ? Math.max(...validYears) : meta.maxYear;
   const yearRange = makeYearRange(minYear, maxYear);
   const initialData: Array<number | null> = Array(yearRange.length).fill(null);
-  const initialSeries = {
-    roaming: {
+
+  const initialSeries = seriesSet.reduce((acc: Record<string, any>, name: string) => {
+    const obj = {
+      name: SERIES_NAMES[name],
       data: initialData,
-      type: 'bar',
-      smooth: true,
-    },
-    domestic: {
-      data: initialData,
-      type: 'line',
-    },
-    human: {
-      data: initialData,
-      type: 'line',
-    },
-    accept: {
-      data: initialData,
-      type: 'line',
-    },
-    adopt: {
-      data: initialData,
-      type: 'line',
-    },
-    kill: {
-      data: initialData,
-      type: 'line',
-    },
-    die: {
-      data: initialData,
-      type: 'line',
-    },
-    h_roam: {
-      data: initialData,
-      type: 'line',
-    },
-    h_feed: {
-      data: initialData,
-      type: 'line',
-    },
-    h_stop: {
-      data: initialData,
-      type: 'line',
-    },
-  };
+    };
+    return R.assoc(name, obj, acc);
+  }, {});
 
   const series = items.reduce((acc, item) => {
     const { year, city } = item;
@@ -70,9 +50,8 @@ export function makeSeries(
     if (validYears && !validYears.includes(year)) return acc;
     if (validCities && !validCities.includes(city)) return acc;
 
-    const qtyKeys: (keyof CountryItem)[] = ['roaming', 'domestic', 'human', 'accept', 'adopt', 'kill', 'die', 'h_roam', 'h_feed', 'h_stop'];
-    const toAdd = qtyKeys.reduce((memo, key) => {
-      const qty = item[key] as number;
+    const toAdd = seriesSet.reduce((memo, key) => {
+      const qty = item[key as keyof CountryItem] as number;
       if (qty > 0) return R.assoc(key, qty, memo);
       return memo;
     }, {});
@@ -88,17 +67,6 @@ export function makeSeries(
     return acc;
   }, initialSeries);
 
-  return [
-    series.roaming,
-    series.domestic,
-    series.human,
-    series.accept,
-    series.adopt,
-    series.kill,
-    series.die,
-    series.h_roam,
-    series.h_feed,
-    series.h_stop,
-  ];
+  return seriesSet.map(name => series[name] );
 }
 
