@@ -13,7 +13,7 @@ import type { SeriesSet } from '@/lib/series';
 
 import { seriesChecksAtom, seriesMenuItemAtom } from './store';
 
-import { defaultIncludedSeries, defaultOptions } from './defaults';
+import { defaultOptions } from './defaults';
 
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import * as echarts from 'echarts/core';
@@ -345,15 +345,10 @@ export default function Chart({ items, meta }: {
   }, []);
 
   useEffect(() => {
-    const chart = chartRef.current?.getEchartsInstance();
-    if (chart) {
-      chart.setOption(
-        updateYearAxis(meta.minYear, meta.maxYear)(
-          { series: makeSeries(items, meta, defaultIncludedSeries) }
-        )
-      );
-    }
-  }, [items, meta, updateYearAxis]);
+    formRef.current?.dispatchEvent(
+      new Event("submit", { bubbles: true, cancelable: true })
+    );
+  }, []);
 
   const onApply = useCallback((e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

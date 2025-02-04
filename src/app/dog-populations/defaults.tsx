@@ -20,19 +20,6 @@ export const tooltipOptions = {
   }
 };
 
-export const defaultIncludedSeries = {
-  roaming:  true,
-  domestic: true,
-  human:    true,
-  accept:   true,
-  adopt:    true,
-  kill:     true,
-  die:      true,
-  h_roam:   true,
-  h_feed:   true,
-  h_stop:   true,
-};
-
 export const defaultSeriesSettings: Record<string, any> = {
   roaming: {
     type: 'bar',
@@ -115,7 +102,7 @@ export const defaultOptions = {
     }
   },
 
-  series: Object.entries(defaultIncludedSeries).filter(([, included]) => included).map(([name]) => {
+  series: Object.keys(SERIES_NAMES).map(name => {
     return defaultSeriesSettings[name] || defaultSeriesSettings.fallback
   }),
 };

@@ -10,8 +10,10 @@ type SeriesFilters = {
 }
 
 export const SERIES_NAMES: Record<string, string> = {
-  domestic: '家犬',
   roaming: '遊蕩犬估計',
+  domestic: '家犬',
+  human: '人口',
+  human100: '每百人',
   accept: '收容',
   adopt: '認領',
   kill: '人道處理',
@@ -20,7 +22,6 @@ export const SERIES_NAMES: Record<string, string> = {
   h_roam: '熱區無主犬',
   h_feed: '熱區餵食',
   h_stop: '疏導餵食',
-  human: '人口',
 } as const;
 
 export function makeSeries(
