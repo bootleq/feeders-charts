@@ -280,23 +280,17 @@ function SeriesMenuItem({ Icon, name, children, sub }: {
 }
 
 function SeriesControl() {
-  const textCls = [
-    'font-mono text-stone-400 peer-checked:text-slate-900',
-    'peer-focus-visible:outline outline-offset-2 outline-blue-400',
-  ].join(' ');
-
   return (
     <div className='flex flex-wrap items-center pb-0.5'>
       <ul className='flex items-center justify-around flex-wrap max-w-[26rem]'>
         <li>
           <Tooltip placement='bottom-end' offset={0} hoverProps={menuHoverProps}>
             <TooltipTrigger className='mb-1 block truncate'>
-              <label className='cursor-pointer px-1 py-2 block rounded relative transition hover:bg-amber-200 hover:drop-shadow'>
-                <input type='checkbox' defaultChecked={true} className='peer mb-1 sr-only' />
-                <span className={textCls}>
+              <div className='cursor-help p-1 py-2 hover:bg-slate-200/75 rounded self-stretch flex items-center' tabIndex={0}>
+                <div className='outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
                   人口與家犬
-                </span>
-              </label>
+                </div>
+              </div>
             </TooltipTrigger>
             <TooltipContentMenu className={tooltipClass('text-sm')}>
               <div className={tooltipMenuCls()}>
