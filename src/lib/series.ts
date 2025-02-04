@@ -2,6 +2,8 @@ import * as R from 'ramda';
 import { makeYearRange } from '@/lib/utils';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
 
+export type SeriesSet = Record<string, boolean>;
+
 type SeriesFilters = {
   cities?: string[] | FormDataEntryValue[],
   years?: number[] | FormDataEntryValue[],
@@ -24,7 +26,7 @@ export const SERIES_NAMES: Record<string, string> = {
 export function makeSeries(
   items: CountryItem[],
   meta: ItemsMeta,
-  seriesSet: string[],
+  seriesSet: SeriesSet,
   filters?: SeriesFilters,
 ) {
   const validCities = filters?.cities?.length ? filters.cities.map(String) : false;
@@ -34,23 +36,24 @@ export function makeSeries(
   const maxYear = validYears ? Math.max(...validYears) : meta.maxYear;
   const yearRange = makeYearRange(minYear, maxYear);
   const initialData: Array<number | null> = Array(yearRange.length).fill(null);
+  const checkedSeries = Object.keys(R.pickBy(R.identity, seriesSet));
 
-  const initialSeries = seriesSet.reduce((acc: Record<string, any>, name: string) => {
+  const initialSeries = Object.entries(seriesSet).reduce((acc: SeriesSet, [name, checked]: [string, boolean]) => {
     const obj = {
       name: SERIES_NAMES[name],
-      data: initialData,
+      data: checked ? initialData : null,
     };
     return R.assoc(name, obj, acc);
   }, {});
 
-  const series = items.reduce((acc, item) => {
+  const series: Record<string, any> = items.reduce((acc, item) => {
     const { year, city } = item;
     const yearIdx = yearRange.indexOf(year);
 
     if (validYears && !validYears.includes(year)) return acc;
     if (validCities && !validCities.includes(city)) return acc;
 
-    const toAdd = seriesSet.reduce((memo, key) => {
+    const toAdd = checkedSeries.reduce((memo, key) => {
       const qty = item[key as keyof CountryItem] as number;
       if (qty > 0) return R.assoc(key, qty, memo);
       return memo;
@@ -67,6 +70,8 @@ export function makeSeries(
     return acc;
   }, initialSeries);
 
-  return seriesSet.map(name => series[name] );
+  const result = Object.keys(seriesSet).map(name => series[name]);
+
+  return result;
 }
 

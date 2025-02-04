@@ -3,14 +3,16 @@
 import * as R from 'ramda';
 import React from 'react';
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
-import { useAtom } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 
 import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem } from '@/lib/model';
 import { makeYearRange } from '@/lib/utils';
-import { makeSeries } from '@/lib/series';
+import { makeSeries, SERIES_NAMES } from '@/lib/series';
+import type { SeriesSet } from '@/lib/series';
 
-import { seriesMenuItemAtom } from './store';
+import { seriesChecksAtom, seriesMenuItemAtom } from './store';
+
 import { defaultIncludedSeries, defaultOptions } from './defaults';
 
 import ReactEChartsCore from 'echarts-for-react/lib/core';
@@ -280,6 +282,8 @@ function SeriesMenuItem({ Icon, name, children, sub }: {
 }
 
 function SeriesControl() {
+  const seriesSet = useAtomValue(seriesChecksAtom);
+
   return (
     <div className='flex flex-wrap items-center pb-0.5'>
       <ul className='flex items-center justify-around flex-wrap max-w-[26rem]'>
@@ -302,6 +306,8 @@ function SeriesControl() {
           </Tooltip>
         </li>
       </ul>
+
+      <input type='hidden' name='seriesSet' value={JSON.stringify(seriesSet)} />
     </div>
   );
 }
@@ -331,6 +337,13 @@ export default function Chart({ items, meta }: {
     );
   }, []);
 
+  const updateLegends = useCallback((seriesSet: SeriesSet) => {
+    return R.set(
+      R.lensPath(['legend', 'data']),
+      Object.keys(R.pickBy(R.identity, seriesSet)).map(name => SERIES_NAMES[name])
+    );
+  }, []);
+
   useEffect(() => {
     const chart = chartRef.current?.getEchartsInstance();
     if (chart) {
@@ -352,9 +365,15 @@ export default function Chart({ items, meta }: {
     if (!chart) return;
 
     const formData = new FormData(form);
-    const series = defaultIncludedSeries; // TODO: use const series = formData.getAll('series').map(String);
+    const seriesString = formData.get('seriesSet')?.toString() || '';
+    const seriesSet = JSON.parse(seriesString) as SeriesSet;
     let cities = formData.getAll('cities').map(String);
     let years = formData.getAll('years').map(Number);
+
+    if (!seriesSet || R.type(seriesSet) !== 'Object') {
+      console.error('Unexpected seriesSet value');
+      return;
+    }
 
     // When select all items, treat as no filters
     if (cities.length === Object.keys(CITY_MAPPING).length) {
@@ -365,15 +384,19 @@ export default function Chart({ items, meta }: {
     }
 
     let newOptions = {
-      series: makeSeries(items, meta, series, { cities, years })
+      series: makeSeries(items, meta, seriesSet, { cities, years })
     };
 
     const minYear = years.length ? years[0] : meta.minYear;
     const maxYear = years.length ? years[years.length - 1] : meta.maxYear;
-    newOptions = updateYearAxis(minYear, maxYear)(newOptions);
+
+    newOptions = R.pipe(
+      updateYearAxis(minYear, maxYear),
+      updateLegends(seriesSet),
+    )(newOptions);
 
     chart.setOption(newOptions);
-  }, [items, meta, updateYearAxis]);
+  }, [items, meta, updateYearAxis, updateLegends]);
 
   return (
     <div className='min-w-lg min-h-80 w-full'>
@@ -404,7 +427,6 @@ export default function Chart({ items, meta }: {
         ref={chartRef}
         echarts={echarts}
         option={defaultOptions}
-        notMerge={true}
         lazyUpdate={true}
         style={{ height: '70vh', minHeight: '600px' }}
         className='mt-8 px-4 py-6 bg-white resize overflow-auto'

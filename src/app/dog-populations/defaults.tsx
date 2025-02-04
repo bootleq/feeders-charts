@@ -20,18 +20,18 @@ export const tooltipOptions = {
   }
 };
 
-export const defaultIncludedSeries = [
-  'roaming',
-  'domestic',
-  'human',
-  'accept',
-  'adopt',
-  'kill',
-  'die',
-  'h_roam',
-  'h_feed',
-  'h_stop'
-];
+export const defaultIncludedSeries = {
+  roaming:  true,
+  domestic: true,
+  human:    true,
+  accept:   true,
+  adopt:    true,
+  kill:     true,
+  die:      true,
+  h_roam:   true,
+  h_feed:   true,
+  h_stop:   true,
+};
 
 export const defaultSeriesSettings: Record<string, any> = {
   roaming: {
@@ -115,7 +115,7 @@ export const defaultOptions = {
     }
   },
 
-  series: defaultIncludedSeries.map(name => {
+  series: Object.entries(defaultIncludedSeries).filter(([, included]) => included).map(([name]) => {
     return defaultSeriesSettings[name] || defaultSeriesSettings.fallback
   }),
 };
