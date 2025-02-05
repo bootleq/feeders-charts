@@ -9,6 +9,13 @@ type SeriesFilters = {
   years?: number[] | FormDataEntryValue[],
 }
 
+type SeriesData = Array<number|null>;
+
+type Computer = {
+  depends: string[],
+  fn: (...args: SeriesData[]) => SeriesData,
+};
+
 export const SERIES_NAMES: Record<string, string> = {
   roaming: '遊蕩犬估計',
   domestic: '家犬',
@@ -24,6 +31,23 @@ export const SERIES_NAMES: Record<string, string> = {
   h_stop: '疏導餵食',
 } as const;
 
+const computers: Record<string, Computer> = {
+  human100: {
+    depends: ['roaming', 'human'],
+    fn: (roaming: SeriesData, human: SeriesData) => {
+      return roaming.map((roamQty, idx) => {
+        const humanQty = human[idx];
+        if (typeof roamQty === 'number' && typeof humanQty === 'number') {
+          return roamQty / humanQty * 100;
+        }
+        return null;
+      });
+    },
+  },
+};
+
+const customComputeSeries = Object.keys(computers);
+
 export function makeSeries(
   items: CountryItem[],
   meta: ItemsMeta,
@@ -37,24 +61,29 @@ export function makeSeries(
   const maxYear = validYears ? Math.max(...validYears) : meta.maxYear;
   const yearRange = makeYearRange(minYear, maxYear);
   const initialData: Array<number | null> = Array(yearRange.length).fill(null);
-  const checkedSeries = Object.keys(R.pickBy(R.identity, seriesSet));
 
-  const initialSeries = Object.entries(seriesSet).reduce((acc: SeriesSet, [name, checked]: [string, boolean]) => {
+  const checkedSeries = Object.keys(R.pickBy(R.identity, seriesSet));
+  const [rawSeries, computedSeries] = R.partition((key) => !customComputeSeries.includes(key), checkedSeries);
+  const dependsSeries = computedSeries.map(key => computers[key].depends).flat();
+  const requiredRawSeries = R.union(rawSeries, dependsSeries);
+
+  const initialSeries = Object.keys(seriesSet).reduce((acc: SeriesSet, name) => {
     const obj = {
       name: SERIES_NAMES[name],
-      data: checked ? initialData : null,
+      data: requiredRawSeries.includes(name) ? initialData : null,
     };
     return R.assoc(name, obj, acc);
   }, {});
 
-  const series: Record<string, any> = items.reduce((acc, item) => {
+  // 1st pass, collect simple "raw" qty from items
+  let series: Record<string, any> = items.reduce((acc, item) => {
     const { year, city } = item;
     const yearIdx = yearRange.indexOf(year);
 
     if (validYears && !validYears.includes(year)) return acc;
     if (validCities && !validCities.includes(city)) return acc;
 
-    const toAdd = checkedSeries.reduce((memo, key) => {
+    const toAdd = requiredRawSeries.reduce((memo, key) => {
       const qty = item[key as keyof CountryItem] as number;
       if (qty > 0) return R.assoc(key, qty, memo);
       return memo;
@@ -71,8 +100,26 @@ export function makeSeries(
     return acc;
   }, initialSeries);
 
+  // 2nd pass, compute special series from previous result
+  computedSeries.forEach(name => {
+    const computer = computers[name];
+    const args = computer.depends.map(key => series[key].data);
+
+    series = R.set(
+      R.lensPath([name, 'data']),
+      computer.fn(...args)
+    )(series);
+  });
+
+  // 3rd pass, clear not selected series (which were added only for 2nd pass)
+  R.difference(requiredRawSeries, checkedSeries).forEach(name => {
+    series = R.set(
+      R.lensPath([name, 'data']),
+      null
+    )(series);
+  });
+
   const result = Object.keys(seriesSet).map(name => series[name]);
 
   return result;
 }
-
