@@ -47,6 +47,7 @@ import {
   PawPrintIcon,
   HandCoinsIcon,
   SpeechIcon,
+  GrabIcon,
 } from "lucide-react";
 import Years04Icon from '@/assets/year-set-04.svg';
 import Years14Icon from '@/assets/year-set-14.svg';
@@ -123,17 +124,19 @@ const YearPresets: Record<string, [any, (value: number) => boolean]> = {
   '2004': [Years04Icon, R.lte(93)],
   '2014': [Years14Icon, R.lte(103)],
   'post12': [ScaleIcon, R.lte(106)],
+  'all': [GrabIcon, R.gt(0)],
 };
 
-function YearPresetItem({ dataKey, children }: {
+function YearPresetItem({ dataKey, children, iconClass }: {
   dataKey: string,
   children: React.ReactNode,
+  iconClass?: string,
 }) {
   const Icon = YearPresets[dataKey]?.[0];
 
   return (
     <button className='p-2 w-full flex items-center rounded hover:bg-amber-200' data-preset={dataKey}>
-      {Icon && <Icon className='w-[1.25em] aspect-square box-content pr-1.5 mr-1 border-r ' />}
+      {Icon && <Icon className={`w-[1.25em] aspect-square box-content pr-1.5 mr-1 border-r ${iconClass || ''}`} />}
       {children}
     </button>
   );
@@ -153,17 +156,6 @@ function YearsInput({ min, max, formRef }: {
     'peer-checked:[border-image-source:linear-gradient(to_right,transparent_30%,#888_30%,#888_70%,transparent_70%)]',
     'peer-focus-visible:outline outline-offset-2 outline-blue-400',
   ].join(' ');
-
-  const onToggleAll = useCallback((e: React.MouseEvent<HTMLInputElement>) => {
-    const form = formRef.current;
-    if (!form) return;
-
-    setHandle(null);
-
-    const toChecked = e.currentTarget.checked;
-    const boxes = form.querySelectorAll<HTMLInputElement>('input[name="years"]');
-    boxes.forEach(box => box.checked = toChecked);
-  }, [formRef]);
 
   const onClickYear = useCallback((e: React.MouseEvent<HTMLLabelElement>) => {
     const label = e.currentTarget;
@@ -198,13 +190,14 @@ function YearsInput({ min, max, formRef }: {
         const cb = YearPresets[key]?.[1];
 
         const boxes = form.querySelectorAll<HTMLInputElement>('input[name="years"]');
-        boxes.forEach(box => {
-          box.checked = cb(Number(box.value));
-        });
-
-        form.dispatchEvent(
-          new Event("submit", { bubbles: true, cancelable: true })
-        );
+        if (key === 'all') {
+          const checked = !!boxes[0].checked;
+          boxes.forEach(box => box.checked = !checked);
+        } else {
+          boxes.forEach(box => {
+            box.checked = cb(Number(box.value));
+          });
+        }
       }
     }
   }, [formRef]);
@@ -212,14 +205,6 @@ function YearsInput({ min, max, formRef }: {
   return (
     <div className='flex flex-wrap items-center pb-0.5'>
       <ul className='flex items-center justify-around flex-wrap max-w-[26rem]'>
-        <li>
-          <label className='cursor-pointer px-1 py-2 hover:bg-slate-200/75 rounded self-stretch flex items-center'>
-            <input type='checkbox' defaultChecked={true} className='peer sr-only' onClick={onToggleAll} />
-            <div className='text-slate-400 outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
-              ALL
-            </div>
-          </label>
-        </li>
         {yearRange.map((year) => {
           return (
             <li key={year} className={handle ? 'select-none' : ''}>
@@ -256,6 +241,7 @@ function YearsInput({ min, max, formRef }: {
                 <YearPresetItem dataKey='2004'>從 <code className='mx-1'>2004</code> 開始</YearPresetItem>
                 <YearPresetItem dataKey='2014'>從 <code className='mx-1'>2014</code> 開始</YearPresetItem>
                 <YearPresetItem dataKey='post12'>零撲殺後</YearPresetItem>
+                <YearPresetItem dataKey='all' iconClass='opacity-50'>全選／不選</YearPresetItem>
               </div>
             </TooltipContentMenu>
           </Tooltip>
