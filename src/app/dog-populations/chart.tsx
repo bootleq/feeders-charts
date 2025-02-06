@@ -39,6 +39,14 @@ import {
   UsersIcon,
   HouseIcon,
   CornerDownRightIcon,
+  SkullIcon,
+  SyringeIcon,
+  DogIcon,
+  HousePlusIcon,
+  HouseWifiIcon,
+  PawPrintIcon,
+  HandCoinsIcon,
+  SpeechIcon,
 } from "lucide-react";
 import Years04Icon from '@/assets/year-set-04.svg';
 import Years14Icon from '@/assets/year-set-14.svg';
@@ -286,11 +294,11 @@ function SeriesControl() {
 
   return (
     <div className='flex flex-wrap items-center pb-0.5'>
-      <ul className='flex items-center justify-around flex-wrap max-w-[26rem]'>
+      <ul className='flex items-center justify-around gap-2 flex-wrap max-w-[26rem]'>
         <li>
           <Tooltip placement='bottom-end' offset={0} hoverProps={menuHoverProps}>
             <TooltipTrigger className='mb-1 block truncate'>
-              <div className='cursor-help p-1 py-2 hover:bg-slate-200/75 rounded self-stretch flex items-center' tabIndex={0}>
+              <div className='cursor-help p-2 hover:bg-slate-100/75 hover:drop-shadow rounded self-stretch flex items-center' tabIndex={0}>
                 <div className='outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
                   人口與家犬
                 </div>
@@ -301,6 +309,44 @@ function SeriesControl() {
                 <SeriesMenuItem Icon={UsersIcon} name='human'>人口數</SeriesMenuItem>
                 <SeriesMenuItem sub name='human100'>每百人遊蕩犬數</SeriesMenuItem>
                 <SeriesMenuItem Icon={HouseIcon} name='domestic'>家犬估計數</SeriesMenuItem>
+              </div>
+            </TooltipContentMenu>
+          </Tooltip>
+        </li>
+        <li>
+          <Tooltip placement='bottom-end' offset={0} hoverProps={menuHoverProps}>
+            <TooltipTrigger className='mb-1 block truncate'>
+              <div className='cursor-help p-2 hover:bg-slate-100/75 hover:drop-shadow rounded self-stretch flex items-center' tabIndex={0}>
+                <div className='outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
+                  公立收容所
+                </div>
+              </div>
+            </TooltipTrigger>
+            <TooltipContentMenu className={tooltipClass('text-sm')}>
+              <div className={tooltipMenuCls()}>
+                <SeriesMenuItem Icon={HousePlusIcon} name='accept'>收容隻數</SeriesMenuItem>
+                <SeriesMenuItem Icon={DogIcon} name='adopt'>認領隻數</SeriesMenuItem>
+                <SeriesMenuItem Icon={SyringeIcon} name='kill'>人道處理數</SeriesMenuItem>
+                <SeriesMenuItem Icon={SkullIcon} name='die'>所內死亡數</SeriesMenuItem>
+              </div>
+            </TooltipContentMenu>
+          </Tooltip>
+        </li>
+        <li>
+          <Tooltip placement='bottom-end' offset={0} hoverProps={menuHoverProps}>
+            <TooltipTrigger className='mb-1 block truncate'>
+              <div className='cursor-help p-2 hover:bg-slate-100/75 hover:drop-shadow rounded self-stretch flex items-center' tabIndex={0}>
+                <div className='outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
+                  熱區政策
+                </div>
+              </div>
+            </TooltipTrigger>
+            <TooltipContentMenu className={tooltipClass('text-sm')}>
+              <div className={tooltipMenuCls()}>
+                <SeriesMenuItem Icon={HouseWifiIcon} name='h_visit'>有主犬 家訪戶數</SeriesMenuItem>
+                <SeriesMenuItem Icon={PawPrintIcon} name='h_roam'>無主犬 清查隻數</SeriesMenuItem>
+                <SeriesMenuItem Icon={HandCoinsIcon} name='h_feed'>餵食者人數</SeriesMenuItem>
+                <SeriesMenuItem Icon={SpeechIcon} name='h_stop'>疏導餵食成功數</SeriesMenuItem>
               </div>
             </TooltipContentMenu>
           </Tooltip>
