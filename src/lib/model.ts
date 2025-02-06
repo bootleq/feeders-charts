@@ -11,6 +11,7 @@ export type CountryItem = {
   h_roam: number,   // 熱區 無主犬清查
   h_feed: number,   // 熱區 餵食者人數
   h_stop: number,   // 熱區 疏導餵食成功
+  human: number,    // 人口數
 }
 
 export type ItemsMeta = {

@@ -1,11 +1,19 @@
 "use client"
 
 import * as R from 'ramda';
-import React from 'react';
-import { useState, useCallback, useEffect, useRef } from 'react';
+import React, { MouseEventHandler } from 'react';
+import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
+import { useAtom } from 'jotai';
 
 import { CITY_MAPPING } from '@/lib/model';
-import type { CountryItem, ItemsMeta } from '@/lib/model';
+import type { CountryItem } from '@/lib/model';
+import { makeYearRange } from '@/lib/utils';
+import { makeSeries, SERIES_NAMES } from '@/lib/series';
+import type { SeriesSet } from '@/lib/series';
+
+import { seriesChecksAtom, seriesMenuItemAtom } from './store';
+
+import { defaultOptions } from './defaults';
 
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import * as echarts from 'echarts/core';
@@ -22,12 +30,23 @@ import {
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 
-import { Tooltip, TooltipTrigger, TooltipContent, menuHoverProps } from '@/components/Tooltip';
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 
 import {
   MenuIcon,
   ScaleIcon,
   CornerDownLeftIcon,
+  UsersIcon,
+  HouseIcon,
+  CornerDownRightIcon,
+  SkullIcon,
+  SyringeIcon,
+  DogIcon,
+  HousePlusIcon,
+  HouseWifiIcon,
+  PawPrintIcon,
+  HandCoinsIcon,
+  SpeechIcon,
 } from "lucide-react";
 import Years04Icon from '@/assets/year-set-04.svg';
 import Years14Icon from '@/assets/year-set-14.svg';
@@ -54,175 +73,6 @@ function tooltipMenuCls(className?: string) {
     'rounded bg-gradient-to-br from-stone-50 to-slate-100 ring-2 ring-offset-1 ring-slate-300',
     className || '',
   ].join(' ');
-}
-
-const fontFamily = "'Noto Mono TC', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'";
-
-const numberFormatter = (number: number) => Intl.NumberFormat("zh-TW").format(number);
-
-const tooltipOptions = {
-  trigger: 'item',
-  enterable: true,
-  extraCssText: 'user-select: text',  // allow mouse selection
-  textStyle: {
-    fontFamily: fontFamily,
-  },
-  axisPointer: {
-    type: 'cross',
-    crossStyle: {
-      color: '#999'
-    }
-  }
-};
-
-const defaultOptions = {
-  tooltip: tooltipOptions,
-  legend: {
-    selected: {
-      '遊蕩犬估計': true,
-      '家犬估計': false,
-      '收容': true,
-      '認領': true,
-    },
-  },
-  xAxis: [
-    {
-      type: 'category',
-      axisLabel: {
-        fontFamily: fontFamily,
-      },
-    },
-    {
-      // 西元年
-      type: 'category',
-      position: 'bottom',
-      offset: 22,
-      axisLine: { show: false },
-      axisTick: { show: false },
-      splitLine: { show: false },
-      axisPointer: { show: false },
-      axisLabel: {
-        fontFamily,
-        fontStyle: 'italic',
-        color: '#aab',
-      },
-    },
-  ],
-  yAxis: {
-    type: 'value',
-    name: '數量（萬）',
-    min: 0,
-    axisLabel: {
-      fontFamily: fontFamily,
-      formatter: (value: number) => numberFormatter(value / 10000)
-    },
-    axisPointer: {
-      show: false,
-    }
-  },
-
-  series: [
-    {
-      name: '遊蕩犬估計',
-      data: [],
-      type: 'bar',
-      label: {
-        show: true,
-        position: 'top',
-        formatter: (params: {data: number}) => numberFormatter(params.data),
-        fontFamily: fontFamily,
-      },
-    },
-    {
-      name: '家犬估計',
-      type: 'line',
-      connectNulls: true,
-      label: {
-        show: true,
-        formatter: (params: {data: number}) => numberFormatter(params.data),
-        fontFamily: fontFamily,
-      },
-    },
-    { name: '收容', type: 'line', connectNulls: true, },
-    { name: '認領', type: 'line', connectNulls: true, },
-  ],
-};
-
-function makeYearRange(min: number, max: number) {
-  return Array.from(
-    {length: max - min + 1},
-    (_, i) => min + i
-  );
-}
-
-type SeriesFilters = {
-  cities?: string[] | FormDataEntryValue[],
-  years?: number[] | FormDataEntryValue[],
-}
-
-function makeSeries(
-  items: CountryItem[],
-  meta: ItemsMeta,
-  filters?: SeriesFilters
-) {
-  const validCities = filters?.cities?.length ? filters.cities.map(String) : false;
-  const validYears = filters?.years?.length ? filters.years.map(Number) : false;
-
-  const minYear = validYears ? Math.min(...validYears) : meta.minYear;
-  const maxYear = validYears ? Math.max(...validYears) : meta.maxYear;
-  const yearRange = makeYearRange(minYear, maxYear);
-  const initialData: Array<number | null> = Array(yearRange.length).fill(null);
-  const initialSeries = {
-    roaming: {
-      data: initialData,
-      type: 'bar',
-      smooth: true,
-    },
-    domestic: {
-      data: initialData,
-      type: 'line',
-    },
-    accept: {
-      data: initialData,
-      type: 'line',
-    },
-    adopt: {
-      data: initialData,
-      type: 'line',
-    },
-  };
-
-  const series = items.reduce((acc, item) => {
-    const { year, city } = item;
-    const yearIdx = yearRange.indexOf(year);
-
-    if (validYears && !validYears.includes(year)) return acc;
-    if (validCities && !validCities.includes(city)) return acc;
-
-    const qtyKeys: (keyof CountryItem)[] = ['roaming', 'domestic', 'accept', 'adopt'];
-    const toAdd = qtyKeys.reduce((memo, key) => {
-      const qty = item[key] as number;
-      if (qty > 0) return R.assoc(key, qty, memo);
-      return memo;
-    }, {});
-
-    for (const [key, qty] of Object.entries(toAdd)) {
-      acc = R.over(
-        R.lensPath([key, 'data', yearIdx]),
-        R.pipe(Number, R.add(qty as number)),
-        acc
-      );
-    }
-
-    return acc;
-  }, initialSeries);
-
-  return [
-    series.roaming,
-    series.domestic,
-    series.accept,
-    series.adopt,
-  ];
 }
 
 function CitiesInput({ formRef }: {
@@ -270,9 +120,9 @@ function CitiesInput({ formRef }: {
 }
 
 const YearPresets: Record<string, [any, (value: number) => boolean]> = {
-  '2004': [Years04Icon, R.lt(93)],
-  '2014': [Years14Icon, R.lt(103)],
-  'post12': [ScaleIcon, R.lt(105)],
+  '2004': [Years04Icon, R.lte(93)],
+  '2014': [Years14Icon, R.lte(103)],
+  'post12': [ScaleIcon, R.lte(106)],
 };
 
 function YearPresetItem({ dataKey, children }: {
@@ -375,7 +225,7 @@ function YearsInput({ min, max, formRef }: {
             <li key={year} className={handle ? 'select-none' : ''}>
               <label className='cursor-pointer px-1 py-2 block rounded relative transition hover:bg-amber-200 hover:drop-shadow' data-year={year} onClick={onClickYear}>
                 { year === handle &&
-                  <Tooltip placement='top'>
+                  <Tooltip placement='top' hoverProps={menuHoverProps}>
                     <TooltipTrigger className='mb-1 block truncate'>
                       <div className='absolute left-1/2 -translate-x-1/2 -translate-y-1 z-40 bg-blue-400 w-1.5 h-1.5'></div>
                     </TooltipTrigger>
@@ -401,16 +251,137 @@ function YearsInput({ min, max, formRef }: {
                 </div>
               </div>
             </TooltipTrigger>
-            <TooltipContent className={tooltipClass('text-sm')}>
+            <TooltipContentMenu className={tooltipClass('text-sm')}>
               <div className={tooltipMenuCls()} onClick={onPickPreset}>
                 <YearPresetItem dataKey='2004'>從 <code className='mx-1'>2004</code> 開始</YearPresetItem>
                 <YearPresetItem dataKey='2014'>從 <code className='mx-1'>2014</code> 開始</YearPresetItem>
                 <YearPresetItem dataKey='post12'>零撲殺後</YearPresetItem>
               </div>
-            </TooltipContent>
+            </TooltipContentMenu>
           </Tooltip>
         </li>
       </ul>
+    </div>
+  );
+}
+
+function SeriesMenuItem({ Icon, name, iconClass, children, sub, onClick }: {
+  Icon?: any,
+  name?: string,
+  iconClass?: string,
+  children: React.ReactNode,
+  sub?: boolean,
+  onClick?: MouseEventHandler,
+}) {
+  const itemAtom = useMemo(() => seriesMenuItemAtom(name || 'dummy'), [name]);
+  const [checked, toggle] = useAtom(itemAtom);
+
+  const menuBtnCls = 'p-2 w-full cursor-pointer flex items-center rounded hover:bg-amber-200';
+  const menuIconCls = 'w-[1.25em] aspect-square box-content';
+  const IconElement = Icon || (sub ? CornerDownRightIcon : 'div');
+
+  return (
+    <label className={menuBtnCls}>
+      <div className='pr-1.5 mr-1 border-r'>
+        <IconElement className={`${menuIconCls} ${sub ? 'stroke-slate-400' : ''} ${iconClass || ''}`} />
+      </div>
+      {
+        R.isNil(onClick) ?
+          <input type='checkbox' name='series' checked={checked} onChange={toggle} className='peer mb-1 sr-only' /> :
+          <input type='checkbox' onClick={onClick} defaultChecked className='peer mb-1 sr-only' />
+      }
+      <div className='text-slate-400 outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
+        {children}
+      </div>
+    </label>
+  );
+}
+
+function SeriesControl() {
+  const [seriesSet, setSeriesSet] = useAtom(seriesChecksAtom);
+
+  const toggles = useMemo(() => {
+    const makeFn = (keys: string[]) => {
+      return (e: React.MouseEvent) => {
+        e.preventDefault();
+        const checked = !!seriesSet[keys[0]];
+        setSeriesSet(R.mergeLeft(
+          R.fromPairs(keys.map(k => [k, !checked]))
+        ));
+      };
+    };
+    return {
+      population: makeFn(['roaming', 'domestic', 'human', 'human100']),
+      shelter: makeFn(['accept', 'adopt', 'kill', 'die']),
+      heatMap: makeFn(['h_visit', 'h_roam', 'h_feed', 'h_stop']),
+    };
+  }, [seriesSet, setSeriesSet]);
+
+  return (
+    <div className='flex flex-wrap items-center pb-0.5'>
+      <ul className='flex items-center justify-around gap-2 flex-wrap max-w-[26rem]'>
+        <li>
+          <Tooltip placement='bottom-end' offset={0} hoverProps={menuHoverProps}>
+            <TooltipTrigger className='mb-1 block truncate'>
+              <div className='cursor-help p-2 hover:bg-slate-100/75 hover:drop-shadow rounded self-stretch flex items-center' tabIndex={0}>
+                <div className='outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
+                  人口與家犬
+                </div>
+              </div>
+            </TooltipTrigger>
+            <TooltipContentMenu className={tooltipClass('text-sm')}>
+              <div className={tooltipMenuCls()}>
+                <SeriesMenuItem Icon={UsersIcon} name='human'>人口數</SeriesMenuItem>
+                <SeriesMenuItem sub name='human100'>每百人遊蕩犬數</SeriesMenuItem>
+                <SeriesMenuItem Icon={HouseIcon} name='domestic'>家犬估計數</SeriesMenuItem>
+                <SeriesMenuItem sub onClick={toggles.population}>全選／不選</SeriesMenuItem>
+              </div>
+            </TooltipContentMenu>
+          </Tooltip>
+        </li>
+        <li>
+          <Tooltip placement='bottom-end' offset={0} hoverProps={menuHoverProps}>
+            <TooltipTrigger className='mb-1 block truncate'>
+              <div className='cursor-help p-2 hover:bg-slate-100/75 hover:drop-shadow rounded self-stretch flex items-center' tabIndex={0}>
+                <div className='outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
+                  公立收容所
+                </div>
+              </div>
+            </TooltipTrigger>
+            <TooltipContentMenu className={tooltipClass('text-sm')}>
+              <div className={tooltipMenuCls()}>
+                <SeriesMenuItem Icon={HousePlusIcon} name='accept'>收容隻數</SeriesMenuItem>
+                <SeriesMenuItem Icon={DogIcon} name='adopt'>認領隻數</SeriesMenuItem>
+                <SeriesMenuItem Icon={SyringeIcon} name='kill'>人道處理數</SeriesMenuItem>
+                <SeriesMenuItem Icon={SkullIcon} name='die'>所內死亡數</SeriesMenuItem>
+                <SeriesMenuItem sub onClick={toggles.shelter}>全選／不選</SeriesMenuItem>
+              </div>
+            </TooltipContentMenu>
+          </Tooltip>
+        </li>
+        <li>
+          <Tooltip placement='bottom-end' offset={0} hoverProps={menuHoverProps}>
+            <TooltipTrigger className='mb-1 block truncate'>
+              <div className='cursor-help p-2 hover:bg-slate-100/75 hover:drop-shadow rounded self-stretch flex items-center' tabIndex={0}>
+                <div className='outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
+                  熱區政策
+                </div>
+              </div>
+            </TooltipTrigger>
+            <TooltipContentMenu className={tooltipClass('text-sm')}>
+              <div className={tooltipMenuCls()}>
+                <SeriesMenuItem Icon={HouseWifiIcon} name='h_visit'>有主犬 家訪戶數</SeriesMenuItem>
+                <SeriesMenuItem Icon={PawPrintIcon} name='h_roam'>無主犬 清查隻數</SeriesMenuItem>
+                <SeriesMenuItem Icon={HandCoinsIcon} name='h_feed' iconClass='rotate-[200deg]'>餵食者人數</SeriesMenuItem>
+                <SeriesMenuItem Icon={SpeechIcon} name='h_stop'>疏導餵食成功數</SeriesMenuItem>
+                <SeriesMenuItem sub onClick={toggles.heatMap}>全選／不選</SeriesMenuItem>
+              </div>
+            </TooltipContentMenu>
+          </Tooltip>
+        </li>
+      </ul>
+
+      <input type='hidden' name='seriesSet' value={JSON.stringify(seriesSet)} />
     </div>
   );
 }
@@ -440,16 +411,18 @@ export default function Chart({ items, meta }: {
     );
   }, []);
 
+  const updateLegends = useCallback((seriesSet: SeriesSet) => {
+    return R.set(
+      R.lensPath(['legend', 'data']),
+      Object.keys(R.pickBy(R.identity, seriesSet)).map(name => SERIES_NAMES[name])
+    );
+  }, []);
+
   useEffect(() => {
-    const chart = chartRef.current?.getEchartsInstance();
-    if (chart) {
-      chart.setOption(
-        updateYearAxis(meta.minYear, meta.maxYear)(
-          { series: makeSeries(items, meta) }
-        )
-      );
-    }
-  }, [items, meta, updateYearAxis]);
+    formRef.current?.dispatchEvent(
+      new Event("submit", { bubbles: true, cancelable: true })
+    );
+  }, []);
 
   const onApply = useCallback((e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -461,8 +434,15 @@ export default function Chart({ items, meta }: {
     if (!chart) return;
 
     const formData = new FormData(form);
+    const seriesString = formData.get('seriesSet')?.toString() || '';
+    const seriesSet = JSON.parse(seriesString) as SeriesSet;
     let cities = formData.getAll('cities').map(String);
     let years = formData.getAll('years').map(Number);
+
+    if (!seriesSet || R.type(seriesSet) !== 'Object') {
+      console.error('Unexpected seriesSet value');
+      return;
+    }
 
     // When select all items, treat as no filters
     if (cities.length === Object.keys(CITY_MAPPING).length) {
@@ -473,15 +453,19 @@ export default function Chart({ items, meta }: {
     }
 
     let newOptions = {
-      series: makeSeries(items, meta, { cities, years })
+      series: makeSeries(items, meta, seriesSet, { cities, years })
     };
 
     const minYear = years.length ? years[0] : meta.minYear;
     const maxYear = years.length ? years[years.length - 1] : meta.maxYear;
-    newOptions = updateYearAxis(minYear, maxYear)(newOptions);
+
+    newOptions = R.pipe(
+      updateYearAxis(minYear, maxYear),
+      updateLegends(seriesSet),
+    )(newOptions);
 
     chart.setOption(newOptions);
-  }, [items, meta, updateYearAxis]);
+  }, [items, meta, updateYearAxis, updateLegends]);
 
   return (
     <div className='min-w-lg min-h-80 w-full'>
@@ -497,6 +481,11 @@ export default function Chart({ items, meta }: {
           <YearsInput min={meta.minYear} max={meta.maxYear} formRef={formRef} />
         </fieldset>
 
+        <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
+          <legend className='font-bold px-1.5'>資料項目</legend>
+          <SeriesControl />
+        </fieldset>
+
         <button type='submit' className='self-center p-3 pb-4 rounded hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
           <CornerDownLeftIcon size={20} className='pl-1 pb-1' />
           套用
@@ -507,7 +496,6 @@ export default function Chart({ items, meta }: {
         ref={chartRef}
         echarts={echarts}
         option={defaultOptions}
-        notMerge={true}
         lazyUpdate={true}
         style={{ height: '70vh', minHeight: '600px' }}
         className='mt-8 px-4 py-6 bg-white resize overflow-auto'
