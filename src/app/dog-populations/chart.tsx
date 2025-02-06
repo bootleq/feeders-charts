@@ -1,9 +1,9 @@
 "use client"
 
 import * as R from 'ramda';
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
-import { useAtom, useAtomValue } from 'jotai';
+import { useAtom } from 'jotai';
 
 import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem } from '@/lib/model';
@@ -265,14 +265,15 @@ function YearsInput({ min, max, formRef }: {
   );
 }
 
-function SeriesMenuItem({ Icon, name, iconClass, children, sub }: {
+function SeriesMenuItem({ Icon, name, iconClass, children, sub, onClick }: {
   Icon?: any,
-  name: string,
+  name?: string,
   iconClass?: string,
   children: React.ReactNode,
   sub?: boolean,
+  onClick?: MouseEventHandler,
 }) {
-  const itemAtom = useMemo(() => seriesMenuItemAtom(name), [name]);
+  const itemAtom = useMemo(() => seriesMenuItemAtom(name || 'dummy'), [name]);
   const [checked, toggle] = useAtom(itemAtom);
 
   const menuBtnCls = 'p-2 w-full cursor-pointer flex items-center rounded hover:bg-amber-200';
@@ -284,7 +285,11 @@ function SeriesMenuItem({ Icon, name, iconClass, children, sub }: {
       <div className='pr-1.5 mr-1 border-r'>
         <IconElement className={`${menuIconCls} ${sub ? 'stroke-slate-400' : ''} ${iconClass || ''}`} />
       </div>
-      <input type='checkbox' name='series' checked={checked} onChange={toggle} className='peer mb-1 sr-only' />
+      {
+        R.isNil(onClick) ?
+          <input type='checkbox' name='series' checked={checked} onChange={toggle} className='peer mb-1 sr-only' /> :
+          <input type='checkbox' onClick={onClick} defaultChecked className='peer mb-1 sr-only' />
+      }
       <div className='text-slate-400 outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
         {children}
       </div>
@@ -293,7 +298,24 @@ function SeriesMenuItem({ Icon, name, iconClass, children, sub }: {
 }
 
 function SeriesControl() {
-  const seriesSet = useAtomValue(seriesChecksAtom);
+  const [seriesSet, setSeriesSet] = useAtom(seriesChecksAtom);
+
+  const toggles = useMemo(() => {
+    const makeFn = (keys: string[]) => {
+      return (e: React.MouseEvent) => {
+        e.preventDefault();
+        const checked = !!seriesSet[keys[0]];
+        setSeriesSet(R.mergeLeft(
+          R.fromPairs(keys.map(k => [k, !checked]))
+        ));
+      };
+    };
+    return {
+      population: makeFn(['roaming', 'domestic', 'human', 'human100']),
+      shelter: makeFn(['accept', 'adopt', 'kill', 'die']),
+      heatMap: makeFn(['h_visit', 'h_roam', 'h_feed', 'h_stop']),
+    };
+  }, [seriesSet, setSeriesSet]);
 
   return (
     <div className='flex flex-wrap items-center pb-0.5'>
@@ -312,6 +334,7 @@ function SeriesControl() {
                 <SeriesMenuItem Icon={UsersIcon} name='human'>人口數</SeriesMenuItem>
                 <SeriesMenuItem sub name='human100'>每百人遊蕩犬數</SeriesMenuItem>
                 <SeriesMenuItem Icon={HouseIcon} name='domestic'>家犬估計數</SeriesMenuItem>
+                <SeriesMenuItem sub onClick={toggles.population}>全選／不選</SeriesMenuItem>
               </div>
             </TooltipContentMenu>
           </Tooltip>
@@ -331,6 +354,7 @@ function SeriesControl() {
                 <SeriesMenuItem Icon={DogIcon} name='adopt'>認領隻數</SeriesMenuItem>
                 <SeriesMenuItem Icon={SyringeIcon} name='kill'>人道處理數</SeriesMenuItem>
                 <SeriesMenuItem Icon={SkullIcon} name='die'>所內死亡數</SeriesMenuItem>
+                <SeriesMenuItem sub onClick={toggles.shelter}>全選／不選</SeriesMenuItem>
               </div>
             </TooltipContentMenu>
           </Tooltip>
@@ -350,6 +374,7 @@ function SeriesControl() {
                 <SeriesMenuItem Icon={PawPrintIcon} name='h_roam'>無主犬 清查隻數</SeriesMenuItem>
                 <SeriesMenuItem Icon={HandCoinsIcon} name='h_feed' iconClass='rotate-[200deg]'>餵食者人數</SeriesMenuItem>
                 <SeriesMenuItem Icon={SpeechIcon} name='h_stop'>疏導餵食成功數</SeriesMenuItem>
+                <SeriesMenuItem sub onClick={toggles.heatMap}>全選／不選</SeriesMenuItem>
               </div>
             </TooltipContentMenu>
           </Tooltip>
