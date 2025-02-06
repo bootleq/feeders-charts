@@ -1,9 +1,23 @@
 import * as R from 'ramda';
 import { SERIES_NAMES } from '@/lib/series';
 
+const revertedSeriesNames = R.invertObj(SERIES_NAMES);
+
 export const fontFamily = "'Noto Mono TC', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'";
 
 export const numberFormatter = (number: number) => Intl.NumberFormat("zh-TW").format(number);
+
+function defaultTooltipFormatter(params: any) {
+  const { seriesName, marker, value } = params;
+  const vFormatter = R.path([revertedSeriesNames[seriesName], 'tooltip', 'valueFormatter'], defaultSeriesSettings) || numberFormatter;
+  return [
+    `<div style='display:flex;align-items:center'>`,
+    marker,
+    `<span>${seriesName}</span>`,
+    '</div>',
+    `<strong style='display:block;text-align:right'>${vFormatter(value)}</strong>`,
+  ].join('')
+};
 
 export const tooltipOptions = {
   trigger: 'item',
@@ -12,12 +26,25 @@ export const tooltipOptions = {
   textStyle: {
     fontFamily: fontFamily,
   },
+  padding: [5, 10],
+  formatter: defaultTooltipFormatter,
   axisPointer: {
     type: 'cross',
     crossStyle: {
       color: '#999'
     }
-  }
+  },
+  // alwaysShowContent: true,
+  // triggerOn: 'click',
+};
+
+const commonSeriesSetting = {
+  type: 'line',
+  connectNulls: true,
+  symbolSize: 6,
+  emphasis: {
+    scale: 1.8,
+  },
 };
 
 export const defaultSeriesSettings: Record<string, any> = {
@@ -31,18 +58,27 @@ export const defaultSeriesSettings: Record<string, any> = {
     }
   },
   domestic: {
-    type: 'line',
-    connectNulls: true,
+    ...commonSeriesSetting,
     label: {
       show: true,
       formatter: (params: {data: number}) => numberFormatter(params.data),
       fontFamily: fontFamily,
     },
   },
-  fallback: {
-    type: 'line',
-    connectNulls: true
+  human100: {
+    ...commonSeriesSetting,
+    yAxisIndex: 1,
+    symbol: 'rect',
+    symbolSize: 8,
+    lineStyle: {
+      type: 'dotted',
+    },
+    tooltip: {
+      ...tooltipOptions,
+      valueFormatter: (number: number) => `${number.toFixed(2)} 隻`,
+    },
   },
+  fallback: commonSeriesSetting,
 };
 
 export const defaultOptions = {
@@ -52,6 +88,7 @@ export const defaultOptions = {
       roaming: true,
       domestic: false,
       human: false,
+      human100: true,
       accept: true,
       adopt: true,
       kill: true,
@@ -89,18 +126,34 @@ export const defaultOptions = {
       },
     },
   ],
-  yAxis: {
-    type: 'value',
-    name: '數量（萬）',
-    min: 0,
-    axisLabel: {
-      fontFamily: fontFamily,
-      formatter: (value: number) => numberFormatter(value / 10000)
+  yAxis: [
+    {
+      type: 'value',
+      name: '數量（萬）',
+      min: 0,
+      axisLabel: {
+        fontFamily: fontFamily,
+        formatter: (value: number) => numberFormatter(value / 10000)
+      },
+      axisPointer: {
+        show: false,
+      }
     },
-    axisPointer: {
-      show: false,
-    }
-  },
+    {
+      type: 'value',
+      min: 0,
+      boundaryGap: [0, '5%'],
+      axisLabel: {
+        show: false,
+      },
+      axisPointer: {
+        show: false,
+      },
+      splitLine: {
+        show: false,
+      },
+    },
+  ],
 
   series: Object.keys(SERIES_NAMES).map(name => {
     return defaultSeriesSettings[name] || defaultSeriesSettings.fallback
