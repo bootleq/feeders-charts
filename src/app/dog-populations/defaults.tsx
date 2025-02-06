@@ -65,6 +65,27 @@ export const defaultSeriesSettings: Record<string, any> = {
       fontFamily: fontFamily,
     },
   },
+  human: {
+    ...commonSeriesSetting,
+    tooltip: {
+      ...tooltipOptions,
+      textStyle: {
+        fontFamily: 'var(--font-geist-mono)',
+      },
+      valueFormatter: (num: number) => {
+        const wan = numberFormatter(Math.floor(num / 10000));
+        const remainder = numberFormatter(num % 10000);
+        return [
+          "<div style='font-weight:normal; display:flex; flex-direction:column; align-items:center; justify-content:center; margin-top:2px'>",
+          '<div>',
+          wan !== '0' ? `${wan}<span style='font-family:var(--font-geist-sans);opacity:0.7;'> 萬</span>` : '',
+          '</div>',
+          remainder,
+          '</div>',
+        ].join('');
+      },
+    },
+  },
   human100: {
     ...commonSeriesSetting,
     yAxisIndex: 1,
