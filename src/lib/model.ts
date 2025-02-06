@@ -1,3 +1,5 @@
+import * as R from 'ramda';
+
 export type CountryItem = {
   year: number,     // 年度
   city: string,     // 縣市代碼
@@ -19,7 +21,7 @@ export type ItemsMeta = {
   maxYear: number,
 }
 
-export const CITY_MAPPING = {
+export const CITY_MAPPING: Record<string, string> = {
   City000003: "新北市", // 臺北縣 （100 年起臺北縣升直轄市）
   City000002: "臺北市",
   City000009: "臺中市", // 臺中縣 （100 年起與臺中縣合併為直轄市）
@@ -51,3 +53,17 @@ export const LEGACY_CITY_MAPPING = {
   City000015: "高雄縣",
   City000004: "桃園縣",
 };
+
+const revertCityMapping = R.invertObj(CITY_MAPPING);
+
+export function cityLookup(nameOrCode: string) {
+  if (R.has(nameOrCode, CITY_MAPPING)) {
+    return CITY_MAPPING[nameOrCode];
+  }
+
+  if (R.has(nameOrCode, revertCityMapping)) {
+    return revertCityMapping[nameOrCode];
+  }
+
+  throw new Error(`Unknown city lookup: ${nameOrCode}`);
+}
