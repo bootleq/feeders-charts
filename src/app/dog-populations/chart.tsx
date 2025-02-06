@@ -265,9 +265,10 @@ function YearsInput({ min, max, formRef }: {
   );
 }
 
-function SeriesMenuItem({ Icon, name, children, sub }: {
+function SeriesMenuItem({ Icon, name, iconClass, children, sub }: {
   Icon?: any,
   name: string,
+  iconClass?: string,
   children: React.ReactNode,
   sub?: boolean,
 }) {
@@ -275,12 +276,14 @@ function SeriesMenuItem({ Icon, name, children, sub }: {
   const [checked, toggle] = useAtom(itemAtom);
 
   const menuBtnCls = 'p-2 w-full cursor-pointer flex items-center rounded hover:bg-amber-200';
-  const menuIconCls = 'w-[1.25em] aspect-square box-content pr-1.5 mr-1 border-r';
+  const menuIconCls = 'w-[1.25em] aspect-square box-content';
   const IconElement = Icon || (sub ? CornerDownRightIcon : 'div');
 
   return (
     <label className={menuBtnCls}>
-      <IconElement className={`${menuIconCls} ${sub && 'stroke-slate-400'}`} />
+      <div className='pr-1.5 mr-1 border-r'>
+        <IconElement className={`${menuIconCls} ${sub ? 'stroke-slate-400' : ''} ${iconClass || ''}`} />
+      </div>
       <input type='checkbox' name='series' checked={checked} onChange={toggle} className='peer mb-1 sr-only' />
       <div className='text-slate-400 outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
         {children}
@@ -345,7 +348,7 @@ function SeriesControl() {
               <div className={tooltipMenuCls()}>
                 <SeriesMenuItem Icon={HouseWifiIcon} name='h_visit'>有主犬 家訪戶數</SeriesMenuItem>
                 <SeriesMenuItem Icon={PawPrintIcon} name='h_roam'>無主犬 清查隻數</SeriesMenuItem>
-                <SeriesMenuItem Icon={HandCoinsIcon} name='h_feed'>餵食者人數</SeriesMenuItem>
+                <SeriesMenuItem Icon={HandCoinsIcon} name='h_feed' iconClass='rotate-[200deg]'>餵食者人數</SeriesMenuItem>
                 <SeriesMenuItem Icon={SpeechIcon} name='h_stop'>疏導餵食成功數</SeriesMenuItem>
               </div>
             </TooltipContentMenu>
