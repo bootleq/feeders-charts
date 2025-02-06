@@ -55,7 +55,8 @@ export const defaultSeriesSettings: Record<string, any> = {
       position: 'top',
       formatter: (params: {data: number}) => numberFormatter(params.data),
       fontFamily: fontFamily,
-    }
+    },
+    itemStyle: { color: '#5470c6' },
   },
   domestic: {
     ...commonSeriesSetting,
@@ -64,9 +65,11 @@ export const defaultSeriesSettings: Record<string, any> = {
       formatter: (params: {data: number}) => numberFormatter(params.data),
       fontFamily: fontFamily,
     },
+    itemStyle: { color: '#445577' },
   },
   human: {
     ...commonSeriesSetting,
+    itemStyle: { color: '#73c0de' },
     tooltip: {
       ...tooltipOptions,
       textStyle: {
@@ -94,6 +97,7 @@ export const defaultSeriesSettings: Record<string, any> = {
     lineStyle: {
       type: 'dotted',
     },
+    itemStyle: { color: '#fc8452' },
     tooltip: {
       ...tooltipOptions,
       textStyle: {
@@ -104,6 +108,13 @@ export const defaultSeriesSettings: Record<string, any> = {
       },
     },
   },
+  accept: { ...commonSeriesSetting, itemStyle: { color: '#91cc75', } },
+  adopt: { ...commonSeriesSetting, itemStyle: { color: '#ea7ccc', } },
+  kill: { ...commonSeriesSetting, itemStyle: { color: '#ee6666', } },
+  die: { ...commonSeriesSetting, itemStyle: { color: '#994444', } },
+  h_visit: { ...commonSeriesSetting, itemStyle: { color: '#3ba272', } },
+  h_feed: { ...commonSeriesSetting, itemStyle: { color: '#883333', } },
+  h_stop: { ...commonSeriesSetting, itemStyle: { color: '#3ba272', } },
   fallback: commonSeriesSetting,
 };
 
