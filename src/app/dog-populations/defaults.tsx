@@ -75,7 +75,12 @@ export const defaultSeriesSettings: Record<string, any> = {
     },
     tooltip: {
       ...tooltipOptions,
-      valueFormatter: (number: number) => `${number.toFixed(2)} 隻`,
+      textStyle: {
+        fontFamily: 'var(--font-geist-mono)',
+      },
+      valueFormatter: (number: number) => {
+        return `${number.toFixed(2)}<span style='font-family:var(--font-geist-sans)'> 隻</span>`
+      },
     },
   },
   fallback: commonSeriesSetting,
