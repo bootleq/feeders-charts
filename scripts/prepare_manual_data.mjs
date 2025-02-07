@@ -5,24 +5,10 @@ import path from "path";
 import csv from "csv-parser";
 import { buildingPath } from '@/lib/data_source';
 import { CITY_MAPPING } from '@/lib/model';
+import { testSamplesExist } from './utils';
 
 const DATA_DIR = path.resolve('data');
 const cityCodeMapping = new Map(Object.entries(CITY_MAPPING).map(([code, name]) => [name, code]));
-
-function testSamplesExist(samples, data) {
-  return samples.every(sample => {
-    const found = data.find(obj => {
-      return Object.entries(sample).every(([k, v]) => obj[k] === v);
-    });
-
-    if (!found) {
-      console.error('validation failed, missing data:', sample);
-      return false;
-    }
-
-    return true;
-  });
-}
 
 const resources = [
   {

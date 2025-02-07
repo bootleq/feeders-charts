@@ -8,7 +8,7 @@ import {
   buildingPath,
 } from '@/lib/data_source';
 
-import { jqProcess } from './utils';
+import { jqProcess, testSamplesExist } from './utils';
 import { normalizeShelterXLSX } from './normalizers/shelter_xlsx';
 import { normalizeByJq } from './normalizers/jq';
 import { normalizePopulation } from './normalizers/population_jq';
@@ -81,6 +81,17 @@ function validate(resourceName, items) {
       }
 
       return true;
+    },
+    shelter_details: (data) => {
+      // Note doesn't 100% match below sources:
+      // https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx
+      // https://data.gov.tw/dataset/73396
+      const samples = [
+        { year: 113, city: 'City000002', room: 840, return: 0, miss: 5, occupy: 722.4 },    // 臺北市 2024，犬在養率 86% (近 722.4 / 860 = 84%)
+        { year: 111, city: 'City000010', room: 239, return: 0, miss: 110, occupy: 160.13 }, // 彰化縣 2022，犬在養率 67% (近 160.13 / 239 = 67%)
+        { year: 107, city: "City000004", room: 0, return: 871, miss: 270, occupy: 0 },      // 桃園市 2018，犬在養率無法計算（缺最大留容數資料）
+      ];
+      return testSamplesExist(samples, data);
     },
   }
 
