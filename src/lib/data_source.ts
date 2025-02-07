@@ -65,6 +65,14 @@ export const sources: Sources = {
     // 中華民國統計資訊網 - 縣市重要統計指標查詢系統
     // 資料來源：內政部
   },
+  shelter_details: {
+    title: '全國公立動物收容所收容處理情形統計表(細項)',
+    docUrl: 'https://data.gov.tw/dataset/73396',
+    name: 'shelter_details',
+    url: 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=p9yPwrCs2OtC',
+    extname: 'json',
+    normalizer: 'jq',
+  },
   ...shelter_reports,
 }
 
@@ -76,13 +84,6 @@ export const unusedSources = {
     url: 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=DyplMIk3U1hf',
     extname: 'json',
     normalizer: 'jq',
-  },
-  shelter_details: {
-    title: '全國公立動物收容所收容處理情形統計表(細項)',
-    docUrl: 'https://data.gov.tw/dataset/73396',
-    name: 'shelter_details',
-    url: 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=p9yPwrCs2OtC',
-    extname: 'json',
   },
 }
 

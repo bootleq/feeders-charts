@@ -42,6 +42,20 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
   「動物保護資訊網」每年公布的統計數字，多為 Excel 檔案
 
+- 全國公立動物收容所收容處理情形統計表(細項) (106 ~ 113 年)
+  https://data.gov.tw/dataset/73396
+
+  細項較多，並未全部使用
+
+  留意部分欄位在前幾年並沒有資料：
+
+  - 出所：逃脫從 106 開始
+  - 出所：回置從 107 開始
+  - 可留容最大值從 109 開始
+
+  註：類似資料（有總表、詳表，新版詳表更完整）
+  https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx
+
 - 戶籍登記人口數(人)
   https://winstacity.dgbas.gov.tw/DgbasWeb/ZWeb/StateFile_ZWeb.aspx
 
@@ -93,11 +107,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   https://data.gov.tw/dataset/41236
 
   和動保資訊網提供的數字對不起來，年度也不齊全
-
-- 全國公立動物收容所收容處理情形統計表(細項)
-  https://data.gov.tw/dataset/73396
-
-  年度不齊全
 
 
 
