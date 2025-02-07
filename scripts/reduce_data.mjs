@@ -1,3 +1,4 @@
+import * as R from 'ramda';
 import fs from 'node:fs';
 import fsp from 'node:fs/promises';
 import path from "path";
@@ -67,26 +68,39 @@ async function combine( resourceNames ) {
   }
 }
 
-(async function main() {
-  let valid = true;
-
-  for (const [resourceName] of Object.entries(sources)) {
-    const data = await normalize(resourceName);
-
-    if (resourceName === 'population') {
+function validate(resourceName, items) {
+  const validators = {
+    population: (data) => {
       const item112 = data.find(({ year, roaming }) => {
         return year > 111 && roaming;
       });
+
       if (item112) {
         console.error(`Unexpected data, we assume 112 (2023), 113 (2024) population data not included yet.`);
-        valid = false;
+        return false;
       }
-    }
+
+      return true;
+    },
   }
 
-  if (!valid) {
-    console.log('Aborted.');
-    return;
+  const validator = validators[resourceName];
+
+  if (R.type(validator) === 'Function') {
+    return validator(items);
+  }
+
+  return true;
+}
+
+(async function main() {
+  for (const [resourceName] of Object.entries(sources)) {
+    const data = await normalize(resourceName);
+
+    if (!validate(resourceName, data)) {
+      console.log('Aborted.');
+      return;
+    }
   }
 
   const allResources = Object.keys(sources).concat(manuallyResources);
