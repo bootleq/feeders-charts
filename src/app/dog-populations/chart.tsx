@@ -13,6 +13,7 @@ import type { SeriesSet } from '@/lib/series';
 
 import { seriesChecksAtom, seriesMenuItemAtom } from './store';
 
+import { MenuDescTooltip } from './MenuDescTooltip';
 import { defaultOptions } from './defaults';
 
 import ReactEChartsCore from 'echarts-for-react/lib/core';
@@ -324,19 +325,21 @@ function SeriesMenuItem({ Icon, name, iconClass, children, sub, onClick }: {
   const IconElement = Icon || (sub ? CornerDownRightIcon : 'div');
 
   return (
-    <label className={menuBtnCls}>
-      <div className='pr-1.5 mr-1 border-r'>
-        <IconElement className={`${menuIconCls} ${sub ? 'stroke-slate-400' : ''} ${iconClass || ''}`} />
-      </div>
-      {
-        R.isNil(onClick) ?
-          <input type='checkbox' name='series' checked={checked} onChange={toggle} className='peer mb-1 sr-only' /> :
-          <input type='checkbox' onClick={onClick} defaultChecked className='peer mb-1 sr-only' />
-      }
-      <div className='text-slate-400 outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
-        {children}
-      </div>
-    </label>
+    <MenuDescTooltip name={name}>
+      <label className={menuBtnCls}>
+        <div className='pr-1.5 mr-1 border-r'>
+          <IconElement className={`${menuIconCls} ${sub ? 'stroke-slate-400' : ''} ${iconClass || ''}`} />
+        </div>
+        {
+          R.isNil(onClick) ?
+            <input type='checkbox' name='series' checked={checked} onChange={toggle} className='peer mb-1 sr-only' /> :
+            <input type='checkbox' onClick={onClick} defaultChecked className='peer mb-1 sr-only' />
+        }
+        <div className='text-slate-400 outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
+          {children}
+        </div>
+      </label>
+    </MenuDescTooltip>
   );
 }
 
