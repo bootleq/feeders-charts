@@ -5,6 +5,7 @@ import type { SeriesSet } from '@/lib/series';
 
 const initialExcludeSeries = [
   'human100',
+  'room',
 ];
 
 export const seriesChecksAtom = atom<SeriesSet>(

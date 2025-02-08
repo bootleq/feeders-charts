@@ -2,6 +2,38 @@
 
 import { Tooltip, TooltipTrigger, TooltipContent, menuHoverProps } from '@/components/Tooltip';
 
+// 遊蕩犬
+const tipRoaming = (<>
+  <strong>歷年遊蕩犬數量統計</strong>，請留意：
+  <ul className='list-inside list-disc my-1'>
+    <li>統計方式有變動，109 年起才比較穩定</li>
+    <li>此為估計值，非實數</li>
+    <li>統計範圍不含野犬 (feral dog)</li>
+  </ul>
+  <p className='mt-2'>
+    88 年只有全國數字，未取得縣市資料
+  </p>
+</>);
+
+// 人口
+const tipHuman = (<>
+  前一年 12 月的人口數
+  <br />
+  取自<a href='https://winstacity.dgbas.gov.tw/DgbasWeb/ZWeb/StateFile_ZWeb.aspx' target='_blank'>中華民國統計資訊網</a>「戶籍登記人口數(人)」
+</>);
+
+// 每百人
+const tipHuman100 = (<>
+  平均每百人遊蕩犬數
+  <br />
+  <code className='font-mono text-green-900'>（遊蕩犬數 / 人口數 × 100）</code>
+</>);
+
+// 家犬
+const tipDomestic = (<>
+  每兩年統計一次，估計值，非實數
+</>);
+
 // 收容
 const tipAccept = (<>
   <strong>總入所數</strong>，依動保資訊網定義為：
@@ -57,6 +89,22 @@ const tipReturn = (<>
   2011 年三月前叫「飭回原地」，之後叫「絕育後回置」
 </>);
 
+const dict: Record<string, React.JSX.Element|string> = {
+  roaming: tipRoaming,
+  human: tipHuman,
+  human100: tipHuman100,
+  domestic: tipDomestic,
+
+  accept: tipAccept,
+  adopt: tipAdopt,
+  kill: tipKill,
+  die: tipDie,
+  miss: tipMiss,
+  room: tipRoom,
+  occupy: tipOccupy,
+  return: tipReturn,
+};
+
 export const MenuDescTooltip = ({ name, children }: { name: string|undefined, children: React.ReactNode }) => {
   const body = name && dict[name];
   const hoverProps = {
@@ -70,7 +118,7 @@ export const MenuDescTooltip = ({ name, children }: { name: string|undefined, ch
         <TooltipTrigger>
           {children}
         </TooltipTrigger>
-        <TooltipContent className='px-2 py-1 rounded box-border text-sm leading-relaxed w-fit max-w-[20vw] z-[1002] bg-neutral-50 drop-shadow-md'>
+        <TooltipContent className='px-2 py-1 rounded box-border text-sm leading-relaxed w-fit max-w-[20vw] z-[1002] bg-neutral-50 drop-shadow-xl'>
           {body}
         </TooltipContent>
       </Tooltip>
@@ -79,14 +127,3 @@ export const MenuDescTooltip = ({ name, children }: { name: string|undefined, ch
 
   return children;
 }
-
-const dict: Record<string, React.JSX.Element|string> = {
-  accept: tipAccept,
-  adopt: tipAdopt,
-  kill: tipKill,
-  die: tipDie,
-  miss: tipMiss,
-  room: tipRoom,
-  occupy: tipOccupy,
-  return: tipReturn,
-};
