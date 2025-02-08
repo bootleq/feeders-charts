@@ -33,9 +33,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - 年度犬貓統計表
   https://data.gov.tw/dataset/41771
 
-  其中 90 年的遊蕩犬資料應為誤植，實際年度應為 93 年，故處理時程式會將 90 改成 93
-
-  參考「93年全國流浪狗狗數及92年公立動物收容所收容數總表」
+  其中 90 年的遊蕩犬資料可能為誤植，一般公布的年度是 93 年，故處理時程式會特別將 90 年遊蕩犬移到 93 年，
+  以符合「93年全國流浪狗狗數及92年公立動物收容所收容數總表」
   https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000198?parentID=Tab0000004
 
 - 公立動物收容所統計（97 ~ 113 年，只採用到 107 年）
@@ -136,4 +135,4 @@ location /feeders-charts {
 [HOTAC 2020]: https://www.hotac.org.tw/news-4169
 [EAST 2009]: https://www.east.org.tw/sites/east/files/content/upload/File/2009-ISSUES/20091104.pdf
 [全國遊蕩犬數量整理成圖表]: https://bootleq.blogspot.com/2024/09/taiwan-roaming-dog-populations-chart.html
-[年度資料 gdoc]: https://docs.google.com/spreadsheets/d/1ajrN-ok3wnSI8X2-W8B2rXIz5ScnZWyUzt-G4/edit?gid=0#gid=0
+[年度資料 gdoc]: https://docs.google.com/spreadsheets/d/1ajrN-ok3wnSI8X2-ntRRX9W8B2rXIz5ScnZWyUzt-G4/edit?gid=0#gid=0

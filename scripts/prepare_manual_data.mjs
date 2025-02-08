@@ -109,7 +109,10 @@ const resources = [
         if (year <= 96) { // 97 年以後已可由其他來源取得資料
           obj['city'] = '_';
 
-          if (year >= 92) {
+          if (year == 90) {
+            delete obj['domestic'];
+          }
+          if (year >= 92) { // 90 年的遊蕩犬數量，移到 93 年
             delete obj['domestic'];
             delete obj['roaming'];
           }

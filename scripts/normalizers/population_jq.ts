@@ -11,15 +11,18 @@ import { downloadPath, buildingPath } from '@/lib/data_source';
 // Original year 90 seems incorrect if we agree the number is for year 93
 // https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000198?parentID=Tab0000004
 function fixYear93(items: CountryItem[]) {
-  const replaceYear = R.mapObjIndexed((v, key) => {
-    if (key === 'year' && v === 90) {
-      return 93;
-    } else {
-      return v;
-    }
-  });
-
-  return R.map(replaceYear, items);
+  return R.pipe(
+    R.map(
+      R.when(
+        R.propEq(90, 'year'),
+        R.juxt([
+          R.dissoc('roaming'), // this keeps 90's domestic data
+          R.pipe(R.dissoc('domestic'), R.assoc('year', 93)), // then add another entry for 93
+        ]),
+      ),
+    ),
+    R.flatten,
+  )(items);
 }
 
 export async function normalizePopulation(resourceName: string) {
@@ -38,7 +41,7 @@ export async function normalizePopulation(resourceName: string) {
     const result93 = fixYear93(result);
 
     await fsp.writeFile(outFile, JSON.stringify(result93, null, 2));
-    return result;
+    return result93;
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.error(`Fail normalizing ${resourceName}：`, error.message);
