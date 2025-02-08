@@ -118,7 +118,7 @@ export const MenuDescTooltip = ({ name, children }: { name: string|undefined, ch
         <TooltipTrigger>
           {children}
         </TooltipTrigger>
-        <TooltipContent className='px-2 py-1 rounded box-border text-sm leading-relaxed w-fit max-w-[20vw] z-[1002] bg-neutral-50 drop-shadow-md'>
+        <TooltipContent className='px-2 py-1 rounded box-border text-sm leading-relaxed w-fit max-w-[20vw] z-[1002] bg-neutral-50 drop-shadow-xl'>
           {body}
         </TooltipContent>
       </Tooltip>
