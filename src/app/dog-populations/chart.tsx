@@ -51,6 +51,10 @@ import {
   GrabIcon,
   CircleDollarSignIcon,
   CircleUserIcon,
+  FootprintsIcon,
+  Grid2x2Icon,
+  Grid2x2XIcon,
+  TruckIcon,
 } from "lucide-react";
 import Years04Icon from '@/assets/year-set-04.svg';
 import Years14Icon from '@/assets/year-set-14.svg';
@@ -400,6 +404,10 @@ function SeriesControl() {
                 <SeriesMenuItem Icon={DogIcon} name='adopt'>認領隻數</SeriesMenuItem>
                 <SeriesMenuItem Icon={SyringeIcon} name='kill'>人道處理數</SeriesMenuItem>
                 <SeriesMenuItem Icon={SkullIcon} name='die'>所內死亡數</SeriesMenuItem>
+                <SeriesMenuItem Icon={FootprintsIcon} name='miss'>逃脫等</SeriesMenuItem>
+                <SeriesMenuItem Icon={Grid2x2Icon} name='room'>可收容量</SeriesMenuItem>
+                <SeriesMenuItem Icon={Grid2x2XIcon} name='occupy'>在養數</SeriesMenuItem>
+                <SeriesMenuItem Icon={TruckIcon} name='return'>回置</SeriesMenuItem>
                 <SeriesMenuItem sub onClick={toggles.shelter}>全選／不選</SeriesMenuItem>
               </div>
             </TooltipContentMenu>
