@@ -57,6 +57,17 @@ const tipReturn = (<>
   2011 年三月前叫「飭回原地」，之後叫「絕育後回置」
 </>);
 
+const dict: Record<string, React.JSX.Element|string> = {
+  accept: tipAccept,
+  adopt: tipAdopt,
+  kill: tipKill,
+  die: tipDie,
+  miss: tipMiss,
+  room: tipRoom,
+  occupy: tipOccupy,
+  return: tipReturn,
+};
+
 export const MenuDescTooltip = ({ name, children }: { name: string|undefined, children: React.ReactNode }) => {
   const body = name && dict[name];
   const hoverProps = {
@@ -79,14 +90,3 @@ export const MenuDescTooltip = ({ name, children }: { name: string|undefined, ch
 
   return children;
 }
-
-const dict: Record<string, React.JSX.Element|string> = {
-  accept: tipAccept,
-  adopt: tipAdopt,
-  kill: tipKill,
-  die: tipDie,
-  miss: tipMiss,
-  room: tipRoom,
-  occupy: tipOccupy,
-  return: tipReturn,
-};
