@@ -8,6 +8,7 @@ Prepare data source:
 
 - `pnpm data:download`: Download raw data from data sources
 - `pnpm data:human_pop`: Transform human_population data (require download source manually)
+- `pnpm data:shelter_pet`: Fetch and transform shelter detail data
 - `pnpm data:heat_map`: Fetch and transform heat map data
 - `pnpm data:manually`: Transform manually collected (built-in in repo) data
 - `pnpm data:reduce`: Transform downloaded data and combine all processed data
@@ -37,10 +38,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   參考「93年全國流浪狗狗數及92年公立動物收容所收容數總表」
   https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000198?parentID=Tab0000004
 
-- 公立動物收容所統計（97 ~ 113 年）
+- 公立動物收容所統計（97 ~ 113 年，只採用到 107 年）
   https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab3
 
   「動物保護資訊網」每年公布的統計數字，多為 Excel 檔案
+
+  因後述「詳表」較完整，所以這邊只採用 97 ~ 107 年的資料
+
+- 動物收容統計表（詳表）（108 ~ 113 年）
+  https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx
+
+  來自「全國動物收容管理系統」的詳細資料
 
 - 戶籍登記人口數(人)
   https://winstacity.dgbas.gov.tw/DgbasWeb/ZWeb/StateFile_ZWeb.aspx
@@ -94,10 +102,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
   和動保資訊網提供的數字對不起來，年度也不齊全
 
-- 全國公立動物收容所收容處理情形統計表(細項)
+- 全國公立動物收容所收容處理情形統計表(細項) (106 ~ 113 年)
   https://data.gov.tw/dataset/73396
 
-  年度不齊全
+  比起「全國動物收容管理系統」，資料較不齊全，所以不採用
+
+  部分欄位在前幾年並沒有資料：
+
+  - 出所：回置從 107 開始
+  - 可留容最大值從 109 開始
 
 
 

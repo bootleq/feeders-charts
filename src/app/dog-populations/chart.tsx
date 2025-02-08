@@ -13,6 +13,7 @@ import type { SeriesSet } from '@/lib/series';
 
 import { seriesChecksAtom, seriesMenuItemAtom } from './store';
 
+import { MenuDescTooltip } from './MenuDescTooltip';
 import { defaultOptions } from './defaults';
 
 import ReactEChartsCore from 'echarts-for-react/lib/core';
@@ -50,6 +51,10 @@ import {
   GrabIcon,
   CircleDollarSignIcon,
   CircleUserIcon,
+  FootprintsIcon,
+  Grid2x2Icon,
+  Grid2x2XIcon,
+  TruckIcon,
 } from "lucide-react";
 import Years04Icon from '@/assets/year-set-04.svg';
 import Years14Icon from '@/assets/year-set-14.svg';
@@ -324,19 +329,21 @@ function SeriesMenuItem({ Icon, name, iconClass, children, sub, onClick }: {
   const IconElement = Icon || (sub ? CornerDownRightIcon : 'div');
 
   return (
-    <label className={menuBtnCls}>
-      <div className='pr-1.5 mr-1 border-r'>
-        <IconElement className={`${menuIconCls} ${sub ? 'stroke-slate-400' : ''} ${iconClass || ''}`} />
-      </div>
-      {
-        R.isNil(onClick) ?
-          <input type='checkbox' name='series' checked={checked} onChange={toggle} className='peer mb-1 sr-only' /> :
-          <input type='checkbox' onClick={onClick} defaultChecked className='peer mb-1 sr-only' />
-      }
-      <div className='text-slate-400 outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
-        {children}
-      </div>
-    </label>
+    <MenuDescTooltip name={name}>
+      <label className={menuBtnCls}>
+        <div className='pr-1.5 mr-1 border-r'>
+          <IconElement className={`${menuIconCls} ${sub ? 'stroke-slate-400' : ''} ${iconClass || ''}`} />
+        </div>
+        {
+          R.isNil(onClick) ?
+            <input type='checkbox' name='series' checked={checked} onChange={toggle} className='peer mb-1 sr-only' /> :
+            <input type='checkbox' onClick={onClick} defaultChecked className='peer mb-1 sr-only' />
+        }
+        <div className='text-slate-400 outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
+          {children}
+        </div>
+      </label>
+    </MenuDescTooltip>
   );
 }
 
@@ -397,6 +404,10 @@ function SeriesControl() {
                 <SeriesMenuItem Icon={DogIcon} name='adopt'>認領隻數</SeriesMenuItem>
                 <SeriesMenuItem Icon={SyringeIcon} name='kill'>人道處理數</SeriesMenuItem>
                 <SeriesMenuItem Icon={SkullIcon} name='die'>所內死亡數</SeriesMenuItem>
+                <SeriesMenuItem Icon={FootprintsIcon} name='miss'>逃脫等</SeriesMenuItem>
+                <SeriesMenuItem Icon={Grid2x2Icon} name='room'>可收容量</SeriesMenuItem>
+                <SeriesMenuItem Icon={Grid2x2XIcon} name='occupy'>在養數</SeriesMenuItem>
+                <SeriesMenuItem Icon={TruckIcon} name='return'>回置</SeriesMenuItem>
                 <SeriesMenuItem sub onClick={toggles.shelter}>全選／不選</SeriesMenuItem>
               </div>
             </TooltipContentMenu>

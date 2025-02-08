@@ -3,12 +3,13 @@ import path from "path";
 export const DATA_DIR = 'data';
 
 const shelter_reports_table = [
-  [113, '113年度全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/250117114614324698T87CD.xlsx'],
-  [112, '112年度全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/2402191131342031173DCLA.xlsx'],
-  [111, '111年度全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/2304270146565611513V5GC2JATE.xlsx'],
-  [110, '110年度全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/220315063424098101XYJV5.xls'],
-  [109,   '109年全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/210513043948020470N5CB8.xls'],
-  [108,   '108年全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/200215115223422925LT732.ods'],
+  // NOTE: 107 年之後改用「動物收容統計表（詳表）」資料，這邊不採用
+  // [113, '113年度全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/250117114614324698T87CD.xlsx'],
+  // [112, '112年度全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/2402191131342031173DCLA.xlsx'],
+  // [111, '111年度全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/2304270146565611513V5GC2JATE.xlsx'],
+  // [110, '110年度全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/220315063424098101XYJV5.xls'],
+  // [109,   '109年全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/210513043948020470N5CB8.xls'],
+  // [108,   '108年全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/200215115223422925LT732.ods'],
   [107,   '107年全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/download/resources/A20190100004_exl.xlsx'],
   [106,   '106年全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/download/resources/A20170700007_exl.xlsx'],
   [105,   '105年全國公立動物收容所收容處理情形統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/1912170324497935458R4FW.xlsx'],
@@ -83,6 +84,7 @@ export const unusedSources = {
     name: 'shelter_details',
     url: 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=p9yPwrCs2OtC',
     extname: 'json',
+    normalizer: 'jq',
   },
 }
 
