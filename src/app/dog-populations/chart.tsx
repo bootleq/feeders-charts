@@ -55,6 +55,7 @@ import {
   Grid2x2Icon,
   Grid2x2XIcon,
   TruckIcon,
+  SigmaIcon,
 } from "lucide-react";
 import Years04Icon from '@/assets/year-set-04.svg';
 import Years14Icon from '@/assets/year-set-14.svg';
@@ -381,6 +382,7 @@ function SeriesControl() {
             </TooltipTrigger>
             <TooltipContentMenu className={tooltipClass('text-sm')}>
               <div className={tooltipMenuCls()}>
+                <SeriesMenuItem Icon={SigmaIcon} name='roaming'>遊蕩犬估計</SeriesMenuItem>
                 <SeriesMenuItem Icon={UsersIcon} name='human'>人口數</SeriesMenuItem>
                 <SeriesMenuItem sub name='human100'>每百人遊蕩犬數</SeriesMenuItem>
                 <SeriesMenuItem Icon={HouseIcon} name='domestic'>家犬估計數</SeriesMenuItem>
