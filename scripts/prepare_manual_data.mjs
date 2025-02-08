@@ -106,7 +106,7 @@ const resources = [
       return data.reduce((acc, obj) => {
         const { year } = obj;
 
-        if (year <= 96) {
+        if (year <= 96) { // 97 年以後已可由其他來源取得資料
           obj['city'] = '_';
 
           if (year >= 92) {

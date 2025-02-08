@@ -19,6 +19,7 @@ const manuallyResources = [
   'countrywide',
   'human_population',
   'heat_map',
+  'shelter_pet',
 ];
 
 async function normalize( resourceName ) {
@@ -82,7 +83,7 @@ function validate(resourceName, items) {
 
       return true;
     },
-    shelter_details: (data) => {
+    shelter_details: (data) => { // NOTE: unused, use shelter_pet instead
       // Note doesn't 100% match below sources:
       // https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx
       // https://data.gov.tw/dataset/73396
