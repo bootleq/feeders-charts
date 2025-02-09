@@ -16,6 +16,11 @@ export const seriesChecksAtom = atom<SeriesSet>(
   }, {})
 );
 
+export const representMenuAtom = atom<CheckboxSet>({
+  roaming_chart_bar: true,
+  show_all_labels: false,
+});
+
 export const checkboxMenuItemAtom = (boxsetAtom: PrimitiveAtom<CheckboxSet>, key: string) => atom(
   get => get(boxsetAtom)[key] ?? false,
   (get, set) => {

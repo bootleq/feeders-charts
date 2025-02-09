@@ -12,8 +12,10 @@ import type { SeriesSet } from '@/lib/series';
 import { CitiesInput } from './CitiesInput';
 import { YearsInput } from './YearsInput';
 import { SeriesControl } from './SeriesControl';
+import { RepresentControl } from './RepresentControl';
 
-import { defaultOptions } from './defaults';
+import type { CheckboxSet } from './store';
+import { defaultOptions, defaultSeriesSettings } from './defaults';
 
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import * as echarts from 'echarts/core';
@@ -90,6 +92,28 @@ export default function Chart({ items, meta }: {
     );
   }, []);
 
+  const updateRepresent = useCallback((checkboxSet: CheckboxSet) => {
+    const { roaming_chart_bar, show_all_labels } = checkboxSet;
+    return R.over(
+      R.lensPath(['series']),
+      R.map(
+        R.pipe(
+          R.when(
+            R.propEq(SERIES_NAMES['roaming'], 'name'),
+            R.mergeDeepRight(
+              R.assoc(
+                'type',
+                roaming_chart_bar ? 'bar' : 'line',
+                defaultSeriesSettings['roaming'] as object
+              )
+            )
+          ),
+          show_all_labels ? R.set(R.lensPath(['label', 'show']), true) : R.identity,
+        )
+      )
+    );
+  }, []);
+
   useEffect(() => {
     formRef.current?.dispatchEvent(
       new Event("submit", { bubbles: true, cancelable: true })
@@ -108,11 +132,18 @@ export default function Chart({ items, meta }: {
     const formData = new FormData(form);
     const seriesString = formData.get('seriesSet')?.toString() || '';
     const seriesSet = JSON.parse(seriesString) as SeriesSet;
+    const representString = formData.get('representSet')?.toString() || '';
+    const representSet = JSON.parse(representString) as CheckboxSet;
     let cities = formData.getAll('cities').map(String);
     let years = formData.getAll('years').map(Number);
 
     if (!seriesSet || R.type(seriesSet) !== 'Object') {
       console.error('Unexpected seriesSet value');
+      return;
+    }
+
+    if (!representSet || R.type(representSet) !== 'Object') {
+      console.error('Unexpected representSet value');
       return;
     }
 
@@ -134,10 +165,11 @@ export default function Chart({ items, meta }: {
     newOptions = R.pipe(
       updateYearAxis(minYear, maxYear),
       updateLegends(seriesSet),
+      updateRepresent(representSet),
     )(newOptions);
 
     chart.setOption(newOptions);
-  }, [items, meta, updateYearAxis, updateLegends]);
+  }, [items, meta, updateYearAxis, updateLegends, updateRepresent]);
 
   return (
     <div className='min-w-lg min-h-80 w-full'>
@@ -156,6 +188,11 @@ export default function Chart({ items, meta }: {
         <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
           <legend className='font-bold px-1.5'>資料項目</legend>
           <SeriesControl />
+        </fieldset>
+
+        <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
+          <legend className='font-bold px-1.5'>呈現</legend>
+          <RepresentControl />
         </fieldset>
 
         <button type='submit' className='self-center p-3 pb-4 rounded hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>

@@ -45,10 +45,15 @@ const commonSeriesSetting = {
   emphasis: {
     scale: 1.8,
   },
+  label: {
+    formatter: (params: {data: number}) => numberFormatter(params.data),
+    fontFamily: fontFamily,
+  },
 };
 
 export const defaultSeriesSettings: Record<string, any> = {
   roaming: {
+    ...commonSeriesSetting,
     type: 'bar',
     label: {
       show: true,
@@ -121,6 +126,13 @@ export const defaultSeriesSettings: Record<string, any> = {
     tooltip: {
       ...tooltipOptions,
       valueFormatter: R.pipe(Math.round, numberFormatter),
+    },
+    label: {
+      formatter: (params: {data: number}) => {
+        const rounded = Math.round(params.data);
+        return numberFormatter(rounded);
+      },
+      fontFamily: fontFamily,
     },
   },
   h_visit: { ...commonSeriesSetting, itemStyle: { color: '#3ba272', } },
