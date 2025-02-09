@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { useAtom } from 'jotai';
 import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { seriesChecksAtom } from './store';
-import { SeriesMenuItem } from './SeriesMenuItem';
+import { CheckboxMenuItem } from './SeriesMenuItem';
 import { tooltipClass, tooltipMenuCls } from './chart';
 
 import {
@@ -43,6 +43,8 @@ export function SeriesControl() {
       heatMap: makeFn(['h_visit', 'h_roam', 'h_feed', 'h_stop']),
     };
   }, [seriesSet, setSeriesSet]);
+
+  const SeriesMenuItem = useMemo(() => CheckboxMenuItem(seriesChecksAtom, 'series'), []);
 
   return (
     <div className='flex flex-wrap items-center pb-0.5'>

@@ -1,7 +1,9 @@
 import * as R from 'ramda';
-import { atom } from 'jotai';
+import { atom, PrimitiveAtom } from 'jotai';
 import { SERIES_NAMES } from '@/lib/series';
 import type { SeriesSet } from '@/lib/series';
+
+export type CheckboxSet = Record<string, boolean>;
 
 const initialExcludeSeries = [
   'human100',
@@ -14,9 +16,9 @@ export const seriesChecksAtom = atom<SeriesSet>(
   }, {})
 );
 
-export const seriesMenuItemAtom = (key: string) => atom(
-  get => get(seriesChecksAtom)[key] ?? false,
+export const checkboxMenuItemAtom = (boxsetAtom: PrimitiveAtom<CheckboxSet>, key: string) => atom(
+  get => get(boxsetAtom)[key] ?? false,
   (get, set) => {
-    set(seriesChecksAtom, R.over(R.lensProp(key), R.not));
+    set(boxsetAtom, R.over(R.lensProp(key), R.not));
   }
 );
