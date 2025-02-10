@@ -69,6 +69,7 @@ export default function Chart({ items, meta }: {
 }) {
   const chartRef = useRef<ReactEChartsCore>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const formCacheRepresent = useRef('');
 
   const updateYearAxis = useCallback((minYear: number, maxYear: number) => {
     const yearsRange = makeYearRange(minYear, maxYear);
@@ -162,10 +163,16 @@ export default function Chart({ items, meta }: {
     const minYear = years.length ? years[0] : meta.minYear;
     const maxYear = years.length ? years[years.length - 1] : meta.maxYear;
 
+    let needUpdateRepresent = false;
+    if (formCacheRepresent.current !== representString) {
+      needUpdateRepresent = true;
+      formCacheRepresent.current = representString;
+    }
+
     newOptions = R.pipe(
       updateYearAxis(minYear, maxYear),
       updateLegends(seriesSet),
-      updateRepresent(representSet),
+      needUpdateRepresent ? updateRepresent(representSet) : R.identity,
     )(newOptions);
 
     chart.setOption(newOptions);
