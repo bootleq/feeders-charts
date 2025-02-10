@@ -89,6 +89,18 @@ const tipReturn = (<>
   2011 年三月前叫「飭回原地」，之後叫「絕育後回置」
 </>);
 
+// 遊蕩犬估計 chart 類型
+const tipRoamingChartBar = (<>
+  切換「遊蕩犬估計」圖表類型：
+  <br />
+  「長條圖」或「折線圖」
+</>);
+
+// 直接顯示數字
+const tipShowAllLabels = (<>
+  標出每個資料的數值，而不是滑鼠移上去才顯示
+</>);
+
 const dict: Record<string, React.JSX.Element|string> = {
   roaming: tipRoaming,
   human: tipHuman,
@@ -103,6 +115,9 @@ const dict: Record<string, React.JSX.Element|string> = {
   room: tipRoom,
   occupy: tipOccupy,
   return: tipReturn,
+
+  roaming_chart_bar: tipRoamingChartBar,
+  show_all_labels: tipShowAllLabels,
 };
 
 export const MenuDescTooltip = ({ name, children }: { name: string|undefined, children: React.ReactNode }) => {
