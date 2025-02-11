@@ -1,5 +1,6 @@
 import * as R from 'ramda';
 import { SERIES_NAMES } from '@/lib/series';
+import { markerFormatter } from './markers';
 
 const revertedSeriesNames = R.invertObj(SERIES_NAMES);
 
@@ -8,7 +9,12 @@ export const fontFamily = "'Noto Mono TC', 'ui-monospace', 'SFMono-Regular', 'Me
 export const numberFormatter = (number: number) => Intl.NumberFormat("zh-TW").format(number);
 
 function defaultTooltipFormatter(params: any) {
-  const { seriesName, marker, value } = params;
+  const { seriesName, marker, name, value, componentType } = params;
+
+  if (['markLine', 'markArea'].includes(componentType)) {
+    return markerFormatter(marker, name);
+  }
+
   const vFormatter = R.path([revertedSeriesNames[seriesName], 'tooltip', 'valueFormatter'], defaultSeriesSettings) || numberFormatter;
   return [
     `<div style='display:flex;align-items:center'>`,
@@ -27,6 +33,8 @@ export const tooltipOptions = {
     fontFamily: fontFamily,
   },
   padding: [5, 10],
+  confine: true,
+  transitionDuration: 1.2,
   formatter: defaultTooltipFormatter,
   axisPointer: {
     type: 'cross',
@@ -138,6 +146,7 @@ export const defaultSeriesSettings: Record<string, any> = {
   h_visit: { ...commonSeriesSetting, itemStyle: { color: '#3ba272', } },
   h_feed: { ...commonSeriesSetting, itemStyle: { color: '#883333', } },
   h_stop: { ...commonSeriesSetting, itemStyle: { color: '#3ba272', } },
+  // _marker: defaultMarkerSeries,
   fallback: commonSeriesSetting,
 };
 
