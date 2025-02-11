@@ -25,7 +25,8 @@
     "next": "15.1.6",
     "ramda": "^0.30.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sass": "^1.84.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
