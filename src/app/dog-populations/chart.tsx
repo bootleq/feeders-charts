@@ -13,6 +13,7 @@ import { CitiesInput } from './CitiesInput';
 import { YearsInput } from './YearsInput';
 import { SeriesControl } from './SeriesControl';
 import { RepresentControl } from './RepresentControl';
+import { MarkerControl } from './MarkerControl';
 
 import type { CheckboxSet } from './store';
 import { defaultOptions, defaultSeriesSettings } from './defaults';
@@ -200,6 +201,11 @@ export default function Chart({ items, meta }: {
         <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
           <legend className='font-bold px-1.5'>呈現</legend>
           <RepresentControl />
+        </fieldset>
+
+        <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
+          <legend className='font-bold px-1.5'>事件標記</legend>
+          <MarkerControl />
         </fieldset>
 
         <button type='submit' className='self-center p-3 pb-4 rounded hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>

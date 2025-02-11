@@ -101,6 +101,17 @@ const tipShowAllLabels = (<>
   標出每個資料的數值，而不是滑鼠移上去才顯示
 </>);
 
+
+const tipTrash = (<>
+  垃圾強制分類，堆動<strong>垃圾不落地</strong>相關政策
+</>);
+const tip12Announce = (<>
+  動保法修法「廢除 12 夜」，緩衝期兩年
+</>);
+const tip12 = (<>
+  「零撲殺」正式實施
+</>);
+
 const dict: Record<string, React.JSX.Element|string> = {
   roaming: tipRoaming,
   human: tipHuman,
@@ -118,6 +129,10 @@ const dict: Record<string, React.JSX.Element|string> = {
 
   roaming_chart_bar: tipRoamingChartBar,
   show_all_labels: tipShowAllLabels,
+
+  '垃圾不落地': tipTrash,
+  '零撲殺公告': tip12Announce,
+  '零撲殺施行': tip12,
 };
 
 export const MenuDescTooltip = ({ name, children }: { name: string|undefined, children: React.ReactNode }) => {

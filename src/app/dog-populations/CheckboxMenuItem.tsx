@@ -22,7 +22,7 @@ export function CheckboxMenuItem(boxsetAtom: PrimitiveAtom<CheckboxSet>, inputNa
     const [checked, toggle] = useAtom(itemAtom);
 
     const menuBtnCls = 'p-2 w-full cursor-pointer flex items-center rounded hover:bg-amber-200';
-    const menuIconCls = 'w-[1.25em] aspect-square box-content';
+    const menuIconCls = 'w-[1.25em] h-auto aspect-square box-content';
     const IconElement = Icon || (sub ? CornerDownRightIcon : 'div');
 
     return (
