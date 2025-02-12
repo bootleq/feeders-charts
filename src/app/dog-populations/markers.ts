@@ -97,7 +97,7 @@ const sharedLabelSetting = {
 };
 
 type MARK = {
-  type: 'Line' | 'Area',
+  type?: 'Line' | 'Area',
   data: object[],
 };
 
@@ -129,19 +129,15 @@ const MARKS: Record<string, MARK> = {
     ],
   },
   '動保法第 6 次修法': {
-    type: 'Line',
     data: [{ name: '動保法第 6 次修法', xAxis: '97', lineStyle: { color: '#8ec5ff', }, label: sharedLabelSetting['動保法修法'], }],
   },
   '動保法第 7 次修法': {
-    type: 'Line',
     data: [{ name: '動保法第 7 次修法', xAxis: '99', lineStyle: { color: '#8ec5ff', }, label: sharedLabelSetting['動保法修法'], }],
   },
   '動保法第 9 次修法': {
-    type: 'Line',
     data: [{ name: '動保法第 9 次修法', xAxis: '104', lineStyle: { color: '#8ec5ff', }, label: sharedLabelSetting['動保法修法'], }],
   },
   '動保法第 11 次修法': {
-    type: 'Line',
     data: [{ name: '動保法第 11 次修法', xAxis: '106', lineStyle: { color: '#8ec5ff', }, label: sharedLabelSetting['動保法修法'], }],
   },
 
@@ -202,15 +198,12 @@ const MARKS: Record<string, MARK> = {
     ],
   },
   '台南零安樂': {
-    type: 'Line',
     data: [{ name: '台南零安樂', xAxis: '104', lineStyle: { color: '#00a63e', }, }],
   },
   '台南工作犬': {
-    type: 'Line',
     data: [{ name: '台南工作犬', xAxis: '104', lineStyle: { color: '#005f78', }, label: { ...commonLabelSetting, distance: [5, -50], }, }],
   },
   '統計方式大改': {
-    type: 'Line',
     data: [{
       name: '統計方式大改',
       xAxis: '104',
@@ -219,7 +212,6 @@ const MARKS: Record<string, MARK> = {
     }],
   },
   '零撲殺公告': {
-    type: 'Line',
     data: [
       {
         name: '零撲殺公告',
@@ -229,7 +221,6 @@ const MARKS: Record<string, MARK> = {
     ],
   },
   '零撲殺施行': {
-    type: 'Line',
     data: [
       {
         name: '零撲殺施行',
@@ -239,23 +230,18 @@ const MARKS: Record<string, MARK> = {
     ],
   },
   '遊蕩犬管控精進策略': {
-    type: 'Line',
     data: [{ name: '遊蕩犬管控精進策略', xAxis: '108', lineStyle: { color: '#3c6300', }, }],
   },
   '生態熱區': {
-    type: 'Line',
     data: [{ name: '生態熱區', xAxis: '112', lineStyle: { color: '#ff6467', }, }],
   },
   '動保司成立': {
-    type: 'Line',
     data: [{ name: '動保司成立', xAxis: '112', lineStyle: { color: '#90a1b9', }, label: { ...commonLabelSetting, distance: [15, -60] }, }],
   },
   '悲傷 326 記者會': {
-    type: 'Line',
     data: [{ name: '悲傷 326 記者會', xAxis: '98', lineStyle: { color: '#5ea500', }, }],
   },
   '動團安樂死聲明': {
-    type: 'Line',
     data: [{ name: '動團安樂死聲明', xAxis: '107', lineStyle: { color: '#314158', }, }],
   },
   '相信動物台北': {
@@ -370,15 +356,12 @@ const MARKS: Record<string, MARK> = {
   },
 
   '民雄收容所運送事件': {
-    type: 'Line',
     data: [{ name: '民雄收容所運送事件', xAxis: '105', lineStyle: { color: '#7f22fe', }, label: { ...commonLabelSetting, distance: [5, -80], }, }],
   },
   '簡稚澄事件': {
-    type: 'Line',
     data: [{ name: '簡稚澄事件', xAxis: '105', lineStyle: { color: '#1447e6', }, }],
   },
   '壽山流浪狗倍增': {
-    type: 'Line',
     data: [{ name: '壽山流浪狗倍增', xAxis: '106', lineStyle: { color: '#104e64', }, }],
   },
 };
@@ -392,7 +375,7 @@ export function makeMarkerSeries(
     const markCfg = MARKS[name];
     if (!markCfg) { return acc; }
 
-    const { type, data } = markCfg;
+    const { type = 'Line', data } = markCfg;
     return R.over(
       R.lensPath([`mark${type}`, 'data']),
       R.concat(data)
