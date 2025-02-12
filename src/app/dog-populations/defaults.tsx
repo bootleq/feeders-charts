@@ -57,6 +57,7 @@ const commonSeriesSetting = {
     formatter: (params: {data: number}) => numberFormatter(params.data),
     fontFamily: fontFamily,
   },
+  z: 14,
 };
 
 export const defaultSeriesSettings: Record<string, any> = {
@@ -69,7 +70,7 @@ export const defaultSeriesSettings: Record<string, any> = {
       formatter: (params: {data: number}) => numberFormatter(params.data),
       fontFamily: fontFamily,
     },
-    itemStyle: { color: '#5470c6' },
+    itemStyle: { color: 'rgba(84, 112, 198, 0.95)' },
   },
   domestic: {
     ...commonSeriesSetting,
