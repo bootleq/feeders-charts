@@ -74,6 +74,12 @@ export const defaultMarkerSeries = {
       ...commonLabelSetting,
       distance: [5, -20],
     },
+    emphasis: {
+      label: {
+        color: 'black',
+        backgroundColor: 'white',
+      },
+    },
     data: [],
   },
   markArea: {
