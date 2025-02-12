@@ -158,11 +158,7 @@ const MARKS: Record<string, MARK> = {
           label: { color: 'rgba(21, 93, 252, 0.6)', position: ['22%', '23%'], },
           tooltip: { borderColor: 'rgba(21, 93, 252, 0.6)', },
           emphasis: {
-            label: {
-              ...commonLabelSetting,
-              position: ['22%', '23%'],
-              color: 'rgba(21, 93, 252, 0.6)',
-            },
+            label: { ...commonLabelSetting, position: ['22%', '23%'], },
           },
         },
         { xAxis: '108', yAxis: 60 },
@@ -187,11 +183,7 @@ const MARKS: Record<string, MARK> = {
             borderColor: 'rgba(166, 95, 0, 1)',
           },
           emphasis: {
-            label: {
-              ...commonLabelSetting,
-              position: ['22%', '23%'],
-              color: 'rgba(166, 95, 0, 1)',
-            },
+            label: { ...commonLabelSetting, position: ['22%', '23%'], },
           },
         },
         { xAxis: '112', yAxis: 50 }
@@ -260,7 +252,7 @@ const MARKS: Record<string, MARK> = {
             borderColor: 'rgba(166, 95, 0, 1)',
           },
           emphasis: {
-            label: { ...sharedLabelSetting['相信動物'], },
+            label: { ...sharedLabelSetting['相信動物'], color: 'darkblue', backgroundColor: 'gold' },
           },
         },
         { xAxis: '108', yAxis: 80 }
@@ -282,7 +274,7 @@ const MARKS: Record<string, MARK> = {
             borderColor: 'rgba(166, 95, 0, 1)',
           },
           emphasis: {
-            label: { ...sharedLabelSetting['相信動物'], },
+            label: { ...sharedLabelSetting['相信動物'], color: 'darkblue', backgroundColor: 'gold' },
           },
         },
         { xAxis: '109', yAxis: 70 }
@@ -304,7 +296,7 @@ const MARKS: Record<string, MARK> = {
             borderColor: 'rgba(166, 95, 0, 1)',
           },
           emphasis: {
-            label: { ...sharedLabelSetting['相信動物'], },
+            label: { ...sharedLabelSetting['相信動物'], color: 'darkblue', backgroundColor: 'gold' },
           },
         },
         { xAxis: '106', yAxis: 50 }
@@ -326,7 +318,7 @@ const MARKS: Record<string, MARK> = {
             borderColor: 'rgba(166, 95, 0, 1)',
           },
           emphasis: {
-            label: { ...sharedLabelSetting['相信動物'], },
+            label: { ...sharedLabelSetting['相信動物'], color: 'darkblue', backgroundColor: 'gold' },
           },
         },
         { xAxis: '113', yAxis: 60 }
@@ -348,7 +340,7 @@ const MARKS: Record<string, MARK> = {
             borderColor: 'rgba(166, 95, 0, 1)',
           },
           emphasis: {
-            label: { ...sharedLabelSetting['相信動物'], },
+            label: { ...sharedLabelSetting['相信動物'], color: 'darkblue', backgroundColor: 'gold' },
           },
         },
         { xAxis: 'max', yAxis: 50 }
