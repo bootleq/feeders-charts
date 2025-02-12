@@ -1,5 +1,6 @@
 import * as R from 'ramda';
 import { SERIES_NAMES } from '@/lib/series';
+import { markerFormatter } from './markers';
 
 const revertedSeriesNames = R.invertObj(SERIES_NAMES);
 
@@ -8,7 +9,12 @@ export const fontFamily = "'Noto Mono TC', 'ui-monospace', 'SFMono-Regular', 'Me
 export const numberFormatter = (number: number) => Intl.NumberFormat("zh-TW").format(number);
 
 function defaultTooltipFormatter(params: any) {
-  const { seriesName, marker, value } = params;
+  const { seriesName, marker, name, value, componentType } = params;
+
+  if (['markLine', 'markArea'].includes(componentType)) {
+    return markerFormatter(marker, name);
+  }
+
   const vFormatter = R.path([revertedSeriesNames[seriesName], 'tooltip', 'valueFormatter'], defaultSeriesSettings) || numberFormatter;
   return [
     `<div style='display:flex;align-items:center'>`,
@@ -27,6 +33,8 @@ export const tooltipOptions = {
     fontFamily: fontFamily,
   },
   padding: [5, 10],
+  confine: true,
+  transitionDuration: 1.2,
   formatter: defaultTooltipFormatter,
   axisPointer: {
     type: 'cross',
@@ -49,6 +57,7 @@ const commonSeriesSetting = {
     formatter: (params: {data: number}) => numberFormatter(params.data),
     fontFamily: fontFamily,
   },
+  z: 14,
 };
 
 export const defaultSeriesSettings: Record<string, any> = {
@@ -61,7 +70,7 @@ export const defaultSeriesSettings: Record<string, any> = {
       formatter: (params: {data: number}) => numberFormatter(params.data),
       fontFamily: fontFamily,
     },
-    itemStyle: { color: '#5470c6' },
+    itemStyle: { color: 'rgba(84, 112, 198, 0.95)' },
   },
   domestic: {
     ...commonSeriesSetting,
@@ -138,6 +147,7 @@ export const defaultSeriesSettings: Record<string, any> = {
   h_visit: { ...commonSeriesSetting, itemStyle: { color: '#3ba272', } },
   h_feed: { ...commonSeriesSetting, itemStyle: { color: '#883333', } },
   h_stop: { ...commonSeriesSetting, itemStyle: { color: '#3ba272', } },
+  // _marker: defaultMarkerSeries,
   fallback: commonSeriesSetting,
 };
 
@@ -204,6 +214,7 @@ export const defaultOptions = {
       }
     },
     {
+      // 隱藏軸，用於小數量，例如「每百人」
       type: 'value',
       min: 0,
       boundaryGap: [0, '5%'],
@@ -216,6 +227,15 @@ export const defaultOptions = {
       splitLine: {
         show: false,
       },
+    },
+    {
+      // 隱藏共用軸，值固定為 0 ~ 100
+      type: 'value',
+      min: 0,
+      max: 100,
+      axisLabel: { show: false, },
+      axisPointer: { show: false, },
+      splitLine: { show: false, },
     },
   ],
 

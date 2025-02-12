@@ -8,11 +8,13 @@ import type { CountryItem } from '@/lib/model';
 import { makeYearRange } from '@/lib/utils';
 import { makeSeries, SERIES_NAMES } from '@/lib/series';
 import type { SeriesSet } from '@/lib/series';
+import { makeMarkerSeries } from './markers';
 
 import { CitiesInput } from './CitiesInput';
 import { YearsInput } from './YearsInput';
 import { SeriesControl } from './SeriesControl';
 import { RepresentControl } from './RepresentControl';
+import { MarkerControl } from './MarkerControl';
 
 import type { CheckboxSet } from './store';
 import { defaultOptions, defaultSeriesSettings } from './defaults';
@@ -29,6 +31,8 @@ import {
   TitleComponent,
   LegendComponent,
   LegendPlainComponent,
+  MarkLineComponent,
+  MarkAreaComponent,
 } from 'echarts/components';
 import { CanvasRenderer } from 'echarts/renderers';
 
@@ -43,6 +47,8 @@ echarts.use(
     TitleComponent,
     LegendComponent,
     LegendPlainComponent,
+    MarkLineComponent,
+    MarkAreaComponent,
     BarChart,
     LineChart,
     CanvasRenderer,
@@ -115,6 +121,10 @@ export default function Chart({ items, meta }: {
     );
   }, []);
 
+  const updateMarker = useCallback((checkboxSet: CheckboxSet) => {
+    return R.modify('series', R.append(makeMarkerSeries(checkboxSet)));
+  }, []);
+
   useEffect(() => {
     formRef.current?.dispatchEvent(
       new Event("submit", { bubbles: true, cancelable: true })
@@ -135,6 +145,8 @@ export default function Chart({ items, meta }: {
     const seriesSet = JSON.parse(seriesString) as SeriesSet;
     const representString = formData.get('representSet')?.toString() || '';
     const representSet = JSON.parse(representString) as CheckboxSet;
+    const markerString = formData.get('markerSet')?.toString() || '';
+    const markerSet = JSON.parse(markerString) as CheckboxSet;
     let cities = formData.getAll('cities').map(String);
     let years = formData.getAll('years').map(Number);
 
@@ -145,6 +157,11 @@ export default function Chart({ items, meta }: {
 
     if (!representSet || R.type(representSet) !== 'Object') {
       console.error('Unexpected representSet value');
+      return;
+    }
+
+    if (!markerSet || R.type(markerSet) !== 'Object') {
+      console.error('Unexpected markerSet value');
       return;
     }
 
@@ -173,10 +190,11 @@ export default function Chart({ items, meta }: {
       updateYearAxis(minYear, maxYear),
       updateLegends(seriesSet),
       needUpdateRepresent ? updateRepresent(representSet) : R.identity,
+      updateMarker(markerSet),
     )(newOptions);
 
     chart.setOption(newOptions);
-  }, [items, meta, updateYearAxis, updateLegends, updateRepresent]);
+  }, [items, meta, updateYearAxis, updateLegends, updateRepresent, updateMarker]);
 
   return (
     <div className='min-w-lg min-h-80 w-full'>
@@ -200,6 +218,11 @@ export default function Chart({ items, meta }: {
         <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
           <legend className='font-bold px-1.5'>呈現</legend>
           <RepresentControl />
+        </fieldset>
+
+        <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
+          <legend className='font-bold px-1.5'>事件標記</legend>
+          <MarkerControl />
         </fieldset>
 
         <button type='submit' className='self-center p-3 pb-4 rounded hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>

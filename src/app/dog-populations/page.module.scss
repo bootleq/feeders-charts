@@ -1,0 +1,57 @@
+.marker-tip {
+  width: fit-content;
+  max-width: 80vw;
+  padding: 1px 2px;
+  line-height: 1.6;
+  text-wrap: auto;
+  font-family: var(--font-space), var(--font-geist-mono), 'Roboto Slab', 'Noto Sans TC', sans-serif;
+
+  @media (min-width: 960px) {
+    max-width: clamp(300px, 17vw, 800px);
+  }
+
+  summary {
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+    }
+  }
+
+  p {
+    padding: 0.25rem 0;
+  }
+
+  small {
+    opacity: 0.85;
+  }
+
+  a[href] {
+    color: #0c4a6e;
+
+    &:hover {
+      color: black;
+      background-color: rgba(56, 189, 248, 0.19);
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background-image: url('/assets/paper-clip.svg');
+      background-size: cover;
+      background-position: center;
+      margin-right: 2px;
+      // vertical-align: middle;
+    }
+  }
+
+  ul, ol {
+    list-style-position: outside;
+    margin-left: 1rem;
+  }
+  ul {
+    list-style-type: disc;
+  }
+}

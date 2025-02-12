@@ -101,6 +101,47 @@ const tipShowAllLabels = (<>
   標出每個資料的數值，而不是滑鼠移上去才顯示
 </>);
 
+
+const tip12Announce = (<>
+  動保法修法「廢除 12 夜」，緩衝期兩年
+</>);
+const tipLaw6 = (<>
+  禁止肉用宰殺犬貓、虐待入刑罰等
+</>);
+const tipLaw7 = (<>
+  7 夜改成 12 夜、買賣必須先植入晶片等
+</>);
+const tipLaw9 = (<>
+  廢除 12 夜、飼主必須植晶片登記等
+</>);
+const tipLaw11 = (<>
+  明確禁止狗肉、未絕育不再勸導等
+</>);
+const tipHeatMap = (<>
+  督促地方政府提出「熱區」集中資源改善
+</>);
+const tipHeatMapEco = (<>
+  針對野生動物、生態保育的「熱區」
+</>);
+const tipTainanZero = (<>
+  台南市比全國更早實施零安樂
+</>);
+const tipFeederPass = (<>
+  餵食證、乾淨餵食講習
+</>);
+const tipEast326 = (<>
+  公布全台 326 縣市鄉鎮流浪犬貓處境
+</>);
+const tipShelterShip = (<>
+  嘉義公立收容所運送犬貓，集體熱死
+</>);
+const tipEuthSuicide = (<>
+  桃園市動保教育園區園長死諫
+</>);
+const tipShoushanInc = (<>
+  高雄壽山調查遊蕩犬增加 <code>318%</code>
+</>);
+
 const dict: Record<string, React.JSX.Element|string> = {
   roaming: tipRoaming,
   human: tipHuman,
@@ -118,6 +159,20 @@ const dict: Record<string, React.JSX.Element|string> = {
 
   roaming_chart_bar: tipRoamingChartBar,
   show_all_labels: tipShowAllLabels,
+
+  '零撲殺公告': tip12Announce,
+  '動保法第 6 次修法': tipLaw6,
+  '動保法第 7 次修法': tipLaw7,
+  '動保法第 9 次修法': tipLaw9,
+  '動保法第 11 次修法': tipLaw11,
+  '遊蕩犬管控精進策略': tipHeatMap,
+  '生態熱區': tipHeatMapEco,
+  '台南零安樂': tipTainanZero,
+  '新北餵養講習': tipFeederPass,
+  '悲傷 326 記者會': tipEast326,
+  '民雄收容所運送事件': tipShelterShip,
+  '簡稚澄事件': tipEuthSuicide,
+  '壽山流浪狗倍增': tipShoushanInc,
 };
 
 export const MenuDescTooltip = ({ name, children }: { name: string|undefined, children: React.ReactNode }) => {

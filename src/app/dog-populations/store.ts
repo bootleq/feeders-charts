@@ -21,6 +21,12 @@ export const representMenuAtom = atom<CheckboxSet>({
   show_all_labels: false,
 });
 
+export const markerMenuAtom = atom<CheckboxSet>({
+  '垃圾不落地': false,
+  '零撲殺公告': false,
+  '零撲殺施行': true,
+});
+
 export const checkboxMenuItemAtom = (boxsetAtom: PrimitiveAtom<CheckboxSet>, key: string) => atom(
   get => get(boxsetAtom)[key] ?? false,
   (get, set) => {

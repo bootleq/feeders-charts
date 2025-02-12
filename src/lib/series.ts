@@ -33,6 +33,7 @@ export const SERIES_NAMES: Record<string, string> = {
   h_roam: '熱區無主犬',
   h_feed: '熱區餵食',
   h_stop: '疏導餵食',
+  // _marker: '事件標記', // this will be added in addition to normal data series process
 } as const;
 
 const computers: Record<string, Computer> = {
