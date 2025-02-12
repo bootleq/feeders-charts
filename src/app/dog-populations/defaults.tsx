@@ -213,6 +213,7 @@ export const defaultOptions = {
       }
     },
     {
+      // 隱藏軸，用於小數量，例如「每百人」
       type: 'value',
       min: 0,
       boundaryGap: [0, '5%'],
@@ -225,6 +226,15 @@ export const defaultOptions = {
       splitLine: {
         show: false,
       },
+    },
+    {
+      // 隱藏共用軸，值固定為 0 ~ 100
+      type: 'value',
+      min: 0,
+      max: 100,
+      axisLabel: { show: false, },
+      axisPointer: { show: false, },
+      splitLine: { show: false, },
     },
   ],
 

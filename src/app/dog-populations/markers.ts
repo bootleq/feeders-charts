@@ -61,6 +61,7 @@ const commonLabelSetting = {
 export const defaultMarkerSeries = {
   type: 'line',
   name: '事件標記',
+  yAxisIndex: 2,
   data: null,
   markLine: {
     symbol: 'none',
@@ -93,7 +94,7 @@ export const defaultMarkerSeries = {
 
 const sharedLabelSetting = {
   '動保法修法': { ...commonLabelSetting, distance: [5, -60], },
-  '相信動物': { ...commonLabelSetting, color: '#0a0a0a', distance: [5, -60], position: ['22%', '3%'], },
+  '相信動物': { ...commonLabelSetting, color: '#0a0a0a', distance: [5, -10], position: ['10%', '66%'], },
 };
 
 type MARK = {
@@ -147,7 +148,7 @@ const MARKS: Record<string, MARK> = {
       [
         {
           name: '新北餵養講習',
-          xAxis: '104',
+          xAxis: '104', yAxis: 80,
           itemStyle: {
             color: {
               image: createPattern('rgba(21, 93, 252, 0.6)'),
@@ -164,7 +165,7 @@ const MARKS: Record<string, MARK> = {
             },
           },
         },
-        { xAxis: '108' },
+        { xAxis: '108', yAxis: 60 },
       ],
     ],
   },
@@ -174,7 +175,7 @@ const MARKS: Record<string, MARK> = {
       [
         {
           name: '台南餵養講習',
-          xAxis: '106',
+          xAxis: '106', yAxis: 70,
           itemStyle: {
             color: {
               image: createPattern('rgba(166, 95, 0, 0.2)', 'flip'),
@@ -193,7 +194,7 @@ const MARKS: Record<string, MARK> = {
             },
           },
         },
-        { xAxis: '112' }
+        { xAxis: '112', yAxis: 50 }
       ],
     ],
   },
@@ -250,7 +251,7 @@ const MARKS: Record<string, MARK> = {
       [
         {
           name: '相信動物台北',
-          xAxis: '106',
+          xAxis: '106', yAxis: 90,
           itemStyle: {
             color: { image: createPattern('rgba(255, 241, 102, 0.95)'), repeat: 'repeat', },
           },
@@ -262,7 +263,7 @@ const MARKS: Record<string, MARK> = {
             label: { ...sharedLabelSetting['相信動物'], },
           },
         },
-        { xAxis: '108' }
+        { xAxis: '108', yAxis: 80 }
       ],
     ],
   },
@@ -272,7 +273,7 @@ const MARKS: Record<string, MARK> = {
       [
         {
           name: '相信動物新北',
-          xAxis: '106',
+          xAxis: '106', yAxis: 80,
           itemStyle: {
             color: { image: createPattern('rgba(255, 241, 102, 0.95)'), repeat: 'repeat', },
           },
@@ -284,7 +285,7 @@ const MARKS: Record<string, MARK> = {
             label: { ...sharedLabelSetting['相信動物'], },
           },
         },
-        { xAxis: '109' }
+        { xAxis: '109', yAxis: 70 }
       ],
     ],
   },
@@ -294,7 +295,7 @@ const MARKS: Record<string, MARK> = {
       [
         {
           name: '相信動物基隆',
-          xAxis: '105',
+          xAxis: '105', yAxis: 60,
           itemStyle: {
             color: { image: createPattern('rgba(255, 241, 102, 0.95)'), repeat: 'repeat', },
           },
@@ -306,7 +307,7 @@ const MARKS: Record<string, MARK> = {
             label: { ...sharedLabelSetting['相信動物'], },
           },
         },
-        { xAxis: '106' }
+        { xAxis: '106', yAxis: 50 }
       ],
     ],
   },
@@ -316,7 +317,7 @@ const MARKS: Record<string, MARK> = {
       [
         {
           name: '相信動物桃園',
-          xAxis: '109',
+          xAxis: '109', yAxis: 70,
           itemStyle: {
             color: { image: createPattern('rgba(255, 241, 102, 0.95)'), repeat: 'repeat', },
           },
@@ -328,7 +329,7 @@ const MARKS: Record<string, MARK> = {
             label: { ...sharedLabelSetting['相信動物'], },
           },
         },
-        { xAxis: '113' }
+        { xAxis: '113', yAxis: 60 }
       ],
     ],
   },
@@ -338,7 +339,7 @@ const MARKS: Record<string, MARK> = {
       [
         {
           name: '相信動物新竹',
-          xAxis: '119',
+          xAxis: '119', yAxis: 60,
           itemStyle: {
             color: { image: createPattern('rgba(255, 241, 102, 0.95)'), repeat: 'repeat', },
           },
@@ -350,7 +351,7 @@ const MARKS: Record<string, MARK> = {
             label: { ...sharedLabelSetting['相信動物'], },
           },
         },
-        { xAxis: 'max' }
+        { xAxis: 'max', yAxis: 50 }
       ],
     ],
   },
