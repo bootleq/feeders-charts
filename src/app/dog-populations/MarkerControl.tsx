@@ -9,6 +9,7 @@ import { tooltipClass, tooltipMenuCls } from './chart';
 import {
   DotIcon,
   EqualNotIcon,
+  FilmIcon,
   IdCardIcon,
   LocateFixedIcon,
   MicIcon,
@@ -65,6 +66,7 @@ export function MarkerControl() {
         '動團安樂死聲明',
       ]),
       event: makeFn([
+        '電影《十二夜》上映',
         '民雄收容所運送事件',
         '簡稚澄事件',
         '壽山流浪狗倍增',
@@ -155,12 +157,13 @@ export function MarkerControl() {
             <TooltipTrigger className='mb-1 block truncate'>
               <div className='cursor-help p-2 hover:bg-slate-100/75 hover:drop-shadow rounded self-stretch flex items-center' tabIndex={0}>
                 <div className='outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
-                  傷害
+                  其他
                 </div>
               </div>
             </TooltipTrigger>
             <TooltipContentMenu className={tooltipClass('text-sm')}>
               <div className={tooltipMenuCls()}>
+                <MenuItem Icon={FilmIcon} name='電影《十二夜》上映'>電影《十二夜》上映</MenuItem>
                 <MenuItem Icon={TruckIcon} name='民雄收容所運送事件'>民雄收容所運送事件</MenuItem>
                 <MenuItem Icon={UserIcon} name='簡稚澄事件'>簡稚澄事件</MenuItem>
                 <MenuItem Icon={PawPrintIcon} name='壽山流浪狗倍增'>壽山流浪狗倍增</MenuItem>

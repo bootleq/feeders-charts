@@ -356,6 +356,9 @@ const MARKS: Record<string, MARK> = {
     ],
   },
 
+  '電影《十二夜》上映': {
+    data: [{ name: '電影《十二夜》上映', xAxis: '102', lineStyle: { color: '#00b8db', }, label: { ...commonLabelSetting, distance: [5, -60], }, }],
+  },
   '民雄收容所運送事件': {
     data: [{ name: '民雄收容所運送事件', xAxis: '105', lineStyle: { color: '#7f22fe', }, label: { ...commonLabelSetting, distance: [5, -80], }, }],
   },
