@@ -155,31 +155,24 @@ export const MarkerTips: Record<string, string> = {
   `,
 
   '新北餵養講習': html`
-    <details>
-      <summary>說明</summary>
-      <p>
-        新北市開辦「乾淨餵食」講習，與餵養人互動，分享餵食方式、化解與社區住戶衝突，結業後核發餵食照護證（餵食證）。
-      </p>
-      <p>
-        到 2019-10-05 共舉辦 10 梯次，但部分持證者製造髒亂，引起民怨，最後停止發放，共發放 400 人次。
-      </p>
-      <p>
-        2020 年改辦「流浪動物源頭絕育講習」認證，上課後可領絕育補助。
-      </p>
-    </details>
+    <p>
+      新北市開辦「乾淨餵食」講習，與餵養人互動，分享餵食方式、化解與社區住戶衝突，結業後核發餵食照護證（餵食證）。
+    </p>
+    <p>
+      到 2019-10-05 共舉辦 10 梯次，但部分持證者製造髒亂，引起民怨，最後停止發放，共發放 400 人次。
+    </p>
+    <p>
+      2020 年改辦「流浪動物源頭絕育講習」認證，上課後可領絕育補助。
+    </p>
   `,
   '台南餵養講習': html`
-    <details>
-      <summary>說明</summary>
-      <p>
-        台南市開辦餵養講習，頒發「餵養公約卡」還送 2000 飼料費。
-      </p>
-      <p>
-        應已於 2023 停辦，共計發放 148 張。
-      </p>
-    </details>
+    <p>
+      台南市開辦餵養講習，頒發「餵養公約卡」還送 2000 飼料費。
+    </p>
+    <p>
+      應已於 2023 停辦，共計發放 148 張。
+    </p>
   `,
-  // FIXME: <summary> expanded can make tooltip go out of screen and cause it closed
 
   '悲傷 326 記者會': html`
     <p>
@@ -208,9 +201,10 @@ export const MarkerTips: Record<string, string> = {
     </p>
     <p>
       執行期間 2017-2020
+      <small>（<a target='_blank' href='https://www.faithforanimals.org.tw/tnvr-project/newtaipei'>來源</a>）</small>
     </p>
     <ul>
-      <li>絕育率 64% → 86.8%</li>
+      <li>絕育率 64% → <strong>86.8%</strong></li>
       <li>家訪 16,118 戶</li>
       <li>絕育 8,578 隻</li>
     </ul>
@@ -221,15 +215,16 @@ export const MarkerTips: Record<string, string> = {
 
   '相信動物台北': html`
     <p>
-      2016 年 1 月開始與市府合作（此前協會也有在各地抓紮）
+      2016 年 1 月開始與市府合作（此前協會也有在各區抓紮）
     </p>
     <p>
       執行期間 2017-2019
+      <small>（<a target='_blank' href='https://www.faithforanimals.org.tw/tnvr-project/taipei'>來源</a>）</small>
     </p>
     <ul>
-      <li>絕育率 64% → 86%</li>
-      <li>幼犬入所量 259 隻 <small>(2018)</small> → 133 隻 <small>(2021)</small></li>
-      <li>流浪犬民怨通報量 2,351 件 <small>(2018)</small> → 1,023 件 <small>(2021)</small></li>
+      <li>絕育率原本就比較高，參考相信動物二年年報</li>
+      <li>幼犬入所量 259 隻 → 133 隻 <small>(2018-2021)</small></li>
+      <li>流浪犬民怨通報量 2,351 件 → 1,023 件 <small>(2018-2021)</small></li>
       <li>家訪 469 戶</li>
       <li>絕育 1,301 隻</li>
     </ul>
@@ -241,6 +236,7 @@ export const MarkerTips: Record<string, string> = {
     </p>
     <p>
       執行期間 2020-2024
+      <small>（<a target='_blank' href='https://www.faithforanimals.org.tw/tnvr-project/taoyuan'>來源</a>）</small>
     </p>
     <ul>
       <li>絕育率 45.6% → ??%</li>
@@ -254,19 +250,21 @@ export const MarkerTips: Record<string, string> = {
     </p>
     <p>
       執行期間 2016-2017
+      <small>（<a target='_blank' href='https://www.faithforanimals.org.tw/tnvr-project/keelung'>來源</a>）</small>
     </p>
     <ul>
-      <li>絕育率 ??% → 85%</li>
+      <li>絕育率 ??% → <strong>85%</strong></li>
       <li>家訪 1,102 戶</li>
       <li>絕育 908 隻</li>
     </ul>
   `,
   '相信動物新竹': html`
     <p>
-      2023 年 6 月進入新竹，這之前其實也有在抓紮
+      2023 年 6 月進入新竹
     </p>
     <p>
-      執行期間 2017-2019，絕育率 45.6% → 86%
+      執行期間 2023-今
+      <small>（<a target='_blank' href='https://www.faithforanimals.org.tw/tnvr-project/hsinchu'>來源</a>）</small>
     </p>
     <ul>
       <li>絕育率 52% → （還未完成）</li>

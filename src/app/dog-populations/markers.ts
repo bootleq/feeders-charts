@@ -243,7 +243,7 @@ const MARKS: Record<string, MARK> = {
     data: [{ name: '悲傷 326 記者會', xAxis: '98', lineStyle: { color: '#5ea500', }, }],
   },
   '動團安樂死聲明': {
-    data: [{ name: '動團安樂死聲明', xAxis: '107', lineStyle: { color: '#314158', }, }],
+    data: [{ name: '動團安樂死聲明', xAxis: '107', lineStyle: { color: '#ff637e', }, }],
   },
   '相信動物台北': {
     type: 'Area',
@@ -339,7 +339,7 @@ const MARKS: Record<string, MARK> = {
       [
         {
           name: '相信動物新竹',
-          xAxis: '119', yAxis: 60,
+          xAxis: '112', yAxis: 60,
           itemStyle: {
             color: { image: createPattern('rgba(255, 241, 102, 0.95)'), repeat: 'repeat', },
           },
