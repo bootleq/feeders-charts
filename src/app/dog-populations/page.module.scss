@@ -12,8 +12,6 @@
 
   summary {
     cursor: pointer;
-    color: #78350f;
-    padding-block: 0.25rem;
 
     &:hover {
       background-color: white;
@@ -24,9 +22,12 @@
     padding: 0.25rem 0;
   }
 
+  small {
+    opacity: 0.85;
+  }
+
   a[href] {
     color: #0c4a6e;
-    display: inline-block;
 
     &:hover {
       color: black;
@@ -47,14 +48,10 @@
   }
 
   ul, ol {
-    list-style-position: inside;
-
-    ul, ol {
-      margin-left: 1em;
-      line-height: 1.25rem;
-    }
-    ul {
-      list-style-type: square;
-    }
+    list-style-position: outside;
+    margin-left: 1rem;
+  }
+  ul {
+    list-style-type: disc;
   }
 }
