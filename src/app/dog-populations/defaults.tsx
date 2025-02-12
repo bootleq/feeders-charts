@@ -177,6 +177,7 @@ export const defaultOptions = {
   xAxis: [
     {
       type: 'category',
+      name: '年',
       axisLabel: {
         fontFamily: fontFamily,
       },
