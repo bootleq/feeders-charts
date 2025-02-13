@@ -239,7 +239,7 @@ export default function Chart({ items, meta }: {
           <RepresentControl />
         </fieldset>
 
-        <button type='submit' className='self-center p-3 pb-4 mx-auto xl:mr-0 rounded hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
+        <button type='submit' className='self-center p-3 pl-8 xl:pl-14 pb-4 mx-auto xl:mr-0 rounded hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
           <CornerDownLeftIcon size={20} className='pl-1 pb-1' />
           套用
         </button>
