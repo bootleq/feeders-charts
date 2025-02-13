@@ -2,6 +2,8 @@ import { useCallback, useEffect } from 'react';
 import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { CITY_MAPPING, cityLookup } from '@/lib/model';
 import { tooltipClass, tooltipMenuCls } from './utils';
+import styles from './page.module.scss';
+
 import {
   MenuIcon,
   GrabIcon,
@@ -40,7 +42,7 @@ export function CitiesInput({ formRef }: {
 }) {
   const textCls = [
     'pb-2 border-gray-400/0 border-b-4 text-slate-400',
-    'peer-checked:text-slate-900 peer-checked:border-dotted peer-checked:border-stone-400',
+    'peer-checked:text-slate-900 font-sans',
     'peer-focus-visible:outline outline-offset-2 outline-blue-400',
   ].join(' ');
 
@@ -82,7 +84,7 @@ export function CitiesInput({ formRef }: {
           Object.entries(CITY_MAPPING).map(([code, name]) => (
             <li key={code} className='writing-vertical relative'>
               <label className='cursor-pointer px-1 py-2 block rounded transition hover:bg-amber-200 hover:-translate-y-1 hover:drop-shadow'>
-                <input type='checkbox' name='cities' value={code} defaultChecked={true} className='peer mb-1 sr-only' />
+                <input type='checkbox' name='cities' value={code} defaultChecked={true} className={`peer mb-1 sr-only ${styles['city-btn']}`} />
                 <span className={textCls}>
                   {name}
                 </span>

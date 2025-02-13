@@ -41,7 +41,7 @@ export function YearsInput({ min, max, formRef }: {
   const [handle, setHandle] = useState<number | null>();
   const yearRange = makeYearRange(min, max);
   const textCls = [
-    'font-mono text-stone-400',
+    'font-mono text-slate-400',
     'pb-px border-b [border-image-slice:1]',
     'peer-checked:text-slate-900 peer-checked:border-solid',
     'peer-checked:[border-image-source:linear-gradient(to_right,transparent_30%,#888_30%,#888_70%,transparent_70%)]',
