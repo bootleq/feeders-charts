@@ -210,17 +210,19 @@ export default function Chart({ items, meta }: {
 
   return (
     <div className='min-w-lg min-h-80 w-full'>
-      <form ref={formRef} onSubmit={onApply} className='flex flex-wrap items-start justify-center gap-x-4 gap-y-3 my-1 mx-auto max-w-[96vw] text-sm'>
-        <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
-          <legend className='font-bold px-1.5'>縣市</legend>
+      <form ref={formRef} onSubmit={onApply} className='w-min flex flex-wrap items-start justify-start gap-x-4 gap-y-3 my-1 mx-auto max-w-[96vw] text-sm'>
+        <div className='w-max max-w-[90vw] md:max-w-full flex flex-wrap gap-x-4'>
+          <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
+            <legend className='font-bold px-1.5'>縣市</legend>
 
-          <CitiesInput formRef={formRef} />
-        </fieldset>
+            <CitiesInput formRef={formRef} />
+          </fieldset>
 
-        <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
-          <legend className='font-bold px-1.5'>年度</legend>
-          <YearsInput min={meta.minYear} max={meta.maxYear} formRef={formRef} />
-        </fieldset>
+          <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
+            <legend className='font-bold px-1.5'>年度</legend>
+            <YearsInput min={meta.minYear} max={meta.maxYear} formRef={formRef} />
+          </fieldset>
+        </div>
 
         <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
           <legend className='font-bold px-1.5'>資料項目</legend>
@@ -228,16 +230,16 @@ export default function Chart({ items, meta }: {
         </fieldset>
 
         <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
-          <legend className='font-bold px-1.5'>呈現</legend>
-          <RepresentControl />
-        </fieldset>
-
-        <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
           <legend className='font-bold px-1.5'>事件標記</legend>
           <MarkerControl />
         </fieldset>
 
-        <button type='submit' className='self-center p-3 pb-4 rounded hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
+        <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
+          <legend className='font-bold px-1.5'>呈現</legend>
+          <RepresentControl />
+        </fieldset>
+
+        <button type='submit' className='self-center p-3 pb-4 mx-auto xl:mr-0 rounded hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
           <CornerDownLeftIcon size={20} className='pl-1 pb-1' />
           套用
         </button>
