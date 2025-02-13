@@ -239,6 +239,9 @@ export const defaultOptions = {
       splitLine: { show: false, },
     },
   ],
+  grid: {
+    top: 76,
+  },
 
   series: Object.keys(SERIES_NAMES).map(name => {
     return defaultSeriesSettings[name] || defaultSeriesSettings.fallback
