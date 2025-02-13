@@ -15,12 +15,10 @@ import { YearsInput } from './YearsInput';
 import { SeriesControl } from './SeriesControl';
 import { RepresentControl } from './RepresentControl';
 import { MarkerControl } from './MarkerControl';
-import { tooltipClass } from './utils';
+import ExportImage from './ExportImage';
 
 import type { CheckboxSet } from './store';
 import { defaultOptions, defaultSeriesSettings } from './defaults';
-
-import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/Tooltip';
 
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import * as echarts from 'echarts/core';
@@ -40,7 +38,6 @@ import {
 import { CanvasRenderer } from 'echarts/renderers';
 
 import {
-  ImageDownIcon,
   CornerDownLeftIcon,
 } from "lucide-react";
 
@@ -189,25 +186,6 @@ export default function Chart({ items, meta }: {
     chart.setOption(newOptions);
   }, [items, meta, updateYearAxis, updateLegends, updateRepresent, updateMarker]);
 
-  const onExportImage = useCallback(() => {
-    const chart = chartRef.current?.getEchartsInstance();
-    if (!chart) return;
-
-    const base64Img = chart.getDataURL({ pixelRatio: 2, backgroundColor: 'white' });
-    fetch(base64Img).then(res => res.blob()).then(blob => {
-      const blobUrl = URL.createObjectURL(blob);
-
-      const link = document.createElement('a');
-      link.href = blobUrl;
-      link.download = '遊蕩犬隻估計數量.png';
-      document.body.appendChild(link);
-      link.click();
-
-      URL.revokeObjectURL(blobUrl);
-      document.body.removeChild(link);
-    }).catch(console.error);
-  }, []);
-
   return (
     <div className='min-w-lg min-h-80 w-full'>
       <form ref={formRef} onSubmit={onApply} className='w-min flex flex-wrap items-start justify-start gap-x-4 gap-y-3 my-1 mx-auto max-w-[96vw] text-sm'>
@@ -246,17 +224,7 @@ export default function Chart({ items, meta }: {
       </form>
 
       <div className='flex items-center justify-end'>
-        <Tooltip placement='top' offset={3}>
-          <TooltipTrigger>
-            <button type='button' onClick={onExportImage} className='p-2 rounded opacity-50 hover:opacity-100 hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
-              <ImageDownIcon size={20} />
-              <span className='sr-only'>下載圖片</span>
-            </button>
-          </TooltipTrigger>
-          <TooltipContent className={tooltipClass('p-2 drop-shadow-md')}>
-            下載圖片
-          </TooltipContent>
-        </Tooltip>
+        <ExportImage chartRef={chartRef} />
       </div>
 
       <ReactEChartsCore
