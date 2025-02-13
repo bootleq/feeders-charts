@@ -248,7 +248,7 @@ export default function Chart({ items, meta }: {
       <div className='flex items-center justify-end'>
         <Tooltip placement='top' offset={3}>
           <TooltipTrigger>
-            <button type='button' onClick={onExportImage} className='p-2 rounded hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
+            <button type='button' onClick={onExportImage} className='p-2 rounded opacity-50 hover:opacity-100 hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
               <ImageDownIcon size={20} />
               <span className='sr-only'>下載圖片</span>
             </button>
