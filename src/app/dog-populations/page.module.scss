@@ -1,3 +1,19 @@
+.city-btn {
+  &:checked + span {
+    display: inline-flex;
+    align-items: center;
+    transform: translateY(-2px);
+
+    &::after {
+      content: '';
+      border: 2px solid currentColor;
+      opacity: .3;
+      transform: translateY(8px);
+      border-radius: 100%;
+    }
+  }
+}
+
 .marker-tip {
   width: fit-content;
   max-width: 80vw;

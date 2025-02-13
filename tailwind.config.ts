@@ -14,8 +14,7 @@ export default {
       },
       fontFamily: {
         sans: [
-          'Roboto Slab',
-          'Noto Sans TC',
+          'Microsoft JhengHei', 'Noto Sans TC', 'PingFang', 'LiHei Pro', 'Meiryo', 'MS Gothic',
           'ui-sans-serif', 'system-ui', 'sans-serif', "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
         ],
         mono: [
