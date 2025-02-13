@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
-import Chart from './chart';
+import Chart from './Chart';
 
 const RESOURCE_URL = process.env.NEXT_PUBLIC_RESOURCE_URL;
 
