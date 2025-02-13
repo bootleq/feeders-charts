@@ -15,6 +15,7 @@ import { YearsInput } from './YearsInput';
 import { SeriesControl } from './SeriesControl';
 import { RepresentControl } from './RepresentControl';
 import { MarkerControl } from './MarkerControl';
+import ExportTable from './ExportTable';
 import ExportImage from './ExportImage';
 
 import type { CheckboxSet } from './store';
@@ -223,7 +224,8 @@ export default function Chart({ items, meta }: {
         </button>
       </form>
 
-      <div className='flex items-center justify-end'>
+      <div className='flex items-center justify-end gap-x-1'>
+        <ExportTable chartRef={chartRef} />
         <ExportImage chartRef={chartRef} />
       </div>
 
