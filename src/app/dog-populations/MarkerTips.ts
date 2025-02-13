@@ -197,7 +197,7 @@ export const MarkerTips: Record<string, string> = {
 
   '相信動物新北': html`
     <p>
-      2016 年 5 月開始與市府合作
+      2016 年 5 月開始與新北市府合作
     </p>
     <p>
       執行期間 2017-2020
@@ -215,7 +215,7 @@ export const MarkerTips: Record<string, string> = {
 
   '相信動物台北': html`
     <p>
-      2016 年 1 月開始與市府合作（此前協會也有在各區抓紮）
+      2016 年 1 月開始與台北市府合作（此前協會也有在各區抓紮）
     </p>
     <p>
       執行期間 2017-2019
@@ -232,7 +232,7 @@ export const MarkerTips: Record<string, string> = {
 
   '相信動物桃園': html`
     <p>
-      2020 年 1 月開始與市府合作
+      2020 年 1 月開始與桃園市府合作
     </p>
     <p>
       執行期間 2020-2024
@@ -246,7 +246,7 @@ export const MarkerTips: Record<string, string> = {
   `,
   '相信動物基隆': html`
     <p>
-      2016 年 5 月與市府合作
+      2016 年 5 月與基隆市府合作
     </p>
     <p>
       執行期間 2016-2017

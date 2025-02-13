@@ -196,18 +196,13 @@ const MARKS: Record<string, MARK> = {
     ],
   },
   '台南零安樂': {
-    data: [{ name: '台南零安樂', xAxis: '104', lineStyle: { color: '#00a63e', }, }],
+    data: [{ name: '台南零安樂', xAxis: '104', lineStyle: { color: '#00a63e', }, label: { ...commonLabelSetting, distance: [5, -50], }, }],
   },
   '台南工作犬': {
-    data: [{ name: '台南工作犬', xAxis: '104', lineStyle: { color: '#005f78', }, label: { ...commonLabelSetting, distance: [5, -50], }, }],
+    data: [{ name: '台南工作犬', xAxis: '104', lineStyle: { color: '#005f78', }, label: { ...commonLabelSetting, distance: [5, -80], }, }],
   },
   '統計方式大改': {
-    data: [{
-      name: '統計方式大改',
-      xAxis: '104',
-      lineStyle: { color: '#a800b7', },
-      label: { ...commonLabelSetting, distance: [15, -80], },
-    }],
+    data: [{ name: '統計方式大改', xAxis: '104', lineStyle: { color: '#a800b7', }, label: { ...commonLabelSetting, distance: [15, -90], }, }],
   },
   '零撲殺公告': {
     data: [
@@ -363,7 +358,7 @@ const MARKS: Record<string, MARK> = {
     data: [{ name: '簡稚澄事件', xAxis: '105', lineStyle: { color: '#1447e6', }, }],
   },
   '壽山流浪狗倍增': {
-    data: [{ name: '壽山流浪狗倍增', xAxis: '106', lineStyle: { color: '#104e64', }, }],
+    data: [{ name: '壽山流浪狗倍增', xAxis: '106', lineStyle: { color: '#104e64', }, label: { ...commonLabelSetting, distance: [5, -90], }, }],
   },
 };
 
