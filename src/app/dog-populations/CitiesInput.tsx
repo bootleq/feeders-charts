@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { CITY_MAPPING, cityLookup } from '@/lib/model';
 import { tooltipClass, tooltipMenuCls } from './utils';
@@ -43,6 +43,13 @@ export function CitiesInput({ formRef }: {
     'peer-checked:text-slate-900 peer-checked:border-dotted peer-checked:border-stone-400',
     'peer-focus-visible:outline outline-offset-2 outline-blue-400',
   ].join(' ');
+
+  useEffect(() => {
+    const box = document.querySelector('li.writing-vertical')?.closest('ul');
+    if (box && box.offsetHeight > 400) {
+      box.style.flexFlow = 'initial'; // workaround for Firefox
+    }
+  }, []);
 
   const onPickPreset = useCallback((e: React.MouseEvent<HTMLElement>) => {
     const target = e.target;
