@@ -265,7 +265,7 @@ export default function Chart({ items, meta }: {
         option={defaultOptions}
         lazyUpdate={true}
         style={{ height: '70vh', minHeight: '600px' }}
-        className='mt-1 mb-2 px-3 py-4 bg-white resize overflow-auto'
+        className='mt-1 mb-2 px-3 py-4 bg-white resize overflow-hidden min-[1536px]:w-[clamp(1530px,70vw,2600px)]'
       />
     </div>
   );
