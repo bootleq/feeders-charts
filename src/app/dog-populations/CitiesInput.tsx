@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { CITY_MAPPING, cityLookup } from '@/lib/model';
-import { tooltipClass, tooltipMenuCls } from './chart';
+import { tooltipClass, tooltipMenuCls } from './utils';
 import {
   MenuIcon,
   GrabIcon,

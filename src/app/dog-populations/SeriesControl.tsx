@@ -4,7 +4,7 @@ import { useAtom } from 'jotai';
 import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { seriesChecksAtom } from './store';
 import { CheckboxMenuItem } from './CheckboxMenuItem';
-import { tooltipClass, tooltipMenuCls } from './chart';
+import { tooltipClass, tooltipMenuCls } from './utils';
 
 import {
   SigmaIcon,
