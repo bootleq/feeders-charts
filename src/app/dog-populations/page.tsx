@@ -1,6 +1,7 @@
 import * as R from 'ramda';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
 import Chart from './Chart';
+import TableDialog from './TableDialog';
 
 const RESOURCE_URL = process.env.NEXT_PUBLIC_RESOURCE_URL;
 
@@ -33,6 +34,8 @@ export default async function Page() {
 
         <Chart items={items} meta={meta} />
       </main>
+
+      <TableDialog />
     </div>
   );
 }

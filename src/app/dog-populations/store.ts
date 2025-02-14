@@ -33,3 +33,6 @@ export const checkboxMenuItemAtom = (boxsetAtom: PrimitiveAtom<CheckboxSet>, key
     set(boxsetAtom, R.over(R.lensProp(key), R.not));
   }
 );
+
+export const tableAtom = atom<any>(null);
+export const tableDialogOpenAtom = atom<boolean>(false);

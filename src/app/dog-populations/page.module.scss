@@ -71,3 +71,40 @@
     list-style-type: disc;
   }
 }
+
+.export-table {
+  th {
+    padding: 3px 2px;
+  }
+
+  td {
+    padding: 1px 2px;
+    border-right: 1px solid white;
+    &:first-child {
+      text-align: center;
+    }
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  tbody {
+    font-family: 'Consolas', 'Cascadia Mono', 'Liberation Mono', 'Noto Mono TC', 'ui-monospace', monospace;
+
+    tr:nth-child(2n+1) {
+      background-color: #e7e5e4;
+    }
+
+    tr:hover {
+      background-color: #fef9c2;
+    }
+
+    td {
+      text-align: right;
+      max-width: 5rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
