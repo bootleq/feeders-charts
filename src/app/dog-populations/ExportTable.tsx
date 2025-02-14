@@ -1,14 +1,17 @@
 import * as R from 'ramda';
-import { useCallback } from 'react';
-import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/Tooltip';
+import { useCallback, useMemo } from 'react';
+import { Tooltip, TooltipTrigger, TooltipContentMenu } from '@/components/Tooltip';
 import { useSetAtom } from 'jotai';
 import ReactEChartsCore from 'echarts-for-react/lib/core';
-import { tooltipClass} from './utils';
-import { tableAtom, tableDialogOpenAtom } from './store';
+import { CheckboxMenuItem } from './CheckboxMenuItem';
+import { tooltipClass, tooltipMenuCls } from './utils';
+
+import { tableAtom, tableDialogOpenAtom, dummyMenuAtom } from './store';
 import { escapeHTML } from '@/lib/utils';
 
 import {
   TableIcon,
+  ChartColumnBigIcon,
 } from "lucide-react";
 
 type SeriesEntry = {
@@ -76,17 +79,22 @@ export default function ExportTable({ chartRef }: {
     setDialogOpened(true);
   }, [chartRef, setTableHTML, setDialogOpened]);
 
+  const MenuItem = useMemo(() => CheckboxMenuItem(dummyMenuAtom, '_'), []);
+
   return (
-    <Tooltip placement='top' offset={3}>
+    <Tooltip placement='top-end' offset={3}>
       <TooltipTrigger>
-        <button type='button' onClick={onBuildTable} className='p-2 rounded opacity-50 hover:opacity-100 hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
-          <TableIcon size={20} />
+        <div className='p-2 rounded opacity-50 hover:opacity-100 hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
+          <TableIcon size={20} tabIndex={0} />
           <span className='sr-only'>製作表格</span>
-        </button>
+        </div>
       </TooltipTrigger>
-      <TooltipContent className={tooltipClass('p-2 drop-shadow-md')}>
-        製作表格
-      </TooltipContent>
+      <TooltipContentMenu className={tooltipClass('text-sm')}>
+        <div className={tooltipMenuCls()}>
+          <div className='py-2 font-bold'>製作表格</div>
+          <MenuItem Icon={ChartColumnBigIcon} name='toTable:chart' onClick={onBuildTable}>根據目前圖表</MenuItem>
+        </div>
+      </TooltipContentMenu>
     </Tooltip>
   );
 }

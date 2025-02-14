@@ -27,6 +27,8 @@ export const markerMenuAtom = atom<CheckboxSet>({
   '零撲殺施行': true,
 });
 
+export const dummyMenuAtom = atom<CheckboxSet>({});
+
 export const checkboxMenuItemAtom = (boxsetAtom: PrimitiveAtom<CheckboxSet>, key: string) => atom(
   get => get(boxsetAtom)[key] ?? false,
   (get, set) => {

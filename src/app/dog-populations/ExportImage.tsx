@@ -1,7 +1,6 @@
 import { useCallback } from 'react';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/Tooltip';
 import ReactEChartsCore from 'echarts-for-react/lib/core';
-import { tooltipClass } from './utils';
 
 import {
   ImageDownIcon,
@@ -30,14 +29,14 @@ export default function ExportImage({ chartRef }: {
   }, [chartRef]);
 
   return (
-    <Tooltip placement='top' offset={3}>
+    <Tooltip placement='bottom' offset={3}>
       <TooltipTrigger>
         <button type='button' onClick={onExportImage} className='p-2 rounded opacity-50 hover:opacity-100 hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
           <ImageDownIcon size={20} />
           <span className='sr-only'>下載圖片</span>
         </button>
       </TooltipTrigger>
-      <TooltipContent className={tooltipClass('p-2 drop-shadow-md')}>
+      <TooltipContent className='px-2 py-1 rounded box-border text-sm leading-relaxed w-fit max-w-[20vw] z-[1002] bg-neutral-50 drop-shadow-xl'>
         下載圖片
       </TooltipContent>
     </Tooltip>

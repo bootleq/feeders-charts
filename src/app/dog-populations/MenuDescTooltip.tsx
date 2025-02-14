@@ -101,6 +101,10 @@ const tipShowAllLabels = (<>
   標出每個資料的數值，而不是滑鼠移上去才顯示
 </>);
 
+const tipToTableChart = (<>
+  單純將圖表中的年度與各項數值轉為表格
+</>);
+
 
 const tip12Announce = (<>
   動保法修法「廢除 12 夜」，緩衝期兩年
@@ -159,6 +163,8 @@ const dict: Record<string, React.JSX.Element|string> = {
 
   roaming_chart_bar: tipRoamingChartBar,
   show_all_labels: tipShowAllLabels,
+
+  'toTable:chart': tipToTableChart,
 
   '零撲殺公告': tip12Announce,
   '動保法第 6 次修法': tipLaw6,
