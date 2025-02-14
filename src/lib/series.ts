@@ -53,33 +53,16 @@ const computers: Record<string, Computer> = {
 
 const customComputeSeries = Object.keys(computers);
 
-export function makeSeries(
+function collect({ items, yearRange, validYears, validCities, requiredRawSeries, initialSeries, computedSeries, checkedSeries }: {
   items: CountryItem[],
-  meta: ItemsMeta,
-  seriesSet: SeriesSet,
-  filters?: SeriesFilters,
-) {
-  const validCities = filters?.cities?.length ? filters.cities.map(String) : false;
-  const validYears = filters?.years?.length ? filters.years.map(Number) : false;
-
-  const minYear = validYears ? Math.min(...validYears) : meta.minYear;
-  const maxYear = validYears ? Math.max(...validYears) : meta.maxYear;
-  const yearRange = makeYearRange(minYear, maxYear);
-  const initialData: Array<number | null> = Array(yearRange.length).fill(null);
-
-  const checkedSeries = Object.keys(R.pickBy(R.identity, seriesSet));
-  const [rawSeries, computedSeries] = R.partition((key) => !customComputeSeries.includes(key), checkedSeries);
-  const dependsSeries = computedSeries.map(key => computers[key].depends).flat();
-  const requiredRawSeries = R.union(rawSeries, dependsSeries);
-
-  const initialSeries = Object.keys(seriesSet).reduce((acc: SeriesSet, name) => {
-    const obj = {
-      name: SERIES_NAMES[name],
-      data: requiredRawSeries.includes(name) ? initialData : null,
-    };
-    return R.assoc(name, obj, acc);
-  }, {});
-
+  yearRange: number[],
+  validYears: false | number[],
+  validCities: false | string[],
+  requiredRawSeries: string[],
+  initialSeries: {},
+  computedSeries: string[],
+  checkedSeries: string[],
+}) {
   // 1st pass, collect simple "raw" qty from items
   let series: Record<string, any> = items.reduce((acc, item) => {
     const { year, city } = item;
@@ -122,6 +105,48 @@ export function makeSeries(
       R.lensPath([name, 'data']),
       null
     )(series);
+  });
+
+  return series;
+}
+
+export function makeSeries(
+  items: CountryItem[],
+  meta: ItemsMeta,
+  seriesSet: SeriesSet,
+  filters?: SeriesFilters,
+  options?: ExtraOptions,
+) {
+  const validCities = filters?.cities?.length ? filters.cities.map(String) : false;
+  const validYears = filters?.years?.length ? filters.years.map(Number) : false;
+
+  const minYear = validYears ? Math.min(...validYears) : meta.minYear;
+  const maxYear = validYears ? Math.max(...validYears) : meta.maxYear;
+  const yearRange = makeYearRange(minYear, maxYear);
+  const initialData: Array<number | null> = Array(yearRange.length).fill(null);
+
+  const checkedSeries = Object.keys(R.pickBy(R.identity, seriesSet));
+  const [rawSeries, computedSeries] = R.partition((key) => !customComputeSeries.includes(key), checkedSeries);
+  const dependsSeries = computedSeries.map(key => computers[key].depends).flat();
+  const requiredRawSeries = R.union(rawSeries, dependsSeries);
+
+  const initialSeries = Object.keys(seriesSet).reduce((acc: SeriesSet, name) => {
+    const obj = {
+      name: SERIES_NAMES[name],
+      data: requiredRawSeries.includes(name) ? initialData : null,
+    };
+    return R.assoc(name, obj, acc);
+  }, {});
+
+  const series = collect({
+    items,
+    yearRange,
+    validYears,
+    validCities,
+    requiredRawSeries,
+    initialSeries,
+    computedSeries,
+    checkedSeries,
   });
 
   const result = Object.keys(seriesSet).map(name => series[name]);
