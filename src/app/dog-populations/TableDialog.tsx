@@ -28,6 +28,7 @@ export default function TableDialog() {
     if (opened) {
       setOpened(false);
     }
+    ref.current?.close();
   };
 
   const onClick = (e: React.MouseEvent<HTMLElement>) => {
@@ -38,21 +39,19 @@ export default function TableDialog() {
   };
 
   useEffect(() => {
-    if (tableHTML && opened) {
-      const body = bodyRef.current;
+    if (opened) {
       ref.current?.showModal();
-      body?.focus();
     } else {
       ref.current?.close();
     }
-  }, [tableHTML, opened]);
+  }, [opened]);
 
   if (!tableHTML) {
     return;
   }
 
   return (
-    <dialog ref={ref} className={dialogCls} onClose={onClose} onClick={onClick}>
+    <dialog ref={ref} className={`${dialogCls}  ${opened ? '' : 'hidden'}`} onClose={onClose} onClick={onClick}>
       <div className='sticky top-0 flex items-center flex-wrap p-3 px-2 sm:px-5 gap-y-2 bg-gradient-to-br from-stone-50/80 to-slate-100/80'>
         <div className='leading-tight text-center text-lg font-bold sm:text-start sm:text-balance'>
           資料表格
