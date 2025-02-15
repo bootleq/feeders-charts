@@ -164,9 +164,9 @@ export default function Chart({ items, meta }: {
       years = [];
     }
 
-    let newOptions = {
-      series: makeSeries(items, meta, seriesSet, { cities, years })
-    };
+    const newSeries = makeSeries(items, meta, seriesSet, { cities, years })['_'];
+    const seriesArray = Object.keys(seriesSet).map(name => newSeries[name]);
+    let newOptions = { series: seriesArray };
 
     const minYear = years.length ? years[0] : meta.minYear;
     const maxYear = years.length ? years[years.length - 1] : meta.maxYear;
