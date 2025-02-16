@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/Tooltip';
+import { makeDownload } from '@/lib/utils';
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 
 import {
@@ -14,18 +15,7 @@ export default function ExportImage({ chartRef }: {
     if (!chart) return;
 
     const base64Img = chart.getDataURL({ pixelRatio: 2, backgroundColor: 'white' });
-    fetch(base64Img).then(res => res.blob()).then(blob => {
-      const blobUrl = URL.createObjectURL(blob);
-
-      const link = document.createElement('a');
-      link.href = blobUrl;
-      link.download = '遊蕩犬隻估計數量.png';
-      document.body.appendChild(link);
-      link.click();
-
-      URL.revokeObjectURL(blobUrl);
-      document.body.removeChild(link);
-    }).catch(console.error);
+    makeDownload(base64Img,  '遊蕩犬隻估計數量.png');
   }, [chartRef]);
 
   return (

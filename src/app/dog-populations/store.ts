@@ -36,5 +36,7 @@ export const checkboxMenuItemAtom = (boxsetAtom: PrimitiveAtom<CheckboxSet>, key
   }
 );
 
-export const tableAtom = atom<any>(null);
+export type TableRow = Array<string|number|null>;
+
+export const tableAtom = atom<TableRow[]>([]);
 export const tableDialogOpenAtom = atom<boolean>(false);

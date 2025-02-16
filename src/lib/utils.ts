@@ -16,3 +16,17 @@ const htmlSpecialCharsMap: Record<string, string> = {
 export function escapeHTML(raw: string) {
   return raw.replace(/[&<>"']/g, (char) => htmlSpecialCharsMap[char]);
 }
+
+export function makeDownload(dataURL: string, name: string) {
+  fetch(dataURL).then(res => res.blob()).then(blob => {
+    const blobUrl = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = blobUrl;
+    link.download = name;
+    document.body.appendChild(link);
+    link.click();
+
+    URL.revokeObjectURL(blobUrl);
+    document.body.removeChild(link);
+  }).catch(console.error);
+}
