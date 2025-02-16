@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import { useCallback, useMemo } from 'react';
-import { Tooltip, TooltipTrigger, TooltipContentMenu } from '@/components/Tooltip';
+import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { useSetAtom } from 'jotai';
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import { CITY_MAPPING, cityLookup } from '@/lib/model';
@@ -149,7 +149,7 @@ export default function ExportTable({ items, meta, chartRef }: {
   const MenuItem = useMemo(() => CheckboxMenuItem(dummyMenuAtom, '_'), []);
 
   return (
-    <Tooltip placement='top-end' offset={3}>
+    <Tooltip placement='top-end' offset={3} hoverProps={menuHoverProps}>
       <TooltipTrigger>
         <div className='p-2 rounded opacity-50 hover:opacity-100 hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
           <TableIcon size={20} tabIndex={0} />
