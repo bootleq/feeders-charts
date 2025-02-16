@@ -1,8 +1,9 @@
 "use client"
 
 import { useEffect, useRef } from 'react';
-import { useAtom } from 'jotai';
+import { useAtom, useAtomValue } from 'jotai';
 import Html from '@/components/Html';
+import { escapeHTML } from '@/lib/utils';
 import { tableAtom, tableDialogOpenAtom } from './store';
 import styles from './page.module.scss';
 
@@ -18,10 +19,30 @@ const dialogCls = [
   'backdrop:bg-black/50 backdrop:backdrop-blur-[1px]',
 ].join(' ');
 
+const buildHTML = (records: Array<string|number|null>[]) => {
+  const [header, ...bodyRows] = records;
+  return [
+    '<table>',
+    "<thead><tr>\n",
+    header.map((h: any) => `<th>${escapeHTML(h)}</th>`).join(''),
+    '</tr></thead>',
+    '<tbody>',
+    bodyRows.map(row => {
+      return [
+        "<tr>\n",
+        row.map(cell => `<td>${cell ? escapeHTML(cell.toString()) : ''}</td>`).join(''),
+        '</tr>',
+      ].join('');
+    }).join(''),
+    '</tbody>',
+    '</table>',
+  ].join('');
+}
+
 export default function TableDialog() {
   const ref = useRef<HTMLDialogElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
-  const [tableHTML] = useAtom(tableAtom);
+  const tableData = useAtomValue(tableAtom);
   const [opened, setOpened] = useAtom(tableDialogOpenAtom);
 
   const onClose = () => {
@@ -46,9 +67,11 @@ export default function TableDialog() {
     }
   }, [opened]);
 
-  if (!tableHTML) {
+  if (!tableData) {
     return;
   }
+
+  const tableHTML = buildHTML(tableData);
 
   return (
     <dialog ref={ref} className={`${dialogCls}  ${opened ? '' : 'hidden'}`} onClose={onClose} onClick={onClick}>

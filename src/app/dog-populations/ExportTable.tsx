@@ -12,7 +12,6 @@ import { tooltipClass, tooltipMenuCls } from './utils';
 
 import { tableAtom, tableDialogOpenAtom, dummyMenuAtom } from './store';
 import type { CheckboxSet } from './store';
-import { escapeHTML } from '@/lib/utils';
 
 import {
   TableIcon,
@@ -99,26 +98,6 @@ const citiesTrendToRows = (
   return [header, ...rows];
 };
 
-const buildHTML = (records: Array<string|number|null>[]) => {
-  const [header, ...bodyRows] = records;
-  return [
-    '<table>',
-    "<thead><tr>\n",
-    header.map((h: any) => `<th>${escapeHTML(h)}</th>`).join(''),
-    '</tr></thead>',
-    '<tbody>',
-    bodyRows.map(row => {
-      return [
-        "<tr>\n",
-        row.map(cell => `<td>${cell ? escapeHTML(cell.toString()) : ''}</td>`).join(''),
-        '</tr>',
-      ].join('');
-    }).join(''),
-    '</tbody>',
-    '</table>',
-  ].join('');
-}
-
 export default function ExportTable({ items, meta, chartRef }: {
   chartRef: React.RefObject<ReactEChartsCore | null>,
   items: CountryItem[],
@@ -127,7 +106,7 @@ export default function ExportTable({ items, meta, chartRef }: {
     maxYear: number,
   },
 }) {
-  const setTableHTML = useSetAtom(tableAtom);
+  const setTable = useSetAtom(tableAtom);
   const setDialogOpened = useSetAtom(tableDialogOpenAtom);
 
   const buildByChart = useCallback(() => {
@@ -136,10 +115,9 @@ export default function ExportTable({ items, meta, chartRef }: {
 
     const options = chart.getOption();
     const rows = seriesToRows(options as ChartOptionPart);
-    const html = buildHTML(rows);
-    setTableHTML(html);
+    setTable(rows);
     setDialogOpened(true);
-  }, [chartRef, setTableHTML, setDialogOpened]);
+  }, [chartRef, setTable, setDialogOpened]);
 
   const buildToCities = useCallback(() => {
     const form = document.querySelector<HTMLFormElement>('form#MainForm');
@@ -164,10 +142,9 @@ export default function ExportTable({ items, meta, chartRef }: {
 
     citiesSeries = clearNullDataSeries(citiesSeries);
     const rows = citiesTrendToRows(citiesSeries, years, cities);
-    const html = buildHTML(rows);
-    setTableHTML(html);
+    setTable(rows);
     setDialogOpened(true);
-  }, [setTableHTML, setDialogOpened, items, meta]);
+  }, [setTable, setDialogOpened, items, meta]);
 
   const MenuItem = useMemo(() => CheckboxMenuItem(dummyMenuAtom, '_'), []);
 
