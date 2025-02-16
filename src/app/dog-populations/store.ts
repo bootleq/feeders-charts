@@ -27,9 +27,16 @@ export const markerMenuAtom = atom<CheckboxSet>({
   '零撲殺施行': true,
 });
 
+export const dummyMenuAtom = atom<CheckboxSet>({});
+
 export const checkboxMenuItemAtom = (boxsetAtom: PrimitiveAtom<CheckboxSet>, key: string) => atom(
   get => get(boxsetAtom)[key] ?? false,
   (get, set) => {
     set(boxsetAtom, R.over(R.lensProp(key), R.not));
   }
 );
+
+export type TableRow = Array<string|number|null>;
+
+export const tableAtom = atom<TableRow[]>([]);
+export const tableDialogOpenAtom = atom<boolean>(false);

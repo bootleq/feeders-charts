@@ -1,5 +1,6 @@
 import * as R from 'ramda';
 import { makeYearRange } from '@/lib/utils';
+import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
 
 export type SeriesSet = Record<string, boolean>;
@@ -8,6 +9,8 @@ type SeriesFilters = {
   cities?: string[] | FormDataEntryValue[],
   years?: number[] | FormDataEntryValue[],
 }
+
+type Series = Record<string, any>;
 
 type SeriesData = Array<number|null>;
 
@@ -53,11 +56,98 @@ const computers: Record<string, Computer> = {
 
 const customComputeSeries = Object.keys(computers);
 
+function collect({ items, yearRange, validYears, validCities, requiredRawSeries, computedSeries, checkedSeries, citiesSeries }: {
+  items: CountryItem[],
+  yearRange: number[],
+  validYears: false | number[],
+  validCities: false | string[],
+  requiredRawSeries: string[],
+  computedSeries: string[],
+  checkedSeries: string[],
+  citiesSeries: Record<string, Series>,
+}) {
+  // 1st pass, collect simple "raw" qty from items
+  items.forEach(item => {
+    const { year, city } = item;
+    const yearIdx = yearRange.indexOf(year);
+
+    if (validYears && !validYears.includes(year)) return;
+    if (validCities && !validCities.includes(city)) return;
+
+    const toAdd = requiredRawSeries.reduce((memo, key) => {
+      const qty = item[key as keyof CountryItem] as number;
+      if (qty > 0) return R.assoc(key, qty, memo);
+      return memo;
+    }, {});
+
+    for (const [key, qty] of Object.entries(toAdd)) {
+      citiesSeries = R.over(
+        R.lensPath([city, key, 'data', yearIdx]),
+        R.pipe(Number, R.add(qty as number)),
+        citiesSeries
+      );
+
+      if (city !== '_') { // Still add to '_' for cross-cities total
+        citiesSeries = R.over(
+          R.lensPath(['_', key, 'data', yearIdx]),
+          R.pipe(Number, R.add(qty as number)),
+          citiesSeries
+        );
+      }
+    }
+  });
+
+  // 2nd pass, compute special series from previous result
+  computedSeries.forEach(name => {
+    const computer = computers[name];
+
+    citiesSeries = R.mapObjIndexed((obj: Series) => {
+      const cityArgs = computer.depends.map(key => obj[key]?.data);
+
+      return R.set(
+        R.lensPath([name, 'data']),
+        computer.fn(...cityArgs)
+      )(obj);
+    })(citiesSeries);
+  });
+
+  // 3rd pass, clear not selected series (which were added only for 2nd pass)
+  R.difference(requiredRawSeries, checkedSeries).forEach(name => {
+    citiesSeries = R.mapObjIndexed(
+      R.set(
+        R.lensPath([name, 'data']),
+        null
+      )
+    )(citiesSeries);
+  });
+
+  return citiesSeries;
+}
+
+// Return named "series" data grouped by "city", where '_' is a pseudo key means "ALL cities".
+// Cities other than '_' are not included unless `extraOptions.byCities` is true.
+//
+// {
+//  '_': {
+//    roaming: {
+//      name: '遊蕩犬估計',
+//      data: [...],
+//    },
+//  },
+//  'City000002': {
+//    roaming: {
+//      ...
+//    },
+//  },
+// }
 export function makeSeries(
   items: CountryItem[],
   meta: ItemsMeta,
   seriesSet: SeriesSet,
   filters?: SeriesFilters,
+  extraOptions?: {
+    byCities: boolean,
+  },
 ) {
   const validCities = filters?.cities?.length ? filters.cities.map(String) : false;
   const validYears = filters?.years?.length ? filters.years.map(Number) : false;
@@ -80,51 +170,21 @@ export function makeSeries(
     return R.assoc(name, obj, acc);
   }, {});
 
-  // 1st pass, collect simple "raw" qty from items
-  let series: Record<string, any> = items.reduce((acc, item) => {
-    const { year, city } = item;
-    const yearIdx = yearRange.indexOf(year);
+  const makeToCities = ['_']; // '_' means "ALL" cities, no distinguish
+  if (extraOptions?.byCities) {
+    makeToCities.push(...(validCities || Object.keys(CITY_MAPPING)));
+  }
 
-    if (validYears && !validYears.includes(year)) return acc;
-    if (validCities && !validCities.includes(city)) return acc;
+  const citiesSeries = R.fromPairs(makeToCities.map(city => [city, initialSeries]));
 
-    const toAdd = requiredRawSeries.reduce((memo, key) => {
-      const qty = item[key as keyof CountryItem] as number;
-      if (qty > 0) return R.assoc(key, qty, memo);
-      return memo;
-    }, {});
-
-    for (const [key, qty] of Object.entries(toAdd)) {
-      acc = R.over(
-        R.lensPath([key, 'data', yearIdx]),
-        R.pipe(Number, R.add(qty as number)),
-        acc
-      );
-    }
-
-    return acc;
-  }, initialSeries);
-
-  // 2nd pass, compute special series from previous result
-  computedSeries.forEach(name => {
-    const computer = computers[name];
-    const args = computer.depends.map(key => series[key].data);
-
-    series = R.set(
-      R.lensPath([name, 'data']),
-      computer.fn(...args)
-    )(series);
+  return collect({
+    items,
+    yearRange,
+    validYears,
+    validCities,
+    requiredRawSeries,
+    computedSeries,
+    checkedSeries,
+    citiesSeries,
   });
-
-  // 3rd pass, clear not selected series (which were added only for 2nd pass)
-  R.difference(requiredRawSeries, checkedSeries).forEach(name => {
-    series = R.set(
-      R.lensPath([name, 'data']),
-      null
-    )(series);
-  });
-
-  const result = Object.keys(seriesSet).map(name => series[name]);
-
-  return result;
 }
