@@ -73,8 +73,28 @@
 }
 
 .export-table {
+  table {
+    padding-top: 2px;
+    padding-bottom: 4px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+  }
+
+  thead {
+    border-bottom: 1px solid #aaa;
+  }
+
   th {
     padding: 3px 2px;
+    font-family: var(--font-space), var(--font-geist-mono), 'Microsoft JhengHei', 'Noto Sans TC', sans-serif;
+    border-right: 1px solid white;
+
+    &:last-child {
+      border-right: none;
+    }
+    &:hover {
+      background-color: white;
+    }
   }
 
   td {

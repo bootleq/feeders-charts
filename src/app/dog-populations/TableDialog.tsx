@@ -64,7 +64,7 @@ export default function TableDialog() {
       </div>
 
       <div ref={bodyRef} tabIndex={0} className={`px-2 sm:px-5 pb-6 mt-auto max-h-[80vh] overflow-auto focus-visible:outline-none text-sm ${styles['export-table']}`}>
-        <Html html={tableHTML} />
+        <Html html={tableHTML} className='w-fit' />
       </div>
     </dialog>
   );
