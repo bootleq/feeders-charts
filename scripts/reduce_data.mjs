@@ -10,6 +10,7 @@ import {
   readSourceTime,
   checkUpdateHash,
   writeMeta,
+  DATA_DIR,
 } from '@/lib/data_source';
 
 import { jqProcess, testSamplesExist } from './utils';
@@ -144,7 +145,7 @@ function validate(resourceName, items) {
   if (combined) {
     const newContent = JSON.stringify(combined, null, 2);
     const needsUpdate = await checkUpdateHash('combined', newContent);
-    const outFile = buildingPath('combined', 'json');
+    const outFile = path.resolve(`${DATA_DIR}/combined.json`);
     const now = new Date();
 
     if (needsUpdate) {
