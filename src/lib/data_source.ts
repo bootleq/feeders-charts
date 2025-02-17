@@ -58,14 +58,6 @@ export const sources: Sources = {
     extname: 'json',
     normalizer: 'population_jq',
   },
-  human_population: {
-    title: '戶籍登記人口數(人)',
-    docUrl: 'https://winstacity.dgbas.gov.tw/DgbasWeb/ZWeb/StateFile_ZWeb.aspx',
-    name: 'human_population',
-    extname: 'csv',
-    // 中華民國統計資訊網 - 縣市重要統計指標查詢系統
-    // 資料來源：內政部
-  },
   ...shelter_reports,
 }
 
