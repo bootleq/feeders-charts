@@ -3,7 +3,8 @@ import fs from "fs";
 import fsp from 'node:fs/promises';
 import path from "path";
 import csv from "csv-parser";
-import { buildingPath } from '@/lib/data_source';
+import chalk from 'chalk';
+import { buildingPath, checkUpdateHash, writeSourceTime } from '@/lib/data_source';
 import { CITY_MAPPING } from '@/lib/model';
 import { testSamplesExist } from './utils';
 
@@ -155,7 +156,22 @@ async function parseCSV(file, csvOptions = {}) {
 
   for (const resource of resources) {
     const { basename, parserOptions, postProcess, validator } = resource;
+    const resourceName = basename;
     const csv = path.resolve(`${DATA_DIR}/${basename}.csv`);
+
+    const newContent = await fsp.readFile(csv, 'utf-8');
+    const needsUpdate = await checkUpdateHash(resourceName, newContent);
+
+    if (needsUpdate) {
+      await writeSourceTime(resourceName);
+    } else {
+      console.log(`Source data for '${resourceName}' has no change.`);
+      if (Number(process.env.DATA_CONTINUE_WHEN_SAME_HASH)) {
+        console.log(chalk.yellow.bold('but still process per request.') + chalk.red.bold('(DATA_CONTINUE_WHEN_SAME_HASH)'));
+      } else {
+        continue;
+      }
+    }
 
     console.log(`Resource: ${basename}`);
 

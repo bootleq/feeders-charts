@@ -1,9 +1,20 @@
 import fs from "fs";
 import fsp from 'node:fs/promises';
 import csv from "csv-parser";
-import { buildingPath } from '@/lib/data_source';
+import chalk from 'chalk';
+import { buildingPath, writeSourceTime, checkUpdateHash } from '@/lib/data_source';
 import { CITY_MAPPING } from '@/lib/model';
 
+// human_population: {
+//   title: '戶籍登記人口數(人)',
+//   docUrl: 'https://winstacity.dgbas.gov.tw/DgbasWeb/ZWeb/StateFile_ZWeb.aspx',
+//   name: 'human_population',
+//   extname: 'csv',
+//   // 中華民國統計資訊網 - 縣市重要統計指標查詢系統
+//   // 資料來源：內政部
+// },
+
+const resourceName = 'human_population';
 const csvFile = process.env.HUMAN_POPULATION_CSV_PATH;
 const cityCodeMapping = new Map(Object.entries(CITY_MAPPING).map(([code, name]) => [name, code]));
 
@@ -59,7 +70,7 @@ async function parseCSV(file) {
 }
 
 async function writeJSON(data) {
-  const outFile = buildingPath('human_population', 'json');
+  const outFile = buildingPath(resourceName, 'json');
 
   console.log(`Write file to ${outFile}...`);
   await fsp.writeFile(outFile, JSON.stringify(data, null, 2));
@@ -82,7 +93,6 @@ function validate(data) {
   });
 }
 
-
 (async function main() {
   let data;
 
@@ -92,6 +102,20 @@ function validate(data) {
       "錯誤，找不到 CSV 檔案，請閱讀 README 以手動下載。",
     ].join("\n"));
     return;
+  }
+
+  const newContent = await fsp.readFile(csvFile, 'utf-8');
+  const needsUpdate = await checkUpdateHash(resourceName, newContent);
+
+  if (needsUpdate) {
+    await writeSourceTime(resourceName);
+  } else {
+    console.log(`Source data for '${resourceName}' has no change.`);
+    if (Number(process.env.DATA_CONTINUE_WHEN_SAME_HASH)) {
+      console.log(chalk.yellow.bold('but still process per request.') + chalk.red.bold('(DATA_CONTINUE_WHEN_SAME_HASH)'));
+    } else {
+      return;
+    }
   }
 
   try {

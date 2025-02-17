@@ -1,0 +1,59 @@
+{
+  "population": {
+    "sourceCheckedAt": "2025-02-17T08:28:46.406Z"
+  },
+  "shelter_reports_107": {
+    "sourceCheckedAt": "2025-02-17T08:28:46.578Z"
+  },
+  "shelter_reports_106": {
+    "sourceCheckedAt": "2025-02-17T08:28:46.630Z"
+  },
+  "shelter_reports_105": {
+    "sourceCheckedAt": "2025-02-17T08:28:46.685Z"
+  },
+  "shelter_reports_104": {
+    "sourceCheckedAt": "2025-02-17T08:28:46.738Z"
+  },
+  "shelter_reports_103": {
+    "sourceCheckedAt": "2025-02-17T08:28:46.795Z"
+  },
+  "shelter_reports_102": {
+    "sourceCheckedAt": "2025-02-17T08:28:46.851Z"
+  },
+  "shelter_reports_101": {
+    "sourceCheckedAt": "2025-02-17T08:28:46.904Z"
+  },
+  "shelter_reports_100": {
+    "sourceCheckedAt": "2025-02-17T08:28:46.955Z"
+  },
+  "shelter_reports_99": {
+    "sourceCheckedAt": "2025-02-17T08:28:47.003Z"
+  },
+  "shelter_reports_98": {
+    "sourceCheckedAt": "2025-02-17T08:28:47.053Z"
+  },
+  "shelter_reports_97": {
+    "sourceCheckedAt": "2025-02-17T08:28:47.102Z"
+  },
+  "human_population": {
+    "sourceCheckedAt": "2025-02-17T08:29:17.177Z"
+  },
+  "shelter_pet": {
+    "sourceCheckedAt": "2025-02-17T08:30:09.786Z"
+  },
+  "populations_112": {
+    "sourceCheckedAt": "2025-02-17T08:31:43.109Z"
+  },
+  "populations_113": {
+    "sourceCheckedAt": "2025-02-17T08:31:43.115Z"
+  },
+  "countrywide": {
+    "sourceCheckedAt": "2025-02-17T08:31:43.118Z"
+  },
+  "heat_map": {
+    "sourceCheckedAt": "2025-02-17T08:32:12.150Z"
+  },
+  "combined": {
+    "builtAt": "2025-02-17T10:09:12.001Z"
+  }
+}

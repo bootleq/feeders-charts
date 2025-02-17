@@ -2,8 +2,9 @@ import * as R from 'ramda';
 import fsp from 'node:fs/promises';
 import fetch from 'node-fetch';
 import https from 'https';
+import chalk from 'chalk';
 import { cityLookup } from '@/lib/model';
-import { buildingPath } from '@/lib/data_source';
+import { buildingPath, checkUpdateHash, writeSourceTime } from '@/lib/data_source';
 import { testSamplesExist } from './utils';
 
 const basename = 'shelter_pet';
@@ -224,7 +225,7 @@ async function fetchYearData(year, reportType) {
     DataE: endDate,
   };
 
-  console.log(`Getting data ${year}`);
+  console.log(`Getting data ${year}, params:`, params);
   const res = await request(params);
   const data = translateFields(res, year, reportType);
 
@@ -232,8 +233,11 @@ async function fetchYearData(year, reportType) {
 }
 
 async function fetchYears(years, reportType) {
-  const nested = await Promise.all(years.flatMap(y => fetchYearData(y, reportType)));
-  return R.unnest(nested);
+  const results = [];
+  for (const year of years) {
+    results.push(await fetchYearData(year, reportType));
+  }
+  return R.unnest(results);
 }
 
 (async function main() {
@@ -265,6 +269,19 @@ async function fetchYears(years, reportType) {
 
   if (!validate(data)) {
     throw new Error('Validation failed')
+  }
+
+  const newContent = JSON.stringify(data);
+  const needsUpdate = await checkUpdateHash(basename, newContent);
+  if (needsUpdate) {
+    await writeSourceTime(basename);
+  } else {
+    console.log(`Source data for '${basename}' has no change.`);
+    if (Number(process.env.DATA_CONTINUE_WHEN_SAME_HASH)) {
+      console.log(chalk.yellow.bold('but still process per request.') + chalk.red.bold('(DATA_CONTINUE_WHEN_SAME_HASH)'));
+    } else {
+      return;
+    }
   }
 
   const outFile = buildingPath(basename, 'json');

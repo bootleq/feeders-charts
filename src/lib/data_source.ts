@@ -1,6 +1,18 @@
+import * as R from 'ramda';
+import fs from "fs";
+import fsp from 'node:fs/promises';
 import path from "path";
+import crypto from 'crypto';
 
 export const DATA_DIR = 'data';
+
+const jsonMetaReviver = (key: string, value: any) => {
+  if (key === 'sourceCheckedAt' && typeof value === 'string') {
+    return new Date(value);
+  }
+
+  return value;
+};
 
 const shelter_reports_table = [
   // NOTE: 107 年之後改用「動物收容統計表（詳表）」資料，這邊不採用
@@ -58,14 +70,6 @@ export const sources: Sources = {
     extname: 'json',
     normalizer: 'population_jq',
   },
-  human_population: {
-    title: '戶籍登記人口數(人)',
-    docUrl: 'https://winstacity.dgbas.gov.tw/DgbasWeb/ZWeb/StateFile_ZWeb.aspx',
-    name: 'human_population',
-    extname: 'csv',
-    // 中華民國統計資訊網 - 縣市重要統計指標查詢系統
-    // 資料來源：內政部
-  },
   ...shelter_reports,
 }
 
@@ -94,4 +98,62 @@ export function downloadPath(resourceName: string, extension: string) {
 
 export function buildingPath(resourceName: string, extension: string) {
   return path.resolve(`${DATA_DIR}/build/${resourceName}.${extension}`);
+}
+
+async function calculateHash(content: string|ArrayBuffer) {
+  if (content instanceof ArrayBuffer) {
+    const hashBuffer = await crypto.subtle.digest("SHA-256", content);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashHex;
+  } else {
+    return crypto.createHash("sha256").update(content).digest("hex");
+  }
+}
+
+export async function checkUpdateHash(hashFileBasename: string, newContent: string|ArrayBuffer) {
+  const hashFile = path.resolve(`${DATA_DIR}/hash/${hashFileBasename}.hash`);
+  const newHash = await calculateHash(newContent);
+  try {
+    const localHash = await fsp.readFile(hashFile, 'utf-8');
+    if (localHash === newHash) {
+      return false;
+    }
+  } catch {
+    // local hash not found, let's just download new data
+  }
+  await fsp.writeFile(hashFile, newHash);
+  return true;
+}
+
+async function metaFilePath() {
+  const metaFile = path.resolve(`${DATA_DIR}/meta.json`);
+  if (!fs.existsSync(metaFile)) {
+    await fsp.writeFile(metaFile, '{}');
+  }
+  return metaFile;
+}
+
+export async function readMeta(metaPath: string[]) {
+  const metaFile = await metaFilePath();
+  const meta = JSON.parse(fs.readFileSync(metaFile, 'utf-8'), jsonMetaReviver);
+
+  return R.path(metaPath, meta);
+}
+
+export async function writeMeta(metaPath: string[], value: string|number) {
+  const metaFile = await metaFilePath();
+  const meta = JSON.parse(fs.readFileSync(metaFile, 'utf-8'));
+  const newMeta = R.assocPath(metaPath, value, meta);
+
+  await fsp.writeFile(metaFile, JSON.stringify(newMeta, null, 2));
+}
+
+export async function readSourceTime(resourceName: string) {
+  return await readMeta([resourceName, 'sourceCheckedAt']);
+}
+
+export async function writeSourceTime(resourceName: string, givenTime?: Date) {
+  const time = givenTime || new Date();
+  await writeMeta([resourceName, 'sourceCheckedAt'], time.toJSON());
 }

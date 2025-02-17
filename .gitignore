@@ -30,12 +30,10 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# dev
-public/dev.combined.json
-
 # data
 data/download
 data/build
+public/combined.json
 
 # env files (can opt-in for committing if needed)
 .env*

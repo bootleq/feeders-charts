@@ -13,7 +13,15 @@
     "data:shelter_pet": "tsx scripts/fetch_shelter_pet.mjs",
     "data:manually": "tsx scripts/prepare_manual_data.mjs",
     "data:reduce": "tsx scripts/reduce_data.mjs",
-    "data:dev_serve": "cp data/build/combined.json public/dev.combined.json"
+
+    "data:download:force": "DATA_CONTINUE_WHEN_SAME_HASH=1 tsx scripts/download_data.mjs",
+    "data:human_pop:force": "DATA_CONTINUE_WHEN_SAME_HASH=1 tsx --env-file=.env scripts/prepare_human_populations.mjs",
+    "data:heat_map:force": "DATA_CONTINUE_WHEN_SAME_HASH=1 tsx scripts/fetch_heat_map.mjs",
+    "data:shelter_pet:force": "DATA_CONTINUE_WHEN_SAME_HASH=1 tsx scripts/fetch_shelter_pet.mjs",
+    "data:manually:force": "DATA_CONTINUE_WHEN_SAME_HASH=1 tsx scripts/prepare_manual_data.mjs",
+    "data:reduce:force": "DATA_CONTINUE_WHEN_SAME_HASH=1 tsx scripts/reduce_data.mjs",
+
+    "data:serve": "cp data/combined.json public/combined.json"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.3",
@@ -35,6 +43,7 @@
     "@types/ramda": "^0.30.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "chalk": "^5.4.1",
     "csv-parser": "^3.2.0",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
