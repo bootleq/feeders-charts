@@ -123,8 +123,11 @@ async function fetchYearData(year) {
 (async function main() {
   console.log("Fetch heat map data from pet.gov.tw ...\n");
 
-  const nested = await Promise.all([2023, 2024].flatMap(fetchYearData));
-  const data = R.unnest(nested);
+  const results = [];
+  for (const year of [2023, 2024]) {
+    results.push(await fetchYearData(year));
+  }
+  const data = R.unnest(results);
 
   const newContent = JSON.stringify(data);
   const needsUpdate = await checkUpdateHash(basename, newContent);
