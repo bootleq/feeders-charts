@@ -3,7 +3,7 @@ import fsp from 'node:fs/promises';
 import fetch from 'node-fetch';
 import https from 'https';
 import { CITY_MAPPING } from '@/lib/model';
-import { buildingPath } from '@/lib/data_source';
+import { buildingPath, checkUpdateHash, writeSourceTime } from '@/lib/data_source';
 
 const basename = 'heat_map';
 
@@ -125,6 +125,15 @@ async function fetchYearData(year) {
 
   const nested = await Promise.all([2023, 2024].flatMap(fetchYearData));
   const data = R.unnest(nested);
+
+  const newContent = JSON.stringify(data);
+  const needsUpdate = await checkUpdateHash(basename, newContent);
+  if (needsUpdate) {
+    await writeSourceTime(basename);
+  } else {
+    console.log(`Source data for '${basename}' has no change.`);
+    return;
+  }
 
   const outFile = buildingPath(basename, 'json');
   await fsp.writeFile(outFile, JSON.stringify(data, null, 2));

@@ -3,7 +3,7 @@ import fsp from 'node:fs/promises';
 import fetch from 'node-fetch';
 import https from 'https';
 import { cityLookup } from '@/lib/model';
-import { buildingPath } from '@/lib/data_source';
+import { buildingPath, checkUpdateHash, writeSourceTime } from '@/lib/data_source';
 import { testSamplesExist } from './utils';
 
 const basename = 'shelter_pet';
@@ -268,6 +268,15 @@ async function fetchYears(years, reportType) {
 
   if (!validate(data)) {
     throw new Error('Validation failed')
+  }
+
+  const newContent = JSON.stringify(data);
+  const needsUpdate = await checkUpdateHash(basename, newContent);
+  if (needsUpdate) {
+    await writeSourceTime(basename);
+  } else {
+    console.log(`Source data for '${basename}' has no change.`);
+    return;
   }
 
   const outFile = buildingPath(basename, 'json');

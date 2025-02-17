@@ -1,7 +1,7 @@
 import fs from "fs";
 import fsp from 'node:fs/promises';
 import csv from "csv-parser";
-import { buildingPath } from '@/lib/data_source';
+import { buildingPath, writeSourceTime, checkUpdateHash } from '@/lib/data_source';
 import { CITY_MAPPING } from '@/lib/model';
 
 // human_population: {
@@ -13,6 +13,7 @@ import { CITY_MAPPING } from '@/lib/model';
 //   // 資料來源：內政部
 // },
 
+const resourceName = 'human_population';
 const csvFile = process.env.HUMAN_POPULATION_CSV_PATH;
 const cityCodeMapping = new Map(Object.entries(CITY_MAPPING).map(([code, name]) => [name, code]));
 
@@ -68,7 +69,7 @@ async function parseCSV(file) {
 }
 
 async function writeJSON(data) {
-  const outFile = buildingPath('human_population', 'json');
+  const outFile = buildingPath(resourceName, 'json');
 
   console.log(`Write file to ${outFile}...`);
   await fsp.writeFile(outFile, JSON.stringify(data, null, 2));
@@ -91,7 +92,6 @@ function validate(data) {
   });
 }
 
-
 (async function main() {
   let data;
 
@@ -100,6 +100,16 @@ function validate(data) {
       "Error, CSV file does't exist, see README to make it manually.",
       "錯誤，找不到 CSV 檔案，請閱讀 README 以手動下載。",
     ].join("\n"));
+    return;
+  }
+
+  const newContent = await fsp.readFile(csvFile, 'utf-8');
+  const needsUpdate = await checkUpdateHash(resourceName, newContent);
+
+  if (needsUpdate) {
+    await writeSourceTime(resourceName);
+  } else {
+    console.log(`Source data for '${resourceName}' has no change.`);
     return;
   }
 
