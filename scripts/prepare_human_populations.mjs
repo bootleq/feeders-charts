@@ -1,6 +1,7 @@
 import fs from "fs";
 import fsp from 'node:fs/promises';
 import csv from "csv-parser";
+import chalk from 'chalk';
 import { buildingPath, writeSourceTime, checkUpdateHash } from '@/lib/data_source';
 import { CITY_MAPPING } from '@/lib/model';
 
@@ -110,7 +111,11 @@ function validate(data) {
     await writeSourceTime(resourceName);
   } else {
     console.log(`Source data for '${resourceName}' has no change.`);
-    return;
+    if (Number(process.env.DATA_CONTINUE_WHEN_SAME_HASH)) {
+      console.log(chalk.yellow.bold('but still process per request.') + chalk.red.bold('(DATA_CONTINUE_WHEN_SAME_HASH)'));
+    } else {
+      return;
+    }
   }
 
   try {

@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import fetch from "node-fetch";
+import chalk from 'chalk';
 
 import {
   sources,
@@ -58,15 +59,17 @@ async function download(resourceName, title) {
     if (needsUpdate) {
       await saveData(name, remoteData, extname);
       await writeSourceTime(resourceName);
-      return true;
     } else {
       console.log(`Remote data for '${resourceName}' has no change.`);
+
+      if (Number(process.env.DATA_CONTINUE_WHEN_SAME_HASH)) {
+        console.log(chalk.yellow.bold('but still save data per request ') + chalk.red.bold('(DATA_CONTINUE_WHEN_SAME_HASH)'));
+        await saveData(name, remoteData, extname);
+      }
     }
   } catch (error) {
     console.error("Error：", error.message);
   }
-
-  return false;
 }
 
 (async function main() {

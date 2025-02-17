@@ -14,6 +14,10 @@ Prepare data source:
 - `pnpm data:reduce`: Transform downloaded data and combine all processed data
 - `pnpm data:dev_serve`: Copy transformed data to `public/` folder for development convenience.
 
+Above tasks have hash/time check so will stop processing when considering no change.
+
+Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `pnpm data:download:force`) to force continue.
+
 
 Make data source available for development:
 Copy `.env.sample` to `.env` and set: `NEXT_PUBLIC_RESOURCE_URL=http://localhost:3000/dev.combined.json`

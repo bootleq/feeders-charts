@@ -2,6 +2,7 @@ import * as R from 'ramda';
 import fsp from 'node:fs/promises';
 import fetch from 'node-fetch';
 import https from 'https';
+import chalk from 'chalk';
 import { CITY_MAPPING } from '@/lib/model';
 import { buildingPath, checkUpdateHash, writeSourceTime } from '@/lib/data_source';
 
@@ -135,7 +136,11 @@ async function fetchYearData(year) {
     await writeSourceTime(basename);
   } else {
     console.log(`Source data for '${basename}' has no change.`);
-    return;
+    if (Number(process.env.DATA_CONTINUE_WHEN_SAME_HASH)) {
+      console.log(chalk.yellow.bold('but still process per request.') + chalk.red.bold('(DATA_CONTINUE_WHEN_SAME_HASH)'));
+    } else {
+      return;
+    }
   }
 
   const outFile = buildingPath(basename, 'json');
