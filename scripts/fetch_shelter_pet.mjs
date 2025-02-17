@@ -224,7 +224,7 @@ async function fetchYearData(year, reportType) {
     DataE: endDate,
   };
 
-  console.log(`Getting data ${year}`);
+  console.log(`Getting data ${year}, params:`, params);
   const res = await request(params);
   const data = translateFields(res, year, reportType);
 
@@ -232,8 +232,11 @@ async function fetchYearData(year, reportType) {
 }
 
 async function fetchYears(years, reportType) {
-  const nested = await Promise.all(years.flatMap(y => fetchYearData(y, reportType)));
-  return R.unnest(nested);
+  const results = [];
+  for (const year of years) {
+    results.push(await fetchYearData(year, reportType));
+  }
+  return R.unnest(results);
 }
 
 (async function main() {
