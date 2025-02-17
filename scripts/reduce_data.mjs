@@ -2,11 +2,14 @@ import * as R from 'ramda';
 import fs from 'node:fs';
 import fsp from 'node:fs/promises';
 import path from "path";
+import chalk from 'chalk';
 
 import {
   sources,
   buildingPath,
   readSourceTime,
+  checkUpdateHash,
+  writeMeta,
 } from '@/lib/data_source';
 
 import { jqProcess, testSamplesExist } from './utils';
@@ -59,11 +62,7 @@ async function combine( resourceNames ) {
 
   try {
     const script = path.resolve('scripts/combine.jq');
-    const outFile = buildingPath('combined', 'json');
-    const result = await jqProcess(script, inFiles);
-    console.log(`Write file to ${outFile}...`);
-    await fsp.writeFile(outFile, JSON.stringify(result, null, 2));
-    return true;
+    return await jqProcess(script, inFiles);
   } catch (error) {
     console.error('Fail combining：', error.message);
     throw error;
@@ -140,7 +139,29 @@ function validate(resourceName, items) {
     }
   }
 
-  if (await combine(allResources)) {
+  const combined = await combine(allResources);
+
+  if (combined) {
+    const newContent = JSON.stringify(combined, null, 2);
+    const needsUpdate = await checkUpdateHash('combined', newContent);
+    const outFile = buildingPath('combined', 'json');
+    const now = new Date();
+
+    if (needsUpdate) {
+      console.log(`Write file to ${outFile}...`);
+      await fsp.writeFile(outFile, newContent);
+      await writeMeta(['combined', 'builtAt'], now.toJSON());
+    } else {
+      console.log(`Combined data has no change.`);
+      if (Number(process.env.DATA_CONTINUE_WHEN_SAME_HASH)) {
+        console.log(chalk.yellow.bold('but still save data per request ') + chalk.red.bold('(DATA_CONTINUE_WHEN_SAME_HASH)'));
+        console.log(`Write file to ${outFile}...`);
+        await fsp.writeFile(outFile, newContent);
+      } else {
+        return;
+      }
+    }
+
     console.log("\nDone.");
   }
 })();
