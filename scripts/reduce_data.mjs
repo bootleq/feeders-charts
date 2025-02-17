@@ -6,6 +6,7 @@ import path from "path";
 import {
   sources,
   buildingPath,
+  readSourceTime,
 } from '@/lib/data_source';
 
 import { jqProcess, testSamplesExist } from './utils';
@@ -128,6 +129,16 @@ function validate(resourceName, items) {
   }
 
   const allResources = Object.keys(sources).concat(manuallyResources);
+
+  // Collect source checked (download latest change) time
+  for (const rc of allResources) {
+    const sourceTime = await readSourceTime(rc);
+    if (!sourceTime) {
+      console.error(`Error: missing sourceCheckedAt record for '${rc}'`);
+      console.log('Aborted.');
+      return;
+    }
+  }
 
   if (await combine(allResources)) {
     console.log("\nDone.");

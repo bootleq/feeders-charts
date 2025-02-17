@@ -1,23 +1,12 @@
 import fs from 'node:fs/promises';
-import crypto from "crypto";
 import fetch from "node-fetch";
-import { format } from "date-fns";
 
 import {
   sources,
   downloadPath,
+  checkUpdateHash,
+  writeSourceTime,
 } from '@/lib/data_source';
-
-async function calculateHash(content) {
-  if (content instanceof ArrayBuffer) {
-    const hashBuffer = await crypto.subtle.digest("SHA-256", content);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    return hashHex;
-  } else {
-    return crypto.createHash("sha256").update(content).digest("hex");
-  }
-}
 
 async function fetchData(url, extname) {
   const response = await fetch(url);
@@ -28,32 +17,6 @@ async function fetchData(url, extname) {
   } else {
     return response.arrayBuffer();
   }
-}
-
-async function writeTimestamp(filePath) {
-  const now = new Date();
-  const text = format(now, "yyyyMMdd_HHmm");
-  await fs.writeFile(filePath, text);
-}
-
-async function checkForUpdate(resourceName, remoteData) {
-  const remoteHash = await calculateHash(remoteData);
-  const hashFile = downloadPath(resourceName, 'hash');
-  const timeFile = downloadPath(resourceName, 'time');
-
-  try {
-    const localHash = await fs.readFile(hashFile, "utf-8");
-    if (localHash === remoteHash) {
-      console.log(`Remote data for '${resourceName}' has no change.`);
-      return false;
-    }
-  } catch {
-    // local hash not found, let's just download new data
-  }
-
-  await fs.writeFile(hashFile, remoteHash);
-  await writeTimestamp(timeFile);
-  return true;
 }
 
 async function saveData(resourceName, data, extname) {
@@ -90,11 +53,14 @@ async function download(resourceName, title) {
   try {
     const { name, url, extname } = sources[resourceName];
     const remoteData = await fetchData(url, extname);
-    const needsUpdate = await checkForUpdate(name, remoteData);
+    const needsUpdate = await checkUpdateHash(resourceName, remoteData);
 
     if (needsUpdate) {
       await saveData(name, remoteData, extname);
+      await writeSourceTime(resourceName);
       return true;
+    } else {
+      console.log(`Remote data for '${resourceName}' has no change.`);
     }
   } catch (error) {
     console.error("Error：", error.message);
