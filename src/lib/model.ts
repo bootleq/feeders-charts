@@ -7,6 +7,7 @@ export type CountryItem = {
   roaming: number,  // 遊蕩犬估計數
   human: number,    // 人口數
 
+  infant: number,   // 幼犬（幼齡入所）
   accept: number,   // 收容
   adopt: number,    // 認領
   kill: number,     // 人道處理

@@ -22,6 +22,7 @@ import {
   Grid2x2Icon,
   Grid2x2XIcon,
   TruckIcon,
+  BabyIcon,
 } from "lucide-react";
 
 export function SeriesControl() {
@@ -39,7 +40,7 @@ export function SeriesControl() {
     };
     return {
       population: makeFn(['roaming', 'domestic', 'human', 'human100']),
-      shelter: makeFn(['accept', 'adopt', 'kill', 'die']),
+      shelter: makeFn(['accept', 'adopt', 'kill', 'die', 'miss', 'room', 'occupy', 'infant', 'return',]),
       heatMap: makeFn(['h_visit', 'h_roam', 'h_feed', 'h_stop']),
     };
   }, [seriesSet, setSeriesSet]);
@@ -87,6 +88,7 @@ export function SeriesControl() {
                 <SeriesMenuItem Icon={FootprintsIcon} name='miss'>逃脫等</SeriesMenuItem>
                 <SeriesMenuItem Icon={Grid2x2Icon} name='room'>可收容量</SeriesMenuItem>
                 <SeriesMenuItem Icon={Grid2x2XIcon} name='occupy'>在養數</SeriesMenuItem>
+                <SeriesMenuItem Icon={BabyIcon} name='infant'>幼犬入所</SeriesMenuItem>
                 <SeriesMenuItem Icon={TruckIcon} name='return'>回置</SeriesMenuItem>
                 <SeriesMenuItem sub onClick={toggles.shelter}>全選／不選</SeriesMenuItem>
               </div>

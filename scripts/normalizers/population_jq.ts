@@ -4,7 +4,7 @@ import fsp from 'node:fs/promises';
 import path from "path";
 import { jqProcess } from '../utils';
 import type { CountryItem } from '@/lib/model';
-import { downloadPath, buildingPath } from './data_source';
+import { downloadPath, buildingPath } from '../data_source';
 
 // Same as "jq" normalizer but has special fix filter
 

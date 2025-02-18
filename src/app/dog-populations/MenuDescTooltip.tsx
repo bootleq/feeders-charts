@@ -34,6 +34,13 @@ const tipDomestic = (<>
   每兩年統計一次，估計值，非實數
 </>);
 
+// 幼犬
+const tipInfant = (<>
+  <strong>幼犬入所數</strong>，在入所原因「政府處理案件」和「拾獲送交」中，分類為「幼齡無自理能力」者
+  <br />
+  110 年 3 月後才有這個欄位
+</>);
+
 // 收容
 const tipAccept = (<>
   <strong>總入所數</strong>，依動保資訊網定義為：
@@ -154,6 +161,7 @@ const dict: Record<string, React.JSX.Element|string> = {
   human100: tipHuman100,
   domestic: tipDomestic,
 
+  infant: tipInfant,
   accept: tipAccept,
   adopt: tipAdopt,
   kill: tipKill,
