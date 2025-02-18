@@ -4,7 +4,7 @@ import fsp from 'node:fs/promises';
 import * as XLSX from 'xlsx';
 
 import { CITY_MAPPING, LEGACY_CITY_MAPPING } from '@/lib/model';
-import { sources, downloadPath, buildingPath } from '@/lib/data_source';
+import { sources, downloadPath, buildingPath } from '../data_source';
 
 type ExcelRow = Record<string, string|number>;
 

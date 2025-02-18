@@ -7,7 +7,7 @@ import {
   downloadPath,
   checkUpdateHash,
   writeSourceTime,
-} from '@/lib/data_source';
+} from './data_source';
 
 async function fetchData(url, extname) {
   const response = await fetch(url);

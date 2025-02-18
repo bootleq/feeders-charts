@@ -2,7 +2,7 @@ import fs from "fs";
 import fsp from 'node:fs/promises';
 import csv from "csv-parser";
 import chalk from 'chalk';
-import { buildingPath, writeSourceTime, checkUpdateHash } from '@/lib/data_source';
+import { buildingPath, writeSourceTime, checkUpdateHash } from './data_source';
 import { CITY_MAPPING } from '@/lib/model';
 
 // human_population: {

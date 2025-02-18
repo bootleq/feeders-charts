@@ -4,7 +4,7 @@ import fsp from 'node:fs/promises';
 import path from "path";
 import csv from "csv-parser";
 import chalk from 'chalk';
-import { buildingPath, checkUpdateHash, writeSourceTime } from '@/lib/data_source';
+import { buildingPath, checkUpdateHash, writeSourceTime } from './data_source';
 import { CITY_MAPPING } from '@/lib/model';
 import { testSamplesExist } from './utils';
 

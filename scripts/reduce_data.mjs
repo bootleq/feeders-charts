@@ -11,7 +11,7 @@ import {
   checkUpdateHash,
   writeMeta,
   DATA_DIR,
-} from '@/lib/data_source';
+} from './data_source';
 
 import { jqProcess, testSamplesExist } from './utils';
 import { normalizeShelterXLSX } from './normalizers/shelter_xlsx';

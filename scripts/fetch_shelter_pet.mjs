@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 import https from 'https';
 import chalk from 'chalk';
 import { cityLookup } from '@/lib/model';
-import { buildingPath, checkUpdateHash, writeSourceTime } from '@/lib/data_source';
+import { buildingPath, checkUpdateHash, writeSourceTime } from './data_source';
 import { testSamplesExist } from './utils';
 
 const basename = 'shelter_pet';
