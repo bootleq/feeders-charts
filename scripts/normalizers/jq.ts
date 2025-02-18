@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import fsp from 'node:fs/promises';
 import path from "path";
 import { jqProcess } from '../utils';
-import { downloadPath, buildingPath } from './data_source';
+import { downloadPath, buildingPath } from '../data_source';
 
 export async function normalizeByJq(resourceName: string) {
   const script = path.resolve(`scripts/${resourceName}.jq`);
