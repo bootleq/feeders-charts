@@ -22,6 +22,7 @@ import {
   Grid2x2Icon,
   Grid2x2XIcon,
   TruckIcon,
+  BabyIcon,
 } from "lucide-react";
 
 export function SeriesControl() {
@@ -82,6 +83,7 @@ export function SeriesControl() {
               <div className={tooltipMenuCls()}>
                 <SeriesMenuItem Icon={HousePlusIcon} name='accept'>收容隻數</SeriesMenuItem>
                 <SeriesMenuItem Icon={DogIcon} name='adopt'>認領隻數</SeriesMenuItem>
+                <SeriesMenuItem Icon={BabyIcon} name='infant'>幼犬入所</SeriesMenuItem>
                 <SeriesMenuItem Icon={SyringeIcon} name='kill'>人道處理數</SeriesMenuItem>
                 <SeriesMenuItem Icon={SkullIcon} name='die'>所內死亡數</SeriesMenuItem>
                 <SeriesMenuItem Icon={FootprintsIcon} name='miss'>逃脫等</SeriesMenuItem>
