@@ -12,7 +12,7 @@ Prepare data source:
 - `pnpm data:heat_map`: Fetch and transform heat map data
 - `pnpm data:manually`: Transform manually collected (built-in in repo) data
 - `pnpm data:reduce`: Transform downloaded data and combine all processed data
-- `pnpm data:serve`: Copy transformed data to `public/` folder to really use it in app.
+- `pnpm data:serve`: Copy transformed data to `public/` folder to really use them in app.
 
 Above tasks have hash/time check so will stop processing when considering no change.
 
