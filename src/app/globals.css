@@ -35,4 +35,8 @@ body {
   .writing-vertical {
     writing-mode: vertical-lr;
   }
+
+  .font-mixed {
+    font-family: var(--font-space), var(--font-geist-mono), 'Microsoft JhengHei', 'Noto Sans TC', 'PingFang', 'LiHei Pro', 'Meiryo', 'MS Gothic', sans-serif;
+  }
 }

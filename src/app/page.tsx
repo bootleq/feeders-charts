@@ -1,10 +1,26 @@
+import Link from 'next/link';
+
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <h1>
-          Charts
+    <div className="grid grid-rows-[20px_1fr_20px] items-start justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col min-w-[40vw] gap-8 row-start-1 items-center sm:items-start">
+        <h1 className='text-3xl font-bold'>
+          圖表頁目錄
         </h1>
+
+        <ul className='list-disc list-inside text-2xl'>
+          <li>
+            <Link href='dog-populations' className='cursor-pointer p-2 rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
+              遊蕩犬隻估計數量
+            </Link>
+            <span className='inline-block mx-3 text-slate-400'>
+            |
+            </span>
+            <Link href='dog-populations/resource' className='cursor-pointer p-2 rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
+              資料狀態
+            </Link>
+          </li>
+        </ul>
       </main>
     </div>
   );

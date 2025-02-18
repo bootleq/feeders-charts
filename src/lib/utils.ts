@@ -1,3 +1,6 @@
+import { format } from 'date-fns';
+import { zhTW } from 'date-fns/locale';
+
 export function makeYearRange(min: number, max: number) {
   return Array.from(
     {length: max - min + 1},
@@ -29,4 +32,17 @@ export function makeDownload(dataURL: string, name: string) {
     URL.revokeObjectURL(blobUrl);
     document.body.removeChild(link);
   }).catch(console.error);
+}
+
+export function formatDate(date: Date, fmt?: string) {
+  let str;
+
+  switch (fmt) {
+    case 'week':
+      str = format(date, 'yyyy-MM-dd (EE) HH:mm:ss', { locale: zhTW });
+      return str.replace('週', '');
+
+    default:
+      return format(date, 'yyyy-MM-dd HH:mm:ss');
+  }
 }
