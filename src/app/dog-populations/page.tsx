@@ -1,7 +1,11 @@
 import * as R from 'ramda';
+import Link from 'next/link';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
 import Chart from './Chart';
 import TableDialog from './TableDialog';
+import {
+  ArrowLeftIcon,
+} from "lucide-react";
 
 const RESOURCE_URL = process.env.NEXT_PUBLIC_RESOURCE_URL;
 
@@ -34,6 +38,11 @@ export default async function Page() {
 
         <Chart items={items} meta={meta} />
       </main>
+
+      <Link href='/' className='cursor-pointer fixed top-0 right-0 px-2 text-slate-800 flex items-center text-md rounded transition hover:bg-amber-200 inline-block hover:-translate-x-1 hover:drop-shadow'>
+        <ArrowLeftIcon className='px-1 pb-1 translate-y-px' />
+        返回
+      </Link>
 
       <TableDialog />
     </div>
