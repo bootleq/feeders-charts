@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 import chalk from 'chalk';
 
 import {
-  sources,
+  downloadableSources,
   downloadPath,
   checkUpdateHash,
   writeSourceTime,
@@ -52,7 +52,7 @@ async function download(resourceName, title) {
   console.log(`Download resource from ${title} (${resourceName}) ...`);
 
   try {
-    const { name, url, extname } = sources[resourceName];
+    const { name, url, extname } = downloadableSources[resourceName];
     const remoteData = await fetchData(url, extname);
     const needsUpdate = await checkUpdateHash(resourceName, remoteData);
 
@@ -73,7 +73,7 @@ async function download(resourceName, title) {
 }
 
 (async function main() {
-  for (const [resourceName, { title, url }] of Object.entries(sources)) {
+  for (const [resourceName, { title, url }] of Object.entries(downloadableSources)) {
     if (!url) {
       continue;
     }

@@ -5,7 +5,7 @@ import path from "path";
 import chalk from 'chalk';
 
 import {
-  sources,
+  downloadableSources,
   buildingPath,
   readSourceTime,
   checkUpdateHash,
@@ -28,7 +28,7 @@ const manuallyResources = [
 ];
 
 async function normalize( resourceName ) {
-  const { normalizer } = sources[resourceName];
+  const { normalizer } = downloadableSources[resourceName];
 
   switch (normalizer) {
     case 'jq':
@@ -119,7 +119,7 @@ function validate(resourceName, items) {
 }
 
 (async function main() {
-  for (const [resourceName] of Object.entries(sources)) {
+  for (const [resourceName] of Object.entries(downloadableSources)) {
     const data = await normalize(resourceName);
 
     if (!validate(resourceName, data)) {
@@ -128,7 +128,7 @@ function validate(resourceName, items) {
     }
   }
 
-  const allResources = Object.keys(sources).concat(manuallyResources);
+  const allResources = Object.keys(downloadableSources).concat(manuallyResources);
 
   // Collect source checked (download latest change) time
   for (const rc of allResources) {

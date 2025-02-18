@@ -32,9 +32,7 @@ type Sources = Record<string, {
   normalizer?: string,
 }>;
 
-// NOTE: Not all data were defined in `sources`, see README for full resource list.
-// FIXME: avoid confusion with @/lib/resource
-export const sources: Sources = {
+export const downloadableSources: Sources = {
   population: {
     title: '年度犬貓統計表',
     docUrl: 'https://data.gov.tw/dataset/41771',
