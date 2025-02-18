@@ -8,7 +8,7 @@ export default function Home() {
           圖表頁目錄
         </h1>
 
-        <ul className='list-disc list-inside text-2xl'>
+        <ul className='list-disc list-outside text-2xl ml-4 sm:ml-0'>
           <li>
             <Link href='dog-populations' className='cursor-pointer p-2 rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
               遊蕩犬隻估計數量
