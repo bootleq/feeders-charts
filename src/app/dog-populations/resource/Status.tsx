@@ -3,6 +3,7 @@
 import * as R from 'ramda';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/Tooltip';
 import { resources, jsonMetaReviver } from '@/lib/resource';
 import { formatDate } from '@/lib/utils';
 import Spinner from '@/assets/spinner.svg';
@@ -10,6 +11,7 @@ import commonStyles from '@/app/common.module.scss';
 import Now from './Now';
 import {
   ExternalLinkIcon,
+  InfoIcon,
 } from "lucide-react";
 
 function transform(meta: any) {
@@ -18,7 +20,6 @@ function transform(meta: any) {
   rcList = rcList.map(([name, obj]) => {
     return [name, obj.sourceCheckedAt];
   });
-  rcList = rcList.toSorted((a, b) => (b > a ? -1 : 1));
 
   return {
     combined: combined['builtAt'],
@@ -59,11 +60,7 @@ export default function Status() {
 
   return (
     <div>
-      <h2 className='text-2xl my-2 py-3 text-center'>
-        資料計算時間
-      </h2>
-
-      <dl className='font-mixed'>
+      <dl className='mt-8 font-mixed'>
         <div className={`${rowCls}`}>
           <dt className={dtCls}>
             現在時間
@@ -83,8 +80,18 @@ export default function Status() {
         </div>
       </dl>
 
-      <h2 className='mt-6 mb-2 text-2xl py-3 text-center'>
+      <h2 className='mt-6 mb-2 text-2xl py-3 text-center flex items-center justify-center'>
         各資料來源的更新時間
+        <Tooltip>
+          <TooltipTrigger>
+            <div className='cursor-help p-1 ml-0.5 rounded self-stretch flex'>
+              <InfoIcon size={24} className='stroke-slate-600 cursor-help' />
+            </div>
+          </TooltipTrigger>
+          <TooltipContent className='p-2 rounded box-border w-max z-[1002] bg-slate-100 drop-shadow-xl'>
+            並非原始資料的更新時間，而是最後一次發現更新，或因程式調整而使結果改變的時間
+          </TooltipContent>
+        </Tooltip>
       </h2>
 
       <dl className='font-mixed'>
