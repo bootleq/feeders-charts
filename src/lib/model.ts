@@ -8,6 +8,7 @@ export type CountryItem = {
   human: number,    // 人口數
 
   infant: number,   // 幼犬（幼齡入所）
+  seized: number,   // 沒入
   accept: number,   // 收容
   adopt: number,    // 認領
   kill: number,     // 人道處理

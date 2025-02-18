@@ -5,6 +5,7 @@ import { markerFormatter } from './markers';
 const revertedSeriesNames = R.invertObj(SERIES_NAMES);
 
 export const fontFamily = "'Noto Mono TC', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'";
+const mixedFontFamily = "var(--font-space), var(--font-geist-mono), 'Microsoft JhengHei', 'Noto Sans TC', sans-serif";
 
 export const numberFormatter = (number: number) => Intl.NumberFormat("zh-TW").format(number);
 
@@ -60,6 +61,16 @@ const commonSeriesSetting = {
   z: 14,
 };
 
+const commonSideAxisSeriesSetting = {
+  ...commonSeriesSetting,
+  yAxisIndex: 1,
+  symbol: 'rect',
+  symbolSize: 8,
+  lineStyle: {
+    type: 'dotted',
+  },
+};
+
 export const defaultSeriesSettings: Record<string, any> = {
   roaming: {
     ...commonSeriesSetting,
@@ -104,13 +115,7 @@ export const defaultSeriesSettings: Record<string, any> = {
     },
   },
   human100: {
-    ...commonSeriesSetting,
-    yAxisIndex: 1,
-    symbol: 'rect',
-    symbolSize: 8,
-    lineStyle: {
-      type: 'dotted',
-    },
+    ...commonSideAxisSeriesSetting,
     itemStyle: { color: '#fc8452' },
     tooltip: {
       ...tooltipOptions,
@@ -123,6 +128,7 @@ export const defaultSeriesSettings: Record<string, any> = {
     },
   },
   infant: { ...commonSeriesSetting, itemStyle: { color: '#ffc9c9', } },
+  seized: { ...commonSeriesSetting, itemStyle: { color: '#79716b', } },
   accept: { ...commonSeriesSetting, itemStyle: { color: '#91cc75', } },
   adopt: { ...commonSeriesSetting, itemStyle: { color: '#ea7ccc', } },
   kill: { ...commonSeriesSetting, itemStyle: { color: '#ee6666', } },
@@ -145,6 +151,20 @@ export const defaultSeriesSettings: Record<string, any> = {
       fontFamily: fontFamily,
     },
   },
+  occupy100: {
+    ...commonSideAxisSeriesSetting,
+    yAxisIndex: 2,
+    itemStyle: { color: '#e60076' },
+    tooltip: {
+      ...tooltipOptions,
+      textStyle: {
+        fontFamily: mixedFontFamily,
+      },
+      valueFormatter: (number: number) => {
+        return `${number.toFixed()}<span style="${mixedFontFamily}">%</span>`
+      },
+    },
+  },
   h_visit: { ...commonSeriesSetting, itemStyle: { color: '#3ba272', } },
   h_feed: { ...commonSeriesSetting, itemStyle: { color: '#883333', } },
   h_stop: { ...commonSeriesSetting, itemStyle: { color: '#3ba272', } },
@@ -159,7 +179,7 @@ export const defaultOptions = {
       roaming: true,
       domestic: false,
       human: false,
-      human100: true,
+      human100: false,
       accept: true,
       adopt: true,
       kill: true,
@@ -167,7 +187,8 @@ export const defaultOptions = {
       return: true,
       miss: true,
       room: false,
-      occupy: true,
+      occupy: false,
+      occupy100: false,
       h_roam: true,
       h_feed: true,
       h_stop: true,

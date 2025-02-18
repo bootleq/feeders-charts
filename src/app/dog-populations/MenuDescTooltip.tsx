@@ -41,6 +41,11 @@ const tipInfant = (<>
   110 年 3 月後才有這個欄位
 </>);
 
+// 沒入
+const tipSeized = (<>
+  <strong>依法沒入</strong>的入所數
+</>);
+
 // 收容
 const tipAccept = (<>
   <strong>總入所數</strong>，依動保資訊網定義為：
@@ -87,6 +92,9 @@ const tipOccupy = (<>
   由「在養占可留容比例」與「可容留最大值」推算出當年的在養數（只算犬，貓不算）
   <br />
   其中「在養數」也包含「委託代養」
+</>);
+const tipOccupy100 = (<>
+  「在養數」占「可收容量」的比例
 </>);
 
 // 回置
@@ -162,6 +170,7 @@ const dict: Record<string, React.JSX.Element|string> = {
   domestic: tipDomestic,
 
   infant: tipInfant,
+  seized: tipSeized,
   accept: tipAccept,
   adopt: tipAdopt,
   kill: tipKill,
@@ -169,6 +178,7 @@ const dict: Record<string, React.JSX.Element|string> = {
   miss: tipMiss,
   room: tipRoom,
   occupy: tipOccupy,
+  occupy100: tipOccupy100,
   return: tipReturn,
 
   roaming_chart_bar: tipRoamingChartBar,

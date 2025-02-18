@@ -6,8 +6,13 @@ import type { SeriesSet } from '@/lib/series';
 export type CheckboxSet = Record<string, boolean>;
 
 const initialExcludeSeries = [
-  'human100',
+  'human',
   'room',
+  'infant',
+  'miss',
+  'seized',
+  'occupy',
+  'h_stop',
 ];
 
 export const seriesChecksAtom = atom<SeriesSet>(
