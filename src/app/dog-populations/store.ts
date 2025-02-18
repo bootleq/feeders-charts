@@ -8,6 +8,7 @@ export type CheckboxSet = Record<string, boolean>;
 const initialExcludeSeries = [
   'human100',
   'room',
+  'occupy',
 ];
 
 export const seriesChecksAtom = atom<SeriesSet>(

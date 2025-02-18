@@ -88,6 +88,9 @@ const tipOccupy = (<>
   <br />
   其中「在養數」也包含「委託代養」
 </>);
+const tipOccupy100 = (<>
+  「在養數」占「可收容量」的比例
+</>);
 
 // 回置
 const tipReturn = (<>
@@ -169,6 +172,7 @@ const dict: Record<string, React.JSX.Element|string> = {
   miss: tipMiss,
   room: tipRoom,
   occupy: tipOccupy,
+  occupy100: tipOccupy100,
   return: tipReturn,
 
   roaming_chart_bar: tipRoamingChartBar,
