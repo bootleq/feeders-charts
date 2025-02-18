@@ -24,7 +24,7 @@ const REPORT_FIELDS = {
     nI2:      null,        // 入所：拾獲送交
     nI3:      null,        // 入所：不擬續養
     nI4:      null,        // 入所：動物救援
-    nI5:      null,        // 入所：依法沒入
+    nI5:      'seized',    // 入所：依法沒入
     nI6:      null,        // 入所：其他
     nITotal:  'accept',    // 合計入所數
     nO1:      'adopt[1]',  // 出所：認領
@@ -65,7 +65,7 @@ const REPORT_FIELDS = {
     N3:       null,        // 入所：不擬續養：個人因素
     SP1:      'accept[1]', // 入所：入所絕育：公
     SP2:      'accept[2]', // 入所：入所絕育：母
-    E:        null,        // 入所：依法沒入
+    E:        'seized',    // 入所：依法沒入
     Ot:       null,        // 入所：其他
     TotalIn:  'accept[3]', // 入所：合計入所數
     O1:       'adopt[1]',  // 出所：認領

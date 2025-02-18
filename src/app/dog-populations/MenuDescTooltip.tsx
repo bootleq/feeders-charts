@@ -41,6 +41,11 @@ const tipInfant = (<>
   110 年 3 月後才有這個欄位
 </>);
 
+// 沒入
+const tipSeized = (<>
+  <strong>依法沒入</strong>的入所數
+</>);
+
 // 收容
 const tipAccept = (<>
   <strong>總入所數</strong>，依動保資訊網定義為：
@@ -165,6 +170,7 @@ const dict: Record<string, React.JSX.Element|string> = {
   domestic: tipDomestic,
 
   infant: tipInfant,
+  seized: tipSeized,
   accept: tipAccept,
   adopt: tipAdopt,
   kill: tipKill,

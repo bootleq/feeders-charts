@@ -25,6 +25,7 @@ export const SERIES_NAMES: Record<string, string> = {
   human: '人口',
   human100: '每百人',
   infant: '幼犬',
+  seized: '沒入',
   accept: '收容',
   adopt: '認領',
   kill: '人道處理',

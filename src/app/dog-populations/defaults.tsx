@@ -128,6 +128,7 @@ export const defaultSeriesSettings: Record<string, any> = {
     },
   },
   infant: { ...commonSeriesSetting, itemStyle: { color: '#ffc9c9', } },
+  seized: { ...commonSeriesSetting, itemStyle: { color: '#79716b', } },
   accept: { ...commonSeriesSetting, itemStyle: { color: '#91cc75', } },
   adopt: { ...commonSeriesSetting, itemStyle: { color: '#ea7ccc', } },
   kill: { ...commonSeriesSetting, itemStyle: { color: '#ee6666', } },
