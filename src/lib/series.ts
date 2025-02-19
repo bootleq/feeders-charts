@@ -42,7 +42,7 @@ export const SERIES_NAMES: Record<string, string> = {
   // _marker: '事件標記', // this will be added in addition to normal data series process
 } as const;
 
-const computers: Record<string, Computer> = {
+export const computers: Record<string, Computer> = {
   human100: {
     depends: ['roaming', 'human'],
     fn: (roaming: SeriesData, human: SeriesData) => {
@@ -69,13 +69,12 @@ const computers: Record<string, Computer> = {
   },
 };
 
-const customComputeSeries = Object.keys(computers);
-
-function collect({ items, yearRange, validYears, validCities, requiredRawSeries, computedSeries, checkedSeries, citiesSeries }: {
+function collect({ items, yearRange, validYears, validCities, computers, requiredRawSeries, computedSeries, checkedSeries, citiesSeries }: {
   items: CountryItem[],
   yearRange: number[],
   validYears: false | number[],
   validCities: false | string[],
+  computers: Record<string, Computer>,
   requiredRawSeries: string[],
   computedSeries: string[],
   checkedSeries: string[],
@@ -139,67 +138,75 @@ function collect({ items, yearRange, validYears, validCities, requiredRawSeries,
   return citiesSeries;
 }
 
-// Return named "series" data grouped by "city", where '_' is a pseudo key means "ALL cities".
-// Cities other than '_' are not included unless `extraOptions.byCities` is true.
-//
-// {
-//  '_': {
-//    roaming: {
-//      name: '遊蕩犬估計',
-//      data: [...],
-//    },
-//  },
-//  'City000002': {
-//    roaming: {
-//      ...
-//    },
-//  },
-// }
-export function makeSeries(
-  items: CountryItem[],
-  meta: ItemsMeta,
-  seriesSet: SeriesSet,
-  filters?: SeriesFilters,
-  extraOptions?: {
-    byCities: boolean,
-  },
+export function buildSeriesMaker(
+  seriesNameMap: Record<string, string>,
+  computers: Record<string, Computer>,
 ) {
-  const validCities = filters?.cities?.length ? filters.cities.map(String) : false;
-  const validYears = filters?.years?.length ? filters.years.map(Number) : false;
+  const customComputeSeries = Object.keys(computers);
 
-  const minYear = validYears ? Math.min(...validYears) : meta.minYear;
-  const maxYear = validYears ? Math.max(...validYears) : meta.maxYear;
-  const yearRange = makeYearRange(minYear, maxYear);
-  const initialData: Array<number | null> = Array(yearRange.length).fill(null);
+  // Return named "series" data grouped by "city", where '_' is a pseudo key means "ALL cities".
+  // Cities other than '_' are not included unless `extraOptions.byCities` is true.
+  //
+  // {
+  //  '_': {
+  //    roaming: {
+  //      name: '遊蕩犬估計',
+  //      data: [...],
+  //    },
+  //  },
+  //  'City000002': {
+  //    roaming: {
+  //      ...
+  //    },
+  //  },
+  // }
+  return function makeSeries(
+    items: CountryItem[],
+    meta: ItemsMeta,
+    seriesSet: SeriesSet,
+    filters?: SeriesFilters,
+    extraOptions?: {
+      byCities: boolean,
+    },
+  ) {
+    const validCities = filters?.cities?.length ? filters.cities.map(String) : false;
+    const validYears = filters?.years?.length ? filters.years.map(Number) : false;
 
-  const checkedSeries = Object.keys(R.pickBy(R.identity, seriesSet));
-  const [rawSeries, computedSeries] = R.partition((key) => !customComputeSeries.includes(key), checkedSeries);
-  const dependsSeries = computedSeries.map(key => computers[key].depends).flat();
-  const requiredRawSeries = R.union(rawSeries, dependsSeries);
+    const minYear = validYears ? Math.min(...validYears) : meta.minYear;
+    const maxYear = validYears ? Math.max(...validYears) : meta.maxYear;
+    const yearRange = makeYearRange(minYear, maxYear);
+    const initialData: Array<number | null> = Array(yearRange.length).fill(null);
 
-  const initialSeries = Object.keys(seriesSet).reduce((acc: SeriesSet, name) => {
-    const obj = {
-      name: SERIES_NAMES[name],
-      data: requiredRawSeries.includes(name) ? initialData : null,
-    };
-    return R.assoc(name, obj, acc);
-  }, {});
+    const checkedSeries = Object.keys(R.pickBy(R.identity, seriesSet));
+    const [rawSeries, computedSeries] = R.partition((key) => !customComputeSeries.includes(key), checkedSeries);
+    const dependsSeries = computedSeries.map(key => computers[key].depends).flat();
+    const requiredRawSeries = R.union(rawSeries, dependsSeries);
 
-  const makeToCities = ['_']; // '_' means "ALL" cities, no distinguish
-  if (extraOptions?.byCities) {
-    makeToCities.push(...(validCities || Object.keys(CITY_MAPPING)));
+    const initialSeries = Object.keys(seriesSet).reduce((acc: SeriesSet, name) => {
+      const obj = {
+        name: seriesNameMap[name],
+        data: requiredRawSeries.includes(name) ? initialData : null,
+      };
+      return R.assoc(name, obj, acc);
+    }, {});
+
+    const makeToCities = ['_']; // '_' means "ALL" cities, no distinguish
+    if (extraOptions?.byCities) {
+      makeToCities.push(...(validCities || Object.keys(CITY_MAPPING)));
+    }
+
+    const citiesSeries = R.fromPairs(makeToCities.map(city => [city, initialSeries]));
+
+    return collect({
+      items,
+      yearRange,
+      validYears,
+      validCities,
+      computers,
+      requiredRawSeries,
+      computedSeries,
+      checkedSeries,
+      citiesSeries,
+    });
   }
-
-  const citiesSeries = R.fromPairs(makeToCities.map(city => [city, initialSeries]));
-
-  return collect({
-    items,
-    yearRange,
-    validYears,
-    validCities,
-    requiredRawSeries,
-    computedSeries,
-    checkedSeries,
-    citiesSeries,
-  });
 }

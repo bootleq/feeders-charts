@@ -5,7 +5,7 @@ import { useSetAtom } from 'jotai';
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import { CITY_MAPPING, cityLookup } from '@/lib/model';
 import type { CountryItem } from '@/lib/model';
-import { makeSeries } from '@/lib/series';
+import { SERIES_NAMES, computers, buildSeriesMaker } from '@/lib/series';
 
 import { CheckboxMenuItem } from './CheckboxMenuItem';
 import { tooltipClass, tooltipMenuCls } from './utils';
@@ -109,6 +109,10 @@ export default function ExportTable({ items, meta, chartRef }: {
   const setTable = useSetAtom(tableAtom);
   const setDialogOpened = useSetAtom(tableDialogOpenAtom);
 
+  const makeSeries = useMemo(() => {
+    return buildSeriesMaker(SERIES_NAMES, computers);
+  }, []);
+
   const buildByChart = useCallback(() => {
     const chart = chartRef.current?.getEchartsInstance();
     if (!chart) return;
@@ -144,7 +148,7 @@ export default function ExportTable({ items, meta, chartRef }: {
     const rows = citiesTrendToRows(citiesSeries, years, cities);
     setTable(rows);
     setDialogOpened(true);
-  }, [setTable, setDialogOpened, items, meta]);
+  }, [setTable, setDialogOpened, makeSeries, items, meta]);
 
   const MenuItem = useMemo(() => CheckboxMenuItem(dummyMenuAtom, '_'), []);
 

@@ -6,7 +6,7 @@ import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
 import { makeYearRange } from '@/lib/utils';
-import { makeSeries, SERIES_NAMES } from '@/lib/series';
+import { SERIES_NAMES, computers, buildSeriesMaker } from '@/lib/series';
 import type { SeriesSet } from '@/lib/series';
 import { makeMarkerSeries } from './markers';
 
@@ -142,6 +142,10 @@ export default function Chart() {
     );
   }, [meta, years]);
 
+  const makeSeries = useMemo(() => {
+    return buildSeriesMaker(SERIES_NAMES, computers);
+  }, []);
+
   const onApply = useCallback((e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -207,7 +211,7 @@ export default function Chart() {
     )(newOptions);
 
     chart.setOption(newOptions);
-  }, [items, meta, updateYearAxis, updateLegends, updateRepresent, updateMarker]);
+  }, [items, meta, makeSeries, updateYearAxis, updateLegends, updateRepresent, updateMarker]);
 
   const itemsReady = R.isNotEmpty(items) && R.isNotNil(meta);
 
