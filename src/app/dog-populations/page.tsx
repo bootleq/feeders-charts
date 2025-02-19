@@ -2,7 +2,7 @@ import * as R from 'ramda';
 import Link from 'next/link';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
 import Chart from './Chart';
-import TableDialog from '@/components/TableDialog';
+import TableDialogWrapper from './TableDialogWrapper';
 import {
   ArrowLeftIcon,
 } from "lucide-react";
@@ -44,7 +44,7 @@ export default async function Page() {
         返回
       </Link>
 
-      <TableDialog />
+      <TableDialogWrapper />
     </div>
   );
 }

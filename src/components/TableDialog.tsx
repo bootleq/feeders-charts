@@ -5,10 +5,9 @@ import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import { useAtom, useAtomValue } from 'jotai';
 import Html from '@/components/Html';
 import { escapeHTML, makeDownload } from '@/lib/utils';
-import { tableAtom, tableDialogOpenAtom } from './store';
-import type { TableRow } from './store';
+import type { TableRow, PrimitiveAtomWithInitial } from '@/components/types';
 
-import styles from './page.module.scss';
+import styles from './table_dialog.module.scss';
 
 import {
   XIcon,
@@ -52,12 +51,15 @@ const buildHTML = (records: Array<string|number|null>[]) => {
   ].join('');
 }
 
-export default function TableDialog() {
+export default function TableDialog({ tableAtom, dialogOpenAtom }: {
+  tableAtom: PrimitiveAtomWithInitial<TableRow[]>,
+  dialogOpenAtom: PrimitiveAtomWithInitial<boolean>,
+}) {
   const ref = useRef<HTMLDialogElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
   const tableData = useAtomValue(tableAtom);
   const compactTable = useRef<TableRow[]>([]);
-  const [opened, setOpened] = useAtom(tableDialogOpenAtom);
+  const [opened, setOpened] = useAtom(dialogOpenAtom);
   const [showCompact, setShowCompact] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -178,7 +180,7 @@ export default function TableDialog() {
         </button>
       </div>
 
-      <div ref={bodyRef} tabIndex={0} className={`px-2 sm:px-5 pb-6 mt-auto max-h-[80vh] overflow-auto focus-visible:outline-none text-sm ${styles['export-table']}`}>
+      <div ref={bodyRef} tabIndex={0} className={`px-2 sm:px-5 pb-6 mt-auto max-h-[80vh] overflow-auto focus-visible:outline-none text-sm ${styles.table}`}>
         <Html html={tableHTML} className='w-fit' />
       </div>
     </dialog>

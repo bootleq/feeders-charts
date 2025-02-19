@@ -2,6 +2,7 @@ import * as R from 'ramda';
 import { atom, PrimitiveAtom } from 'jotai';
 import { SERIES_NAMES } from '@/lib/series';
 import type { SeriesSet } from '@/lib/series';
+import type { TableRow } from '@/components/types';
 
 export type CheckboxSet = Record<string, boolean>;
 
@@ -40,8 +41,6 @@ export const checkboxMenuItemAtom = (boxsetAtom: PrimitiveAtom<CheckboxSet>, key
     set(boxsetAtom, R.over(R.lensProp(key), R.not));
   }
 );
-
-export type TableRow = Array<string|number|null>;
 
 export const tableAtom = atom<TableRow[]>([]);
 export const tableDialogOpenAtom = atom<boolean>(false);
