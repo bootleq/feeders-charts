@@ -5,7 +5,8 @@ import { useSetAtom } from 'jotai';
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import { CITY_MAPPING, cityLookup } from '@/lib/model';
 import type { CountryItem } from '@/lib/model';
-import { SERIES_NAMES, computers, buildSeriesMaker } from '@/lib/series';
+import { SERIES_NAMES, computers } from '@/lib/series';
+import { buildSeriesMaker } from '@/lib/makeSeries';
 
 import { CheckboxMenuItem } from './CheckboxMenuItem';
 import { tooltipClass, tooltipMenuCls } from './utils';

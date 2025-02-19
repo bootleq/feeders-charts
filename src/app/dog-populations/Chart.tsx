@@ -6,8 +6,9 @@ import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
 import { makeYearRange } from '@/lib/utils';
-import { SERIES_NAMES, computers, buildSeriesMaker } from '@/lib/series';
-import type { SeriesSet } from '@/lib/series';
+import { SERIES_NAMES, computers } from '@/lib/series';
+import { buildSeriesMaker } from '@/lib/makeSeries';
+import type { SeriesSet } from '@/lib/makeSeries';
 import { makeMarkerSeries } from './markers';
 
 import { CitiesInput } from './CitiesInput';
