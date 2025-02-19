@@ -41,7 +41,7 @@ const shelter_reports_resources = shelter_reports_table.reduce((acc, [year, titl
     }};
 }, {});
 
-type ResourceEntry = {
+export type ResourceEntry = {
   title: string,
   docUrl?: string
 };
@@ -80,10 +80,3 @@ export const resources: Record<string, ResourceEntry> = {
   },
   ...shelter_reports_resources,
 } as const;
-
-export function resourceInfo(resourceName: string) {
-  const found = resources[resourceName];
-  if (found) {
-    return found;
-  }
-}
