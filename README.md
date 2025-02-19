@@ -11,6 +11,7 @@ Prepare data source:
 - `pnpm data:shelter_pet`: Fetch and transform shelter detail data
 - `pnpm data:heat_map`: Fetch and transform heat map data
 - `pnpm data:manually`: Transform manually collected (built-in in repo) data
+- `pnpm data:tainan`: Fetch and transform Tainan population data
 - `pnpm data:reduce`: Transform downloaded data and combine all processed data
 - `pnpm data:serve`: Copy transformed data to `public/` folder to really use them in app.
 
@@ -114,6 +115,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
   - 出所：回置從 107 開始
   - 可留容最大值從 109 開始
+
+
+
+## Tainan
+
+台南市有自己調查各行政區的數量，因不易與全國縣市整合呈現，所以做成獨立的圖表頁面
+
+- 臺南市遊蕩犬調查情形 (108 ~ 112 年)
+  https://data.tainan.gov.tw/dataset/straydogs
+
+  採用檔案如：108 年臺南市各行政區執行流浪犬TNVR成果表，我們使用 CSV 格式
 
 
 

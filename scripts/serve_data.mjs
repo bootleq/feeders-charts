@@ -6,5 +6,9 @@ import chalk from 'chalk';
   fs.copyFileSync('data/combined.json', 'public/combined.json');
   fs.copyFileSync('data/meta.json', 'public/meta.json');
 
+  console.log(`Copy ${chalk.yellow('tainan_tnvr_report.json')} to "public" folder...`);
+  fs.copyFileSync('data/build/tainan_tnvr_report.json', 'public/tainan.json');
+  fs.copyFileSync('data/tainan.meta.json', 'public/tainan.meta.json');
+
   console.log("\nDone.");
 })();
