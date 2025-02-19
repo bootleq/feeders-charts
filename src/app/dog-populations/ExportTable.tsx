@@ -3,7 +3,6 @@ import { useCallback, useMemo } from 'react';
 import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { useSetAtom } from 'jotai';
 import ReactEChartsCore from 'echarts-for-react/lib/core';
-import { CITY_MAPPING, cityLookup } from '@/lib/model';
 import type { CountryItem } from '@/lib/model';
 import type { MakeSeriesFn } from '@/lib/makeSeries';
 import { parseChartInputs } from '@/lib/formData';
@@ -60,10 +59,9 @@ const clearNullDataSeries = R.mapObjIndexed((obj: Record<string, any>) => {
 const citiesTrendToRows = (
   citiesSeries: Record<string, Record<string, any>>,
   years: number[],
-  cities: string[]
+  cities: string[],
+  cityLookup: Record<string, string>,
 ) => {
-  citiesSeries = clearNullDataSeries(citiesSeries);
-
   const minYear = Math.min(...years);
 
   const seriesNames = Object.values(
@@ -90,7 +88,7 @@ const citiesTrendToRows = (
     }).flat();
 
     return [
-      cityLookup(city),
+      cityLookup[city],
       ...(yearCells as number[]),
     ];
   });
@@ -98,7 +96,7 @@ const citiesTrendToRows = (
   return [header, ...rows];
 };
 
-export default function ExportTable({ items, meta, makeSeriesFn, chartRef }: {
+export default function ExportTable({ items, meta, makeSeriesFn, allCities, chartRef }: {
   chartRef: React.RefObject<ReactEChartsCore | null>,
   items: CountryItem[],
   meta: {
@@ -106,6 +104,7 @@ export default function ExportTable({ items, meta, makeSeriesFn, chartRef }: {
     maxYear: number,
   },
   makeSeriesFn: MakeSeriesFn,
+  allCities: string[] | Record<string, string>,
 }) {
   const setTable = useSetAtom(tableAtom);
   const setDialogOpened = useSetAtom(tableDialogOpenAtom);
@@ -125,9 +124,10 @@ export default function ExportTable({ items, meta, makeSeriesFn, chartRef }: {
     if (!form) return;
 
     const { seriesSet, cities, years } = parseChartInputs(form);
+    const allCityNames = Array.isArray(allCities) ? allCities : Object.keys(allCities);
 
     // When select all items, treat as no filters
-    const citiesFilter = cities.length === Object.keys(CITY_MAPPING).length ? [] : cities;
+    const citiesFilter = cities.length === allCityNames.length ? [] : cities;
     const yearsFilter = years.length === meta.maxYear - meta.minYear + 1 ? [] : years;
 
     let citiesSeries = makeSeriesFn(
@@ -135,14 +135,14 @@ export default function ExportTable({ items, meta, makeSeriesFn, chartRef }: {
       meta,
       seriesSet,
       { cities: citiesFilter, years: yearsFilter },
-      { spreadToCities: Object.keys(CITY_MAPPING) }
+      { spreadToCities: allCityNames }
     );
 
     citiesSeries = clearNullDataSeries(citiesSeries);
-    const rows = citiesTrendToRows(citiesSeries, years, cities);
+    const rows = citiesTrendToRows(citiesSeries, years, cities, Array.isArray(allCities) ? {} : allCities);
     setTable(rows);
     setDialogOpened(true);
-  }, [setTable, setDialogOpened, items, meta, makeSeriesFn]);
+  }, [setTable, setDialogOpened, items, meta, makeSeriesFn, allCities]);
 
   const MenuItem = useMemo(() => CheckboxMenuItem(dummyMenuAtom, '_'), []);
 
