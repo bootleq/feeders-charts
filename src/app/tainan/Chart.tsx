@@ -148,7 +148,7 @@ export default function Chart() {
   const itemsReady = R.isNotEmpty(items) && R.isNotNil(meta);
 
   return (
-    <div className='min-w-lg min-h-80 w-full'>
+    <div className='min-w-lg min-h-80 w-full max-w-[100vw]'>
       <form id='MainForm' ref={formRef} onSubmit={onApply} className='flex flex-wrap items-start justify-evenly gap-x-4 gap-y-3 my-1 mx-auto max-w-[96vw] text-sm'>
         <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
           <legend className='font-bold px-1.5'>行政區</legend>
@@ -194,7 +194,7 @@ export default function Chart() {
         echarts={echarts}
         option={defaultOptions}
         lazyUpdate={true}
-        style={{ height: '70vh', minHeight: '600px' }}
+        style={{ height: '66vh', minHeight: '600px' }}
         className='mt-1 mb-2 px-3 py-4 bg-white resize overflow-hidden min-[1536px]:w-[clamp(1530px,70vw,2600px)]'
       />
     </div>

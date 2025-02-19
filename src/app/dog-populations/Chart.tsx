@@ -212,9 +212,9 @@ export default function Chart() {
   const itemsReady = R.isNotEmpty(items) && R.isNotNil(meta);
 
   return (
-    <div className='min-w-lg min-h-80 w-full'>
-      <form id='MainForm' ref={formRef} onSubmit={onApply} className='w-min flex flex-wrap items-start justify-start gap-x-4 gap-y-3 my-1 mx-auto max-w-[96vw] text-sm'>
-        <div className='w-max max-w-[90vw] md:max-w-full flex flex-wrap gap-x-4'>
+    <div className='min-w-lg min-h-80 w-full max-w-[100vw]'>
+      <form id='MainForm' ref={formRef} onSubmit={onApply} className='w-min flex flex-wrap items-start justify-start gap-x-4 gap-y-3 my-1 mx-auto max-w-full text-sm'>
+        <div className='w-max max-w-[90vw] md:max-w-[90vw] flex flex-wrap gap-x-4'>
           <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
             <legend className='font-bold px-1.5'>縣市</legend>
 
