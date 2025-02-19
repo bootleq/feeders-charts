@@ -32,12 +32,5 @@ export const markerMenuAtom = atom<CheckboxSet>({
 
 export const dummyMenuAtom = atom<CheckboxSet>({});
 
-export const checkboxMenuItemAtom = (boxsetAtom: PrimitiveAtom<CheckboxSet>, key: string) => atom(
-  get => get(boxsetAtom)[key] ?? false,
-  (get, set) => {
-    set(boxsetAtom, R.over(R.lensProp(key), R.not));
-  }
-);
-
 export const tableAtom = atom<TableRow[]>([]);
 export const tableDialogOpenAtom = atom<boolean>(false);

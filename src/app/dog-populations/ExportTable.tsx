@@ -7,7 +7,7 @@ import type { CountryItem } from '@/lib/model';
 import type { MakeSeriesFn } from '@/lib/makeSeries';
 import { parseChartInputs } from '@/lib/formData';
 
-import { CheckboxMenuItem } from './CheckboxMenuItem';
+import { CheckboxMenuItem } from '@/components/CheckboxMenuItem';
 import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
 
 import { tableAtom, tableDialogOpenAtom, dummyMenuAtom } from './store';

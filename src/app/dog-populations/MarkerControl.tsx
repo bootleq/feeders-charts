@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { useAtom } from 'jotai';
 import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { markerMenuAtom } from './store';
-import { CheckboxMenuItem } from './CheckboxMenuItem';
+import { CheckboxMenuItem } from '@/components/CheckboxMenuItem';
 import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
 
 import {
