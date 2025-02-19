@@ -13,12 +13,15 @@ import {
   writeMeta,
 } from './data_source';
 
+import { TAINAN_DISTRICTS } from '@/lib/model';
+
 // https://data.tainan.gov.tw/dataset/straydogs
 // or
 // https://data.gov.tw/dataset/53927
 
 const resourceName = 'tainan_tnvr_report'; // this script also spawns "sub" resources, e.g., tainan_tnvr_report_108
 const endpoint = 'https://data.tainan.gov.tw/dataset/';
+const revertedDistrictMap = R.invertObj(TAINAN_DISTRICTS);
 
 // ${year}年臺南市各行政區執行流浪犬TNVR成果表
 const sources = [
@@ -77,7 +80,17 @@ const parserOptions = {
   mapValues: ({ header, value }) => {
     switch (header) {
       case 'city':
-        return value; // NOTE: 郵遞區號不一定有，事後再移除，這邊不理會
+        const name = value.replaceAll(/\d/g, '');
+        if (name === '合計') {
+          return null;
+        }
+
+        const code = revertedDistrictMap[name];
+        if (code) {
+          return code;
+        } else {
+          throw new Error(`Unexpected district '${value}'.`);
+        }
         break;
       default:
         return Number(value);
@@ -107,34 +120,6 @@ async function download(subResourceName, downloadPath) {
   }
 }
 
-// 將行政區一律轉為帶有郵遞區號的形式
-// "737鹽水區" => "737 鹽水區"
-// "鹽水區"    => "737 鹽水區"
-function normalizeDistricts(items) {
-  const allNames = R.uniq(R.pluck('city', items));
-
-  // Mapping of shape { "鹽水區": "737 鹽水區" }
-  const dict = allNames.reduce((acc, name) => {
-    const [, postCode, shortName] = name.match(/^(\d+)?(.+)/);
-    if (postCode) {
-      acc[shortName.trim()] = `${postCode.trim()} ${shortName.trim()}`;
-    }
-    return acc;
-  }, {});
-
-  return items.map(item => {
-    const { city } = item;
-    const [,, shortName] = city.match(/^(\d+)?(.+)/);
-    const translated = dict[shortName];
-    if (translated) {
-      return { ...item, city: translated };
-    } else {
-      throw new Error(`Unexpected district '${city}'.`);
-    }
-    return item;
-  });
-}
-
 (async function main() {
   let data = [];
 
@@ -151,8 +136,7 @@ function normalizeDistricts(items) {
     data = [...data, ...yearData];
   }
 
-  data = data.filter(({ city }) => (city !== '合計'));
-  data = normalizeDistricts(data);
+  data = data.filter(R.propSatisfies(R.isNotNil, 'city'));
 
   const outFile = buildingPath(resourceName, 'json');
   const now = new Date();
