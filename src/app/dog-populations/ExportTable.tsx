@@ -5,8 +5,7 @@ import { useSetAtom } from 'jotai';
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import { CITY_MAPPING, cityLookup } from '@/lib/model';
 import type { CountryItem } from '@/lib/model';
-import { SERIES_NAMES, computers } from '@/lib/series';
-import { buildSeriesMaker } from '@/lib/makeSeries';
+import type { MakeSeriesFn } from '@/lib/makeSeries';
 import { parseChartInputs } from '@/lib/formData';
 
 import { CheckboxMenuItem } from './CheckboxMenuItem';
@@ -99,20 +98,17 @@ const citiesTrendToRows = (
   return [header, ...rows];
 };
 
-export default function ExportTable({ items, meta, chartRef }: {
+export default function ExportTable({ items, meta, makeSeriesFn, chartRef }: {
   chartRef: React.RefObject<ReactEChartsCore | null>,
   items: CountryItem[],
   meta: {
     minYear: number,
     maxYear: number,
   },
+  makeSeriesFn: MakeSeriesFn,
 }) {
   const setTable = useSetAtom(tableAtom);
   const setDialogOpened = useSetAtom(tableDialogOpenAtom);
-
-  const makeSeries = useMemo(() => {
-    return buildSeriesMaker(SERIES_NAMES, computers);
-  }, []);
 
   const buildByChart = useCallback(() => {
     const chart = chartRef.current?.getEchartsInstance();
@@ -134,7 +130,7 @@ export default function ExportTable({ items, meta, chartRef }: {
     const citiesFilter = cities.length === Object.keys(CITY_MAPPING).length ? [] : cities;
     const yearsFilter = years.length === meta.maxYear - meta.minYear + 1 ? [] : years;
 
-    let citiesSeries = makeSeries(
+    let citiesSeries = makeSeriesFn(
       items,
       meta,
       seriesSet,
@@ -146,7 +142,7 @@ export default function ExportTable({ items, meta, chartRef }: {
     const rows = citiesTrendToRows(citiesSeries, years, cities);
     setTable(rows);
     setDialogOpened(true);
-  }, [setTable, setDialogOpened, makeSeries, items, meta]);
+  }, [setTable, setDialogOpened, items, meta, makeSeriesFn]);
 
   const MenuItem = useMemo(() => CheckboxMenuItem(dummyMenuAtom, '_'), []);
 

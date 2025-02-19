@@ -250,7 +250,7 @@ export default function Chart() {
       <div className='flex items-center justify-end gap-x-1'>
         {itemsReady &&
           <>
-            <ExportTable chartRef={chartRef} items={items} meta={meta} />
+            <ExportTable chartRef={chartRef} items={items} meta={meta} makeSeriesFn={makeSeries} />
             <ExportImage chartRef={chartRef} />
           </>
         }

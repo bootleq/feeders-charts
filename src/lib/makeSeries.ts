@@ -85,6 +85,7 @@ function collect({ items, yearRange, validYears, validCities, computers, require
   return citiesSeries;
 }
 
+export type MakeSeriesFn = ReturnType<typeof buildSeriesMaker>;
 export function buildSeriesMaker(
   seriesNameMap: Record<string, string>,
   computers: Record<string, Computer>,
