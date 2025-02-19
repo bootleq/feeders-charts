@@ -8,6 +8,8 @@ import {
 
 import { MenuDescTooltip } from './MenuDescTooltip';
 
+export const dummyMenuAtom = atom<CheckboxSet>({});
+
 const checkboxMenuItemAtom = (boxsetAtom: PrimitiveAtom<CheckboxSet>, key: string) => atom(
   get => get(boxsetAtom)[key] ?? false,
   (get, set) => {

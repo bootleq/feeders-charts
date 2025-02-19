@@ -21,6 +21,7 @@ import ExportTable from './ExportTable';
 import ExportImage from '@/components/ExportImage';
 
 import { defaultOptions, defaultSeriesSettings } from './defaults';
+import { tableAtom, tableDialogOpenAtom } from './store';
 
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import * as echarts from 'echarts/core';
@@ -250,7 +251,15 @@ export default function Chart() {
       <div className='flex items-center justify-end gap-x-1'>
         {itemsReady &&
           <>
-            <ExportTable chartRef={chartRef} items={items} meta={meta} makeSeriesFn={makeSeries} allCities={CITY_MAPPING} />
+            <ExportTable
+              chartRef={chartRef}
+              items={items}
+              meta={meta}
+              makeSeriesFn={makeSeries}
+              allCities={CITY_MAPPING}
+              tableAtom={tableAtom}
+              dialogOpenAtom={tableDialogOpenAtom}
+            />
             <ExportImage chartRef={chartRef} />
           </>
         }

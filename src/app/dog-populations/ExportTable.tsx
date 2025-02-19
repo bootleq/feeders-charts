@@ -7,10 +7,9 @@ import type { CountryItem } from '@/lib/model';
 import type { MakeSeriesFn } from '@/lib/makeSeries';
 import { parseChartInputs } from '@/lib/formData';
 
-import { CheckboxMenuItem } from '@/components/CheckboxMenuItem';
+import { CheckboxMenuItem, dummyMenuAtom } from '@/components/CheckboxMenuItem';
 import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
-
-import { tableAtom, tableDialogOpenAtom, dummyMenuAtom } from './store';
+import type { TableRow, PrimitiveAtomWithInitial } from '@/components/types';
 
 import {
   TableIcon,
@@ -96,8 +95,10 @@ const citiesTrendToRows = (
   return [header, ...rows];
 };
 
-export default function ExportTable({ items, meta, makeSeriesFn, allCities, chartRef }: {
+export default function ExportTable({ items, meta, makeSeriesFn, allCities, tableAtom, dialogOpenAtom, chartRef }: {
   chartRef: React.RefObject<ReactEChartsCore | null>,
+  tableAtom: PrimitiveAtomWithInitial<TableRow[]>,
+  dialogOpenAtom: PrimitiveAtomWithInitial<boolean>,
   items: CountryItem[],
   meta: {
     minYear: number,
@@ -107,7 +108,7 @@ export default function ExportTable({ items, meta, makeSeriesFn, allCities, char
   allCities: string[] | Record<string, string>,
 }) {
   const setTable = useSetAtom(tableAtom);
-  const setDialogOpened = useSetAtom(tableDialogOpenAtom);
+  const setDialogOpened = useSetAtom(dialogOpenAtom);
 
   const buildByChart = useCallback(() => {
     const chart = chartRef.current?.getEchartsInstance();
