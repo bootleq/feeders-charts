@@ -1,13 +1,21 @@
 import * as R from 'ramda';
 import { useMemo } from 'react';
-import { useAtom, PrimitiveAtom } from 'jotai';
-import { checkboxMenuItemAtom } from './store';
-import type { CheckboxSet } from './store';
+import { atom, useAtom, PrimitiveAtom } from 'jotai';
+import type { CheckboxSet } from '@/components/types';
 import {
   CornerDownRightIcon,
 } from "lucide-react";
 
 import { MenuDescTooltip } from './MenuDescTooltip';
+
+export const dummyMenuAtom = atom<CheckboxSet>({});
+
+const checkboxMenuItemAtom = (boxsetAtom: PrimitiveAtom<CheckboxSet>, key: string) => atom(
+  get => get(boxsetAtom)[key] ?? false,
+  (get, set) => {
+    set(boxsetAtom, R.over(R.lensProp(key), R.not));
+  }
+);
 
 export function CheckboxMenuItem(boxsetAtom: PrimitiveAtom<CheckboxSet>, inputName: string) {
   return function MenuItem({ Icon, name, iconClass, children, sub, onClick }: {

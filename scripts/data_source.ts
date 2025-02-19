@@ -97,23 +97,28 @@ export async function checkUpdateHash(hashFileBasename: string, newContent: stri
   return true;
 }
 
-async function metaFilePath() {
-  const metaFile = path.resolve(`${DATA_DIR}/meta.json`);
+type MetaScope = '' | 'tainan';
+
+async function metaFilePath(scope: MetaScope) {
+  if (!['', 'tainan'].includes(scope)) {
+    throw new Error(`Unexpected scope '${scope}'`);
+  }
+  const metaFile = path.resolve(`${DATA_DIR}/${scope ? `${scope}.` : ''}meta.json`);
   if (!fs.existsSync(metaFile)) {
     await fsp.writeFile(metaFile, '{}');
   }
   return metaFile;
 }
 
-export async function readMeta(metaPath: string[]) {
-  const metaFile = await metaFilePath();
+export async function readMeta(scope: MetaScope, metaPath: string[]) {
+  const metaFile = await metaFilePath(scope);
   const meta = JSON.parse(fs.readFileSync(metaFile, 'utf-8'), jsonMetaReviver);
 
   return R.path(metaPath, meta);
 }
 
-export async function writeMeta(metaPath: string[], value: string|number) {
-  const metaFile = await metaFilePath();
+export async function writeMeta(scope: MetaScope, metaPath: string[], value: string|number) {
+  const metaFile = await metaFilePath(scope);
   const meta = JSON.parse(fs.readFileSync(metaFile, 'utf-8'));
   const newMeta = R.assocPath(metaPath, value, meta);
 
@@ -121,10 +126,12 @@ export async function writeMeta(metaPath: string[], value: string|number) {
 }
 
 export async function readSourceTime(resourceName: string) {
-  return await readMeta([resourceName, 'sourceCheckedAt']);
+  const scope = resourceName.startsWith('tainan_tnvr_report') ? 'tainan' : '';
+  return await readMeta(scope, [resourceName, 'sourceCheckedAt']);
 }
 
 export async function writeSourceTime(resourceName: string, givenTime?: Date) {
   const time = givenTime || new Date();
-  await writeMeta([resourceName, 'sourceCheckedAt'], time.toJSON());
+  const scope = resourceName.startsWith('tainan_tnvr_report') ? 'tainan' : '';
+  await writeMeta(scope, [resourceName, 'sourceCheckedAt'], time.toJSON());
 }

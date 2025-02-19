@@ -5,10 +5,9 @@ import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import { useAtom, useAtomValue } from 'jotai';
 import Html from '@/components/Html';
 import { escapeHTML, makeDownload } from '@/lib/utils';
-import { tableAtom, tableDialogOpenAtom } from './store';
-import type { TableRow } from './store';
+import type { TableRow, PrimitiveAtomWithInitial } from '@/components/types';
 
-import styles from './page.module.scss';
+import styles from './table_dialog.module.scss';
 
 import {
   XIcon,
@@ -52,12 +51,15 @@ const buildHTML = (records: Array<string|number|null>[]) => {
   ].join('');
 }
 
-export default function TableDialog() {
+export default function TableDialog({ tableAtom, dialogOpenAtom }: {
+  tableAtom: PrimitiveAtomWithInitial<TableRow[]>,
+  dialogOpenAtom: PrimitiveAtomWithInitial<boolean>,
+}) {
   const ref = useRef<HTMLDialogElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
   const tableData = useAtomValue(tableAtom);
   const compactTable = useRef<TableRow[]>([]);
-  const [opened, setOpened] = useAtom(tableDialogOpenAtom);
+  const [opened, setOpened] = useAtom(dialogOpenAtom);
   const [showCompact, setShowCompact] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -138,7 +140,7 @@ export default function TableDialog() {
     return;
   }
 
-  const ToggleCompactIcon = showCompact ? FoldHorizontalIcon : UnfoldHorizontalIcon;
+  const ToggleCompactIcon = showCompact ? UnfoldHorizontalIcon : FoldHorizontalIcon;
   const buttonCls = 'text-sm flex items-center p-1 px-2 rounded hover:text-slate-900 hover:bg-yellow-100 hover:drop-shadow';
 
   return (
@@ -156,7 +158,7 @@ export default function TableDialog() {
       <div className='flex items-center justify-end mx-4 py-1 gap-x-2 text-slate-700'>
         <button type='button' className={buttonCls} onClick={onToggleCompact}>
           <ToggleCompactIcon className='stroke-current p-px opacity-60' height={22} />
-          {showCompact ? '隱藏' : '展開'}空欄
+          {showCompact ? '展開' : '隱藏' }空欄
         </button>
 
         <button type='button' className={buttonCls} onClick={onSelectAll}>
@@ -178,8 +180,8 @@ export default function TableDialog() {
         </button>
       </div>
 
-      <div ref={bodyRef} tabIndex={0} className={`px-2 sm:px-5 pb-6 mt-auto max-h-[80vh] overflow-auto focus-visible:outline-none text-sm ${styles['export-table']}`}>
-        <Html html={tableHTML} className='w-fit' />
+      <div ref={bodyRef} tabIndex={0} className={`px-2 sm:px-5 pb-6 mt-auto max-h-[80vh] overflow-auto focus-visible:outline-none text-sm ${styles.table}`}>
+        <Html html={tableHTML} className='w-fit mx-auto' />
       </div>
     </dialog>
   );

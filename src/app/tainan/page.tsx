@@ -10,7 +10,7 @@ export default async function Page() {
     <div className="container items-center justify-items-center min-h-screen mx-auto font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-2 items-center sm:items-start">
         <h1 className='pt-3 block text-center w-full text-3xl bold'>
-          遊蕩犬隻估計數量
+          臺南市遊蕩犬調查情形
         </h1>
 
         <Chart />

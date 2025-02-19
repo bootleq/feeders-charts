@@ -3,15 +3,13 @@ import { useCallback, useMemo } from 'react';
 import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { useSetAtom } from 'jotai';
 import ReactEChartsCore from 'echarts-for-react/lib/core';
-import { CITY_MAPPING, cityLookup } from '@/lib/model';
 import type { CountryItem } from '@/lib/model';
-import { makeSeries } from '@/lib/series';
+import type { MakeSeriesFn } from '@/lib/makeSeries';
+import { parseChartInputs } from '@/lib/formData';
 
-import { CheckboxMenuItem } from './CheckboxMenuItem';
-import { tooltipClass, tooltipMenuCls } from './utils';
-
-import { tableAtom, tableDialogOpenAtom, dummyMenuAtom } from './store';
-import type { CheckboxSet } from './store';
+import { CheckboxMenuItem, dummyMenuAtom } from '@/components/CheckboxMenuItem';
+import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
+import type { TableRow, PrimitiveAtomWithInitial } from '@/components/types';
 
 import {
   TableIcon,
@@ -60,10 +58,9 @@ const clearNullDataSeries = R.mapObjIndexed((obj: Record<string, any>) => {
 const citiesTrendToRows = (
   citiesSeries: Record<string, Record<string, any>>,
   years: number[],
-  cities: string[]
+  cities: string[],
+  cityLookup: Record<string, string>,
 ) => {
-  citiesSeries = clearNullDataSeries(citiesSeries);
-
   const minYear = Math.min(...years);
 
   const seriesNames = Object.values(
@@ -90,7 +87,7 @@ const citiesTrendToRows = (
     }).flat();
 
     return [
-      cityLookup(city),
+      cityLookup[city],
       ...(yearCells as number[]),
     ];
   });
@@ -98,16 +95,20 @@ const citiesTrendToRows = (
   return [header, ...rows];
 };
 
-export default function ExportTable({ items, meta, chartRef }: {
+export default function ExportTable({ items, meta, makeSeriesFn, allCities, tableAtom, dialogOpenAtom, chartRef }: {
   chartRef: React.RefObject<ReactEChartsCore | null>,
+  tableAtom: PrimitiveAtomWithInitial<TableRow[]>,
+  dialogOpenAtom: PrimitiveAtomWithInitial<boolean>,
   items: CountryItem[],
   meta: {
     minYear: number,
     maxYear: number,
   },
+  makeSeriesFn: MakeSeriesFn,
+  allCities: string[] | Record<string, string>,
 }) {
   const setTable = useSetAtom(tableAtom);
-  const setDialogOpened = useSetAtom(tableDialogOpenAtom);
+  const setDialogOpened = useSetAtom(dialogOpenAtom);
 
   const buildByChart = useCallback(() => {
     const chart = chartRef.current?.getEchartsInstance();
@@ -123,28 +124,26 @@ export default function ExportTable({ items, meta, chartRef }: {
     const form = document.querySelector<HTMLFormElement>('form#MainForm');
     if (!form) return;
 
-    const formData = new FormData(form);
-    const seriesString = formData.get('seriesSet')?.toString() || '';
-    const seriesSet = JSON.parse(seriesString) as CheckboxSet;
-    const cities = formData.getAll('cities').map(String);
-    const years = formData.getAll('years').map(Number);
+    const { seriesSet, cities, years } = parseChartInputs(form);
+    const allCityNames = Array.isArray(allCities) ? allCities : Object.keys(allCities);
+
     // When select all items, treat as no filters
-    const citiesFilter = cities.length === Object.keys(CITY_MAPPING).length ? [] : cities;
+    const citiesFilter = cities.length === allCityNames.length ? [] : cities;
     const yearsFilter = years.length === meta.maxYear - meta.minYear + 1 ? [] : years;
 
-    let citiesSeries = makeSeries(
+    let citiesSeries = makeSeriesFn(
       items,
       meta,
       seriesSet,
       { cities: citiesFilter, years: yearsFilter },
-      { byCities: true }
+      { spreadToCities: allCityNames }
     );
 
     citiesSeries = clearNullDataSeries(citiesSeries);
-    const rows = citiesTrendToRows(citiesSeries, years, cities);
+    const rows = citiesTrendToRows(citiesSeries, years, cities, Array.isArray(allCities) ? {} : allCities);
     setTable(rows);
     setDialogOpened(true);
-  }, [setTable, setDialogOpened, items, meta]);
+  }, [setTable, setDialogOpened, items, meta, makeSeriesFn, allCities]);
 
   const MenuItem = useMemo(() => CheckboxMenuItem(dummyMenuAtom, '_'), []);
 

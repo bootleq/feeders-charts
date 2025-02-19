@@ -151,7 +151,7 @@ function validate(resourceName, items) {
     if (needsUpdate) {
       console.log(`Write file to ${outFile}...`);
       await fsp.writeFile(outFile, newContent);
-      await writeMeta(['combined', 'builtAt'], now.toJSON());
+      await writeMeta('', ['combined', 'builtAt'], now.toJSON());
     } else {
       console.log(`Combined data has no change.`);
       if (Number(process.env.DATA_CONTINUE_WHEN_SAME_HASH)) {

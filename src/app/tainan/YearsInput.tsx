@@ -4,17 +4,11 @@ import { Tooltip, TooltipTrigger, TooltipContent, TooltipContentMenu, menuHoverP
 import { makeYearRange } from '@/lib/utils';
 import {
   MenuIcon,
-  ScaleIcon,
   GrabIcon,
 } from "lucide-react";
-import Years04Icon from '@/assets/year-set-04.svg';
-import Years14Icon from '@/assets/year-set-14.svg';
 import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
 
 const YearPresets: Record<string, [any, (value: number) => boolean]> = {
-  '2004': [Years04Icon, R.lte(93)],
-  '2014': [Years14Icon, R.lte(103)],
-  'post12': [ScaleIcon, R.lte(106)],
   'all': [GrabIcon, R.gt(0)],
 };
 
@@ -94,7 +88,7 @@ export function YearsInput({ min, max, formRef }: {
   }, [formRef]);
 
   return (
-    <div className='flex flex-wrap items-center pb-0.5'>
+    <div className='flex flex-wrap items-center justify-center pb-0.5 w-full'>
       <ul className='flex items-center justify-around flex-wrap max-w-[26rem]'>
         {yearRange.map((year) => {
           return (
@@ -129,9 +123,6 @@ export function YearsInput({ min, max, formRef }: {
             </TooltipTrigger>
             <TooltipContentMenu className={tooltipClass('text-sm')}>
               <div className={tooltipMenuCls()} onClick={onPickPreset}>
-                <YearPresetItem dataKey='2004'>從 <code className='mx-1'>2004</code> 開始</YearPresetItem>
-                <YearPresetItem dataKey='2014'>從 <code className='mx-1'>2014</code> 開始</YearPresetItem>
-                <YearPresetItem dataKey='post12'>零撲殺後</YearPresetItem>
                 <YearPresetItem dataKey='all' iconClass='opacity-50'>全選／不選</YearPresetItem>
               </div>
             </TooltipContentMenu>

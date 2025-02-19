@@ -2,8 +2,8 @@ import { useMemo } from 'react';
 import { useAtomValue } from 'jotai';
 import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { representMenuAtom } from './store';
-import { CheckboxMenuItem } from './CheckboxMenuItem';
-import { tooltipClass, tooltipMenuCls } from './utils';
+import { CheckboxMenuItem } from '@/components/CheckboxMenuItem';
+import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
 
 import Dot44Icon from '@/assets/dot-label-44.svg';
 import {

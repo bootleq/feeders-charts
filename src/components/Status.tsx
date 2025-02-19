@@ -4,7 +4,8 @@ import * as R from 'ramda';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/Tooltip';
-import { resources, jsonMetaReviver } from '@/lib/resource';
+import { jsonMetaReviver } from '@/lib/resource';
+import type { ResourceEntry } from '@/lib/resource';
 import { formatDate } from '@/lib/utils';
 import Spinner from '@/assets/spinner.svg';
 import commonStyles from '@/app/common.module.scss';
@@ -27,20 +28,29 @@ function transform(meta: any) {
   };
 }
 
+type MetaScope = '' | 'tainan';
+
 type Data = {
   combined: Date,
   sources: [string, any][],
 };
 
-export default function Status() {
+export default function Status({ scope, resources }: {
+  scope: MetaScope,
+  resources: Record<string, ResourceEntry>,
+}) {
   const [data, setData] = useState<Data|null>(null);
 
   useEffect(() => {
-    fetch('/meta.json')
+    if (!['', 'tainan'].includes(scope)) {
+      throw new Error(`Unexpected scope '${scope}'`);
+    }
+
+    fetch(`/${scope ? `${scope}.` : ''}meta.json`)
       .then((res) => res.text())
       .then((text) => JSON.parse(text, jsonMetaReviver))
       .then(data => setData(transform(data)));
-  }, []);
+  }, [scope]);
 
   if (!data) {
     return (

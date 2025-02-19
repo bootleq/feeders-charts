@@ -20,6 +20,17 @@ export default function Home() {
               資料狀態
             </Link>
           </li>
+          <li>
+            <Link href='tainan' className='cursor-pointer p-2 rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
+              臺南市遊蕩犬調查情形
+            </Link>
+            <span className='inline-block mx-3 text-slate-400'>
+            |
+            </span>
+            <Link href='tainan/resource' className='cursor-pointer p-2 rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
+              資料狀態
+            </Link>
+          </li>
         </ul>
       </main>
     </div>
