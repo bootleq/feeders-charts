@@ -1,10 +1,10 @@
 "use client"
 
 import * as R from 'ramda';
-import { useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 
 import { CITY_MAPPING } from '@/lib/model';
-import type { CountryItem } from '@/lib/model';
+import type { CountryItem, ItemsMeta } from '@/lib/model';
 import { makeYearRange } from '@/lib/utils';
 import { makeSeries, SERIES_NAMES } from '@/lib/series';
 import type { SeriesSet } from '@/lib/series';
@@ -57,16 +57,36 @@ echarts.use(
   ]
 );
 
-export default function Chart({ items, meta }: {
-  items: CountryItem[],
-  meta: {
-    minYear: number,
-    maxYear: number,
-  },
-}) {
+export default function Chart() {
+  const [items, setItems] = useState<CountryItem[]>([]);
   const chartRef = useRef<ReactEChartsCore>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const formCacheRepresent = useRef('');
+
+  const years = useMemo(() => {
+    return R.pipe(
+      R.pluck('year'),
+      R.uniq,
+      R.filter(R.isNotNil),
+      R.map(Number),
+    )(items);
+  }, [items]);
+
+  const meta: ItemsMeta|null = useMemo(() => {
+    if (!years) {
+      return null;
+    }
+    return {
+      minYear: Math.min(...years),
+      maxYear: Math.max(...years),
+    }
+  }, [years]);
+
+  useEffect(() => {
+    fetch('/combined.json')
+      .then((res) => res.json())
+      .then(setItems);
+  }, []);
 
   const updateYearAxis = useCallback((minYear: number, maxYear: number) => {
     const yearsRange = makeYearRange(minYear, maxYear);
@@ -120,10 +140,12 @@ export default function Chart({ items, meta }: {
     formRef.current?.dispatchEvent(
       new Event("submit", { bubbles: true, cancelable: true })
     );
-  }, []);
+  }, [meta, years]);
 
   const onApply = useCallback((e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!meta) return;
 
     const form = formRef.current;
     if (!form) return;
@@ -187,6 +209,8 @@ export default function Chart({ items, meta }: {
     chart.setOption(newOptions);
   }, [items, meta, updateYearAxis, updateLegends, updateRepresent, updateMarker]);
 
+  const itemsReady = R.isNotEmpty(items) && R.isNotNil(meta);
+
   return (
     <div className='min-w-lg min-h-80 w-full'>
       <form id='MainForm' ref={formRef} onSubmit={onApply} className='w-min flex flex-wrap items-start justify-start gap-x-4 gap-y-3 my-1 mx-auto max-w-[96vw] text-sm'>
@@ -199,7 +223,7 @@ export default function Chart({ items, meta }: {
 
           <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
             <legend className='font-bold px-1.5'>年度</legend>
-            <YearsInput min={meta.minYear} max={meta.maxYear} formRef={formRef} />
+            <YearsInput min={meta?.minYear || 88} max={meta?.maxYear || 113} formRef={formRef} />
           </fieldset>
         </div>
 
@@ -225,8 +249,12 @@ export default function Chart({ items, meta }: {
       </form>
 
       <div className='flex items-center justify-end gap-x-1'>
-        <ExportTable chartRef={chartRef} items={items} meta={meta} />
-        <ExportImage chartRef={chartRef} />
+        {itemsReady &&
+          <>
+            <ExportTable chartRef={chartRef} items={items} meta={meta} />
+            <ExportImage chartRef={chartRef} />
+          </>
+        }
       </div>
 
       <ReactEChartsCore
