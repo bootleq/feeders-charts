@@ -66,7 +66,7 @@ async function parseCSV(file, csvOptions = {}) {
 const parserOptions = {
   mapHeaders: (({ header }) => {
     const mapping = {
-      行政區: 'district',
+      行政區: 'city', // 為減少程式改動，先使用不正確的名稱 city，而非 district
       公犬: 'male',
       母犬: 'female',
       總計: 'total',
@@ -76,7 +76,7 @@ const parserOptions = {
   }),
   mapValues: ({ header, value }) => {
     switch (header) {
-      case 'district':
+      case 'city':
         return value; // NOTE: 郵遞區號不一定有，事後再移除，這邊不理會
         break;
       default:
@@ -111,7 +111,7 @@ async function download(subResourceName, downloadPath) {
 // "737鹽水區" => "737 鹽水區"
 // "鹽水區"    => "737 鹽水區"
 function normalizeDistricts(items) {
-  const allNames = R.uniq(R.pluck('district', items));
+  const allNames = R.uniq(R.pluck('city', items));
 
   // Mapping of shape { "鹽水區": "737 鹽水區" }
   const dict = allNames.reduce((acc, name) => {
@@ -123,13 +123,13 @@ function normalizeDistricts(items) {
   }, {});
 
   return items.map(item => {
-    const { district } = item;
-    const [,, shortName] = district.match(/^(\d+)?(.+)/);
+    const { city } = item;
+    const [,, shortName] = city.match(/^(\d+)?(.+)/);
     const translated = dict[shortName];
     if (translated) {
-      return { ...item, district: translated };
+      return { ...item, city: translated };
     } else {
-      throw new Error(`Unexpected district '${district}'.`);
+      throw new Error(`Unexpected district '${city}'.`);
     }
     return item;
   });
@@ -151,7 +151,7 @@ function normalizeDistricts(items) {
     data = [...data, ...yearData];
   }
 
-  data = data.filter(({ district }) => (district !== '合計'));
+  data = data.filter(({ city }) => (city !== '合計'));
   data = normalizeDistricts(data);
 
   const outFile = buildingPath(resourceName, 'json');

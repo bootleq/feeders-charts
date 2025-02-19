@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 
-export type CountryItem = {
+type CountryDataItem = {
   year: number,     // 年度
   city: string,     // 縣市代碼
   domestic: number, // 家犬估計數
@@ -23,6 +23,16 @@ export type CountryItem = {
   h_feed: number,   // 熱區 餵食者人數
   h_stop: number,   // 熱區 疏導餵食成功
 }
+
+type TainanDataItem = {
+  year:   number,   // 年度
+  city:   string,   // 行政區
+  male:   number,   // 公犬
+  female: number,   // 母犬
+  total:  number,   // 總數
+}
+
+export type CountryItem = CountryDataItem | TainanDataItem;
 
 export type ItemsMeta = {
   minYear: number,
@@ -52,6 +62,46 @@ export const CITY_MAPPING: Record<string, string> = {
   City000001: "基隆市",
   City000021: "金門縣",
   City000022: "連江縣",
+};
+
+export const TAINAN_DISTRICTS: Record<string, string> = {
+  700: "中西區",
+  701: "東區",
+  702: "南區",
+  704: "北區",
+  708: "安平區",
+  709: "安南區",
+  710: "永康區",
+  711: "歸仁區",
+  712: "新化區",
+  713: "左鎮區",
+  714: "玉井區",
+  715: "楠西區",
+  716: "南化區",
+  717: "仁德區",
+  718: "關廟區",
+  719: "龍崎區",
+  720: "官田區",
+  721: "麻豆區",
+  722: "佳里區",
+  723: "西港區",
+  724: "七股區",
+  725: "將軍區",
+  726: "學甲區",
+  727: "北門區",
+  730: "新營區",
+  731: "後壁區",
+  732: "白河區",
+  733: "東山區",
+  734: "六甲區",
+  735: "下營區",
+  736: "柳營區",
+  737: "鹽水區",
+  741: "善化區",
+  742: "大內區",
+  743: "山上區",
+  744: "新市區",
+  745: "安定區",
 };
 
 export const LEGACY_CITY_MAPPING = {
