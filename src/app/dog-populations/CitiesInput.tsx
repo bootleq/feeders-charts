@@ -102,7 +102,7 @@ export function CitiesInput({ formRef }: {
             </div>
           </div>
         </TooltipTrigger>
-        <TooltipContentMenu className={tooltipClass('text-sm')}>
+        <TooltipContentMenu className={tooltipClass('text-sm drop-shadow-md')}>
           <div className={tooltipMenuCls()} onClick={onPickPreset}>
             <CityPresetItem dataKey='六都'>六都</CityPresetItem>
             <CityPresetItem dataKey='北北基桃'>北北基桃</CityPresetItem>

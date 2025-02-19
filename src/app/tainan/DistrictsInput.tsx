@@ -80,7 +80,7 @@ export function DistrictsInput({ formRef }: {
                 </div>
               </div>
             </TooltipTrigger>
-            <TooltipContentMenu className={tooltipClass('text-sm')}>
+            <TooltipContentMenu className={tooltipClass('text-sm drop-shadow-md')}>
               <div className={tooltipMenuCls()} onClick={onPickPreset}>
                 <CityPresetItem dataKey='all' iconClass='opacity-50'>全選／不選</CityPresetItem>
               </div>

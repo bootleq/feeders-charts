@@ -88,7 +88,7 @@ export function MarkerControl() {
                 </div>
               </div>
             </TooltipTrigger>
-            <TooltipContentMenu className={tooltipClass('text-sm')}>
+            <TooltipContentMenu className={tooltipClass('text-sm drop-shadow-md')}>
               <div className={tooltipMenuCls()}>
                 <MenuItem Icon={TrashTruckIcon} name='垃圾不落地'>垃圾不落地</MenuItem>
                 <MenuItem Icon={EqualNotIcon} name='統計方式大改'>遊蕩犬統計方式大改</MenuItem>
@@ -118,7 +118,7 @@ export function MarkerControl() {
                 </div>
               </div>
             </TooltipTrigger>
-            <TooltipContentMenu className={tooltipClass('text-sm')}>
+            <TooltipContentMenu className={tooltipClass('text-sm drop-shadow-md')}>
               <div className={tooltipMenuCls()}>
                 <MenuItem Icon={IdCardIcon} name='新北餵養講習'>新北市乾淨餵養講習</MenuItem>
                 <MenuItem sub name='台南餵養講習'>台南市乾淨餵養講習</MenuItem>
@@ -138,7 +138,7 @@ export function MarkerControl() {
                 </div>
               </div>
             </TooltipTrigger>
-            <TooltipContentMenu className={tooltipClass('text-sm')}>
+            <TooltipContentMenu className={tooltipClass('text-sm drop-shadow-md')}>
               <div className={tooltipMenuCls()}>
                 <MenuItem Icon={MicIcon} name='悲傷 326 記者會'>動社「悲傷326」記者會</MenuItem>
                 <MenuItem Icon={SliceIcon} name='相信動物台北'>相信動物 台北市</MenuItem>
@@ -161,7 +161,7 @@ export function MarkerControl() {
                 </div>
               </div>
             </TooltipTrigger>
-            <TooltipContentMenu className={tooltipClass('text-sm')}>
+            <TooltipContentMenu className={tooltipClass('text-sm drop-shadow-md')}>
               <div className={tooltipMenuCls()}>
                 <MenuItem Icon={FilmIcon} name='電影《十二夜》上映'>電影《十二夜》上映</MenuItem>
                 <MenuItem Icon={TruckIcon} name='民雄收容所運送事件'>民雄收容所運送事件</MenuItem>

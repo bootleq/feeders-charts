@@ -29,7 +29,7 @@ export function RepresentControl() {
                 </div>
               </div>
             </TooltipTrigger>
-            <TooltipContentMenu className={tooltipClass('text-sm')}>
+            <TooltipContentMenu className={tooltipClass('text-sm drop-shadow-md')}>
               <div className={tooltipMenuCls()}>
                 <MenuItem Icon={ChartColumnBigIcon} name='roaming_chart_bar'><span className='text-stone-700'>遊蕩犬估計</span> <strong className='text-slate-900'>{roamingChartType}</strong></MenuItem>
                 <MenuItem Icon={Dot44Icon} name='show_all_labels'>直接顯示數字</MenuItem>

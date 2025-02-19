@@ -121,7 +121,7 @@ export function YearsInput({ min, max, formRef }: {
                 </div>
               </div>
             </TooltipTrigger>
-            <TooltipContentMenu className={tooltipClass('text-sm')}>
+            <TooltipContentMenu className={tooltipClass('text-sm drop-shadow-md')}>
               <div className={tooltipMenuCls()} onClick={onPickPreset}>
                 <YearPresetItem dataKey='all' iconClass='opacity-50'>全選／不選</YearPresetItem>
               </div>

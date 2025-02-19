@@ -159,7 +159,7 @@ export default function ExportTable({ items, meta, makeSeriesFn, allCities, tabl
           <span className='sr-only'>製作表格</span>
         </div>
       </TooltipTrigger>
-      <TooltipContentMenu className={tooltipClass('text-sm')}>
+      <TooltipContentMenu className={tooltipClass('text-sm drop-shadow-md')}>
         <div className={tooltipMenuCls()}>
           <div className='py-2 font-bold'>製作表格</div>
           <MenuItem Icon={ChartColumnBigIcon} name='toTable:chart' onClick={buildByChart}>根據目前圖表</MenuItem>

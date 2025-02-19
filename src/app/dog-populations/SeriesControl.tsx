@@ -60,7 +60,7 @@ export function SeriesControl() {
                 </div>
               </div>
             </TooltipTrigger>
-            <TooltipContentMenu className={tooltipClass('text-sm')}>
+            <TooltipContentMenu className={tooltipClass('text-sm drop-shadow-md')}>
               <div className={tooltipMenuCls()}>
                 <SeriesMenuItem Icon={SigmaIcon} name='roaming'>遊蕩犬估計</SeriesMenuItem>
                 <SeriesMenuItem Icon={UsersIcon} name='human'>人口數</SeriesMenuItem>
@@ -80,7 +80,7 @@ export function SeriesControl() {
                 </div>
               </div>
             </TooltipTrigger>
-            <TooltipContentMenu className={tooltipClass('text-sm')}>
+            <TooltipContentMenu className={tooltipClass('text-sm drop-shadow-md')}>
               <div className={tooltipMenuCls()}>
                 <SeriesMenuItem Icon={HousePlusIcon} name='accept'>收容隻數</SeriesMenuItem>
                 <SeriesMenuItem Icon={DogIcon} name='adopt'>認領隻數</SeriesMenuItem>
@@ -107,7 +107,7 @@ export function SeriesControl() {
                 </div>
               </div>
             </TooltipTrigger>
-            <TooltipContentMenu className={tooltipClass('text-sm')}>
+            <TooltipContentMenu className={tooltipClass('text-sm drop-shadow-md')}>
               <div className={tooltipMenuCls()}>
                 <SeriesMenuItem Icon={HouseWifiIcon} name='h_visit'>有主犬 家訪戶數</SeriesMenuItem>
                 <SeriesMenuItem Icon={PawPrintIcon} name='h_roam'>無主犬 清查隻數</SeriesMenuItem>
