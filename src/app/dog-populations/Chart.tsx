@@ -8,7 +8,7 @@ import type { CountryItem, ItemsMeta } from '@/lib/model';
 import { makeYearRange } from '@/lib/utils';
 import { SERIES_NAMES, computers } from '@/lib/series';
 import { buildSeriesMaker } from '@/lib/makeSeries';
-import type { SeriesSet } from '@/lib/makeSeries';
+import type { CheckboxSet } from '@/components/types';
 import { makeMarkerSeries } from './markers';
 
 import { CitiesInput } from './CitiesInput';
@@ -19,7 +19,6 @@ import { MarkerControl } from './MarkerControl';
 import ExportTable from './ExportTable';
 import ExportImage from '@/components/ExportImage';
 
-import type { CheckboxSet } from './store';
 import { defaultOptions, defaultSeriesSettings } from './defaults';
 
 import ReactEChartsCore from 'echarts-for-react/lib/core';
@@ -104,7 +103,7 @@ export default function Chart() {
     );
   }, []);
 
-  const updateLegends = useCallback((seriesSet: SeriesSet) => {
+  const updateLegends = useCallback((seriesSet: CheckboxSet) => {
     return R.set(
       R.lensPath(['legend', 'data']),
       Object.keys(R.pickBy(R.identity, seriesSet)).map(name => SERIES_NAMES[name])
@@ -160,7 +159,7 @@ export default function Chart() {
 
     const formData = new FormData(form);
     const seriesString = formData.get('seriesSet')?.toString() || '';
-    const seriesSet = JSON.parse(seriesString) as SeriesSet;
+    const seriesSet = JSON.parse(seriesString) as CheckboxSet;
     const representString = formData.get('representSet')?.toString() || '';
     const representSet = JSON.parse(representString) as CheckboxSet;
     const markerString = formData.get('markerSet')?.toString() || '';

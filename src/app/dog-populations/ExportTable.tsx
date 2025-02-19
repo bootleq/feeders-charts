@@ -12,7 +12,7 @@ import { CheckboxMenuItem } from './CheckboxMenuItem';
 import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
 
 import { tableAtom, tableDialogOpenAtom, dummyMenuAtom } from './store';
-import type { CheckboxSet } from './store';
+import type { CheckboxSet } from '@/components/types';
 
 import {
   TableIcon,

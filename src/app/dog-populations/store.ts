@@ -1,10 +1,7 @@
 import * as R from 'ramda';
 import { atom, PrimitiveAtom } from 'jotai';
 import { SERIES_NAMES } from '@/lib/series';
-import type { SeriesSet } from '@/lib/series';
-import type { TableRow } from '@/components/types';
-
-export type CheckboxSet = Record<string, boolean>;
+import type { TableRow, CheckboxSet } from '@/components/types';
 
 const initialExcludeSeries = [
   'human',
@@ -16,7 +13,7 @@ const initialExcludeSeries = [
   'h_stop',
 ];
 
-export const seriesChecksAtom = atom<SeriesSet>(
+export const seriesChecksAtom = atom<CheckboxSet>(
   Object.keys(SERIES_NAMES).reduce((acc, name) => {
     return R.assoc(name, !initialExcludeSeries.includes(name), acc);
   }, {})

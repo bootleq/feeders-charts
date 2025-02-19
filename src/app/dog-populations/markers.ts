@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import type { CheckboxSet } from './store';
+import type { CheckboxSet } from '@/components/types';
 import { MarkerTips } from './MarkerTips';
 import styles from './page.module.scss';
 

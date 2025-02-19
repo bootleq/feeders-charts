@@ -1,8 +1,8 @@
 import * as R from 'ramda';
 import { makeYearRange } from '@/lib/utils';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
+import type { CheckboxSet } from '@/components/types';
 
-export type SeriesSet = Record<string, boolean>;
 type Series = Record<string, any>;
 export type SeriesData = Array<number|null>;
 
@@ -110,7 +110,7 @@ export function buildSeriesMaker(
   return function makeSeries(
     items: CountryItem[],
     meta: ItemsMeta,
-    seriesSet: SeriesSet,
+    seriesSet: CheckboxSet,
     filters?: SeriesFilters,
     extraOptions?: {
       spreadToCities: string[]
@@ -129,7 +129,7 @@ export function buildSeriesMaker(
     const dependsSeries = computedSeries.map(key => computers[key].depends).flat();
     const requiredRawSeries = R.union(rawSeries, dependsSeries);
 
-    const initialSeries = Object.keys(seriesSet).reduce((acc: SeriesSet, name) => {
+    const initialSeries = Object.keys(seriesSet).reduce((acc: CheckboxSet, name) => {
       const obj = {
         name: seriesNameMap[name],
         data: requiredRawSeries.includes(name) ? initialData : null,

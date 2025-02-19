@@ -2,7 +2,7 @@ import * as R from 'ramda';
 import { useMemo } from 'react';
 import { useAtom, PrimitiveAtom } from 'jotai';
 import { checkboxMenuItemAtom } from './store';
-import type { CheckboxSet } from './store';
+import type { CheckboxSet } from '@/components/types';
 import {
   CornerDownRightIcon,
 } from "lucide-react";
