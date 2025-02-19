@@ -194,7 +194,7 @@ export default function Chart() {
     const maxYear = years.length ? years[years.length - 1] : meta.maxYear;
 
     let needUpdateRepresent = false;
-    if (formCacheRepresent.current !== representString) {
+    if (representString && formCacheRepresent.current !== representString) {
       needUpdateRepresent = true;
       formCacheRepresent.current = representString;
     }
