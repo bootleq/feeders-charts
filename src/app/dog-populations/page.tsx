@@ -1,4 +1,3 @@
-import * as R from 'ramda';
 import Link from 'next/link';
 import Chart from './Chart';
 import TableDialogWrapper from './TableDialogWrapper';
