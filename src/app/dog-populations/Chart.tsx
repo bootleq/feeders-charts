@@ -17,7 +17,7 @@ import { YearsInput } from './YearsInput';
 import { SeriesControl } from './SeriesControl';
 import { RepresentControl } from './RepresentControl';
 import { MarkerControl } from './MarkerControl';
-import ExportTable from './ExportTable';
+import ExportTable from '@/components/ExportTable';
 import ExportImage from '@/components/ExportImage';
 
 import { defaultOptions, defaultSeriesSettings } from './defaults';
