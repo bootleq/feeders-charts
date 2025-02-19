@@ -1,4 +1,4 @@
-import Status from './Status';
+import Status from '@/components/Status';
 import Link from 'next/link';
 
 export default async function Page() {
