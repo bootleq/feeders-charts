@@ -6,6 +6,7 @@ import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
 import { makeYearRange } from '@/lib/utils';
+import { parseChartInputs } from '@/lib/formData';
 import { SERIES_NAMES, computers } from '@/lib/series';
 import { buildSeriesMaker } from '@/lib/makeSeries';
 import type { CheckboxSet } from '@/components/types';
@@ -157,15 +158,9 @@ export default function Chart() {
     const chart = chartRef.current?.getEchartsInstance();
     if (!chart) return;
 
-    const formData = new FormData(form);
-    const seriesString = formData.get('seriesSet')?.toString() || '';
-    const seriesSet = JSON.parse(seriesString) as CheckboxSet;
-    const representString = formData.get('representSet')?.toString() || '';
-    const representSet = JSON.parse(representString) as CheckboxSet;
-    const markerString = formData.get('markerSet')?.toString() || '';
-    const markerSet = JSON.parse(markerString) as CheckboxSet;
-    let cities = formData.getAll('cities').map(String);
-    let years = formData.getAll('years').map(Number);
+    const formParsed = parseChartInputs(form);
+    const { representString, seriesSet, representSet, markerSet } = formParsed;
+    let { cities, years } = formParsed;
 
     if (!seriesSet || R.type(seriesSet) !== 'Object') {
       console.error('Unexpected seriesSet value');

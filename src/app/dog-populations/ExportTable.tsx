@@ -7,12 +7,12 @@ import { CITY_MAPPING, cityLookup } from '@/lib/model';
 import type { CountryItem } from '@/lib/model';
 import { SERIES_NAMES, computers } from '@/lib/series';
 import { buildSeriesMaker } from '@/lib/makeSeries';
+import { parseChartInputs } from '@/lib/formData';
 
 import { CheckboxMenuItem } from './CheckboxMenuItem';
 import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
 
 import { tableAtom, tableDialogOpenAtom, dummyMenuAtom } from './store';
-import type { CheckboxSet } from '@/components/types';
 
 import {
   TableIcon,
@@ -128,11 +128,8 @@ export default function ExportTable({ items, meta, chartRef }: {
     const form = document.querySelector<HTMLFormElement>('form#MainForm');
     if (!form) return;
 
-    const formData = new FormData(form);
-    const seriesString = formData.get('seriesSet')?.toString() || '';
-    const seriesSet = JSON.parse(seriesString) as CheckboxSet;
-    const cities = formData.getAll('cities').map(String);
-    const years = formData.getAll('years').map(Number);
+    const { seriesSet, cities, years } = parseChartInputs(form);
+
     // When select all items, treat as no filters
     const citiesFilter = cities.length === Object.keys(CITY_MAPPING).length ? [] : cities;
     const yearsFilter = years.length === meta.maxYear - meta.minYear + 1 ? [] : years;
