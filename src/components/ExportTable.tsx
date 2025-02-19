@@ -127,6 +127,10 @@ export default function ExportTable({ items, meta, makeSeriesFn, allCities, tabl
     const { seriesSet, cities, years } = parseChartInputs(form);
     const allCityNames = Array.isArray(allCities) ? allCities : Object.keys(allCities);
 
+    if (!seriesSet) {
+      throw new Error('Missing seriesSet input value.');
+    }
+
     // When select all items, treat as no filters
     const citiesFilter = cities.length === allCityNames.length ? [] : cities;
     const yearsFilter = years.length === meta.maxYear - meta.minYear + 1 ? [] : years;
