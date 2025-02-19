@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import Years04Icon from '@/assets/year-set-04.svg';
 import Years14Icon from '@/assets/year-set-14.svg';
-import { tooltipClass, tooltipMenuCls } from './utils';
+import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
 
 const YearPresets: Record<string, [any, (value: number) => boolean]> = {
   '2004': [Years04Icon, R.lte(93)],

@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from 'react';
 import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { CITY_MAPPING, cityLookup } from '@/lib/model';
-import { tooltipClass, tooltipMenuCls } from './utils';
+import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
 import styles from './page.module.scss';
 
 import {

@@ -4,7 +4,7 @@ import { useAtom } from 'jotai';
 import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { markerMenuAtom } from './store';
 import { CheckboxMenuItem } from './CheckboxMenuItem';
-import { tooltipClass, tooltipMenuCls } from './utils';
+import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
 
 import {
   DotIcon,

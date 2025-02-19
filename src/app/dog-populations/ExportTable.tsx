@@ -9,7 +9,7 @@ import { SERIES_NAMES, computers } from '@/lib/series';
 import { buildSeriesMaker } from '@/lib/makeSeries';
 
 import { CheckboxMenuItem } from './CheckboxMenuItem';
-import { tooltipClass, tooltipMenuCls } from './utils';
+import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
 
 import { tableAtom, tableDialogOpenAtom, dummyMenuAtom } from './store';
 import type { CheckboxSet } from './store';
