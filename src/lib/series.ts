@@ -1,6 +1,5 @@
 import * as R from 'ramda';
 import { makeYearRange } from '@/lib/utils';
-import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
 
 export type SeriesSet = Record<string, boolean>;
@@ -145,7 +144,7 @@ export function buildSeriesMaker(
   const customComputeSeries = Object.keys(computers);
 
   // Return named "series" data grouped by "city", where '_' is a pseudo key means "ALL cities".
-  // Cities other than '_' are not included unless `extraOptions.byCities` is true.
+  // Cities other than '_' are not included unless `extraOptions.spreadToCities` present.
   //
   // {
   //  '_': {
@@ -166,7 +165,7 @@ export function buildSeriesMaker(
     seriesSet: SeriesSet,
     filters?: SeriesFilters,
     extraOptions?: {
-      byCities: boolean,
+      spreadToCities: string[]
     },
   ) {
     const validCities = filters?.cities?.length ? filters.cities.map(String) : false;
@@ -191,8 +190,8 @@ export function buildSeriesMaker(
     }, {});
 
     const makeToCities = ['_']; // '_' means "ALL" cities, no distinguish
-    if (extraOptions?.byCities) {
-      makeToCities.push(...(validCities || Object.keys(CITY_MAPPING)));
+    if (extraOptions?.spreadToCities) {
+      makeToCities.push(...extraOptions.spreadToCities);
     }
 
     const citiesSeries = R.fromPairs(makeToCities.map(city => [city, initialSeries]));

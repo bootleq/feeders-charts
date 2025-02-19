@@ -141,7 +141,7 @@ export default function ExportTable({ items, meta, chartRef }: {
       meta,
       seriesSet,
       { cities: citiesFilter, years: yearsFilter },
-      { byCities: true }
+      { spreadToCities: Object.keys(CITY_MAPPING) }
     );
 
     citiesSeries = clearNullDataSeries(citiesSeries);
