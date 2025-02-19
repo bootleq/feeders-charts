@@ -1,0 +1,1223 @@
+[
+  {
+    "city": "700",
+    "male": 8,
+    "female": 5,
+    "total": 13,
+    "year": 108
+  },
+  {
+    "city": "701",
+    "male": 25,
+    "female": 20,
+    "total": 45,
+    "year": 108
+  },
+  {
+    "city": "702",
+    "male": 46,
+    "female": 96,
+    "total": 142,
+    "year": 108
+  },
+  {
+    "city": "704",
+    "male": 25,
+    "female": 48,
+    "total": 73,
+    "year": 108
+  },
+  {
+    "city": "708",
+    "male": 53,
+    "female": 50,
+    "total": 103,
+    "year": 108
+  },
+  {
+    "city": "709",
+    "male": 482,
+    "female": 713,
+    "total": 1195,
+    "year": 108
+  },
+  {
+    "city": "710",
+    "male": 107,
+    "female": 141,
+    "total": 248,
+    "year": 108
+  },
+  {
+    "city": "711",
+    "male": 50,
+    "female": 78,
+    "total": 128,
+    "year": 108
+  },
+  {
+    "city": "712",
+    "male": 30,
+    "female": 50,
+    "total": 80,
+    "year": 108
+  },
+  {
+    "city": "713",
+    "male": 6,
+    "female": 9,
+    "total": 15,
+    "year": 108
+  },
+  {
+    "city": "714",
+    "male": 10,
+    "female": 44,
+    "total": 54,
+    "year": 108
+  },
+  {
+    "city": "715",
+    "male": 7,
+    "female": 14,
+    "total": 21,
+    "year": 108
+  },
+  {
+    "city": "716",
+    "male": 11,
+    "female": 27,
+    "total": 38,
+    "year": 108
+  },
+  {
+    "city": "717",
+    "male": 70,
+    "female": 87,
+    "total": 157,
+    "year": 108
+  },
+  {
+    "city": "718",
+    "male": 14,
+    "female": 48,
+    "total": 62,
+    "year": 108
+  },
+  {
+    "city": "719",
+    "male": 9,
+    "female": 19,
+    "total": 28,
+    "year": 108
+  },
+  {
+    "city": "720",
+    "male": 43,
+    "female": 76,
+    "total": 119,
+    "year": 108
+  },
+  {
+    "city": "721",
+    "male": 34,
+    "female": 71,
+    "total": 105,
+    "year": 108
+  },
+  {
+    "city": "722",
+    "male": 8,
+    "female": 35,
+    "total": 43,
+    "year": 108
+  },
+  {
+    "city": "723",
+    "male": 12,
+    "female": 35,
+    "total": 47,
+    "year": 108
+  },
+  {
+    "city": "724",
+    "male": 91,
+    "female": 113,
+    "total": 204,
+    "year": 108
+  },
+  {
+    "city": "725",
+    "male": 6,
+    "female": 13,
+    "total": 19,
+    "year": 108
+  },
+  {
+    "city": "726",
+    "male": 23,
+    "female": 54,
+    "total": 77,
+    "year": 108
+  },
+  {
+    "city": "727",
+    "male": 25,
+    "female": 54,
+    "total": 79,
+    "year": 108
+  },
+  {
+    "city": "730",
+    "male": 39,
+    "female": 46,
+    "total": 85,
+    "year": 108
+  },
+  {
+    "city": "731",
+    "male": 14,
+    "female": 14,
+    "total": 28,
+    "year": 108
+  },
+  {
+    "city": "732",
+    "male": 29,
+    "female": 41,
+    "total": 70,
+    "year": 108
+  },
+  {
+    "city": "733",
+    "male": 13,
+    "female": 17,
+    "total": 30,
+    "year": 108
+  },
+  {
+    "city": "734",
+    "male": 22,
+    "female": 20,
+    "total": 42,
+    "year": 108
+  },
+  {
+    "city": "735",
+    "male": 3,
+    "female": 16,
+    "total": 19,
+    "year": 108
+  },
+  {
+    "city": "736",
+    "male": 17,
+    "female": 24,
+    "total": 41,
+    "year": 108
+  },
+  {
+    "city": "737",
+    "male": 19,
+    "female": 71,
+    "total": 90,
+    "year": 108
+  },
+  {
+    "city": "741",
+    "male": 22,
+    "female": 53,
+    "total": 75,
+    "year": 108
+  },
+  {
+    "city": "742",
+    "male": 11,
+    "female": 19,
+    "total": 30,
+    "year": 108
+  },
+  {
+    "city": "743",
+    "male": 11,
+    "female": 13,
+    "total": 24,
+    "year": 108
+  },
+  {
+    "city": "744",
+    "male": 12,
+    "female": 26,
+    "total": 38,
+    "year": 108
+  },
+  {
+    "city": "745",
+    "male": 18,
+    "female": 36,
+    "total": 54,
+    "year": 108
+  },
+  {
+    "city": "700",
+    "male": 5,
+    "female": 2,
+    "total": 7,
+    "year": 109
+  },
+  {
+    "city": "701",
+    "male": 13,
+    "female": 13,
+    "total": 26,
+    "year": 109
+  },
+  {
+    "city": "702",
+    "male": 48,
+    "female": 68,
+    "total": 116,
+    "year": 109
+  },
+  {
+    "city": "704",
+    "male": 27,
+    "female": 45,
+    "total": 72,
+    "year": 109
+  },
+  {
+    "city": "708",
+    "male": 13,
+    "female": 16,
+    "total": 29,
+    "year": 109
+  },
+  {
+    "city": "709",
+    "male": 252,
+    "female": 507,
+    "total": 759,
+    "year": 109
+  },
+  {
+    "city": "710",
+    "male": 73,
+    "female": 97,
+    "total": 170,
+    "year": 109
+  },
+  {
+    "city": "711",
+    "male": 42,
+    "female": 101,
+    "total": 143,
+    "year": 109
+  },
+  {
+    "city": "712",
+    "male": 64,
+    "female": 89,
+    "total": 153,
+    "year": 109
+  },
+  {
+    "city": "713",
+    "male": 7,
+    "female": 26,
+    "total": 33,
+    "year": 109
+  },
+  {
+    "city": "714",
+    "male": 21,
+    "female": 56,
+    "total": 77,
+    "year": 109
+  },
+  {
+    "city": "715",
+    "male": 4,
+    "female": 16,
+    "total": 20,
+    "year": 109
+  },
+  {
+    "city": "716",
+    "male": 11,
+    "female": 25,
+    "total": 36,
+    "year": 109
+  },
+  {
+    "city": "717",
+    "male": 54,
+    "female": 85,
+    "total": 139,
+    "year": 109
+  },
+  {
+    "city": "718",
+    "male": 13,
+    "female": 41,
+    "total": 54,
+    "year": 109
+  },
+  {
+    "city": "719",
+    "male": 10,
+    "female": 17,
+    "total": 27,
+    "year": 109
+  },
+  {
+    "city": "720",
+    "male": 19,
+    "female": 39,
+    "total": 58,
+    "year": 109
+  },
+  {
+    "city": "721",
+    "male": 40,
+    "female": 68,
+    "total": 108,
+    "year": 109
+  },
+  {
+    "city": "722",
+    "male": 17,
+    "female": 45,
+    "total": 62,
+    "year": 109
+  },
+  {
+    "city": "723",
+    "male": 13,
+    "female": 40,
+    "total": 53,
+    "year": 109
+  },
+  {
+    "city": "724",
+    "male": 112,
+    "female": 201,
+    "total": 313,
+    "year": 109
+  },
+  {
+    "city": "725",
+    "male": 43,
+    "female": 79,
+    "total": 122,
+    "year": 109
+  },
+  {
+    "city": "726",
+    "male": 28,
+    "female": 64,
+    "total": 92,
+    "year": 109
+  },
+  {
+    "city": "727",
+    "male": 35,
+    "female": 70,
+    "total": 105,
+    "year": 109
+  },
+  {
+    "city": "730",
+    "male": 28,
+    "female": 28,
+    "total": 56,
+    "year": 109
+  },
+  {
+    "city": "731",
+    "male": 11,
+    "female": 19,
+    "total": 30,
+    "year": 109
+  },
+  {
+    "city": "732",
+    "male": 35,
+    "female": 82,
+    "total": 117,
+    "year": 109
+  },
+  {
+    "city": "733",
+    "male": 13,
+    "female": 33,
+    "total": 46,
+    "year": 109
+  },
+  {
+    "city": "734",
+    "male": 15,
+    "female": 24,
+    "total": 39,
+    "year": 109
+  },
+  {
+    "city": "735",
+    "male": 24,
+    "female": 44,
+    "total": 68,
+    "year": 109
+  },
+  {
+    "city": "736",
+    "male": 23,
+    "female": 41,
+    "total": 64,
+    "year": 109
+  },
+  {
+    "city": "737",
+    "male": 16,
+    "female": 38,
+    "total": 54,
+    "year": 109
+  },
+  {
+    "city": "741",
+    "male": 20,
+    "female": 32,
+    "total": 52,
+    "year": 109
+  },
+  {
+    "city": "742",
+    "male": 10,
+    "female": 27,
+    "total": 37,
+    "year": 109
+  },
+  {
+    "city": "743",
+    "male": 6,
+    "female": 14,
+    "total": 20,
+    "year": 109
+  },
+  {
+    "city": "744",
+    "male": 17,
+    "female": 32,
+    "total": 49,
+    "year": 109
+  },
+  {
+    "city": "745",
+    "male": 14,
+    "female": 21,
+    "total": 35,
+    "year": 109
+  },
+  {
+    "city": "700",
+    "male": 4,
+    "female": 3,
+    "total": 7,
+    "year": 110
+  },
+  {
+    "city": "701",
+    "male": 11,
+    "female": 17,
+    "total": 28,
+    "year": 110
+  },
+  {
+    "city": "702",
+    "male": 50,
+    "female": 67,
+    "total": 117,
+    "year": 110
+  },
+  {
+    "city": "704",
+    "male": 2,
+    "female": 13,
+    "total": 15,
+    "year": 110
+  },
+  {
+    "city": "708",
+    "male": 21,
+    "female": 35,
+    "total": 56,
+    "year": 110
+  },
+  {
+    "city": "709",
+    "male": 252,
+    "female": 450,
+    "total": 702,
+    "year": 110
+  },
+  {
+    "city": "710",
+    "male": 72,
+    "female": 114,
+    "total": 186,
+    "year": 110
+  },
+  {
+    "city": "711",
+    "male": 50,
+    "female": 80,
+    "total": 130,
+    "year": 110
+  },
+  {
+    "city": "712",
+    "male": 77,
+    "female": 112,
+    "total": 189,
+    "year": 110
+  },
+  {
+    "city": "713",
+    "male": 17,
+    "female": 23,
+    "total": 40,
+    "year": 110
+  },
+  {
+    "city": "714",
+    "male": 21,
+    "female": 23,
+    "total": 44,
+    "year": 110
+  },
+  {
+    "city": "715",
+    "male": 10,
+    "female": 23,
+    "total": 33,
+    "year": 110
+  },
+  {
+    "city": "716",
+    "male": 3,
+    "female": 18,
+    "total": 21,
+    "year": 110
+  },
+  {
+    "city": "717",
+    "male": 35,
+    "female": 71,
+    "total": 106,
+    "year": 110
+  },
+  {
+    "city": "718",
+    "male": 29,
+    "female": 26,
+    "total": 55,
+    "year": 110
+  },
+  {
+    "city": "719",
+    "male": 28,
+    "female": 37,
+    "total": 65,
+    "year": 110
+  },
+  {
+    "city": "720",
+    "male": 38,
+    "female": 56,
+    "total": 94,
+    "year": 110
+  },
+  {
+    "city": "721",
+    "male": 41,
+    "female": 133,
+    "total": 174,
+    "year": 110
+  },
+  {
+    "city": "722",
+    "male": 23,
+    "female": 50,
+    "total": 73,
+    "year": 110
+  },
+  {
+    "city": "723",
+    "male": 12,
+    "female": 47,
+    "total": 59,
+    "year": 110
+  },
+  {
+    "city": "724",
+    "male": 118,
+    "female": 138,
+    "total": 256,
+    "year": 110
+  },
+  {
+    "city": "725",
+    "male": 28,
+    "female": 84,
+    "total": 112,
+    "year": 110
+  },
+  {
+    "city": "726",
+    "male": 44,
+    "female": 161,
+    "total": 205,
+    "year": 110
+  },
+  {
+    "city": "727",
+    "male": 52,
+    "female": 124,
+    "total": 176,
+    "year": 110
+  },
+  {
+    "city": "730",
+    "male": 51,
+    "female": 67,
+    "total": 118,
+    "year": 110
+  },
+  {
+    "city": "731",
+    "male": 14,
+    "female": 20,
+    "total": 34,
+    "year": 110
+  },
+  {
+    "city": "732",
+    "male": 34,
+    "female": 53,
+    "total": 87,
+    "year": 110
+  },
+  {
+    "city": "733",
+    "male": 22,
+    "female": 21,
+    "total": 43,
+    "year": 110
+  },
+  {
+    "city": "734",
+    "male": 15,
+    "female": 41,
+    "total": 56,
+    "year": 110
+  },
+  {
+    "city": "735",
+    "male": 27,
+    "female": 106,
+    "total": 133,
+    "year": 110
+  },
+  {
+    "city": "736",
+    "male": 32,
+    "female": 51,
+    "total": 83,
+    "year": 110
+  },
+  {
+    "city": "737",
+    "male": 44,
+    "female": 101,
+    "total": 145,
+    "year": 110
+  },
+  {
+    "city": "741",
+    "male": 34,
+    "female": 48,
+    "total": 82,
+    "year": 110
+  },
+  {
+    "city": "742",
+    "male": 17,
+    "female": 32,
+    "total": 49,
+    "year": 110
+  },
+  {
+    "city": "743",
+    "male": 6,
+    "female": 23,
+    "total": 29,
+    "year": 110
+  },
+  {
+    "city": "744",
+    "male": 38,
+    "female": 54,
+    "total": 92,
+    "year": 110
+  },
+  {
+    "city": "745",
+    "male": 13,
+    "female": 25,
+    "total": 38,
+    "year": 110
+  },
+  {
+    "city": "700",
+    "male": 2,
+    "female": 4,
+    "total": 6,
+    "year": 111
+  },
+  {
+    "city": "701",
+    "male": 17,
+    "female": 15,
+    "total": 32,
+    "year": 111
+  },
+  {
+    "city": "702",
+    "male": 37,
+    "female": 63,
+    "total": 100,
+    "year": 111
+  },
+  {
+    "city": "704",
+    "male": 2,
+    "female": 16,
+    "total": 18,
+    "year": 111
+  },
+  {
+    "city": "708",
+    "male": 29,
+    "female": 15,
+    "total": 44,
+    "year": 111
+  },
+  {
+    "city": "709",
+    "male": 191,
+    "female": 511,
+    "total": 702,
+    "year": 111
+  },
+  {
+    "city": "710",
+    "male": 72,
+    "female": 109,
+    "total": 181,
+    "year": 111
+  },
+  {
+    "city": "711",
+    "male": 57,
+    "female": 108,
+    "total": 165,
+    "year": 111
+  },
+  {
+    "city": "712",
+    "male": 54,
+    "female": 74,
+    "total": 128,
+    "year": 111
+  },
+  {
+    "city": "713",
+    "male": 29,
+    "female": 23,
+    "total": 52,
+    "year": 111
+  },
+  {
+    "city": "714",
+    "male": 30,
+    "female": 58,
+    "total": 88,
+    "year": 111
+  },
+  {
+    "city": "715",
+    "male": 14,
+    "female": 25,
+    "total": 39,
+    "year": 111
+  },
+  {
+    "city": "716",
+    "male": 9,
+    "female": 24,
+    "total": 33,
+    "year": 111
+  },
+  {
+    "city": "717",
+    "male": 45,
+    "female": 60,
+    "total": 105,
+    "year": 111
+  },
+  {
+    "city": "718",
+    "male": 31,
+    "female": 41,
+    "total": 72,
+    "year": 111
+  },
+  {
+    "city": "719",
+    "male": 21,
+    "female": 23,
+    "total": 44,
+    "year": 111
+  },
+  {
+    "city": "720",
+    "male": 36,
+    "female": 52,
+    "total": 88,
+    "year": 111
+  },
+  {
+    "city": "721",
+    "male": 52,
+    "female": 126,
+    "total": 178,
+    "year": 111
+  },
+  {
+    "city": "722",
+    "male": 25,
+    "female": 64,
+    "total": 89,
+    "year": 111
+  },
+  {
+    "city": "723",
+    "male": 44,
+    "female": 44,
+    "total": 88,
+    "year": 111
+  },
+  {
+    "city": "724",
+    "male": 121,
+    "female": 198,
+    "total": 319,
+    "year": 111
+  },
+  {
+    "city": "725",
+    "male": 46,
+    "female": 113,
+    "total": 159,
+    "year": 111
+  },
+  {
+    "city": "726",
+    "male": 126,
+    "female": 369,
+    "total": 495,
+    "year": 111
+  },
+  {
+    "city": "727",
+    "male": 61,
+    "female": 257,
+    "total": 318,
+    "year": 111
+  },
+  {
+    "city": "730",
+    "male": 45,
+    "female": 73,
+    "total": 118,
+    "year": 111
+  },
+  {
+    "city": "731",
+    "male": 17,
+    "female": 19,
+    "total": 36,
+    "year": 111
+  },
+  {
+    "city": "732",
+    "male": 31,
+    "female": 54,
+    "total": 85,
+    "year": 111
+  },
+  {
+    "city": "733",
+    "male": 32,
+    "female": 38,
+    "total": 70,
+    "year": 111
+  },
+  {
+    "city": "734",
+    "male": 29,
+    "female": 45,
+    "total": 74,
+    "year": 111
+  },
+  {
+    "city": "735",
+    "male": 37,
+    "female": 75,
+    "total": 112,
+    "year": 111
+  },
+  {
+    "city": "736",
+    "male": 36,
+    "female": 39,
+    "total": 75,
+    "year": 111
+  },
+  {
+    "city": "737",
+    "male": 72,
+    "female": 156,
+    "total": 228,
+    "year": 111
+  },
+  {
+    "city": "741",
+    "male": 17,
+    "female": 29,
+    "total": 46,
+    "year": 111
+  },
+  {
+    "city": "742",
+    "male": 16,
+    "female": 41,
+    "total": 57,
+    "year": 111
+  },
+  {
+    "city": "743",
+    "male": 8,
+    "female": 16,
+    "total": 24,
+    "year": 111
+  },
+  {
+    "city": "744",
+    "male": 42,
+    "female": 64,
+    "total": 106,
+    "year": 111
+  },
+  {
+    "city": "745",
+    "male": 20,
+    "female": 29,
+    "total": 49,
+    "year": 111
+  },
+  {
+    "city": "700",
+    "total": 5,
+    "year": 112
+  },
+  {
+    "city": "701",
+    "total": 93,
+    "year": 112
+  },
+  {
+    "city": "702",
+    "total": 135,
+    "year": 112
+  },
+  {
+    "city": "704",
+    "total": 39,
+    "year": 112
+  },
+  {
+    "city": "708",
+    "total": 46,
+    "year": 112
+  },
+  {
+    "city": "709",
+    "total": 846,
+    "year": 112
+  },
+  {
+    "city": "710",
+    "total": 270,
+    "year": 112
+  },
+  {
+    "city": "711",
+    "total": 220,
+    "year": 112
+  },
+  {
+    "city": "712",
+    "total": 125,
+    "year": 112
+  },
+  {
+    "city": "713",
+    "total": 68,
+    "year": 112
+  },
+  {
+    "city": "714",
+    "total": 110,
+    "year": 112
+  },
+  {
+    "city": "715",
+    "total": 73,
+    "year": 112
+  },
+  {
+    "city": "716",
+    "total": 42,
+    "year": 112
+  },
+  {
+    "city": "717",
+    "total": 229,
+    "year": 112
+  },
+  {
+    "city": "718",
+    "total": 95,
+    "year": 112
+  },
+  {
+    "city": "719",
+    "total": 80,
+    "year": 112
+  },
+  {
+    "city": "720",
+    "total": 146,
+    "year": 112
+  },
+  {
+    "city": "721",
+    "total": 166,
+    "year": 112
+  },
+  {
+    "city": "722",
+    "total": 251,
+    "year": 112
+  },
+  {
+    "city": "723",
+    "total": 146,
+    "year": 112
+  },
+  {
+    "city": "724",
+    "total": 651,
+    "year": 112
+  },
+  {
+    "city": "725",
+    "total": 219,
+    "year": 112
+  },
+  {
+    "city": "726",
+    "total": 537,
+    "year": 112
+  },
+  {
+    "city": "727",
+    "total": 253,
+    "year": 112
+  },
+  {
+    "city": "730",
+    "total": 83,
+    "year": 112
+  },
+  {
+    "city": "731",
+    "total": 46,
+    "year": 112
+  },
+  {
+    "city": "732",
+    "total": 135,
+    "year": 112
+  },
+  {
+    "city": "733",
+    "total": 62,
+    "year": 112
+  },
+  {
+    "city": "734",
+    "total": 79,
+    "year": 112
+  },
+  {
+    "city": "735",
+    "total": 87,
+    "year": 112
+  },
+  {
+    "city": "736",
+    "total": 110,
+    "year": 112
+  },
+  {
+    "city": "737",
+    "total": 128,
+    "year": 112
+  },
+  {
+    "city": "741",
+    "total": 54,
+    "year": 112
+  },
+  {
+    "city": "742",
+    "total": 85,
+    "year": 112
+  },
+  {
+    "city": "743",
+    "total": 39,
+    "year": 112
+  },
+  {
+    "city": "744",
+    "total": 77,
+    "year": 112
+  },
+  {
+    "city": "745",
+    "total": 47,
+    "year": 112
+  }
+]
