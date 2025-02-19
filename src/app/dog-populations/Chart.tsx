@@ -17,7 +17,7 @@ import { SeriesControl } from './SeriesControl';
 import { RepresentControl } from './RepresentControl';
 import { MarkerControl } from './MarkerControl';
 import ExportTable from './ExportTable';
-import ExportImage from './ExportImage';
+import ExportImage from '@/components/ExportImage';
 
 import type { CheckboxSet } from './store';
 import { defaultOptions, defaultSeriesSettings } from './defaults';

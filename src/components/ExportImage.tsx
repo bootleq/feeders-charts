@@ -15,7 +15,7 @@ export default function ExportImage({ chartRef }: {
     if (!chart) return;
 
     const base64Img = chart.getDataURL({ pixelRatio: 2, backgroundColor: 'white' });
-    makeDownload(base64Img,  '遊蕩犬隻估計數量.png');
+    makeDownload(base64Img,  '匯出圖片.png');
   }, [chartRef]);
 
   return (
