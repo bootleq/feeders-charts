@@ -2,7 +2,7 @@ import * as R from 'ramda';
 import Link from 'next/link';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
 import Chart from './Chart';
-import TableDialog from './TableDialog';
+import TableDialog from '@/components/TableDialog';
 import {
   ArrowLeftIcon,
 } from "lucide-react";
