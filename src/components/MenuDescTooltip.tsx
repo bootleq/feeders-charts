@@ -120,7 +120,7 @@ const tipToTableChart = (<>
   單純將圖表中的年度與各項數值轉為表格
 </>);
 const tipToTableCitiesTrend = (<>
-  根據表單選項整理資料：區分各縣市，展開各年度詳細數值
+  根據表單選項整理資料：區分各區域，展開各年度詳細數值
 </>);
 
 const tip12Announce = (<>

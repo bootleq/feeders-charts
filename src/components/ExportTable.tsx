@@ -8,7 +8,7 @@ import type { MakeSeriesFn } from '@/lib/makeSeries';
 import { parseChartInputs } from '@/lib/formData';
 
 import { CheckboxMenuItem, dummyMenuAtom } from '@/components/CheckboxMenuItem';
-import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
+import { tooltipClass, tooltipMenuCls, roundNumber } from '@/lib/utils';
 import type { TableRow, PrimitiveAtomWithInitial } from '@/components/types';
 
 import {
@@ -36,7 +36,8 @@ const seriesToRows = ({ series, xAxis }: ChartOptionPart) => {
   const columns = series.filter(({ data }) => {
     return R.type(data) === 'Array';
   }).map(({ name, data }) => {
-    return [name, ...(data as number[])];
+    const formatted = data?.map(v => roundNumber(2, v));
+    return [name, ...(formatted as number[])];
   });
 
   return R.transpose([
@@ -68,13 +69,13 @@ const citiesTrendToRows = (
   ).map(R.prop('name'));
 
   const header = R.flatten([
-    '縣市',
+    '區域',
     years.map(year => {
       return seriesNames.map(name => `${year} ${name}`);
     })
   ]);
 
-  const rows = cities.map(city => {
+  const rows = [...cities, '_'].map(city => {
     const series = citiesSeries[city];
     const yearCells = years.map(year => {
       const yearIdx = year - minYear;
@@ -86,9 +87,11 @@ const citiesTrendToRows = (
       )(series);
     }).flat();
 
+    const formattedCells = yearCells.map(cell => roundNumber(2, cell));
+
     return [
-      cityLookup[city],
-      ...(yearCells as number[]),
+      city === '_' ? '總計' : cityLookup[city],
+      ...formattedCells,
     ];
   });
 
@@ -163,7 +166,7 @@ export default function ExportTable({ items, meta, makeSeriesFn, allCities, tabl
         <div className={tooltipMenuCls()}>
           <div className='py-2 font-bold'>製作表格</div>
           <MenuItem Icon={ChartColumnBigIcon} name='toTable:chart' onClick={buildByChart}>根據目前圖表</MenuItem>
-          <MenuItem Icon={IslandIcon} name='toTable:citiesTrend' onClick={buildToCities}>縣市逐年詳情</MenuItem>
+          <MenuItem Icon={IslandIcon} name='toTable:citiesTrend' onClick={buildToCities}>區域逐年詳情</MenuItem>
         </div>
       </TooltipContentMenu>
     </Tooltip>

@@ -8,6 +8,17 @@ export function makeYearRange(min: number, max: number) {
   );
 }
 
+export function roundNumber(digits: number, value: any) {
+  if (typeof value === 'number') {
+    const fixed = value.toFixed(2);
+    if (fixed.replace(/\.?0+$/, '') === value.toString()) {
+      return value;
+    }
+    return Number(fixed);
+  }
+  return value;
+}
+
 export function tooltipClass(className?: string) {
   return `rounded box-border w-max z-[1002] bg-slate-100 ${className || ''}`;
 }
