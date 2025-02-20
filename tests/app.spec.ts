@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { dogPopulationsTableRow } from './app.spec.ts-data';
 
 test('首頁、資料狀態頁之間導覽', async ({ page }) => {
   await page.goto('/');
@@ -51,13 +52,10 @@ test('遊蕩犬隻估計數量', async ({ page }) => {
 
   await expect(dialog.getByText('雲林縣')).toHaveCount(0);
 
-  await expect(await dialog.getByText('臺北市').locator('//following-sibling::td').allTextContents()).toEqual(
-    Array.from(
-      [
-        217539,4946,0.19,142863,138057,7171,3146,2029,3192,149164,0.12,5222,2200,1204,7225,3348,1625,139844,6821,3641,1291,6843,4235,813,154522,6062,3964,273,5163,4251,216,595,2931,148096,0.11,3812,3594,39,252,3755,3186,,233,169263,3244,2817,179,168,4660,0.17,3057,2761,3,131,,69,140959,2983,2422,3,213,3,81,3259,0.12,2536,2215,3,209,,83,126358,2085,1944,,182,,81,2364,0.09,2120,1813,,162,,88,118739,2165,1646,,217,,87,8,4,,1908,0.08,2147,1883,,255,,86,14,11,''
-      ]
-    ).map((n) => (n ? `${n}` : ''))
-  );
+  await expect(
+    await dialog.getByText('臺北市').locator('//following-sibling::td').allTextContents()
+  ).toEqual(dogPopulationsTableRow);
+
   await page.keyboard.press('Escape');
 
   await page.setViewportSize({ width: 640, height: 480 });
