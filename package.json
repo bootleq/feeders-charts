@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "playwright test",
-    "test:update": "playwright test --update-snapshots",
+    "test:shots": "playwright test --update-snapshots",
     "data:download": "tsx scripts/download_data.mjs",
     "data:human_pop": "tsx --env-file=.env scripts/prepare_human_populations.mjs",
     "data:heat_map": "tsx scripts/fetch_heat_map.mjs",

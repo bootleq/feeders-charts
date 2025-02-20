@@ -144,7 +144,7 @@ export default function TableDialog({ tableAtom, dialogOpenAtom }: {
   const buttonCls = 'text-sm flex items-center p-1 px-2 rounded hover:text-slate-900 hover:bg-yellow-100 hover:drop-shadow';
 
   return (
-    <dialog ref={ref} className={`${dialogCls}  ${opened ? '' : 'hidden'}`} onClose={onClose} onClick={onClick}>
+    <dialog aria-label='資料表格對話框' ref={ref} className={`${dialogCls}  ${opened ? '' : 'hidden'}`} onClose={onClose} onClick={onClick}>
       <div className='sticky top-0 flex items-center flex-wrap p-3 px-2 sm:px-5 gap-y-2 bg-gradient-to-br from-stone-50/80 to-slate-100/80'>
         <div className='leading-tight text-center text-lg font-bold sm:text-start sm:text-balance'>
           資料表格

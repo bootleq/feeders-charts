@@ -248,7 +248,7 @@ export default function Chart() {
         </button>
       </form>
 
-      <div className='flex items-center justify-end gap-x-1'>
+      <div role='menu' aria-label='資料輸出' className='flex items-center justify-end gap-x-1'>
         {itemsReady &&
           <>
             <ExportTable
@@ -265,14 +265,15 @@ export default function Chart() {
         }
       </div>
 
-      <ReactEChartsCore
-        ref={chartRef}
-        echarts={echarts}
-        option={defaultOptions}
-        lazyUpdate={true}
-        style={{ height: '70vh', minHeight: '600px' }}
-        className='mt-1 mb-2 px-3 py-4 bg-white resize overflow-hidden min-[1536px]:w-[clamp(1530px,70vw,2600px)]'
-      />
+      <div id='MainChart' aria-label='主圖表' className='mt-1 mb-2 px-3 py-4 bg-white resize overflow-hidden min-[1536px]:w-[clamp(1530px,70vw,2600px)]'>
+        <ReactEChartsCore
+          ref={chartRef}
+          echarts={echarts}
+          option={defaultOptions}
+          lazyUpdate={true}
+          style={{ height: '70vh', minHeight: '600px' }}
+        />
+      </div>
     </div>
   );
 }

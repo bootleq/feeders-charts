@@ -152,9 +152,9 @@ export default function ExportTable({ items, meta, makeSeriesFn, allCities, tabl
   const MenuItem = useMemo(() => CheckboxMenuItem(dummyMenuAtom, '_'), []);
 
   return (
-    <Tooltip placement='top-end' offset={3} hoverProps={menuHoverProps}>
+    <Tooltip placement='top-end' offset={3} hoverProps={menuHoverProps} role='menu'>
       <TooltipTrigger>
-        <div className='p-2 rounded opacity-50 hover:opacity-100 hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
+        <div aria-label='製作表格' className='p-2 rounded opacity-50 hover:opacity-100 hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
           <TableIcon size={20} tabIndex={0} />
           <span className='sr-only'>製作表格</span>
         </div>

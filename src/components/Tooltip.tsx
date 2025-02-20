@@ -17,7 +17,7 @@ import {
   FloatingPortal,
   FloatingFocusManager,
 } from "@floating-ui/react";
-import type { Placement, OffsetOptions, UseHoverProps } from "@floating-ui/react";
+import type { Placement, OffsetOptions, UseHoverProps, UseRoleProps } from "@floating-ui/react";
 
 interface TooltipOptions {
   initialOpen?: boolean;
@@ -27,6 +27,7 @@ interface TooltipOptions {
   onOpenChange?: (open: boolean) => void;
   transform?: boolean,
   hoverProps?: UseHoverProps;
+  role?: UseRoleProps['role'],
 }
 
 export const menuHoverProps = {
@@ -42,6 +43,7 @@ export function useTooltip({
   hoverProps = {
     delay: { open: 0, close: 240 },
   },
+  role = 'tooltip',
   open: controlledOpen,
   onOpenChange: setControlledOpen,
 }: TooltipOptions = {}) {
@@ -79,9 +81,9 @@ export function useTooltip({
     enabled: controlledOpen == null
   });
   const dismiss = useDismiss(context);
-  const role = useRole(context, { role: "tooltip" });
+  const aRole = useRole(context, { role });
 
-  const interactions = useInteractions([hover, focus, dismiss, role]);
+  const interactions = useInteractions([hover, focus, dismiss, aRole]);
 
   return React.useMemo(
     () => ({

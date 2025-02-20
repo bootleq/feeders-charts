@@ -126,6 +126,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 
 
+## Test
+
+Tests were running on dev server.
+
+- `pnpm test`: Run all tests
+- `pnpm test:shots`: Update screenshots
+
+
+
 ## Build
 
 We do static export to `out` directory.
