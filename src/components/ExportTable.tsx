@@ -68,13 +68,13 @@ const citiesTrendToRows = (
   ).map(R.prop('name'));
 
   const header = R.flatten([
-    '縣市',
+    '區域',
     years.map(year => {
       return seriesNames.map(name => `${year} ${name}`);
     })
   ]);
 
-  const rows = cities.map(city => {
+  const rows = [...cities, '_'].map(city => {
     const series = citiesSeries[city];
     const yearCells = years.map(year => {
       const yearIdx = year - minYear;
@@ -87,7 +87,7 @@ const citiesTrendToRows = (
     }).flat();
 
     return [
-      cityLookup[city],
+      city === '_' ? '總計' : cityLookup[city],
       ...(yearCells as number[]),
     ];
   });
@@ -163,7 +163,7 @@ export default function ExportTable({ items, meta, makeSeriesFn, allCities, tabl
         <div className={tooltipMenuCls()}>
           <div className='py-2 font-bold'>製作表格</div>
           <MenuItem Icon={ChartColumnBigIcon} name='toTable:chart' onClick={buildByChart}>根據目前圖表</MenuItem>
-          <MenuItem Icon={IslandIcon} name='toTable:citiesTrend' onClick={buildToCities}>縣市逐年詳情</MenuItem>
+          <MenuItem Icon={IslandIcon} name='toTable:citiesTrend' onClick={buildToCities}>區域逐年詳情</MenuItem>
         </div>
       </TooltipContentMenu>
     </Tooltip>

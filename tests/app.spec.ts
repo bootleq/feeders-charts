@@ -38,7 +38,7 @@ test('遊蕩犬隻估計數量', async ({ page }) => {
 
   // 輸出表格
   const tableMenu = page.getByRole('menu', { name:'製作表格' });
-  const menuItemByCities = tableMenu.getByLabel('縣市逐年詳情');
+  const menuItemByCities = tableMenu.getByLabel('區域逐年詳情');
   const dialog = page.getByLabel('資料表格對話框');
 
   await page.getByRole('menu', { name: '資料輸出' }).getByLabel('製作表格').hover();
@@ -81,7 +81,7 @@ test('臺南市遊蕩犬調查情形', async ({ page }) => {
 
   // 輸出表格
   const tableMenu = page.getByRole('menu', { name:'製作表格' });
-  const menuItemByCities = tableMenu.getByLabel('縣市逐年詳情');
+  const menuItemByCities = tableMenu.getByLabel('區域逐年詳情');
 
   await page.getByRole('menu', { name: '資料輸出' }).getByLabel('製作表格').hover();
   await expect(tableMenu).toBeVisible();
