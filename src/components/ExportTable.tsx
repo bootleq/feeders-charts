@@ -8,7 +8,7 @@ import type { MakeSeriesFn } from '@/lib/makeSeries';
 import { parseChartInputs } from '@/lib/formData';
 
 import { CheckboxMenuItem, dummyMenuAtom } from '@/components/CheckboxMenuItem';
-import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
+import { tooltipClass, tooltipMenuCls, roundNumber } from '@/lib/utils';
 import type { TableRow, PrimitiveAtomWithInitial } from '@/components/types';
 
 import {
@@ -36,7 +36,8 @@ const seriesToRows = ({ series, xAxis }: ChartOptionPart) => {
   const columns = series.filter(({ data }) => {
     return R.type(data) === 'Array';
   }).map(({ name, data }) => {
-    return [name, ...(data as number[])];
+    const formatted = data?.map(v => roundNumber(2, v));
+    return [name, ...(formatted as number[])];
   });
 
   return R.transpose([
@@ -86,9 +87,11 @@ const citiesTrendToRows = (
       )(series);
     }).flat();
 
+    const formattedCells = yearCells.map(cell => roundNumber(2, cell));
+
     return [
       city === '_' ? '總計' : cityLookup[city],
-      ...(yearCells as number[]),
+      ...formattedCells,
     ];
   });
 
