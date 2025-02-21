@@ -96,7 +96,6 @@ export default function Chart() {
   }, []);
 
   const updateLegends = useCallback((seriesSet: CheckboxSet) => {
-    console.log('???', seriesSet);
     return R.set(
       R.lensPath(['legend', 'data']),
       Object.keys(R.pickBy(R.identity, seriesSet)).map(name => SERIES_NAMES[name])
