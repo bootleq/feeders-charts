@@ -5,7 +5,7 @@ import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 
 import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
-import { makeYearRange } from '@/lib/utils';
+import { makeYearRange, BASE_PATH } from '@/lib/utils';
 import { parseChartInputs } from '@/lib/formData';
 import { SERIES_NAMES, computers } from '@/lib/series';
 import { buildSeriesMaker } from '@/lib/makeSeries';
@@ -85,7 +85,7 @@ export default function Chart() {
   }, [years]);
 
   useEffect(() => {
-    fetch('/combined.json')
+    fetch(`${BASE_PATH}/combined.json`)
       .then((res) => res.json())
       .then(setItems);
   }, []);

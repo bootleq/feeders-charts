@@ -5,7 +5,7 @@ import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 
 import { TAINAN_DISTRICTS } from '@/lib/model';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
-import { makeYearRange } from '@/lib/utils';
+import { makeYearRange, BASE_PATH } from '@/lib/utils';
 import { parseChartInputs } from '@/lib/formData';
 import { SERIES_NAMES, computers } from '@/lib/tainan_series';
 import { buildSeriesMaker } from '@/lib/makeSeries';
@@ -75,7 +75,7 @@ export default function Chart() {
   }, [years]);
 
   useEffect(() => {
-    fetch('/tainan.json')
+    fetch(`${BASE_PATH}/tainan.json`)
       .then((res) => res.json())
       .then(setItems);
   }, []);
