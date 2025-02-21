@@ -7,7 +7,7 @@
 Prepare data source:
 
 - `pnpm data:download`: Download raw data from data sources
-- `pnpm data:human_pop`: Transform human_population data (require download source manually)
+- `pnpm data:human_pop`: Fetch and transform human_population data
 - `pnpm data:shelter_pet`: Fetch and transform shelter detail data
 - `pnpm data:heat_map`: Fetch and transform heat map data
 - `pnpm data:manually`: Transform manually collected (built-in in repo) data
@@ -54,13 +54,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - 戶籍登記人口數(人)
   https://winstacity.dgbas.gov.tw/DgbasWeb/ZWeb/StateFile_ZWeb.aspx
 
-  需手動下載：
+  來自「中華民國統計資訊網 - 縣市重要統計指標查詢系統」的「人口概況 - 戶籍登記人口數(人)」
 
-  1. 中華民國統計資訊網 - 縣市重要統計指標查詢系統
-  2. 改制後 - 人口概況 - 戶籍登記人口數(人) - 完成挑選
-  3. 「指標」與「期間」全選，「縣市」除「台灣地區」外全選 - 繼續
-  4. 下載 CSV
-  5. 存檔到 `HUMAN_POPULATION_CSV_PATH`，預設位置為 `data/download/human_population.csv`
+  取前一年 12 月的數字和今年遊蕩犬數字比較，例如 2024 的每百人遊蕩犬數，是以 2023 年底人口數為準
 
   註：人口資料和動保資訊網提供的數字略有落差
 

@@ -2,7 +2,8 @@ import fs from "fs";
 import fsp from 'node:fs/promises';
 import csv from "csv-parser";
 import chalk from 'chalk';
-import { buildingPath, writeSourceTime, checkUpdateHash } from './data_source';
+import { chromium } from 'playwright';
+import { downloadPath, buildingPath, writeSourceTime, checkUpdateHash } from './data_source';
 import { CITY_MAPPING } from '@/lib/model';
 
 // human_population: {
@@ -15,13 +16,60 @@ import { CITY_MAPPING } from '@/lib/model';
 // },
 
 const resourceName = 'human_population';
-const csvFile = process.env.HUMAN_POPULATION_CSV_PATH;
 const cityCodeMapping = new Map(Object.entries(CITY_MAPPING).map(([code, name]) => [name, code]));
+
+const sourcePaths = {
+  tree:   'StateFile_ZWeb.aspx',
+  form:   'Varval.aspx',
+  result: 'ShowQuery.aspx**',
+};
+
+function sourceURL(pathType) {
+  return `https://winstacity.dgbas.gov.tw/DgbasWeb/ZWeb/${sourcePaths[pathType]}`;
+}
 
 const ExpectedSample = [
   {year: 113, city: 'City000003', human: 4041120}, // 新北市 https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000864?parentID=Tab0000143
   {year: 113, city: 'City000001', human: 362255},  // 基隆市
 ];
+
+async function download() {
+  // 模擬手動下載：
+  // 1. 中華民國統計資訊網 - 縣市重要統計指標查詢系統
+  // 2. 改制後 - 人口概況 - 戶籍登記人口數(人) - 完成挑選
+  // 3. 「指標」與「期間」全選，「縣市」除「台灣地區」外全選 - 繼續
+  // 4. 下載 CSV
+  // 5. 存檔
+  const csvFile = downloadPath(resourceName, 'csv');
+
+  const browser = await chromium.launch();
+  const context = await browser.newContext();
+  context.setDefaultTimeout(8_000);
+  const page = await browser.newPage();
+
+  console.log(`Download data for ${resourceName} ...`);
+
+  await page.goto(sourceURL('tree'));
+
+  await page.locator('span.easytree-node:has-text("戶籍登記人口數(人)")').locator('input[type="checkbox"]').dispatchEvent('click');
+  await page.getByText('完成挑選').click();
+  await page.waitForURL(sourceURL('form'));
+
+  await page.locator('.panel-heading:has-text("指標")').getByLabel('全選').click();
+  await page.locator('.panel-heading:has-text("期間")').getByLabel('全選').click();
+  await page.locator('.panel-heading:has-text("縣市")').getByLabel('全選').click();
+  await page.locator('.easytree-title:has-text("臺灣地區")').locator('input[type="checkbox"]').click();
+  await page.getByText('繼續').click();
+  await page.waitForURL(sourceURL('result'));
+
+  const downloadPromise = page.waitForEvent('download');
+  await page.getByText('下載CSV').click();
+  const download = await downloadPromise;
+  await download.saveAs(csvFile);
+
+  await browser.close();
+  return csvFile;
+}
 
 async function parseCSV(file) {
   const csvOptions = {
@@ -95,12 +143,10 @@ function validate(data) {
 
 (async function main() {
   let data;
+  const csvFile = await download();
 
   if (!csvFile || !fs.existsSync(csvFile)) {
-    console.error([
-      "Error, CSV file does't exist, see README to make it manually.",
-      "錯誤，找不到 CSV 檔案，請閱讀 README 以手動下載。",
-    ].join("\n"));
+    console.error("Error, CSV file not found, aborted.");
     return;
   }
 
