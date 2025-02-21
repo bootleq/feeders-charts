@@ -3,11 +3,13 @@ import { dogPopulationsTableRow } from './app.spec.ts-data';
 
 test('首頁、資料狀態頁之間導覽', async ({ page }) => {
   await page.goto('/');
+  await expect(page).toHaveTitle(/^圖表頁 目錄/);
 
   await page.getByRole('listitem')
-    .filter({ has: page.getByRole('link', { name: '遊蕩犬隻估計數量'}) })
+    .filter({ has: page.getByRole('link', { name: '全國遊蕩犬統計'}) })
     .getByRole('link', { name: '資料狀態'}).click();
 
+  await expect(page).toHaveTitle(/^資料狀態 - 全國遊蕩犬統計/);
   await expect(page).toHaveURL('/dog-populations/resource');
   await expect(page.getByText('遊蕩犬熱區圖')).toBeVisible();
   await page.getByRole('link', { name: '返回'}).click();
@@ -17,12 +19,14 @@ test('首頁、資料狀態頁之間導覽', async ({ page }) => {
     .filter({ has: page.getByRole('link', { name: '臺南市遊蕩犬調查情形'}) })
     .getByRole('link', { name: '資料狀態'}).click();
 
+  await expect(page).toHaveTitle(/^資料狀態 - 臺南市遊蕩犬調查情形/);
   await expect(page).toHaveURL('/tainan/resource');
   await expect(page.getByText('112年臺南市各行政區執行流浪犬TNVR成果表')).toBeVisible();
 });
 
-test('遊蕩犬隻估計數量', async ({ page }) => {
+test('全國遊蕩犬統計', async ({ page }) => {
   await page.goto('/dog-populations');
+  await expect(page).toHaveTitle(/^全國遊蕩犬統計/);
 
   // 篩選縣市
   const areaBtn = page.getByRole('group', { name: '縣市' }).getByLabel('雲林縣');
@@ -64,6 +68,7 @@ test('遊蕩犬隻估計數量', async ({ page }) => {
 
 test('臺南市遊蕩犬調查情形', async ({ page }) => {
   await page.goto('/tainan');
+  await expect(page).toHaveTitle(/^臺南市遊蕩犬調查情形/);
 
   // 篩選行政區
   const areaBtn = page.getByRole('group', { name: '行政區' }).getByLabel('742 大內區');

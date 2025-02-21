@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
+import { metadata as layoutMetadata } from "./layout";
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: '圖表頁 目錄',
+  description: layoutMetadata.description,
+};
 
 export default function Home() {
   return (
@@ -11,7 +18,7 @@ export default function Home() {
         <ul className='list-disc list-outside text-2xl ml-4 sm:ml-0'>
           <li>
             <Link href='dog-populations' className='cursor-pointer p-2 rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
-              遊蕩犬隻估計數量
+              全國遊蕩犬統計
             </Link>
             <span className='inline-block mx-3 text-slate-400'>
             |

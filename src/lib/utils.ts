@@ -1,5 +1,11 @@
+import * as R from 'ramda';
 import { format } from 'date-fns';
 import { zhTW } from 'date-fns/locale';
+
+export const SITE_NAME = 'Feeders（暫名）';
+export const APP_URL = new URL(process.env.NEXT_PUBLIC_APP_URL!);
+
+export const present = R.both(R.isNotNil, R.isNotEmpty);
 
 export function makeYearRange(min: number, max: number) {
   return Array.from(

@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Status from '@/components/Status';
 import { resources } from '@/lib/tainan_resource';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: '資料狀態 - 臺南市遊蕩犬調查情形',
+  description: '臺南市遊蕩犬資料圖表，資料重新整理的時間，以及從資料來源獲取更新的時間',
+};
 
 export default async function Page() {
   return (
