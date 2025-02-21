@@ -23,6 +23,7 @@ Above tasks have hash/time check so will stop processing when considering no cha
 
 Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `pnpm data:download:force`) to force continue.
 
+Copy `.env.sample` to `.env.development`, you can set dev-server PORT here.
 
 Run the development server:
 
