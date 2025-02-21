@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
+import { metadata as layoutMetadata } from "./layout";
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: '圖表頁 目錄',
+  description: layoutMetadata.description,
+};
 
 export default function Home() {
   return (

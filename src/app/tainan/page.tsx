@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import Link from 'next/link';
 import Chart from './Chart';
 import TableDialogWrapper from './TableDialogWrapper';
 import {
   ArrowLeftIcon,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: '臺南市遊蕩犬調查情形',
+  description: '根據臺南市公布的遊蕩犬調查情形，整理為視覺化圖表，也可以輸出表格',
+};
 
 export default async function Page() {
   return (

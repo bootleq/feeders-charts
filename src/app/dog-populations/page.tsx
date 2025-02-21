@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import Link from 'next/link';
 import Chart from './Chart';
 import TableDialogWrapper from './TableDialogWrapper';
 import {
   ArrowLeftIcon,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: '遊蕩犬隻估計數量',
+  description: '全國遊蕩犬相關資料圖表，整理來自政府等來源的公開資料，包括各縣市數量統計、公立收容所出入狀況、熱區餵養數字等，提供選項操作並視覺化，也可以輸出表格',
+};
 
 export default async function Page() {
   return (

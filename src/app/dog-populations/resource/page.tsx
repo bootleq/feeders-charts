@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Status from '@/components/Status';
 import { resources } from '@/lib/resource';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: '資料狀態 - 遊蕩犬隻估計數量',
+  description: '全國遊蕩犬相關資料圖表，資料重新整理的時間，以及從資料來源獲取更新的時間',
+};
 
 export default async function Page() {
   return (
