@@ -6,6 +6,7 @@ const isDev = process.env.NODE_ENV === 'development';
 const nextConfig: NextConfig = {
   output: 'export',
   basePath: process.env.NEXT_PUBLIC_BASE_PATH,
+  trailingSlash: true,
   transpilePackages: ["echarts", "zrender"],
 
   webpack(config) {
