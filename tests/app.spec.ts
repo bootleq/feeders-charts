@@ -10,7 +10,7 @@ test('首頁、資料狀態頁之間導覽', async ({ page }) => {
     .getByRole('link', { name: '資料狀態'}).click();
 
   await expect(page).toHaveTitle(/^資料狀態 - 全國遊蕩犬統計/);
-  await expect(page).toHaveURL('/dog-populations/resource');
+  await expect(page).toHaveURL('/dog-populations/resource/');
   await expect(page.getByText('遊蕩犬熱區圖')).toBeVisible();
   await page.getByRole('link', { name: '返回'}).click();
 
@@ -20,7 +20,7 @@ test('首頁、資料狀態頁之間導覽', async ({ page }) => {
     .getByRole('link', { name: '資料狀態'}).click();
 
   await expect(page).toHaveTitle(/^資料狀態 - 臺南市遊蕩犬調查情形/);
-  await expect(page).toHaveURL('/tainan/resource');
+  await expect(page).toHaveURL('/tainan/resource/');
   await expect(page.getByText('112年臺南市各行政區執行流浪犬TNVR成果表')).toBeVisible();
 });
 

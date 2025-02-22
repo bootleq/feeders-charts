@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/Tooltip';
 import { jsonMetaReviver } from '@/lib/resource';
 import type { ResourceEntry } from '@/lib/resource';
-import { formatDate } from '@/lib/utils';
+import { formatDate, BASE_PATH } from '@/lib/utils';
 import Spinner from '@/assets/spinner.svg';
 import commonStyles from '@/app/common.module.scss';
 import Now from './Now';
@@ -46,7 +46,7 @@ export default function Status({ scope, resources }: {
       throw new Error(`Unexpected scope '${scope}'`);
     }
 
-    fetch(`/${scope ? `${scope}.` : ''}meta.json`)
+    fetch(`${BASE_PATH}/${scope ? `${scope}.` : ''}meta.json`)
       .then((res) => res.text())
       .then((text) => JSON.parse(text, jsonMetaReviver))
       .then(data => setData(transform(data)));

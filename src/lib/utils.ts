@@ -4,6 +4,7 @@ import { zhTW } from 'date-fns/locale';
 
 export const SITE_NAME = 'Feeders（暫名）';
 export const APP_URL = new URL(process.env.NEXT_PUBLIC_APP_URL!);
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export const present = R.both(R.isNotNil, R.isNotEmpty);
 

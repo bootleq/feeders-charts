@@ -1,4 +1,8 @@
-# Charts
+# Feeders Charts
+
+Interactive charts in [feeders.pages.dev][] ([repo](https://github.com/bootleq/feeders)).
+
+These pages were built with static export, thus can be deployed elsewhere.
 
 
 
@@ -6,19 +10,20 @@
 
 Prepare data source:
 
-- `pnpm data:download`: Download raw data from data sources
+- `pnpm data:download`: Download raw data from simple data sources
 - `pnpm data:human_pop`: Fetch and transform human_population data
 - `pnpm data:shelter_pet`: Fetch and transform shelter detail data
 - `pnpm data:heat_map`: Fetch and transform heat map data
 - `pnpm data:manually`: Transform manually collected (built-in in repo) data
 - `pnpm data:tainan`: Fetch and transform Tainan population data
-- `pnpm data:reduce`: Transform downloaded data and combine all processed data
+- `pnpm data:reduce`: Normalize and combine all processed data (except tainan's)
 - `pnpm data:serve`: Copy transformed data to `public/` folder to really use them in app.
 
 Above tasks have hash/time check so will stop processing when considering no change.
 
 Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `pnpm data:download:force`) to force continue.
 
+Copy `.env.sample` to `.env.development`, you can set dev-server PORT here.
 
 Run the development server:
 
