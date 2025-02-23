@@ -164,6 +164,8 @@ export const defaultSeriesSettings: Record<string, any> = {
         return `${number.toFixed()}<span style="${mixedFontFamily}">%</span>`
       },
     },
+    animationDuration: 200,
+    animationEasing: (k: number) => (1 - --k * k * k * k),
   },
   h_visit: { ...commonSeriesSetting, itemStyle: { color: '#3ba272', } },
   h_feed: { ...commonSeriesSetting, itemStyle: { color: '#883333', } },
