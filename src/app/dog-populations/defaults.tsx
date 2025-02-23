@@ -237,7 +237,7 @@ export const defaultOptions = {
       }
     },
     {
-      // 隱藏軸，用於小數量，例如「每百人」
+      // Index 1. 隱藏軸，用於小數量，例如「每百人」
       type: 'value',
       min: 0,
       boundaryGap: [0, '5%'],
@@ -252,18 +252,18 @@ export const defaultOptions = {
       },
     },
     {
-      // 隱藏軸，適用於 200 以下數量，例如「收容壓力」
+      // Index 2. 隱藏軸，適用於 200 以下數量，例如「收容壓力」
       type: 'value',
       min: 0,
-      max: 100,
       axisLabel: { show: false, },
       axisPointer: { show: false, },
       splitLine: { show: false, },
     },
     {
-      // 隱藏軸，值固定為 0 ~ 100，用於 marker
+      // Index 3. 隱藏軸，值固定為 0 ~ 100，用於 marker
       type: 'value',
       min: 0,
+      max: 100,
       axisLabel: { show: false, },
       axisPointer: { show: false, },
       splitLine: { show: false, },
