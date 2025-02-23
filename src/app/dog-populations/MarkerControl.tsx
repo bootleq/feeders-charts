@@ -7,6 +7,7 @@ import { CheckboxMenuItem } from '@/components/CheckboxMenuItem';
 import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
 
 import {
+  AtSignIcon,
   DotIcon,
   EqualNotIcon,
   FilmIcon,
@@ -69,6 +70,7 @@ export function MarkerControl() {
         '電影《十二夜》上映',
         '民雄收容所運送事件',
         '簡稚澄事件',
+        '犬攻擊穿山甲倍增',
         '壽山流浪狗倍增',
       ]),
     };
@@ -166,6 +168,7 @@ export function MarkerControl() {
                 <MenuItem Icon={FilmIcon} name='電影《十二夜》上映'>電影《十二夜》上映</MenuItem>
                 <MenuItem Icon={TruckIcon} name='民雄收容所運送事件'>民雄收容所運送事件</MenuItem>
                 <MenuItem Icon={UserIcon} name='簡稚澄事件'>簡稚澄事件</MenuItem>
+                <MenuItem Icon={AtSignIcon} name='犬攻擊穿山甲倍增'>犬攻擊穿山甲倍增</MenuItem>
                 <MenuItem Icon={PawPrintIcon} name='壽山流浪狗倍增'>壽山流浪狗倍增</MenuItem>
                 <MenuItem sub onClick={toggles.event}>全選／不選</MenuItem>
               </div>

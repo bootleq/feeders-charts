@@ -292,6 +292,18 @@ export const MarkerTips: Record<string, string> = {
       參考 <a target='_blank' href='https://feeders.pages.dev/facts/2016-04-25_118' title='2016-04-25: 嘉義民雄收容所運送 71 隻犬貓，36 狗熱衰竭而死 - 事實記錄 - Feeders（暫名）'>2016-04-25: 嘉義民雄收容所運送 71 隻犬貓，36 狗熱衰竭而死</a>
     </p>
   `,
+  '犬攻擊穿山甲倍增': html`
+    <p>
+      特生中心統計 1993 ~ 2022 期間穿山甲救傷原因，
+      受犬攻擊隻數在 2018 後大幅成長，連續 5 年每年皆有 20 隻左右，是過去的 <strong>3 倍</strong>。
+    </p>
+    <p>
+      2018 後大約每兩隻救傷就有一隻來自犬攻擊，已取代獸鋏（1993 ~ 2009 期間約 70%）成為最大威脅。
+    </p>
+    <p>
+      參考報導者  <a target='_blank' href='https://www.twreporter.org/a/6-years-after-no-kill-policy-adopted-conflict-with-wildlife#:~:text=犬隻攻擊已成穿山甲最大威脅' title='野外棲地誰的家──犬殺頻傳，遊蕩犬與野生動物衝突下的生態與公衛危機 - 報導者 The Reporter'>野外棲地誰的家──犬殺頻傳，遊蕩犬與野生動物衝突下的生態與公衛危機</a>
+    </p>
+  `,
   '壽山流浪狗倍增': html`
     <p>
       高雄壽山歷年生態調查，發現 2017 年流浪狗相對數量大幅增加 318%

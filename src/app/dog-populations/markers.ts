@@ -357,6 +357,9 @@ const MARKS: Record<string, MARK> = {
   '簡稚澄事件': {
     data: [{ name: '簡稚澄事件', xAxis: '105', lineStyle: { color: '#1447e6', }, }],
   },
+  '犬攻擊穿山甲倍增': {
+    data: [{ name: '犬攻擊穿山甲倍增', xAxis: '107', lineStyle: { color: '#9f9fa9', }, label: { ...commonLabelSetting, distance: [5, -66], }, }],
+  },
   '壽山流浪狗倍增': {
     data: [{ name: '壽山流浪狗倍增', xAxis: '106', lineStyle: { color: '#104e64', }, label: { ...commonLabelSetting, distance: [5, -90], }, }],
   },
