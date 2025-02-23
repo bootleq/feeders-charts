@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { metadata as layoutMetadata } from "./layout";
 import Link from 'next/link';
-import BowlIcon from './BowlIcon';
-import { APP_URL } from '@/lib/utils';
+import BackToFeeders from './BackToFeeders';
 
 export const metadata: Metadata = {
   title: '圖表頁 目錄',
@@ -42,12 +41,7 @@ export default function Home() {
           </li>
         </ul>
 
-        <Link href={APP_URL.href} className='group cursor-pointer flex items-center p-2 mt-auto text-2xl rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
-          <BowlIcon />
-          <span className='text-nowrap px-2'>
-            返回 Feeders
-          </span>
-        </Link>
+        <BackToFeeders />
       </main>
     </div>
   );

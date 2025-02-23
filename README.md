@@ -1,6 +1,6 @@
 # Feeders Charts
 
-Interactive charts in [feeders.pages.dev][] ([repo](https://github.com/bootleq/feeders)).
+Interactive charts in [feeders.pages.dev][] ([repo][feeders repo]).
 
 These pages were built with static export, thus can be deployed elsewhere.
 
@@ -155,6 +155,16 @@ location /feeders-charts {
 
 
 
+# Deployment
+
+This project will be deployed as a sub path under [feeders][feeders repo],
+use `pnpm push:out` to push built assets to a intermediate repo (not public available now),
+then feeders should manage following tasks.
+
+
+
+[feeders.pages.dev]: https://feeders.pages.dev/
+[feeders repo]: https://github.com/bootleq/feeders
 [HOTAC 2020]: https://www.hotac.org.tw/news-4169
 [EAST 2009]: https://www.east.org.tw/sites/east/files/content/upload/File/2009-ISSUES/20091104.pdf
 [全國遊蕩犬數量整理成圖表]: https://bootleq.blogspot.com/2024/09/taiwan-roaming-dog-populations-chart.html
