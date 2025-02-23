@@ -252,10 +252,18 @@ export const defaultOptions = {
       },
     },
     {
-      // 隱藏共用軸，值固定為 0 ~ 100
+      // 隱藏軸，適用於 200 以下數量，例如「收容壓力」
       type: 'value',
       min: 0,
       max: 100,
+      axisLabel: { show: false, },
+      axisPointer: { show: false, },
+      splitLine: { show: false, },
+    },
+    {
+      // 隱藏軸，值固定為 0 ~ 100，用於 marker
+      type: 'value',
+      min: 0,
       axisLabel: { show: false, },
       axisPointer: { show: false, },
       splitLine: { show: false, },
