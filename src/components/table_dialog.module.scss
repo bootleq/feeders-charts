@@ -4,6 +4,7 @@
     padding-bottom: 4px;
     border: 1px solid #ccc;
     border-bottom-width: 2px;
+    // border-collapse: separate;
   }
 
   thead {
@@ -34,11 +35,27 @@
     }
   }
 
+  td {
+    &:first-child {
+      position: sticky;
+      left: 0;
+      padding-inline: 10px;
+      background-color: #f3f4f6;
+      box-shadow: 8px 0 3px -2px rgba(0,0,0,0.1);
+    }
+  }
+
   tbody {
     font-family: 'Consolas', 'Cascadia Mono', 'Liberation Mono', 'Noto Mono TC', 'ui-monospace', monospace;
 
     tr:nth-child(2n+1) {
       background-color: #e7e5e4;
+
+      td {
+        &:first-child {
+          background-color: #e7e5e4;
+        }
+      }
     }
 
     tr:hover {
