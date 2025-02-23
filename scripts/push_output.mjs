@@ -70,7 +70,7 @@ async function main() {
   }
 
   console.log(`\nSync "out" assets to intermediate repo...`);
-  cmd = `rsync -az --info=stats2 --delete out/ ${OUT_REPO}/charts`;
+  cmd = `rsync -az --info=stats2 --delete --delete-excluded --prune-empty-dirs out/ ${OUT_REPO}/charts`;
   execSync(cmd, { stdio: 'inherit' });
 
   await writeMeta();
