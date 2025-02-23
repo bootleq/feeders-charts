@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { preload } from 'react-dom';
+import { BASE_PATH } from '@/lib/utils';
 import ProgressBar from './ProgressBar';
 import { SITE_NAME, APP_URL, present } from '@/lib/utils';
 import "./globals.css";
@@ -38,6 +40,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  preload(`${BASE_PATH}/assets/BootleqSpace.woff2`, {
+    as: 'font',
+  });
+
   return (
     <html lang="zh-TW">
       <body
