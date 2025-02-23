@@ -22,7 +22,7 @@ export default async function Page() {
         <Chart />
       </main>
 
-      <Link href='/' className='cursor-pointer fixed top-0 right-0 px-2 text-slate-800 flex items-center text-md rounded transition hover:bg-amber-200 inline-block hover:-translate-x-1 hover:drop-shadow'>
+      <Link href='/' className='cursor-pointer fixed top-0.5 right-0 px-2 text-slate-800 flex items-center text-md rounded transition hover:bg-amber-200 inline-block hover:-translate-x-1 hover:drop-shadow'>
         <ArrowLeftIcon className='px-1 pb-1 translate-y-px' />
         返回
       </Link>

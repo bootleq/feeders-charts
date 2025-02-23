@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from 'next/link';
+import { preload } from 'react-dom';
+import { BASE_PATH } from '@/lib/utils';
 import Chart from './Chart';
 import TableDialogWrapper from './TableDialogWrapper';
 import {
@@ -12,6 +14,11 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
+  preload(`${BASE_PATH}/assets/paper-clip.svg`, {
+    as: "image",
+    fetchPriority: 'low',
+  });
+
   return (
     <div className="container items-center justify-items-center min-h-screen mx-auto font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-2 items-center sm:items-start">
@@ -22,7 +29,7 @@ export default async function Page() {
         <Chart />
       </main>
 
-      <Link href='/' className='cursor-pointer fixed top-0 right-0 px-2 text-slate-800 flex items-center text-md rounded transition hover:bg-amber-200 inline-block hover:-translate-x-1 hover:drop-shadow'>
+      <Link href='/' className='cursor-pointer fixed top-0.5 right-0 px-2 text-slate-800 flex items-center text-md rounded transition hover:bg-amber-200 inline-block hover:-translate-x-1 hover:drop-shadow'>
         <ArrowLeftIcon className='px-1 pb-1 translate-y-px' />
         返回
       </Link>
