@@ -60,7 +60,7 @@ const commonLabelSetting = {
 export const defaultMarkerSeries = {
   type: 'line',
   name: '事件標記',
-  yAxisIndex: 2,
+  yAxisIndex: 3,
   data: null,
   markLine: {
     symbol: 'none',
