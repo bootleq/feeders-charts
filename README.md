@@ -26,9 +26,9 @@ Open [http://localhost:3000](http://localhost:3000) to see the result.
 
 ## Data Preparation
 
-Latest data is committed into `public` directory.
+Latest data is committed into `data` directory.
 
-Use below scripts to reassemble or update:
+Use below scripts to reassemble, update:
 
 - `pnpm data:download`: Download raw data from simple data sources
 - `pnpm data:human_pop`: Fetch and transform human_population data
@@ -50,7 +50,7 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
   https://data.gov.tw/dataset/41771
 
   其中 90 年的遊蕩犬資料有特別調整，一般公布的年度是 93 年，故處理時程式會將 90 年遊蕩犬移到 93 年，
-  以符合「93年全國流浪狗狗數及92年公立動物收容所收容數總表」
+  以符合「93年全國流浪狗狗數及92年公立動物收容所收容數總表」  
   https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000198?parentID=Tab0000004
 
 - 公立動物收容所統計（97 ~ 113 年，只採用到 107 年）  
@@ -129,6 +129,7 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 ## Tainan
 
 台南市有自己調查各行政區的數量，因不易與全國縣市整合呈現，所以做成獨立的圖表頁面
+
 https://feeders.pages.dev/charts/tainan
 
 - 臺南市遊蕩犬調查情形 (108 ~ 112 年)  
