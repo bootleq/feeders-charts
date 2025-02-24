@@ -3,7 +3,6 @@ import { metadata as layoutMetadata } from "./layout";
 import Link from 'next/link';
 import RepoLink from './RepoLink';
 import BackToFeeders from './BackToFeeders';
-import SiteIcon from '@/assets/bowl.svg'
 import {
   ArrowLeftIcon,
 } from "lucide-react";
@@ -47,8 +46,10 @@ export default function Home() {
         </ul>
 
         <div className='flex flex-wrap items-center justify-center sm:justify-items-start mt-auto gap-x-12 w-full'>
-          <BackToFeeders className='group cursor-pointer flex items-center p-2 mt-auto text-2xl rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
-            <SiteIcon width={55} height={55} className='px-2 pb-1 -translate-y-[3px] group-hover:translate-y-[14px]' />
+          <BackToFeeders
+            useSiteIcon={true}
+            className='group cursor-pointer flex items-center p-2 mt-auto text-2xl rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'
+          >
             <span className='text-nowrap px-2'>
               返回 Feeders
             </span>
