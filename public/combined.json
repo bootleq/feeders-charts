@@ -1,0 +1,5646 @@
+[
+  {
+    "year": 88,
+    "city": "City000001",
+    "human": 382118
+  },
+  {
+    "year": 88,
+    "city": "City000002",
+    "human": 2639939
+  },
+  {
+    "year": 88,
+    "city": "City000003",
+    "human": 3459624
+  },
+  {
+    "year": 88,
+    "city": "City000004",
+    "human": 1650984
+  },
+  {
+    "year": 88,
+    "city": "City000005",
+    "human": 427980
+  },
+  {
+    "year": 88,
+    "city": "City000006",
+    "human": 356243
+  },
+  {
+    "year": 88,
+    "city": "City000007",
+    "human": 559858
+  },
+  {
+    "year": 88,
+    "city": "City000008",
+    "human": 545874
+  },
+  {
+    "year": 88,
+    "city": "City000009",
+    "human": 2385367
+  },
+  {
+    "year": 88,
+    "city": "City000010",
+    "human": 1301467
+  },
+  {
+    "year": 88,
+    "city": "City000011",
+    "human": 748995
+  },
+  {
+    "year": 88,
+    "city": "City000012",
+    "human": 565733
+  },
+  {
+    "year": 88,
+    "city": "City000013",
+    "human": 263050
+  },
+  {
+    "year": 88,
+    "city": "City000014",
+    "human": 1822102
+  },
+  {
+    "year": 88,
+    "city": "City000015",
+    "human": 2689374
+  },
+  {
+    "year": 88,
+    "city": "City000016",
+    "human": 910540
+  },
+  {
+    "year": 88,
+    "city": "City000017",
+    "human": 249937
+  },
+  {
+    "year": 88,
+    "city": "City000018",
+    "human": 356601
+  },
+  {
+    "year": 88,
+    "city": "City000019",
+    "human": 465627
+  },
+  {
+    "year": 88,
+    "city": "City000020",
+    "human": 89463
+  },
+  {
+    "year": 88,
+    "city": "City000021",
+    "human": 51060
+  },
+  {
+    "year": 88,
+    "city": "City000022",
+    "human": 6655
+  },
+  {
+    "year": 88,
+    "city": "_",
+    "domestic": 2101493,
+    "roaming": 666594,
+    "accept": 78686,
+    "adopt": 5881,
+    "kill": 70231
+  },
+  {
+    "year": 89,
+    "city": "City000001",
+    "human": 385201
+  },
+  {
+    "year": 89,
+    "city": "City000002",
+    "human": 2641312
+  },
+  {
+    "year": 89,
+    "city": "City000003",
+    "human": 3510917
+  },
+  {
+    "year": 89,
+    "city": "City000004",
+    "human": 1691292
+  },
+  {
+    "year": 89,
+    "city": "City000005",
+    "human": 433767
+  },
+  {
+    "year": 89,
+    "city": "City000006",
+    "human": 361958
+  },
+  {
+    "year": 89,
+    "city": "City000007",
+    "human": 559804
+  },
+  {
+    "year": 89,
+    "city": "City000008",
+    "human": 544038
+  },
+  {
+    "year": 89,
+    "city": "City000009",
+    "human": 2421996
+  },
+  {
+    "year": 89,
+    "city": "City000010",
+    "human": 1305640
+  },
+  {
+    "year": 89,
+    "city": "City000011",
+    "human": 746241
+  },
+  {
+    "year": 89,
+    "city": "City000012",
+    "human": 562662
+  },
+  {
+    "year": 89,
+    "city": "City000013",
+    "human": 265109
+  },
+  {
+    "year": 89,
+    "city": "City000014",
+    "human": 1831783
+  },
+  {
+    "year": 89,
+    "city": "City000015",
+    "human": 2705857
+  },
+  {
+    "year": 89,
+    "city": "City000016",
+    "human": 909015
+  },
+  {
+    "year": 89,
+    "city": "City000017",
+    "human": 247801
+  },
+  {
+    "year": 89,
+    "city": "City000018",
+    "human": 355686
+  },
+  {
+    "year": 89,
+    "city": "City000019",
+    "human": 465004
+  },
+  {
+    "year": 89,
+    "city": "City000020",
+    "human": 89013
+  },
+  {
+    "year": 89,
+    "city": "City000021",
+    "human": 51731
+  },
+  {
+    "year": 89,
+    "city": "City000022",
+    "human": 6560
+  },
+  {
+    "year": 89,
+    "city": "_",
+    "domestic": null,
+    "roaming": null,
+    "accept": 65636,
+    "adopt": 9700,
+    "kill": 48043
+  },
+  {
+    "year": 90,
+    "city": "City000001",
+    "domestic": 27802,
+    "human": 388425
+  },
+  {
+    "year": 90,
+    "city": "City000002",
+    "domestic": 214995,
+    "human": 2646474
+  },
+  {
+    "year": 90,
+    "city": "City000003",
+    "domestic": 278346,
+    "human": 3567896
+  },
+  {
+    "year": 90,
+    "city": "City000004",
+    "domestic": 133657,
+    "human": 1732617
+  },
+  {
+    "year": 90,
+    "city": "City000005",
+    "domestic": 43337,
+    "human": 439713
+  },
+  {
+    "year": 90,
+    "city": "City000006",
+    "domestic": 35936,
+    "human": 368439
+  },
+  {
+    "year": 90,
+    "city": "City000007",
+    "domestic": 36897,
+    "human": 559703
+  },
+  {
+    "year": 90,
+    "city": "City000008",
+    "domestic": 39104,
+    "human": 541537
+  },
+  {
+    "year": 90,
+    "city": "City000009",
+    "domestic": 221917,
+    "human": 2460098
+  },
+  {
+    "year": 90,
+    "city": "City000010",
+    "domestic": 86792,
+    "human": 1310531
+  },
+  {
+    "year": 90,
+    "city": "City000011",
+    "domestic": 66392,
+    "human": 743368
+  },
+  {
+    "year": 90,
+    "city": "City000012",
+    "domestic": 42612,
+    "human": 562305
+  },
+  {
+    "year": 90,
+    "city": "City000013",
+    "domestic": 19979,
+    "human": 266183
+  },
+  {
+    "year": 90,
+    "city": "City000014",
+    "domestic": 127012,
+    "human": 1842337
+  },
+  {
+    "year": 90,
+    "city": "City000015",
+    "domestic": 201788,
+    "human": 2725267
+  },
+  {
+    "year": 90,
+    "city": "City000016",
+    "domestic": 100802,
+    "human": 907590
+  },
+  {
+    "year": 90,
+    "city": "City000017",
+    "domestic": 32995,
+    "human": 245312
+  },
+  {
+    "year": 90,
+    "city": "City000018",
+    "domestic": 43168,
+    "human": 353630
+  },
+  {
+    "year": 90,
+    "city": "City000019",
+    "domestic": 28223,
+    "human": 465186
+  },
+  {
+    "year": 90,
+    "city": "City000020",
+    "domestic": 3212,
+    "human": 89496
+  },
+  {
+    "year": 90,
+    "city": "City000021",
+    "domestic": 4841,
+    "human": 53832
+  },
+  {
+    "year": 90,
+    "city": "City000022",
+    "domestic": 373,
+    "human": 6733
+  },
+  {
+    "year": 90,
+    "city": "_",
+    "roaming": null,
+    "accept": 63114,
+    "adopt": 10553,
+    "kill": 37952
+  },
+  {
+    "year": 91,
+    "city": "City000001",
+    "human": 390966
+  },
+  {
+    "year": 91,
+    "city": "City000002",
+    "human": 2633802
+  },
+  {
+    "year": 91,
+    "city": "City000003",
+    "human": 3610252
+  },
+  {
+    "year": 91,
+    "city": "City000004",
+    "human": 1762963
+  },
+  {
+    "year": 91,
+    "city": "City000005",
+    "human": 446300
+  },
+  {
+    "year": 91,
+    "city": "City000006",
+    "human": 373296
+  },
+  {
+    "year": 91,
+    "city": "City000007",
+    "human": 560640
+  },
+  {
+    "year": 91,
+    "city": "City000008",
+    "human": 541818
+  },
+  {
+    "year": 91,
+    "city": "City000009",
+    "human": 2485968
+  },
+  {
+    "year": 91,
+    "city": "City000010",
+    "human": 1313994
+  },
+  {
+    "year": 91,
+    "city": "City000011",
+    "human": 743562
+  },
+  {
+    "year": 91,
+    "city": "City000012",
+    "human": 563365
+  },
+  {
+    "year": 91,
+    "city": "City000013",
+    "human": 267993
+  },
+  {
+    "year": 91,
+    "city": "City000014",
+    "human": 1848243
+  },
+  {
+    "year": 91,
+    "city": "City000015",
+    "human": 2731415
+  },
+  {
+    "year": 91,
+    "city": "City000016",
+    "human": 909364
+  },
+  {
+    "year": 91,
+    "city": "City000017",
+    "human": 244612
+  },
+  {
+    "year": 91,
+    "city": "City000018",
+    "human": 353139
+  },
+  {
+    "year": 91,
+    "city": "City000019",
+    "human": 465799
+  },
+  {
+    "year": 91,
+    "city": "City000020",
+    "human": 92268
+  },
+  {
+    "year": 91,
+    "city": "City000021",
+    "human": 56958
+  },
+  {
+    "year": 91,
+    "city": "City000022",
+    "human": 8851
+  },
+  {
+    "year": 91,
+    "city": "_",
+    "domestic": null,
+    "roaming": null,
+    "accept": 67025,
+    "adopt": 12179,
+    "kill": 42223
+  },
+  {
+    "year": 92,
+    "city": "City000001",
+    "domestic": 14367,
+    "roaming": 0,
+    "human": 391450
+  },
+  {
+    "year": 92,
+    "city": "City000002",
+    "domestic": 217539,
+    "roaming": 0,
+    "human": 2641856
+  },
+  {
+    "year": 92,
+    "city": "City000003",
+    "domestic": 229710,
+    "roaming": 0,
+    "human": 3641446
+  },
+  {
+    "year": 92,
+    "city": "City000004",
+    "domestic": 92638,
+    "roaming": 0,
+    "human": 1792603
+  },
+  {
+    "year": 92,
+    "city": "City000005",
+    "domestic": 38549,
+    "roaming": 0,
+    "human": 452679
+  },
+  {
+    "year": 92,
+    "city": "City000006",
+    "domestic": 27984,
+    "roaming": 0,
+    "human": 378797
+  },
+  {
+    "year": 92,
+    "city": "City000007",
+    "domestic": 59044,
+    "roaming": 0,
+    "human": 560766
+  },
+  {
+    "year": 92,
+    "city": "City000008",
+    "domestic": 50980,
+    "roaming": 0,
+    "human": 541292
+  },
+  {
+    "year": 92,
+    "city": "City000009",
+    "domestic": 115361,
+    "roaming": 0,
+    "human": 2508495
+  },
+  {
+    "year": 92,
+    "city": "City000010",
+    "domestic": 64921,
+    "roaming": 0,
+    "human": 1316179
+  },
+  {
+    "year": 92,
+    "city": "City000011",
+    "domestic": 40890,
+    "roaming": 0,
+    "human": 742797
+  },
+  {
+    "year": 92,
+    "city": "City000012",
+    "domestic": 28762,
+    "roaming": 0,
+    "human": 562394
+  },
+  {
+    "year": 92,
+    "city": "City000013",
+    "domestic": 10702,
+    "roaming": 0,
+    "human": 267907
+  },
+  {
+    "year": 92,
+    "city": "City000014",
+    "domestic": 64865,
+    "roaming": 0,
+    "human": 1852664
+  },
+  {
+    "year": 92,
+    "city": "City000015",
+    "domestic": 156871,
+    "roaming": 0,
+    "human": 2742905
+  },
+  {
+    "year": 92,
+    "city": "City000016",
+    "domestic": 62705,
+    "roaming": 0,
+    "human": 906178
+  },
+  {
+    "year": 92,
+    "city": "City000017",
+    "domestic": 23134,
+    "roaming": 0,
+    "human": 243965
+  },
+  {
+    "year": 92,
+    "city": "City000018",
+    "domestic": 27923,
+    "roaming": 0,
+    "human": 352154
+  },
+  {
+    "year": 92,
+    "city": "City000019",
+    "domestic": 20304,
+    "roaming": 0,
+    "human": 464107
+  },
+  {
+    "year": 92,
+    "city": "City000020",
+    "domestic": 5041,
+    "roaming": 0,
+    "human": 92446
+  },
+  {
+    "year": 92,
+    "city": "City000021",
+    "domestic": 0,
+    "roaming": 0,
+    "human": 58933
+  },
+  {
+    "year": 92,
+    "city": "City000022",
+    "domestic": 500,
+    "roaming": 0,
+    "human": 8763
+  },
+  {
+    "year": 92,
+    "city": "_",
+    "accept": 78716,
+    "adopt": 15816,
+    "kill": 53652
+  },
+  {
+    "year": 93,
+    "city": "City000001",
+    "roaming": 5229,
+    "human": 392242
+  },
+  {
+    "year": 93,
+    "city": "City000002",
+    "roaming": 4946,
+    "human": 2627138
+  },
+  {
+    "year": 93,
+    "city": "City000003",
+    "roaming": 35960,
+    "human": 3676533
+  },
+  {
+    "year": 93,
+    "city": "City000004",
+    "roaming": 16187,
+    "human": 1822075
+  },
+  {
+    "year": 93,
+    "city": "City000005",
+    "roaming": 4828,
+    "human": 459287
+  },
+  {
+    "year": 93,
+    "city": "City000006",
+    "roaming": 1688,
+    "human": 382897
+  },
+  {
+    "year": 93,
+    "city": "City000007",
+    "roaming": 11302,
+    "human": 560903
+  },
+  {
+    "year": 93,
+    "city": "City000008",
+    "roaming": 3730,
+    "human": 540397
+  },
+  {
+    "year": 93,
+    "city": "City000009",
+    "roaming": 24962,
+    "human": 2529763
+  },
+  {
+    "year": 93,
+    "city": "City000010",
+    "roaming": 12141,
+    "human": 1316443
+  },
+  {
+    "year": 93,
+    "city": "City000011",
+    "roaming": 2819,
+    "human": 740501
+  },
+  {
+    "year": 93,
+    "city": "City000012",
+    "roaming": 2662,
+    "human": 560410
+  },
+  {
+    "year": 93,
+    "city": "City000013",
+    "roaming": 1191,
+    "human": 269594
+  },
+  {
+    "year": 93,
+    "city": "City000014",
+    "roaming": 8246,
+    "human": 1856461
+  },
+  {
+    "year": 93,
+    "city": "City000015",
+    "roaming": 16928,
+    "human": 2746819
+  },
+  {
+    "year": 93,
+    "city": "City000016",
+    "roaming": 8143,
+    "human": 903772
+  },
+  {
+    "year": 93,
+    "city": "City000017",
+    "roaming": 4036,
+    "human": 242842
+  },
+  {
+    "year": 93,
+    "city": "City000018",
+    "roaming": 4989,
+    "human": 351146
+  },
+  {
+    "year": 93,
+    "city": "City000019",
+    "roaming": 8430,
+    "human": 463285
+  },
+  {
+    "year": 93,
+    "city": "City000020",
+    "roaming": 311,
+    "human": 92253
+  },
+  {
+    "year": 93,
+    "city": "City000021",
+    "roaming": 634,
+    "human": 60983
+  },
+  {
+    "year": 93,
+    "city": "City000022",
+    "roaming": 95,
+    "human": 8806
+  },
+  {
+    "year": 93,
+    "city": "_",
+    "accept": 85512,
+    "adopt": 15347,
+    "kill": 60249
+  },
+  {
+    "year": 94,
+    "city": "City000001",
+    "domestic": 23455,
+    "roaming": 0,
+    "human": 392337
+  },
+  {
+    "year": 94,
+    "city": "City000002",
+    "domestic": 142863,
+    "roaming": 0,
+    "human": 2622472
+  },
+  {
+    "year": 94,
+    "city": "City000003",
+    "domestic": 169238,
+    "roaming": 0,
+    "human": 3708099
+  },
+  {
+    "year": 94,
+    "city": "City000004",
+    "domestic": 83908,
+    "roaming": 0,
+    "human": 1853029
+  },
+  {
+    "year": 94,
+    "city": "City000005",
+    "domestic": 43345,
+    "roaming": 0,
+    "human": 467246
+  },
+  {
+    "year": 94,
+    "city": "City000006",
+    "domestic": 19603,
+    "roaming": 0,
+    "human": 386950
+  },
+  {
+    "year": 94,
+    "city": "City000007",
+    "domestic": 37087,
+    "roaming": 0,
+    "human": 560643
+  },
+  {
+    "year": 94,
+    "city": "City000008",
+    "domestic": 39523,
+    "roaming": 0,
+    "human": 538413
+  },
+  {
+    "year": 94,
+    "city": "City000009",
+    "domestic": 109060,
+    "roaming": 0,
+    "human": 2548332
+  },
+  {
+    "year": 94,
+    "city": "City000010",
+    "domestic": 65481,
+    "roaming": 0,
+    "human": 1316762
+  },
+  {
+    "year": 94,
+    "city": "City000011",
+    "domestic": 42581,
+    "roaming": 0,
+    "human": 736772
+  },
+  {
+    "year": 94,
+    "city": "City000012",
+    "domestic": 30318,
+    "roaming": 0,
+    "human": 557903
+  },
+  {
+    "year": 94,
+    "city": "City000013",
+    "domestic": 9496,
+    "roaming": 0,
+    "human": 270341
+  },
+  {
+    "year": 94,
+    "city": "City000014",
+    "domestic": 75192,
+    "roaming": 0,
+    "human": 1860591
+  },
+  {
+    "year": 94,
+    "city": "City000015",
+    "domestic": 128052,
+    "roaming": 0,
+    "human": 2751602
+  },
+  {
+    "year": 94,
+    "city": "City000016",
+    "domestic": 62825,
+    "roaming": 0,
+    "human": 900199
+  },
+  {
+    "year": 94,
+    "city": "City000017",
+    "domestic": 18395,
+    "roaming": 0,
+    "human": 240373
+  },
+  {
+    "year": 94,
+    "city": "City000018",
+    "domestic": 24868,
+    "roaming": 0,
+    "human": 349149
+  },
+  {
+    "year": 94,
+    "city": "City000019",
+    "domestic": 12263,
+    "roaming": 0,
+    "human": 462286
+  },
+  {
+    "year": 94,
+    "city": "City000020",
+    "domestic": 3968,
+    "roaming": 0,
+    "human": 91808
+  },
+  {
+    "year": 94,
+    "city": "City000021",
+    "domestic": 4968,
+    "roaming": 0,
+    "human": 64456
+  },
+  {
+    "year": 94,
+    "city": "City000022",
+    "domestic": 0,
+    "roaming": 0,
+    "human": 9359
+  },
+  {
+    "year": 94,
+    "city": "_",
+    "accept": 93212,
+    "adopt": 14244,
+    "kill": 68002
+  },
+  {
+    "year": 95,
+    "city": "City000001",
+    "human": 391727
+  },
+  {
+    "year": 95,
+    "city": "City000002",
+    "human": 2616375
+  },
+  {
+    "year": 95,
+    "city": "City000003",
+    "human": 3736677
+  },
+  {
+    "year": 95,
+    "city": "City000004",
+    "human": 1880316
+  },
+  {
+    "year": 95,
+    "city": "City000005",
+    "human": 477677
+  },
+  {
+    "year": 95,
+    "city": "City000006",
+    "human": 390692
+  },
+  {
+    "year": 95,
+    "city": "City000007",
+    "human": 559944
+  },
+  {
+    "year": 95,
+    "city": "City000008",
+    "human": 537168
+  },
+  {
+    "year": 95,
+    "city": "City000009",
+    "human": 2566220
+  },
+  {
+    "year": 95,
+    "city": "City000010",
+    "human": 1315826
+  },
+  {
+    "year": 95,
+    "city": "City000011",
+    "human": 733330
+  },
+  {
+    "year": 95,
+    "city": "City000012",
+    "human": 557101
+  },
+  {
+    "year": 95,
+    "city": "City000013",
+    "human": 271701
+  },
+  {
+    "year": 95,
+    "city": "City000014",
+    "human": 1862918
+  },
+  {
+    "year": 95,
+    "city": "City000015",
+    "human": 2753486
+  },
+  {
+    "year": 95,
+    "city": "City000016",
+    "human": 898300
+  },
+  {
+    "year": 95,
+    "city": "City000017",
+    "human": 238943
+  },
+  {
+    "year": 95,
+    "city": "City000018",
+    "human": 347298
+  },
+  {
+    "year": 95,
+    "city": "City000019",
+    "human": 461586
+  },
+  {
+    "year": 95,
+    "city": "City000020",
+    "human": 92489
+  },
+  {
+    "year": 95,
+    "city": "City000021",
+    "human": 70264
+  },
+  {
+    "year": 95,
+    "city": "City000022",
+    "human": 10345
+  },
+  {
+    "year": 95,
+    "city": "_",
+    "accept": 109394,
+    "adopt": 16391,
+    "kill": 82887
+  },
+  {
+    "year": 96,
+    "city": "City000001",
+    "domestic": 15875,
+    "roaming": 0,
+    "human": 390633
+  },
+  {
+    "year": 96,
+    "city": "City000002",
+    "domestic": 138057,
+    "roaming": 0,
+    "human": 2632242
+  },
+  {
+    "year": 96,
+    "city": "City000003",
+    "domestic": 203502,
+    "roaming": 0,
+    "human": 3767095
+  },
+  {
+    "year": 96,
+    "city": "City000004",
+    "domestic": 87742,
+    "roaming": 0,
+    "human": 1911161
+  },
+  {
+    "year": 96,
+    "city": "City000005",
+    "domestic": 58863,
+    "roaming": 0,
+    "human": 487692
+  },
+  {
+    "year": 96,
+    "city": "City000006",
+    "domestic": 21996,
+    "roaming": 0,
+    "human": 394757
+  },
+  {
+    "year": 96,
+    "city": "City000007",
+    "domestic": 45181,
+    "roaming": 0,
+    "human": 559986
+  },
+  {
+    "year": 96,
+    "city": "City000008",
+    "domestic": 54737,
+    "roaming": 0,
+    "human": 535205
+  },
+  {
+    "year": 96,
+    "city": "City000009",
+    "domestic": 113920,
+    "roaming": 0,
+    "human": 2587828
+  },
+  {
+    "year": 96,
+    "city": "City000010",
+    "domestic": 62302,
+    "roaming": 0,
+    "human": 1315034
+  },
+  {
+    "year": 96,
+    "city": "City000011",
+    "domestic": 71547,
+    "roaming": 0,
+    "human": 728490
+  },
+  {
+    "year": 96,
+    "city": "City000012",
+    "domestic": 37851,
+    "roaming": 0,
+    "human": 553841
+  },
+  {
+    "year": 96,
+    "city": "City000013",
+    "domestic": 12272,
+    "roaming": 0,
+    "human": 272364
+  },
+  {
+    "year": 96,
+    "city": "City000014",
+    "domestic": 99305,
+    "roaming": 0,
+    "human": 1866727
+  },
+  {
+    "year": 96,
+    "city": "City000015",
+    "domestic": 136861,
+    "roaming": 0,
+    "human": 2760180
+  },
+  {
+    "year": 96,
+    "city": "City000016",
+    "domestic": 88664,
+    "roaming": 0,
+    "human": 893544
+  },
+  {
+    "year": 96,
+    "city": "City000017",
+    "domestic": 30673,
+    "roaming": 0,
+    "human": 235957
+  },
+  {
+    "year": 96,
+    "city": "City000018",
+    "domestic": 44852,
+    "roaming": 0,
+    "human": 345303
+  },
+  {
+    "year": 96,
+    "city": "City000019",
+    "domestic": 11548,
+    "roaming": 0,
+    "human": 460426
+  },
+  {
+    "year": 96,
+    "city": "City000020",
+    "domestic": 3721,
+    "roaming": 0,
+    "human": 91785
+  },
+  {
+    "year": 96,
+    "city": "City000021",
+    "domestic": 0,
+    "roaming": 0,
+    "human": 76491
+  },
+  {
+    "year": 96,
+    "city": "City000022",
+    "domestic": 0,
+    "roaming": 0,
+    "human": 9786
+  },
+  {
+    "year": 96,
+    "city": "_",
+    "accept": 124445,
+    "adopt": 19348,
+    "kill": 92107
+  },
+  {
+    "year": 97,
+    "city": "City000001",
+    "accept": 2203,
+    "adopt": 506,
+    "kill": 1556,
+    "human": 390397
+  },
+  {
+    "year": 97,
+    "city": "City000002",
+    "accept": 7171,
+    "adopt": 3146,
+    "kill": 2029,
+    "human": 2629269
+  },
+  {
+    "year": 97,
+    "city": "City000003",
+    "accept": 20239,
+    "adopt": 3059,
+    "kill": 9361,
+    "human": 3798015
+  },
+  {
+    "year": 97,
+    "city": "City000004",
+    "accept": 10546,
+    "adopt": 972,
+    "kill": 8573,
+    "human": 1934968
+  },
+  {
+    "year": 97,
+    "city": "City000005",
+    "accept": 2180,
+    "adopt": 366,
+    "kill": 1694,
+    "human": 495821
+  },
+  {
+    "year": 97,
+    "city": "City000006",
+    "accept": 1601,
+    "adopt": 690,
+    "kill": 1033,
+    "human": 399035
+  },
+  {
+    "year": 97,
+    "city": "City000007",
+    "accept": 3020,
+    "adopt": 214,
+    "kill": 2299,
+    "human": 560163
+  },
+  {
+    "year": 97,
+    "city": "City000008",
+    "accept": 6644,
+    "adopt": 467,
+    "kill": 5416,
+    "human": 533717
+  },
+  {
+    "year": 97,
+    "city": "City000009",
+    "accept": 12477,
+    "adopt": 2196,
+    "kill": 9587,
+    "human": 2606794
+  },
+  {
+    "year": 97,
+    "city": "City000010",
+    "accept": 5292,
+    "adopt": 141,
+    "kill": 4320,
+    "human": 1314354
+  },
+  {
+    "year": 97,
+    "city": "City000011",
+    "accept": 2326,
+    "kill": 2076,
+    "human": 725672
+  },
+  {
+    "year": 97,
+    "city": "City000012",
+    "accept": 4222,
+    "adopt": 213,
+    "kill": 3325,
+    "human": 551345
+  },
+  {
+    "year": 97,
+    "city": "City000013",
+    "human": 273075
+  },
+  {
+    "year": 97,
+    "city": "City000014",
+    "accept": 7704,
+    "adopt": 1272,
+    "kill": 5160,
+    "human": 1870061
+  },
+  {
+    "year": 97,
+    "city": "City000015",
+    "accept": 14668,
+    "adopt": 2116,
+    "kill": 10542,
+    "human": 2764868
+  },
+  {
+    "year": 97,
+    "city": "City000016",
+    "accept": 8194,
+    "adopt": 267,
+    "kill": 7678,
+    "human": 889563
+  },
+  {
+    "year": 97,
+    "city": "City000017",
+    "accept": 3076,
+    "adopt": 134,
+    "kill": 2781,
+    "human": 233660
+  },
+  {
+    "year": 97,
+    "city": "City000018",
+    "accept": 3540,
+    "adopt": 405,
+    "kill": 2844,
+    "human": 343302
+  },
+  {
+    "year": 97,
+    "city": "City000019",
+    "accept": 3801,
+    "adopt": 299,
+    "kill": 3032,
+    "human": 460398
+  },
+  {
+    "year": 97,
+    "city": "City000020",
+    "accept": 117,
+    "adopt": 85,
+    "kill": 756,
+    "human": 92390
+  },
+  {
+    "year": 97,
+    "city": "City000021",
+    "accept": 1238,
+    "adopt": 25,
+    "kill": 792,
+    "human": 81547
+  },
+  {
+    "year": 97,
+    "city": "City000022",
+    "accept": 78,
+    "human": 9946
+  },
+  {
+    "year": 98,
+    "city": "City000001",
+    "domestic": 21765,
+    "roaming": 626,
+    "accept": 2159,
+    "adopt": 482,
+    "kill": 1342,
+    "human": 388979
+  },
+  {
+    "year": 98,
+    "city": "City000002",
+    "domestic": 149164,
+    "roaming": 3192,
+    "accept": 5222,
+    "adopt": 2200,
+    "kill": 1204,
+    "human": 2622923
+  },
+  {
+    "year": 98,
+    "city": "City000003",
+    "domestic": 193156,
+    "roaming": 5060,
+    "accept": 17869,
+    "adopt": 2724,
+    "kill": 10973,
+    "human": 3833730
+  },
+  {
+    "year": 98,
+    "city": "City000004",
+    "domestic": 107624,
+    "roaming": 4020,
+    "accept": 10379,
+    "adopt": 1440,
+    "kill": 8205,
+    "human": 1958686
+  },
+  {
+    "year": 98,
+    "city": "City000005",
+    "domestic": 47070,
+    "roaming": 5210,
+    "accept": 1984,
+    "adopt": 281,
+    "kill": 1808,
+    "human": 503273
+  },
+  {
+    "year": 98,
+    "city": "City000006",
+    "domestic": 22855,
+    "roaming": 2304,
+    "accept": 1815,
+    "adopt": 865,
+    "kill": 1027,
+    "human": 405371
+  },
+  {
+    "year": 98,
+    "city": "City000007",
+    "domestic": 40646,
+    "roaming": 6543,
+    "accept": 3707,
+    "adopt": 451,
+    "kill": 3056,
+    "human": 560397
+  },
+  {
+    "year": 98,
+    "city": "City000008",
+    "domestic": 42882,
+    "roaming": 1202,
+    "accept": 6286,
+    "adopt": 376,
+    "kill": 5538,
+    "human": 531753
+  },
+  {
+    "year": 98,
+    "city": "City000009",
+    "domestic": 125138,
+    "roaming": 9174,
+    "accept": 12804,
+    "adopt": 1874,
+    "kill": 10323,
+    "human": 2624072
+  },
+  {
+    "year": 98,
+    "city": "City000010",
+    "domestic": 71060,
+    "roaming": 7130,
+    "accept": 5785,
+    "adopt": 497,
+    "kill": 4101,
+    "human": 1312935
+  },
+  {
+    "year": 98,
+    "city": "City000011",
+    "domestic": 40412,
+    "roaming": 8646,
+    "accept": 3166,
+    "adopt": 779,
+    "kill": 2387,
+    "human": 723674
+  },
+  {
+    "year": 98,
+    "city": "City000012",
+    "domestic": 34442,
+    "roaming": 3579,
+    "accept": 4933,
+    "adopt": 412,
+    "kill": 3707,
+    "human": 548731
+  },
+  {
+    "year": 98,
+    "city": "City000013",
+    "domestic": 11460,
+    "roaming": 573,
+    "accept": 299,
+    "human": 273793
+  },
+  {
+    "year": 98,
+    "city": "City000014",
+    "domestic": 84824,
+    "roaming": 5870,
+    "accept": 16231,
+    "adopt": 1789,
+    "kill": 11999,
+    "human": 1873005
+  },
+  {
+    "year": 98,
+    "city": "City000015",
+    "domestic": 118991,
+    "roaming": 9505,
+    "accept": 15142,
+    "adopt": 2115,
+    "kill": 11023,
+    "human": 2769054
+  },
+  {
+    "year": 98,
+    "city": "City000016",
+    "domestic": 56873,
+    "roaming": 1783,
+    "accept": 7341,
+    "adopt": 219,
+    "kill": 6650,
+    "human": 884838
+  },
+  {
+    "year": 98,
+    "city": "City000017",
+    "domestic": 20752,
+    "roaming": 3130,
+    "accept": 2398,
+    "adopt": 130,
+    "kill": 2115,
+    "human": 231849
+  },
+  {
+    "year": 98,
+    "city": "City000018",
+    "domestic": 29429,
+    "roaming": 2084,
+    "accept": 3827,
+    "adopt": 430,
+    "kill": 2932,
+    "human": 341433
+  },
+  {
+    "year": 98,
+    "city": "City000019",
+    "domestic": 13352,
+    "roaming": 4006,
+    "accept": 4263,
+    "adopt": 300,
+    "kill": 3625,
+    "human": 460902
+  },
+  {
+    "year": 98,
+    "city": "City000020",
+    "domestic": 3112,
+    "roaming": 725,
+    "accept": 713,
+    "adopt": 89,
+    "kill": 551,
+    "human": 93308
+  },
+  {
+    "year": 98,
+    "city": "City000021",
+    "domestic": 3596,
+    "roaming": 87,
+    "accept": 1373,
+    "adopt": 83,
+    "kill": 776,
+    "human": 84570
+  },
+  {
+    "year": 98,
+    "city": "City000022",
+    "domestic": 0,
+    "roaming": 442,
+    "accept": 7,
+    "human": 9755
+  },
+  {
+    "year": 99,
+    "city": "City000001",
+    "accept": 2550,
+    "adopt": 574,
+    "kill": 1363,
+    "human": 388321
+  },
+  {
+    "year": 99,
+    "city": "City000002",
+    "accept": 7225,
+    "adopt": 3348,
+    "kill": 1625,
+    "human": 2607428
+  },
+  {
+    "year": 99,
+    "city": "City000003",
+    "accept": 15214,
+    "adopt": 3016,
+    "kill": 7778,
+    "human": 3873653
+  },
+  {
+    "year": 99,
+    "city": "City000004",
+    "accept": 9778,
+    "adopt": 2588,
+    "kill": 5762,
+    "human": 1978782
+  },
+  {
+    "year": 99,
+    "city": "City000005",
+    "accept": 2268,
+    "adopt": 538,
+    "kill": 1241,
+    "human": 510882
+  },
+  {
+    "year": 99,
+    "city": "City000006",
+    "accept": 1678,
+    "adopt": 732,
+    "kill": 1071,
+    "human": 411587
+  },
+  {
+    "year": 99,
+    "city": "City000007",
+    "accept": 3648,
+    "adopt": 487,
+    "kill": 2572,
+    "human": 561744
+  },
+  {
+    "year": 99,
+    "city": "City000008",
+    "accept": 5554,
+    "adopt": 360,
+    "kill": 4418,
+    "human": 530824
+  },
+  {
+    "year": 99,
+    "city": "City000009",
+    "accept": 11227,
+    "adopt": 1280,
+    "kill": 8880,
+    "human": 2635761
+  },
+  {
+    "year": 99,
+    "city": "City000010",
+    "accept": 5311,
+    "adopt": 607,
+    "kill": 3061,
+    "human": 1312467
+  },
+  {
+    "year": 99,
+    "city": "City000011",
+    "accept": 2719,
+    "adopt": 864,
+    "kill": 1854,
+    "human": 722795
+  },
+  {
+    "year": 99,
+    "city": "City000012",
+    "accept": 4875,
+    "adopt": 663,
+    "kill": 2171,
+    "human": 547716
+  },
+  {
+    "year": 99,
+    "city": "City000013",
+    "accept": 1056,
+    "human": 273861
+  },
+  {
+    "year": 99,
+    "city": "City000014",
+    "accept": 12172,
+    "adopt": 1922,
+    "kill": 8314,
+    "human": 1875406
+  },
+  {
+    "year": 99,
+    "city": "City000015",
+    "accept": 12528,
+    "adopt": 2268,
+    "kill": 8821,
+    "human": 2770887
+  },
+  {
+    "year": 99,
+    "city": "City000016",
+    "accept": 6146,
+    "adopt": 185,
+    "kill": 5381,
+    "human": 882640
+  },
+  {
+    "year": 99,
+    "city": "City000017",
+    "accept": 2710,
+    "adopt": 83,
+    "kill": 2259,
+    "human": 232497
+  },
+  {
+    "year": 99,
+    "city": "City000018",
+    "accept": 3622,
+    "adopt": 452,
+    "kill": 2937,
+    "human": 340964
+  },
+  {
+    "year": 99,
+    "city": "City000019",
+    "accept": 4279,
+    "adopt": 381,
+    "kill": 3578,
+    "human": 461625
+  },
+  {
+    "year": 99,
+    "city": "City000020",
+    "accept": 1591,
+    "adopt": 179,
+    "kill": 517,
+    "human": 96210
+  },
+  {
+    "year": 99,
+    "city": "City000021",
+    "accept": 1488,
+    "adopt": 130,
+    "kill": 819,
+    "human": 93803
+  },
+  {
+    "year": 99,
+    "city": "City000022",
+    "accept": 37,
+    "human": 9919
+  },
+  {
+    "year": 100,
+    "city": "City000001",
+    "domestic": 19627,
+    "roaming": 0,
+    "accept": 2172,
+    "adopt": 277,
+    "kill": 396,
+    "human": 384134
+  },
+  {
+    "year": 100,
+    "city": "City000002",
+    "domestic": 139844,
+    "roaming": 0,
+    "accept": 6821,
+    "adopt": 3641,
+    "kill": 1291,
+    "human": 2618772
+  },
+  {
+    "year": 100,
+    "city": "City000003",
+    "domestic": 198701,
+    "roaming": 0,
+    "accept": 15444,
+    "adopt": 2625,
+    "kill": 8591,
+    "human": 3897367
+  },
+  {
+    "year": 100,
+    "city": "City000004",
+    "domestic": 113103,
+    "roaming": 0,
+    "accept": 9856,
+    "adopt": 3058,
+    "kill": 5645,
+    "human": 2002060
+  },
+  {
+    "year": 100,
+    "city": "City000005",
+    "domestic": 32882,
+    "roaming": 0,
+    "accept": 2421,
+    "adopt": 654,
+    "kill": 1550,
+    "human": 513015
+  },
+  {
+    "year": 100,
+    "city": "City000006",
+    "domestic": 20216,
+    "roaming": 0,
+    "accept": 1466,
+    "adopt": 502,
+    "kill": 937,
+    "human": 415344
+  },
+  {
+    "year": 100,
+    "city": "City000007",
+    "domestic": 34120,
+    "roaming": 0,
+    "accept": 3233,
+    "adopt": 402,
+    "kill": 1873,
+    "human": 560968
+  },
+  {
+    "year": 100,
+    "city": "City000008",
+    "domestic": 33543,
+    "roaming": 0,
+    "accept": 6221,
+    "adopt": 366,
+    "kill": 5122,
+    "human": 526491
+  },
+  {
+    "year": 100,
+    "city": "City000009",
+    "domestic": 133215,
+    "roaming": 0,
+    "accept": 8463,
+    "adopt": 1851,
+    "kill": 4995,
+    "human": 2648419
+  },
+  {
+    "year": 100,
+    "city": "City000010",
+    "domestic": 63376,
+    "roaming": 0,
+    "accept": 5490,
+    "adopt": 727,
+    "kill": 2619,
+    "human": 1307286
+  },
+  {
+    "year": 100,
+    "city": "City000011",
+    "domestic": 41548,
+    "roaming": 0,
+    "accept": 2685,
+    "adopt": 870,
+    "kill": 1801,
+    "human": 717653
+  },
+  {
+    "year": 100,
+    "city": "City000012",
+    "domestic": 31784,
+    "roaming": 0,
+    "accept": 4446,
+    "adopt": 837,
+    "kill": 2102,
+    "human": 543248
+  },
+  {
+    "year": 100,
+    "city": "City000013",
+    "domestic": 13660,
+    "roaming": 0,
+    "accept": 990,
+    "adopt": 485,
+    "kill": 340,
+    "human": 272390
+  },
+  {
+    "year": 100,
+    "city": "City000014",
+    "domestic": 99256,
+    "roaming": 0,
+    "accept": 12806,
+    "adopt": 3008,
+    "kill": 8401,
+    "human": 1873794
+  },
+  {
+    "year": 100,
+    "city": "City000015",
+    "domestic": 149486,
+    "roaming": 0,
+    "accept": 9094,
+    "adopt": 1765,
+    "kill": 2769,
+    "human": 2773483
+  },
+  {
+    "year": 100,
+    "city": "City000016",
+    "domestic": 50166,
+    "roaming": 0,
+    "accept": 6105,
+    "adopt": 207,
+    "kill": 5959,
+    "human": 873509
+  },
+  {
+    "year": 100,
+    "city": "City000017",
+    "domestic": 15859,
+    "roaming": 0,
+    "accept": 3426,
+    "adopt": 89,
+    "kill": 3696,
+    "human": 230673
+  },
+  {
+    "year": 100,
+    "city": "City000018",
+    "domestic": 19736,
+    "roaming": 0,
+    "accept": 3280,
+    "adopt": 451,
+    "kill": 2499,
+    "human": 338805
+  },
+  {
+    "year": 100,
+    "city": "City000019",
+    "domestic": 25153,
+    "roaming": 0,
+    "accept": 4299,
+    "adopt": 591,
+    "kill": 3395,
+    "human": 460486
+  },
+  {
+    "year": 100,
+    "city": "City000020",
+    "domestic": 6634,
+    "roaming": 0,
+    "accept": 1676,
+    "adopt": 201,
+    "kill": 24,
+    "human": 96918
+  },
+  {
+    "year": 100,
+    "city": "City000021",
+    "domestic": 4728,
+    "roaming": 0,
+    "accept": 1812,
+    "adopt": 134,
+    "kill": 917,
+    "human": 97364
+  },
+  {
+    "year": 100,
+    "city": "City000022",
+    "domestic": 1293,
+    "roaming": 0,
+    "human": 9944
+  },
+  {
+    "year": 101,
+    "city": "City000001",
+    "accept": 1977,
+    "adopt": 528,
+    "kill": 890,
+    "human": 379927
+  },
+  {
+    "year": 101,
+    "city": "City000002",
+    "accept": 6843,
+    "adopt": 4235,
+    "kill": 813,
+    "human": 2650968
+  },
+  {
+    "year": 101,
+    "city": "City000003",
+    "accept": 14017,
+    "adopt": 4550,
+    "kill": 4337,
+    "human": 3916451
+  },
+  {
+    "year": 101,
+    "city": "City000004",
+    "accept": 9301,
+    "adopt": 3776,
+    "kill": 4859,
+    "human": 2013305
+  },
+  {
+    "year": 101,
+    "city": "City000005",
+    "accept": 3000,
+    "adopt": 898,
+    "kill": 1903,
+    "human": 517641
+  },
+  {
+    "year": 101,
+    "city": "City000006",
+    "accept": 1438,
+    "adopt": 652,
+    "kill": 848,
+    "human": 420052
+  },
+  {
+    "year": 101,
+    "city": "City000007",
+    "accept": 3626,
+    "adopt": 594,
+    "kill": 2009,
+    "human": 562010
+  },
+  {
+    "year": 101,
+    "city": "City000008",
+    "accept": 5868,
+    "adopt": 476,
+    "kill": 4568,
+    "human": 522807
+  },
+  {
+    "year": 101,
+    "city": "City000009",
+    "accept": 9546,
+    "adopt": 3005,
+    "kill": 4996,
+    "human": 2664394
+  },
+  {
+    "year": 101,
+    "city": "City000010",
+    "accept": 5252,
+    "adopt": 936,
+    "kill": 2384,
+    "human": 1303039
+  },
+  {
+    "year": 101,
+    "city": "City000011",
+    "accept": 3109,
+    "adopt": 868,
+    "kill": 1946,
+    "human": 713556
+  },
+  {
+    "year": 101,
+    "city": "City000012",
+    "accept": 3655,
+    "adopt": 1002,
+    "kill": 1841,
+    "human": 537942
+  },
+  {
+    "year": 101,
+    "city": "City000013",
+    "accept": 1120,
+    "adopt": 577,
+    "kill": 376,
+    "human": 271526
+  },
+  {
+    "year": 101,
+    "city": "City000014",
+    "accept": 12188,
+    "adopt": 3816,
+    "kill": 6889,
+    "human": 1876960
+  },
+  {
+    "year": 101,
+    "city": "City000015",
+    "accept": 10832,
+    "adopt": 3925,
+    "kill": 2518,
+    "human": 2774470
+  },
+  {
+    "year": 101,
+    "city": "City000016",
+    "accept": 6488,
+    "adopt": 230,
+    "kill": 6483,
+    "human": 864529
+  },
+  {
+    "year": 101,
+    "city": "City000017",
+    "accept": 2285,
+    "adopt": 81,
+    "kill": 1605,
+    "human": 228290
+  },
+  {
+    "year": 101,
+    "city": "City000018",
+    "accept": 3066,
+    "adopt": 479,
+    "kill": 1875,
+    "human": 336838
+  },
+  {
+    "year": 101,
+    "city": "City000019",
+    "accept": 4309,
+    "adopt": 559,
+    "kill": 3335,
+    "human": 459061
+  },
+  {
+    "year": 101,
+    "city": "City000020",
+    "accept": 1351,
+    "adopt": 352,
+    "kill": 117,
+    "human": 97157
+  },
+  {
+    "year": 101,
+    "city": "City000021",
+    "accept": 1638,
+    "adopt": 131,
+    "kill": 709,
+    "human": 103883
+  },
+  {
+    "year": 101,
+    "city": "City000022",
+    "accept": 120,
+    "adopt": 14,
+    "kill": 97,
+    "human": 10106
+  },
+  {
+    "year": 102,
+    "city": "City000001",
+    "domestic": 22988,
+    "roaming": 0,
+    "accept": 2153,
+    "adopt": 512,
+    "kill": 1225,
+    "human": 377153
+  },
+  {
+    "year": 102,
+    "city": "City000002",
+    "domestic": 154522,
+    "roaming": 0,
+    "accept": 6062,
+    "adopt": 3964,
+    "kill": 273,
+    "human": 2673226
+  },
+  {
+    "year": 102,
+    "city": "City000003",
+    "domestic": 273412,
+    "roaming": 0,
+    "accept": 14706,
+    "adopt": 8430,
+    "kill": 2835,
+    "human": 3939305
+  },
+  {
+    "year": 102,
+    "city": "City000004",
+    "domestic": 152873,
+    "roaming": 0,
+    "accept": 10058,
+    "adopt": 5435,
+    "kill": 4123,
+    "human": 2030161
+  },
+  {
+    "year": 102,
+    "city": "City000005",
+    "domestic": 47802,
+    "roaming": 0,
+    "accept": 3097,
+    "adopt": 1368,
+    "kill": 1552,
+    "human": 523993
+  },
+  {
+    "year": 102,
+    "city": "City000006",
+    "domestic": 23027,
+    "roaming": 0,
+    "accept": 1406,
+    "adopt": 640,
+    "kill": 475,
+    "human": 425071
+  },
+  {
+    "year": 102,
+    "city": "City000007",
+    "domestic": 44744,
+    "roaming": 0,
+    "accept": 3550,
+    "adopt": 888,
+    "kill": 1958,
+    "human": 563976
+  },
+  {
+    "year": 102,
+    "city": "City000008",
+    "domestic": 48535,
+    "roaming": 0,
+    "accept": 6012,
+    "adopt": 493,
+    "kill": 4119,
+    "human": 520196
+  },
+  {
+    "year": 102,
+    "city": "City000009",
+    "domestic": 197626,
+    "roaming": 0,
+    "accept": 10019,
+    "adopt": 3987,
+    "kill": 4993,
+    "human": 2684893
+  },
+  {
+    "year": 102,
+    "city": "City000010",
+    "domestic": 91701,
+    "roaming": 0,
+    "accept": 6741,
+    "adopt": 1259,
+    "kill": 3082,
+    "human": 1299868
+  },
+  {
+    "year": 102,
+    "city": "City000011",
+    "domestic": 70718,
+    "roaming": 0,
+    "accept": 4711,
+    "adopt": 1911,
+    "kill": 2785,
+    "human": 710991
+  },
+  {
+    "year": 102,
+    "city": "City000012",
+    "domestic": 44259,
+    "roaming": 0,
+    "accept": 4210,
+    "adopt": 1715,
+    "kill": 1216,
+    "human": 533723
+  },
+  {
+    "year": 102,
+    "city": "City000013",
+    "domestic": 14988,
+    "roaming": 0,
+    "accept": 1222,
+    "adopt": 952,
+    "kill": 165,
+    "human": 271220
+  },
+  {
+    "year": 102,
+    "city": "City000014",
+    "domestic": 146828,
+    "roaming": 0,
+    "accept": 10913,
+    "adopt": 5651,
+    "kill": 4447,
+    "human": 1881645
+  },
+  {
+    "year": 102,
+    "city": "City000015",
+    "domestic": 236190,
+    "roaming": 0,
+    "accept": 9247,
+    "adopt": 5042,
+    "kill": 94,
+    "human": 2778659
+  },
+  {
+    "year": 102,
+    "city": "City000016",
+    "domestic": 74033,
+    "roaming": 0,
+    "accept": 5813,
+    "adopt": 270,
+    "kill": 5352,
+    "human": 858441
+  },
+  {
+    "year": 102,
+    "city": "City000017",
+    "domestic": 21390,
+    "roaming": 0,
+    "accept": 3351,
+    "adopt": 1843,
+    "kill": 1279,
+    "human": 226252
+  },
+  {
+    "year": 102,
+    "city": "City000018",
+    "domestic": 32902,
+    "roaming": 0,
+    "accept": 3170,
+    "adopt": 639,
+    "kill": 1760,
+    "human": 335190
+  },
+  {
+    "year": 102,
+    "city": "City000019",
+    "domestic": 40082,
+    "roaming": 0,
+    "accept": 4091,
+    "adopt": 746,
+    "kill": 2880,
+    "human": 458595
+  },
+  {
+    "year": 102,
+    "city": "City000020",
+    "domestic": 2982,
+    "roaming": 0,
+    "accept": 1102,
+    "adopt": 241,
+    "kill": 306,
+    "human": 98843
+  },
+  {
+    "year": 102,
+    "city": "City000021",
+    "domestic": 0,
+    "roaming": 0,
+    "accept": 1307,
+    "adopt": 160,
+    "kill": 695,
+    "human": 113111
+  },
+  {
+    "year": 102,
+    "city": "City000022",
+    "domestic": 0,
+    "roaming": 0,
+    "accept": 100,
+    "adopt": 14,
+    "kill": 58,
+    "human": 11310
+  },
+  {
+    "year": 103,
+    "city": "City000001",
+    "accept": 1482,
+    "adopt": 543,
+    "kill": 743,
+    "die": 166,
+    "human": 374914
+  },
+  {
+    "year": 103,
+    "city": "City000002",
+    "accept": 5163,
+    "adopt": 4251,
+    "kill": 216,
+    "die": 595,
+    "human": 2686516
+  },
+  {
+    "year": 103,
+    "city": "City000003",
+    "accept": 11969,
+    "adopt": 7919,
+    "kill": 1118,
+    "die": 2284,
+    "human": 3954929
+  },
+  {
+    "year": 103,
+    "city": "City000004",
+    "accept": 8595,
+    "adopt": 6648,
+    "kill": 1540,
+    "die": 308,
+    "human": 2044023
+  },
+  {
+    "year": 103,
+    "city": "City000005",
+    "accept": 2513,
+    "adopt": 1361,
+    "kill": 1016,
+    "die": 148,
+    "human": 530486
+  },
+  {
+    "year": 103,
+    "city": "City000006",
+    "accept": 1199,
+    "adopt": 717,
+    "kill": 245,
+    "die": 133,
+    "human": 428483
+  },
+  {
+    "year": 103,
+    "city": "City000007",
+    "accept": 2866,
+    "adopt": 877,
+    "kill": 1311,
+    "die": 712,
+    "human": 565554
+  },
+  {
+    "year": 103,
+    "city": "City000008",
+    "accept": 4795,
+    "adopt": 713,
+    "kill": 2870,
+    "die": 1139,
+    "human": 517222
+  },
+  {
+    "year": 103,
+    "city": "City000009",
+    "accept": 8923,
+    "adopt": 4874,
+    "kill": 3830,
+    "die": 306,
+    "human": 2701661
+  },
+  {
+    "year": 103,
+    "city": "City000010",
+    "accept": 4571,
+    "adopt": 1414,
+    "kill": 1938,
+    "die": 1232,
+    "human": 1296013
+  },
+  {
+    "year": 103,
+    "city": "City000011",
+    "accept": 4435,
+    "adopt": 2343,
+    "kill": 2054,
+    "die": 6,
+    "human": 707792
+  },
+  {
+    "year": 103,
+    "city": "City000012",
+    "accept": 4048,
+    "adopt": 3343,
+    "kill": 147,
+    "die": 564,
+    "human": 529229
+  },
+  {
+    "year": 103,
+    "city": "City000013",
+    "accept": 1069,
+    "adopt": 974,
+    "kill": 34,
+    "die": 48,
+    "human": 270872
+  },
+  {
+    "year": 103,
+    "city": "City000014",
+    "accept": 11315,
+    "adopt": 9651,
+    "kill": 336,
+    "die": 1300,
+    "human": 1883208
+  },
+  {
+    "year": 103,
+    "city": "City000015",
+    "accept": 7466,
+    "adopt": 4193,
+    "kill": 3,
+    "die": 2545,
+    "human": 2779877
+  },
+  {
+    "year": 103,
+    "city": "City000016",
+    "accept": 4131,
+    "adopt": 349,
+    "kill": 3670,
+    "die": 8,
+    "human": 852286
+  },
+  {
+    "year": 103,
+    "city": "City000017",
+    "accept": 2426,
+    "adopt": 1801,
+    "kill": 394,
+    "die": 208,
+    "human": 224821
+  },
+  {
+    "year": 103,
+    "city": "City000018",
+    "accept": 2588,
+    "adopt": 940,
+    "kill": 1192,
+    "die": 468,
+    "human": 333897
+  },
+  {
+    "year": 103,
+    "city": "City000019",
+    "accept": 3490,
+    "adopt": 1360,
+    "kill": 1485,
+    "die": 216,
+    "human": 458456
+  },
+  {
+    "year": 103,
+    "city": "City000020",
+    "accept": 842,
+    "adopt": 299,
+    "kill": 336,
+    "die": 157,
+    "human": 100400
+  },
+  {
+    "year": 103,
+    "city": "City000021",
+    "accept": 786,
+    "adopt": 167,
+    "kill": 544,
+    "die": 92,
+    "human": 120713
+  },
+  {
+    "year": 103,
+    "city": "City000022",
+    "accept": 69,
+    "adopt": 6,
+    "kill": 35,
+    "die": 18,
+    "human": 12165
+  },
+  {
+    "year": 104,
+    "city": "City000001",
+    "domestic": 27833,
+    "roaming": 404,
+    "accept": 1327,
+    "adopt": 696,
+    "kill": 488,
+    "die": 134,
+    "human": 373077
+  },
+  {
+    "year": 104,
+    "city": "City000002",
+    "domestic": 148096,
+    "roaming": 2931,
+    "accept": 3812,
+    "adopt": 3594,
+    "kill": 39,
+    "die": 252,
+    "human": 2702315
+  },
+  {
+    "year": 104,
+    "city": "City000003",
+    "domestic": 269100,
+    "roaming": 4295,
+    "accept": 10612,
+    "adopt": 9055,
+    "kill": 85,
+    "die": 1064,
+    "human": 3966818
+  },
+  {
+    "year": 104,
+    "city": "City000004",
+    "domestic": 176672,
+    "roaming": 8960,
+    "accept": 7745,
+    "adopt": 6648,
+    "kill": 380,
+    "die": 509,
+    "human": 2058328
+  },
+  {
+    "year": 104,
+    "city": "City000005",
+    "domestic": 46403,
+    "roaming": 2318,
+    "accept": 1910,
+    "adopt": 1447,
+    "kill": 332,
+    "die": 96,
+    "human": 537630
+  },
+  {
+    "year": 104,
+    "city": "City000006",
+    "domestic": 39243,
+    "roaming": 1862,
+    "accept": 1214,
+    "adopt": 870,
+    "kill": 164,
+    "die": 136,
+    "human": 431988
+  },
+  {
+    "year": 104,
+    "city": "City000007",
+    "domestic": 47727,
+    "roaming": 2435,
+    "accept": 2497,
+    "adopt": 1527,
+    "kill": 350,
+    "die": 541,
+    "human": 567132
+  },
+  {
+    "year": 104,
+    "city": "City000008",
+    "domestic": 45467,
+    "roaming": 2819,
+    "accept": 4613,
+    "adopt": 1010,
+    "kill": 2196,
+    "die": 1238,
+    "human": 514315
+  },
+  {
+    "year": 104,
+    "city": "City000009",
+    "domestic": 183592,
+    "roaming": 15028,
+    "accept": 6512,
+    "adopt": 4563,
+    "kill": 1141,
+    "die": 346,
+    "human": 2719835
+  },
+  {
+    "year": 104,
+    "city": "City000010",
+    "domestic": 91692,
+    "roaming": 7100,
+    "accept": 3588,
+    "adopt": 1478,
+    "kill": 1645,
+    "die": 415,
+    "human": 1291474
+  },
+  {
+    "year": 104,
+    "city": "City000011",
+    "domestic": 59560,
+    "roaming": 9163,
+    "accept": 3644,
+    "adopt": 3503,
+    "kill": 154,
+    "die": 8,
+    "human": 705356
+  },
+  {
+    "year": 104,
+    "city": "City000012",
+    "domestic": 37852,
+    "roaming": 6811,
+    "accept": 3424,
+    "adopt": 2240,
+    "kill": 204,
+    "die": 983,
+    "human": 524783
+  },
+  {
+    "year": 104,
+    "city": "City000013",
+    "domestic": 20895,
+    "roaming": 3535,
+    "accept": 912,
+    "adopt": 880,
+    "die": 31,
+    "human": 270883
+  },
+  {
+    "year": 104,
+    "city": "City000014",
+    "domestic": 136151,
+    "roaming": 24596,
+    "accept": 9740,
+    "adopt": 8745,
+    "die": 581,
+    "human": 1884284
+  },
+  {
+    "year": 104,
+    "city": "City000015",
+    "domestic": 222177,
+    "roaming": 15220,
+    "accept": 5926,
+    "adopt": 3332,
+    "die": 1616,
+    "human": 2778992
+  },
+  {
+    "year": 104,
+    "city": "City000016",
+    "domestic": 66672,
+    "roaming": 4625,
+    "accept": 3568,
+    "adopt": 1613,
+    "kill": 1966,
+    "die": 13,
+    "human": 847917
+  },
+  {
+    "year": 104,
+    "city": "City000017",
+    "domestic": 24599,
+    "roaming": 3229,
+    "accept": 1452,
+    "adopt": 1286,
+    "kill": 98,
+    "die": 92,
+    "human": 224470
+  },
+  {
+    "year": 104,
+    "city": "City000018",
+    "domestic": 35741,
+    "roaming": 4807,
+    "accept": 1598,
+    "adopt": 1297,
+    "kill": 272,
+    "die": 27,
+    "human": 333392
+  },
+  {
+    "year": 104,
+    "city": "City000019",
+    "domestic": 34766,
+    "roaming": 6626,
+    "accept": 2966,
+    "adopt": 1310,
+    "kill": 570,
+    "die": 315,
+    "human": 458777
+  },
+  {
+    "year": 104,
+    "city": "City000020",
+    "domestic": 0,
+    "roaming": 713,
+    "accept": 819,
+    "adopt": 364,
+    "kill": 257,
+    "die": 166,
+    "human": 101758
+  },
+  {
+    "year": 104,
+    "city": "City000021",
+    "domestic": 0,
+    "roaming": 908,
+    "accept": 1340,
+    "adopt": 230,
+    "kill": 551,
+    "die": 73,
+    "human": 127723
+  },
+  {
+    "year": 104,
+    "city": "City000022",
+    "domestic": 0,
+    "roaming": 87,
+    "accept": 32,
+    "adopt": 6,
+    "human": 12506
+  },
+  {
+    "year": 105,
+    "city": "City000001",
+    "accept": 1308,
+    "adopt": 977,
+    "kill": 236,
+    "die": 81,
+    "human": 372105
+  },
+  {
+    "year": 105,
+    "city": "City000002",
+    "accept": 3755,
+    "adopt": 3186,
+    "die": 233,
+    "human": 2704810
+  },
+  {
+    "year": 105,
+    "city": "City000003",
+    "accept": 8432,
+    "adopt": 7954,
+    "die": 586,
+    "human": 3970644
+  },
+  {
+    "year": 105,
+    "city": "City000004",
+    "accept": 7374,
+    "adopt": 6421,
+    "kill": 338,
+    "die": 336,
+    "human": 2105780
+  },
+  {
+    "year": 105,
+    "city": "City000005",
+    "accept": 1866,
+    "adopt": 1524,
+    "kill": 250,
+    "die": 103,
+    "human": 542042
+  },
+  {
+    "year": 105,
+    "city": "City000006",
+    "accept": 1118,
+    "adopt": 746,
+    "kill": 162,
+    "die": 146,
+    "human": 434060
+  },
+  {
+    "year": 105,
+    "city": "City000007",
+    "accept": 1253,
+    "adopt": 824,
+    "kill": 176,
+    "die": 379,
+    "human": 563912
+  },
+  {
+    "year": 105,
+    "city": "City000008",
+    "accept": 3094,
+    "adopt": 1143,
+    "kill": 1396,
+    "die": 630,
+    "human": 509490
+  },
+  {
+    "year": 105,
+    "city": "City000009",
+    "accept": 4196,
+    "adopt": 3440,
+    "kill": 301,
+    "die": 394,
+    "human": 2744445
+  },
+  {
+    "year": 105,
+    "city": "City000010",
+    "accept": 2881,
+    "adopt": 1183,
+    "kill": 1400,
+    "die": 325,
+    "human": 1289072
+  },
+  {
+    "year": 105,
+    "city": "City000011",
+    "accept": 2426,
+    "adopt": 2431,
+    "kill": 49,
+    "die": 4,
+    "human": 699633
+  },
+  {
+    "year": 105,
+    "city": "City000012",
+    "accept": 2555,
+    "adopt": 1365,
+    "kill": 458,
+    "die": 650,
+    "human": 519839
+  },
+  {
+    "year": 105,
+    "city": "City000013",
+    "accept": 896,
+    "adopt": 781,
+    "kill": 20,
+    "die": 56,
+    "human": 270366
+  },
+  {
+    "year": 105,
+    "city": "City000014",
+    "accept": 8436,
+    "adopt": 7740,
+    "die": 764,
+    "human": 1885541
+  },
+  {
+    "year": 105,
+    "city": "City000015",
+    "accept": 4500,
+    "adopt": 2946,
+    "die": 459,
+    "human": 2778918
+  },
+  {
+    "year": 105,
+    "city": "City000016",
+    "accept": 3100,
+    "adopt": 1425,
+    "kill": 1815,
+    "die": 31,
+    "human": 841253
+  },
+  {
+    "year": 105,
+    "city": "City000017",
+    "accept": 1629,
+    "adopt": 1598,
+    "kill": 22,
+    "die": 19,
+    "human": 222452
+  },
+  {
+    "year": 105,
+    "city": "City000018",
+    "accept": 1079,
+    "adopt": 973,
+    "kill": 29,
+    "die": 28,
+    "human": 331945
+  },
+  {
+    "year": 105,
+    "city": "City000019",
+    "accept": 2354,
+    "adopt": 849,
+    "kill": 565,
+    "die": 487,
+    "human": 458117
+  },
+  {
+    "year": 105,
+    "city": "City000020",
+    "accept": 917,
+    "adopt": 366,
+    "kill": 252,
+    "die": 255,
+    "human": 102304
+  },
+  {
+    "year": 105,
+    "city": "City000021",
+    "accept": 1098,
+    "adopt": 242,
+    "kill": 491,
+    "die": 52,
+    "human": 132799
+  },
+  {
+    "year": 105,
+    "city": "City000022",
+    "accept": 9,
+    "adopt": 5,
+    "die": 8,
+    "human": 12547
+  },
+  {
+    "year": 106,
+    "city": "City000001",
+    "domestic": 21147,
+    "roaming": 0,
+    "accept": 816,
+    "adopt": 747,
+    "die": 72,
+    "human": 372100
+  },
+  {
+    "year": 106,
+    "city": "City000002",
+    "domestic": 169263,
+    "roaming": 0,
+    "accept": 3244,
+    "adopt": 2817,
+    "kill": 179,
+    "die": 168,
+    "human": 2695704
+  },
+  {
+    "year": 106,
+    "city": "City000003",
+    "domestic": 244290,
+    "roaming": 0,
+    "accept": 7678,
+    "adopt": 7205,
+    "die": 433,
+    "human": 3979208
+  },
+  {
+    "year": 106,
+    "city": "City000004",
+    "domestic": 174894,
+    "roaming": 0,
+    "accept": 3241,
+    "adopt": 2874,
+    "kill": 21,
+    "die": 219,
+    "human": 2147763
+  },
+  {
+    "year": 106,
+    "city": "City000005",
+    "domestic": 47815,
+    "roaming": 0,
+    "accept": 482,
+    "adopt": 448,
+    "kill": 29,
+    "die": 25,
+    "human": 547481
+  },
+  {
+    "year": 106,
+    "city": "City000006",
+    "domestic": 36605,
+    "roaming": 0,
+    "accept": 301,
+    "adopt": 321,
+    "kill": 9,
+    "die": 25,
+    "human": 437337
+  },
+  {
+    "year": 106,
+    "city": "City000007",
+    "domestic": 83118,
+    "roaming": 0,
+    "accept": 1344,
+    "adopt": 956,
+    "kill": 26,
+    "die": 115,
+    "human": 559189
+  },
+  {
+    "year": 106,
+    "city": "City000008",
+    "domestic": 69851,
+    "roaming": 0,
+    "accept": 603,
+    "adopt": 475,
+    "kill": 7,
+    "die": 78,
+    "human": 505163
+  },
+  {
+    "year": 106,
+    "city": "City000009",
+    "domestic": 154468,
+    "roaming": 0,
+    "accept": 5925,
+    "adopt": 3854,
+    "kill": 82,
+    "die": 677,
+    "human": 2767239
+  },
+  {
+    "year": 106,
+    "city": "City000010",
+    "domestic": 93655,
+    "roaming": 0,
+    "accept": 661,
+    "adopt": 519,
+    "kill": 44,
+    "die": 107,
+    "human": 1287146
+  },
+  {
+    "year": 106,
+    "city": "City000011",
+    "domestic": 53443,
+    "roaming": 0,
+    "accept": 741,
+    "adopt": 463,
+    "kill": 6,
+    "die": 49,
+    "human": 694873
+  },
+  {
+    "year": 106,
+    "city": "City000012",
+    "domestic": 43753,
+    "roaming": 0,
+    "accept": 344,
+    "adopt": 234,
+    "kill": 14,
+    "die": 56,
+    "human": 515320
+  },
+  {
+    "year": 106,
+    "city": "City000013",
+    "domestic": 15432,
+    "roaming": 0,
+    "accept": 673,
+    "adopt": 605,
+    "kill": 37,
+    "die": 46,
+    "human": 269874
+  },
+  {
+    "year": 106,
+    "city": "City000014",
+    "domestic": 116198,
+    "roaming": 0,
+    "accept": 6417,
+    "adopt": 6397,
+    "die": 525,
+    "human": 1886033
+  },
+  {
+    "year": 106,
+    "city": "City000015",
+    "domestic": 258013,
+    "roaming": 0,
+    "accept": 5026,
+    "adopt": 3802,
+    "kill": 11,
+    "die": 424,
+    "human": 2779371
+  },
+  {
+    "year": 106,
+    "city": "City000016",
+    "domestic": 94456,
+    "roaming": 0,
+    "accept": 1326,
+    "adopt": 965,
+    "kill": 33,
+    "die": 273,
+    "human": 835792
+  },
+  {
+    "year": 106,
+    "city": "City000017",
+    "domestic": 28988,
+    "roaming": 0,
+    "accept": 1162,
+    "adopt": 1132,
+    "kill": 15,
+    "die": 4,
+    "human": 220802
+  },
+  {
+    "year": 106,
+    "city": "City000018",
+    "domestic": 38924,
+    "roaming": 0,
+    "accept": 576,
+    "adopt": 500,
+    "kill": 8,
+    "die": 49,
+    "human": 330911
+  },
+  {
+    "year": 106,
+    "city": "City000019",
+    "domestic": 32939,
+    "roaming": 0,
+    "accept": 1642,
+    "adopt": 883,
+    "kill": 159,
+    "die": 240,
+    "human": 457538
+  },
+  {
+    "year": 106,
+    "city": "City000020",
+    "domestic": 0,
+    "roaming": 0,
+    "accept": 451,
+    "adopt": 330,
+    "kill": 38,
+    "die": 50,
+    "human": 103263
+  },
+  {
+    "year": 106,
+    "city": "City000021",
+    "domestic": 0,
+    "roaming": 0,
+    "accept": 772,
+    "adopt": 304,
+    "kill": 45,
+    "die": 37,
+    "human": 135114
+  },
+  {
+    "year": 106,
+    "city": "City000022",
+    "domestic": 0,
+    "roaming": 0,
+    "accept": 13,
+    "adopt": 4,
+    "die": 5,
+    "human": 12595
+  },
+  {
+    "year": 107,
+    "city": "City000001",
+    "domestic": 0,
+    "roaming": 4807,
+    "accept": 517,
+    "adopt": 451,
+    "die": 57,
+    "human": 371458,
+    "room": 100,
+    "seized": 6,
+    "return": 1,
+    "miss": 20,
+    "occupy": 72
+  },
+  {
+    "year": 107,
+    "city": "City000002",
+    "domestic": 0,
+    "roaming": 4660,
+    "accept": 3057,
+    "adopt": 2761,
+    "kill": 3,
+    "die": 131,
+    "human": 2683257,
+    "room": 840,
+    "miss": 38,
+    "occupy": 579.6
+  },
+  {
+    "year": 107,
+    "city": "City000003",
+    "domestic": 0,
+    "roaming": 12202,
+    "accept": 6225,
+    "adopt": 5855,
+    "die": 337,
+    "human": 3986689,
+    "room": 1615,
+    "return": 12,
+    "miss": 88,
+    "occupy": 1162.8
+  },
+  {
+    "year": 107,
+    "city": "City000004",
+    "domestic": 0,
+    "roaming": 9686,
+    "accept": 3725,
+    "adopt": 2233,
+    "kill": 26,
+    "die": 120,
+    "human": 2188017,
+    "room": 652,
+    "return": 884,
+    "miss": 288,
+    "occupy": 534.64
+  },
+  {
+    "year": 107,
+    "city": "City000005",
+    "domestic": 0,
+    "roaming": 5659,
+    "accept": 373,
+    "adopt": 328,
+    "die": 32,
+    "human": 552169,
+    "room": 162,
+    "return": 13,
+    "miss": 3,
+    "occupy": 37.26
+  },
+  {
+    "year": 107,
+    "city": "City000006",
+    "domestic": 0,
+    "roaming": 783,
+    "accept": 281,
+    "adopt": 213,
+    "kill": 6,
+    "die": 42,
+    "human": 441132,
+    "room": 250,
+    "miss": 3,
+    "occupy": 67.5
+  },
+  {
+    "year": 107,
+    "city": "City000007",
+    "domestic": 0,
+    "roaming": 1685,
+    "accept": 1008,
+    "adopt": 313,
+    "kill": 23,
+    "die": 171,
+    "human": 553807,
+    "room": 371,
+    "return": 565,
+    "miss": 26,
+    "occupy": 33.39
+  },
+  {
+    "year": 107,
+    "city": "City000008",
+    "domestic": 0,
+    "roaming": 4243,
+    "accept": 320,
+    "adopt": 299,
+    "kill": 1,
+    "die": 28,
+    "human": 501051,
+    "room": 300,
+    "seized": 2,
+    "miss": 1,
+    "occupy": 291
+  },
+  {
+    "year": 107,
+    "city": "City000009",
+    "domestic": 0,
+    "roaming": 7029,
+    "accept": 6998,
+    "adopt": 3650,
+    "kill": 24,
+    "die": 721,
+    "human": 2787070,
+    "room": 800,
+    "seized": 26,
+    "return": 2479,
+    "miss": 36,
+    "occupy": 352
+  },
+  {
+    "year": 107,
+    "city": "City000010",
+    "domestic": 0,
+    "roaming": 16473,
+    "accept": 552,
+    "adopt": 509,
+    "die": 36,
+    "human": 1282458,
+    "room": 239,
+    "seized": 3,
+    "miss": 25,
+    "occupy": 100.38
+  },
+  {
+    "year": 107,
+    "city": "City000011",
+    "domestic": 0,
+    "roaming": 3542,
+    "accept": 759,
+    "adopt": 486,
+    "die": 76,
+    "human": 690373,
+    "room": 300,
+    "miss": 3,
+    "occupy": 432
+  },
+  {
+    "year": 107,
+    "city": "City000012",
+    "domestic": 0,
+    "roaming": 9097,
+    "accept": 231,
+    "adopt": 196,
+    "kill": 3,
+    "die": 34,
+    "human": 511182,
+    "room": 200,
+    "miss": 4,
+    "occupy": 114
+  },
+  {
+    "year": 107,
+    "city": "City000013",
+    "domestic": 0,
+    "roaming": 3094,
+    "accept": 294,
+    "adopt": 280,
+    "kill": 5,
+    "die": 11,
+    "human": 269398,
+    "room": 100,
+    "seized": 10,
+    "miss": 2,
+    "occupy": 30
+  },
+  {
+    "year": 107,
+    "city": "City000014",
+    "domestic": 0,
+    "roaming": 22176,
+    "accept": 7423,
+    "adopt": 4339,
+    "die": 261,
+    "human": 1886522,
+    "room": 700,
+    "return": 2219,
+    "miss": 14,
+    "occupy": 861
+  },
+  {
+    "year": 107,
+    "city": "City000015",
+    "domestic": 0,
+    "roaming": 5992,
+    "accept": 4086,
+    "adopt": 3394,
+    "die": 239,
+    "human": 2776912,
+    "room": 900,
+    "seized": 36,
+    "miss": 260,
+    "occupy": 702
+  },
+  {
+    "year": 107,
+    "city": "City000016",
+    "domestic": 0,
+    "roaming": 10973,
+    "accept": 359,
+    "adopt": 247,
+    "kill": 1,
+    "die": 1,
+    "human": 829939,
+    "room": 580,
+    "seized": 1,
+    "miss": 2,
+    "occupy": 104.4
+  },
+  {
+    "year": 107,
+    "city": "City000017",
+    "domestic": 0,
+    "roaming": 8485,
+    "accept": 584,
+    "adopt": 556,
+    "kill": 7,
+    "die": 8,
+    "human": 219540,
+    "room": 104,
+    "miss": 6,
+    "occupy": 18.72
+  },
+  {
+    "year": 107,
+    "city": "City000018",
+    "domestic": 0,
+    "roaming": 8167,
+    "accept": 442,
+    "adopt": 293,
+    "kill": 11,
+    "die": 24,
+    "human": 329237,
+    "room": 330,
+    "seized": 4,
+    "return": 115,
+    "miss": 2,
+    "occupy": 82.5
+  },
+  {
+    "year": 107,
+    "city": "City000019",
+    "domestic": 0,
+    "roaming": 4667,
+    "accept": 1206,
+    "adopt": 595,
+    "kill": 24,
+    "die": 134,
+    "human": 456607,
+    "room": 270,
+    "miss": 333,
+    "occupy": 194.4
+  },
+  {
+    "year": 107,
+    "city": "City000020",
+    "domestic": 0,
+    "roaming": 3008,
+    "accept": 453,
+    "adopt": 283,
+    "kill": 37,
+    "die": 75,
+    "human": 104073,
+    "room": 348,
+    "miss": 13,
+    "occupy": 142.68
+  },
+  {
+    "year": 107,
+    "city": "City000021",
+    "domestic": 0,
+    "roaming": 305,
+    "accept": 777,
+    "adopt": 268,
+    "kill": 1,
+    "die": 30,
+    "human": 137456,
+    "room": 200,
+    "return": 480,
+    "occupy": 40
+  },
+  {
+    "year": 107,
+    "city": "City000022",
+    "domestic": 0,
+    "roaming": 41,
+    "accept": 27,
+    "adopt": 24,
+    "die": 3,
+    "human": 12880,
+    "room": 120,
+    "occupy": 40.8
+  },
+  {
+    "year": 108,
+    "city": "City000001",
+    "domestic": 16812,
+    "roaming": 0,
+    "human": 370155,
+    "room": 100,
+    "seized": 39,
+    "accept": 413,
+    "adopt": 368,
+    "die": 47,
+    "miss": 20,
+    "occupy": 44
+  },
+  {
+    "year": 108,
+    "city": "City000002",
+    "domestic": 140959,
+    "roaming": 0,
+    "human": 2668572,
+    "room": 840,
+    "accept": 2983,
+    "adopt": 2422,
+    "kill": 3,
+    "die": 213,
+    "return": 3,
+    "miss": 47,
+    "occupy": 680.4
+  },
+  {
+    "year": 108,
+    "city": "City000003",
+    "domestic": 211383,
+    "roaming": 0,
+    "human": 3995717,
+    "room": 1615,
+    "seized": 1,
+    "accept": 6688,
+    "adopt": 5952,
+    "die": 408,
+    "return": 20,
+    "miss": 82,
+    "occupy": 1308.15
+  },
+  {
+    "year": 108,
+    "city": "City000004",
+    "domestic": 131010,
+    "roaming": 0,
+    "human": 2220872,
+    "room": 652,
+    "accept": 5085,
+    "adopt": 2249,
+    "kill": 22,
+    "die": 204,
+    "return": 2205,
+    "miss": 325,
+    "occupy": 586.8
+  },
+  {
+    "year": 108,
+    "city": "City000005",
+    "domestic": 46940,
+    "roaming": 0,
+    "human": 557010,
+    "room": 162,
+    "seized": 64,
+    "accept": 510,
+    "adopt": 324,
+    "die": 43,
+    "return": 61,
+    "miss": 5,
+    "occupy": 113.4
+  },
+  {
+    "year": 108,
+    "city": "City000006",
+    "domestic": 39056,
+    "roaming": 0,
+    "human": 445635,
+    "room": 250,
+    "accept": 640,
+    "adopt": 241,
+    "kill": 11,
+    "die": 76,
+    "return": 187,
+    "miss": 21,
+    "occupy": 127.5
+  },
+  {
+    "year": 108,
+    "city": "City000007",
+    "domestic": 41954,
+    "roaming": 0,
+    "human": 548863,
+    "room": 371,
+    "accept": 1355,
+    "adopt": 361,
+    "kill": 5,
+    "die": 194,
+    "return": 651,
+    "miss": 26,
+    "occupy": 137.27
+  },
+  {
+    "year": 108,
+    "city": "City000008",
+    "domestic": 51506,
+    "roaming": 0,
+    "human": 497031,
+    "room": 300,
+    "seized": 1,
+    "accept": 463,
+    "adopt": 296,
+    "kill": 7,
+    "die": 27,
+    "return": 158,
+    "miss": 1,
+    "occupy": 267
+  },
+  {
+    "year": 108,
+    "city": "City000009",
+    "domestic": 150907,
+    "roaming": 0,
+    "human": 2803894,
+    "room": 800,
+    "accept": 8361,
+    "adopt": 4686,
+    "kill": 48,
+    "die": 413,
+    "return": 3203,
+    "miss": 36,
+    "occupy": 392
+  },
+  {
+    "year": 108,
+    "city": "City000010",
+    "domestic": 80138,
+    "roaming": 0,
+    "human": 1277824,
+    "room": 239,
+    "seized": 26,
+    "accept": 2100,
+    "adopt": 1047,
+    "die": 395,
+    "return": 359,
+    "miss": 48,
+    "occupy": 348.94
+  },
+  {
+    "year": 108,
+    "city": "City000011",
+    "domestic": 58899,
+    "roaming": 0,
+    "human": 686022,
+    "room": 300,
+    "seized": 267,
+    "accept": 819,
+    "adopt": 728,
+    "die": 146,
+    "miss": 3,
+    "occupy": 354
+  },
+  {
+    "year": 108,
+    "city": "City000012",
+    "domestic": 50274,
+    "roaming": 0,
+    "human": 507068,
+    "room": 200,
+    "seized": 13,
+    "accept": 227,
+    "adopt": 107,
+    "kill": 3,
+    "die": 46,
+    "return": 30,
+    "miss": 15,
+    "occupy": 140
+  },
+  {
+    "year": 108,
+    "city": "City000013",
+    "domestic": 15584,
+    "roaming": 0,
+    "human": 268622,
+    "room": 100,
+    "seized": 1,
+    "accept": 313,
+    "adopt": 266,
+    "kill": 8,
+    "die": 6,
+    "miss": 3,
+    "occupy": 47
+  },
+  {
+    "year": 108,
+    "city": "City000014",
+    "domestic": 85038,
+    "roaming": 0,
+    "human": 1883831,
+    "room": 700,
+    "accept": 8277,
+    "adopt": 4075,
+    "die": 398,
+    "return": 3746,
+    "miss": 14,
+    "occupy": 945
+  },
+  {
+    "year": 108,
+    "city": "City000015",
+    "domestic": 196423,
+    "roaming": 0,
+    "human": 2773533,
+    "room": 900,
+    "seized": 7,
+    "accept": 5331,
+    "adopt": 4926,
+    "die": 264,
+    "miss": 67,
+    "occupy": 774
+  },
+  {
+    "year": 108,
+    "city": "City000016",
+    "domestic": 105977,
+    "roaming": 0,
+    "human": 825406,
+    "room": 580,
+    "seized": 5,
+    "accept": 883,
+    "adopt": 453,
+    "kill": 6,
+    "die": 6,
+    "return": 426,
+    "occupy": 127.6
+  },
+  {
+    "year": 108,
+    "city": "City000017",
+    "domestic": 31167,
+    "roaming": 0,
+    "human": 218919,
+    "room": 104,
+    "accept": 529,
+    "adopt": 519,
+    "kill": 1,
+    "die": 4,
+    "occupy": 22.88
+  },
+  {
+    "year": 108,
+    "city": "City000018",
+    "domestic": 33860,
+    "roaming": 0,
+    "human": 327968,
+    "room": 330,
+    "accept": 507,
+    "adopt": 259,
+    "kill": 20,
+    "die": 21,
+    "return": 242,
+    "miss": 1,
+    "occupy": 52.8
+  },
+  {
+    "year": 108,
+    "city": "City000019",
+    "domestic": 37904,
+    "roaming": 0,
+    "human": 455221,
+    "room": 270,
+    "accept": 1534,
+    "adopt": 936,
+    "kill": 14,
+    "die": 182,
+    "miss": 361,
+    "occupy": 251.1
+  },
+  {
+    "year": 108,
+    "city": "City000020",
+    "domestic": 4629,
+    "roaming": 0,
+    "human": 104440,
+    "room": 348,
+    "accept": 588,
+    "adopt": 261,
+    "die": 265,
+    "occupy": 201.84
+  },
+  {
+    "year": 108,
+    "city": "City000021",
+    "domestic": 6573,
+    "roaming": 0,
+    "human": 139273,
+    "room": 200,
+    "accept": 818,
+    "adopt": 266,
+    "kill": 5,
+    "die": 19,
+    "return": 443,
+    "miss": 2,
+    "occupy": 78
+  },
+  {
+    "year": 108,
+    "city": "City000022",
+    "domestic": 448,
+    "roaming": 0,
+    "human": 13056,
+    "room": 120,
+    "accept": 23,
+    "adopt": 9,
+    "die": 1,
+    "occupy": 54
+  },
+  {
+    "year": 109,
+    "city": "City000001",
+    "domestic": 0,
+    "roaming": 1053,
+    "human": 368893,
+    "room": 100,
+    "accept": 370,
+    "adopt": 299,
+    "die": 46,
+    "miss": 33,
+    "occupy": 48
+  },
+  {
+    "year": 109,
+    "city": "City000002",
+    "domestic": 0,
+    "roaming": 3259,
+    "human": 2645041,
+    "room": 840,
+    "accept": 2536,
+    "adopt": 2215,
+    "kill": 3,
+    "die": 209,
+    "miss": 70,
+    "occupy": 697.2
+  },
+  {
+    "year": 109,
+    "city": "City000003",
+    "domestic": 0,
+    "roaming": 11328,
+    "human": 4018696,
+    "room": 1615,
+    "seized": 2,
+    "accept": 5218,
+    "adopt": 5043,
+    "die": 168,
+    "return": 15,
+    "miss": 21,
+    "occupy": 1308.15
+  },
+  {
+    "year": 109,
+    "city": "City000004",
+    "domestic": 0,
+    "roaming": 11062,
+    "human": 2249037,
+    "room": 652,
+    "seized": 2,
+    "accept": 5572,
+    "adopt": 2605,
+    "kill": 2,
+    "die": 201,
+    "return": 1943,
+    "miss": 700,
+    "occupy": 652
+  },
+  {
+    "year": 109,
+    "city": "City000005",
+    "domestic": 0,
+    "roaming": 4186,
+    "human": 563933,
+    "room": 162,
+    "seized": 5,
+    "accept": 645,
+    "adopt": 459,
+    "die": 60,
+    "return": 69,
+    "miss": 32,
+    "occupy": 139.32
+  },
+  {
+    "year": 109,
+    "city": "City000006",
+    "domestic": 0,
+    "roaming": 3225,
+    "human": 448803,
+    "room": 250,
+    "accept": 741,
+    "adopt": 362,
+    "kill": 15,
+    "die": 64,
+    "return": 338,
+    "miss": 4,
+    "occupy": 122.5
+  },
+  {
+    "year": 109,
+    "city": "City000007",
+    "domestic": 0,
+    "roaming": 2905,
+    "human": 545459,
+    "room": 371,
+    "accept": 2062,
+    "adopt": 630,
+    "kill": 7,
+    "die": 260,
+    "return": 1038,
+    "miss": 63,
+    "occupy": 170.66
+  },
+  {
+    "year": 109,
+    "city": "City000008",
+    "domestic": 0,
+    "roaming": 6724,
+    "human": 494112,
+    "room": 300,
+    "seized": 1,
+    "accept": 835,
+    "adopt": 322,
+    "kill": 11,
+    "die": 29,
+    "return": 474,
+    "miss": 3,
+    "occupy": 261
+  },
+  {
+    "year": 109,
+    "city": "City000009",
+    "domestic": 0,
+    "roaming": 6686,
+    "human": 2815261,
+    "room": 800,
+    "seized": 92,
+    "accept": 7610,
+    "adopt": 3417,
+    "kill": 25,
+    "die": 351,
+    "return": 3921,
+    "miss": 38,
+    "occupy": 344
+  },
+  {
+    "year": 109,
+    "city": "City000010",
+    "domestic": 0,
+    "roaming": 9168,
+    "human": 1272802,
+    "room": 239,
+    "seized": 7,
+    "accept": 1821,
+    "adopt": 1456,
+    "die": 77,
+    "return": 460,
+    "miss": 3,
+    "occupy": 141.01
+  },
+  {
+    "year": 109,
+    "city": "City000011",
+    "domestic": 0,
+    "roaming": 5799,
+    "human": 681306,
+    "room": 300,
+    "accept": 175,
+    "adopt": 86,
+    "die": 91,
+    "miss": 19,
+    "occupy": 342
+  },
+  {
+    "year": 109,
+    "city": "City000012",
+    "domestic": 0,
+    "roaming": 17408,
+    "human": 503113,
+    "room": 200,
+    "seized": 3,
+    "accept": 1595,
+    "adopt": 263,
+    "die": 40,
+    "return": 1293,
+    "miss": 73,
+    "occupy": 68
+  },
+  {
+    "year": 109,
+    "city": "City000013",
+    "domestic": 0,
+    "roaming": 890,
+    "human": 267690,
+    "room": 100,
+    "accept": 331,
+    "adopt": 249,
+    "kill": 11,
+    "die": 18,
+    "return": 60,
+    "miss": 4,
+    "occupy": 46
+  },
+  {
+    "year": 109,
+    "city": "City000014",
+    "domestic": 0,
+    "roaming": 19539,
+    "human": 1880906,
+    "room": 700,
+    "accept": 7086,
+    "adopt": 3111,
+    "die": 367,
+    "return": 3630,
+    "miss": 26,
+    "occupy": 847
+  },
+  {
+    "year": 109,
+    "city": "City000015",
+    "domestic": 0,
+    "roaming": 17271,
+    "human": 2773198,
+    "room": 900,
+    "seized": 16,
+    "accept": 4708,
+    "adopt": 3671,
+    "die": 243,
+    "return": 235,
+    "miss": 356,
+    "occupy": 963
+  },
+  {
+    "year": 109,
+    "city": "City000016",
+    "domestic": 0,
+    "roaming": 20291,
+    "human": 819184,
+    "room": 580,
+    "accept": 951,
+    "adopt": 436,
+    "kill": 4,
+    "die": 15,
+    "return": 533,
+    "occupy": 92.8
+  },
+  {
+    "year": 109,
+    "city": "City000017",
+    "domestic": 0,
+    "roaming": 3791,
+    "human": 216781,
+    "room": 104,
+    "accept": 554,
+    "adopt": 535,
+    "kill": 2,
+    "die": 9,
+    "return": 2,
+    "miss": 3,
+    "occupy": 26
+  },
+  {
+    "year": 109,
+    "city": "City000018",
+    "domestic": 0,
+    "roaming": 5975,
+    "human": 326247,
+    "room": 330,
+    "accept": 591,
+    "adopt": 199,
+    "kill": 11,
+    "die": 11,
+    "return": 374,
+    "miss": 1,
+    "occupy": 39.6
+  },
+  {
+    "year": 109,
+    "city": "City000019",
+    "domestic": 0,
+    "roaming": 3930,
+    "human": 454178,
+    "room": 270,
+    "accept": 1782,
+    "adopt": 896,
+    "die": 54,
+    "miss": 826,
+    "occupy": 256.5
+  },
+  {
+    "year": 109,
+    "city": "City000020",
+    "domestic": 0,
+    "roaming": 0,
+    "human": 105207,
+    "room": 348,
+    "accept": 576,
+    "adopt": 223,
+    "kill": 1,
+    "die": 190,
+    "miss": 9,
+    "occupy": 348
+  },
+  {
+    "year": 109,
+    "city": "City000021",
+    "domestic": 0,
+    "roaming": 1173,
+    "human": 140185,
+    "room": 200,
+    "accept": 1058,
+    "adopt": 260,
+    "die": 33,
+    "return": 803,
+    "occupy": 82
+  },
+  {
+    "year": 109,
+    "city": "City000022",
+    "domestic": 0,
+    "roaming": 204,
+    "human": 13089,
+    "room": 120,
+    "accept": 14,
+    "adopt": 16,
+    "occupy": 51.6
+  },
+  {
+    "year": 110,
+    "city": "City000001",
+    "domestic": 15949,
+    "roaming": 0,
+    "human": 367577,
+    "room": 100,
+    "infant": 29,
+    "accept": 268,
+    "adopt": 257,
+    "die": 29,
+    "return": 13,
+    "miss": 17,
+    "occupy": 46
+  },
+  {
+    "year": 110,
+    "city": "City000002",
+    "domestic": 126358,
+    "roaming": 0,
+    "human": 2602418,
+    "room": 840,
+    "infant": 197,
+    "accept": 2085,
+    "adopt": 1944,
+    "die": 182,
+    "miss": 70,
+    "occupy": 680.4
+  },
+  {
+    "year": 110,
+    "city": "City000003",
+    "domestic": 180116,
+    "roaming": 0,
+    "human": 4030954,
+    "room": 1615,
+    "infant": 381,
+    "accept": 5066,
+    "adopt": 4665,
+    "die": 217,
+    "return": 14,
+    "miss": 303,
+    "occupy": 1211.25,
+    "seized": 1
+  },
+  {
+    "year": 110,
+    "city": "City000004",
+    "domestic": 168774,
+    "roaming": 0,
+    "human": 2268807,
+    "room": 652,
+    "infant": 94,
+    "accept": 4168,
+    "seized": 4,
+    "adopt": 2967,
+    "die": 202,
+    "return": 992,
+    "miss": 680,
+    "occupy": 586.8
+  },
+  {
+    "year": 110,
+    "city": "City000005",
+    "domestic": 30656,
+    "roaming": 0,
+    "human": 570775,
+    "room": 162,
+    "infant": 63,
+    "accept": 424,
+    "adopt": 355,
+    "die": 26,
+    "return": 163,
+    "miss": 23,
+    "occupy": 147.42
+  },
+  {
+    "year": 110,
+    "city": "City000006",
+    "domestic": 21975,
+    "roaming": 0,
+    "human": 451412,
+    "room": 250,
+    "infant": 107,
+    "accept": 433,
+    "adopt": 344,
+    "kill": 16,
+    "die": 21,
+    "return": 347,
+    "miss": 40,
+    "occupy": 170
+  },
+  {
+    "year": 110,
+    "city": "City000007",
+    "domestic": 43999,
+    "roaming": 0,
+    "human": 542590,
+    "room": 371,
+    "infant": 2,
+    "accept": 2391,
+    "adopt": 702,
+    "kill": 1,
+    "die": 110,
+    "return": 1363,
+    "miss": 288,
+    "occupy": 115.01
+  },
+  {
+    "year": 110,
+    "city": "City000008",
+    "domestic": 37825,
+    "roaming": 0,
+    "human": 490832,
+    "room": 300,
+    "infant": 73,
+    "accept": 639,
+    "seized": 2,
+    "adopt": 477,
+    "kill": 4,
+    "die": 79,
+    "return": 893,
+    "miss": 94,
+    "occupy": 330
+  },
+  {
+    "year": 110,
+    "city": "City000009",
+    "domestic": 139957,
+    "roaming": 0,
+    "human": 2820787,
+    "room": 800,
+    "infant": 453,
+    "accept": 2709,
+    "seized": 5,
+    "adopt": 1938,
+    "kill": 18,
+    "die": 236,
+    "return": 3712,
+    "miss": 329,
+    "occupy": 392
+  },
+  {
+    "year": 110,
+    "city": "City000010",
+    "domestic": 64868,
+    "roaming": 0,
+    "human": 1266670,
+    "room": 239,
+    "infant": 357,
+    "seized": 11,
+    "accept": 1636,
+    "adopt": 1124,
+    "die": 28,
+    "return": 412,
+    "miss": 89,
+    "occupy": 169.69
+  },
+  {
+    "year": 110,
+    "city": "City000011",
+    "domestic": 50389,
+    "roaming": 0,
+    "human": 676873,
+    "room": 300,
+    "accept": 158,
+    "adopt": 41,
+    "die": 78,
+    "miss": 10,
+    "occupy": 378
+  },
+  {
+    "year": 110,
+    "city": "City000012",
+    "domestic": 34579,
+    "roaming": 0,
+    "human": 499481,
+    "room": 200,
+    "infant": 15,
+    "accept": 550,
+    "seized": 46,
+    "adopt": 312,
+    "die": 74,
+    "return": 1207,
+    "miss": 213,
+    "occupy": 62
+  },
+  {
+    "year": 110,
+    "city": "City000013",
+    "domestic": 13618,
+    "roaming": 0,
+    "human": 266005,
+    "room": 100,
+    "infant": 24,
+    "accept": 100,
+    "adopt": 208,
+    "kill": 9,
+    "die": 34,
+    "return": 53,
+    "miss": 20,
+    "occupy": 51
+  },
+  {
+    "year": 110,
+    "city": "City000014",
+    "domestic": 77333,
+    "roaming": 0,
+    "human": 1874917,
+    "room": 700,
+    "infant": 257,
+    "accept": 3769,
+    "adopt": 2617,
+    "die": 418,
+    "return": 4127,
+    "miss": 23,
+    "occupy": 1015
+  },
+  {
+    "year": 110,
+    "city": "City000015",
+    "domestic": 100266,
+    "roaming": 0,
+    "human": 2765932,
+    "room": 900,
+    "infant": 78,
+    "seized": 5,
+    "accept": 3589,
+    "adopt": 2060,
+    "die": 154,
+    "return": 885,
+    "miss": 705,
+    "occupy": 747
+  },
+  {
+    "year": 110,
+    "city": "City000016",
+    "domestic": 59796,
+    "roaming": 0,
+    "human": 812658,
+    "room": 580,
+    "accept": 620,
+    "adopt": 641,
+    "kill": 4,
+    "die": 33,
+    "return": 298,
+    "miss": 40,
+    "occupy": 75.4
+  },
+  {
+    "year": 110,
+    "city": "City000017",
+    "domestic": 13674,
+    "roaming": 0,
+    "human": 215261,
+    "room": 104,
+    "infant": 1,
+    "accept": 586,
+    "adopt": 521,
+    "kill": 1,
+    "die": 17,
+    "return": 1239,
+    "miss": 32,
+    "occupy": 68.64
+  },
+  {
+    "year": 110,
+    "city": "City000018",
+    "domestic": 26597,
+    "roaming": 0,
+    "human": 324372,
+    "room": 330,
+    "infant": 10,
+    "accept": 350,
+    "adopt": 97,
+    "kill": 13,
+    "die": 5,
+    "return": 190,
+    "miss": 53,
+    "occupy": 112.2
+  },
+  {
+    "year": 110,
+    "city": "City000019",
+    "domestic": 18749,
+    "roaming": 0,
+    "human": 453087,
+    "room": 270,
+    "infant": 288,
+    "accept": 1653,
+    "adopt": 665,
+    "kill": 3,
+    "die": 55,
+    "return": 803,
+    "miss": 170,
+    "occupy": 221.4,
+    "seized": 1
+  },
+  {
+    "year": 110,
+    "city": "City000020",
+    "domestic": 4466,
+    "roaming": 0,
+    "human": 105952,
+    "room": 348,
+    "infant": 29,
+    "accept": 730,
+    "adopt": 121,
+    "kill": 13,
+    "die": 93,
+    "return": 86,
+    "miss": 169,
+    "occupy": 591.6
+  },
+  {
+    "year": 110,
+    "city": "City000021",
+    "domestic": 4899,
+    "roaming": 0,
+    "human": 140597,
+    "room": 200,
+    "infant": 66,
+    "accept": 455,
+    "adopt": 227,
+    "die": 36,
+    "return": 945,
+    "miss": 44,
+    "occupy": 84
+  },
+  {
+    "year": 110,
+    "city": "City000022",
+    "domestic": 375,
+    "roaming": 0,
+    "human": 13279,
+    "room": 120,
+    "accept": 6,
+    "adopt": 1,
+    "occupy": 55.2
+  },
+  {
+    "year": 111,
+    "city": "City000001",
+    "domestic": 0,
+    "roaming": 1570,
+    "human": 363977,
+    "room": 100,
+    "infant": 27,
+    "accept": 173,
+    "adopt": 142,
+    "kill": 1,
+    "die": 28,
+    "return": 7,
+    "miss": 5,
+    "occupy": 47
+  },
+  {
+    "year": 111,
+    "city": "City000002",
+    "domestic": 0,
+    "roaming": 2364,
+    "human": 2524393,
+    "room": 840,
+    "infant": 176,
+    "accept": 2120,
+    "adopt": 1813,
+    "die": 162,
+    "miss": 24,
+    "occupy": 739.2
+  },
+  {
+    "year": 111,
+    "city": "City000003",
+    "domestic": 0,
+    "roaming": 10920,
+    "human": 4008113,
+    "room": 1615,
+    "infant": 517,
+    "accept": 4466,
+    "seized": 15,
+    "adopt": 4175,
+    "die": 121,
+    "return": 29,
+    "miss": 209,
+    "occupy": 1146.65
+  },
+  {
+    "year": 111,
+    "city": "City000004",
+    "domestic": 0,
+    "roaming": 15995,
+    "human": 2272391,
+    "room": 652,
+    "infant": 34,
+    "accept": 3684,
+    "adopt": 2231,
+    "die": 137,
+    "return": 831,
+    "miss": 710,
+    "occupy": 723.72
+  },
+  {
+    "year": 111,
+    "city": "City000005",
+    "domestic": 0,
+    "roaming": 2051,
+    "human": 575580,
+    "room": 162,
+    "infant": 111,
+    "accept": 506,
+    "seized": 3,
+    "adopt": 442,
+    "die": 40,
+    "return": 292,
+    "miss": 10,
+    "occupy": 145.8
+  },
+  {
+    "year": 111,
+    "city": "City000006",
+    "domestic": 0,
+    "roaming": 2657,
+    "human": 452640,
+    "room": 250,
+    "infant": 205,
+    "accept": 510,
+    "seized": 30,
+    "adopt": 374,
+    "kill": 11,
+    "die": 22,
+    "return": 377,
+    "miss": 4,
+    "occupy": 200
+  },
+  {
+    "year": 111,
+    "city": "City000007",
+    "domestic": 0,
+    "roaming": 3892,
+    "human": 538178,
+    "room": 371,
+    "infant": 13,
+    "accept": 2464,
+    "seized": 82,
+    "adopt": 585,
+    "kill": 9,
+    "die": 286,
+    "return": 1482,
+    "miss": 92,
+    "occupy": 129.85
+  },
+  {
+    "year": 111,
+    "city": "City000008",
+    "domestic": 0,
+    "roaming": 9859,
+    "human": 484897,
+    "room": 300,
+    "infant": 55,
+    "accept": 991,
+    "adopt": 360,
+    "kill": 6,
+    "die": 55,
+    "return": 1460,
+    "miss": 3,
+    "occupy": 321
+  },
+  {
+    "year": 111,
+    "city": "City000009",
+    "domestic": 0,
+    "roaming": 10846,
+    "human": 2813490,
+    "room": 800,
+    "infant": 668,
+    "accept": 2717,
+    "seized": 27,
+    "adopt": 2311,
+    "die": 217,
+    "return": 5392,
+    "miss": 235,
+    "occupy": 288
+  },
+  {
+    "year": 111,
+    "city": "City000010",
+    "domestic": 0,
+    "roaming": 13352,
+    "human": 1255330,
+    "room": 239,
+    "infant": 514,
+    "seized": 3,
+    "accept": 1874,
+    "adopt": 1123,
+    "die": 59,
+    "return": 615,
+    "miss": 87,
+    "occupy": 160.13
+  },
+  {
+    "year": 111,
+    "city": "City000011",
+    "domestic": 0,
+    "roaming": 7444,
+    "human": 670132,
+    "room": 300,
+    "seized": 10,
+    "accept": 1212,
+    "adopt": 500,
+    "die": 263,
+    "return": 450,
+    "miss": 13,
+    "occupy": 369
+  },
+  {
+    "year": 111,
+    "city": "City000012",
+    "domestic": 0,
+    "roaming": 12111,
+    "human": 493316,
+    "room": 200,
+    "infant": 13,
+    "accept": 413,
+    "seized": 16,
+    "adopt": 367,
+    "die": 13,
+    "return": 2773,
+    "occupy": 78
+  },
+  {
+    "year": 111,
+    "city": "City000013",
+    "domestic": 0,
+    "roaming": 2695,
+    "human": 264727,
+    "room": 100,
+    "infant": 20,
+    "accept": 138,
+    "seized": 1,
+    "adopt": 166,
+    "kill": 22,
+    "die": 45,
+    "return": 138,
+    "miss": 2,
+    "occupy": 59
+  },
+  {
+    "year": 111,
+    "city": "City000014",
+    "domestic": 0,
+    "roaming": 11372,
+    "human": 1862059,
+    "room": 700,
+    "infant": 124,
+    "accept": 3321,
+    "adopt": 2399,
+    "die": 490,
+    "return": 5086,
+    "miss": 17,
+    "occupy": 973
+  },
+  {
+    "year": 111,
+    "city": "City000015",
+    "domestic": 0,
+    "roaming": 15812,
+    "human": 2744691,
+    "room": 900,
+    "infant": 75,
+    "seized": 37,
+    "accept": 3594,
+    "adopt": 2188,
+    "die": 90,
+    "return": 948,
+    "miss": 548,
+    "occupy": 576
+  },
+  {
+    "year": 111,
+    "city": "City000016",
+    "domestic": 0,
+    "roaming": 11711,
+    "human": 804440,
+    "room": 580,
+    "accept": 110,
+    "seized": 3,
+    "adopt": 498,
+    "kill": 14,
+    "die": 37,
+    "return": 757,
+    "miss": 5,
+    "occupy": 92.8
+  },
+  {
+    "year": 111,
+    "city": "City000017",
+    "domestic": 0,
+    "roaming": 6757,
+    "human": 213386,
+    "room": 104,
+    "accept": 364,
+    "adopt": 494,
+    "kill": 11,
+    "die": 42,
+    "return": 1061,
+    "miss": 2,
+    "occupy": 69.68
+  },
+  {
+    "year": 111,
+    "city": "City000018",
+    "domestic": 0,
+    "roaming": 11762,
+    "human": 321358,
+    "room": 330,
+    "infant": 7,
+    "accept": 754,
+    "seized": 9,
+    "adopt": 160,
+    "kill": 18,
+    "die": 33,
+    "return": 647,
+    "miss": 5,
+    "occupy": 240.9
+  },
+  {
+    "year": 111,
+    "city": "City000019",
+    "domestic": 0,
+    "roaming": 3126,
+    "human": 450692,
+    "room": 270,
+    "infant": 444,
+    "seized": 1,
+    "accept": 2348,
+    "adopt": 714,
+    "kill": 10,
+    "die": 89,
+    "return": 1506,
+    "miss": 8,
+    "occupy": 194.4
+  },
+  {
+    "year": 111,
+    "city": "City000020",
+    "domestic": 0,
+    "roaming": 2217,
+    "human": 106340,
+    "room": 348,
+    "infant": 29,
+    "accept": 602,
+    "adopt": 119,
+    "kill": 34,
+    "die": 162,
+    "return": 350,
+    "miss": 9,
+    "occupy": 528.96
+  },
+  {
+    "year": 111,
+    "city": "City000021",
+    "domestic": 0,
+    "roaming": 161,
+    "human": 141539,
+    "room": 200,
+    "infant": 13,
+    "accept": 237,
+    "adopt": 196,
+    "die": 13,
+    "return": 944,
+    "miss": 1,
+    "occupy": 104
+  },
+  {
+    "year": 111,
+    "city": "City000022",
+    "domestic": 0,
+    "roaming": 22,
+    "human": 13645,
+    "room": 120,
+    "accept": 4,
+    "adopt": 3,
+    "occupy": 56.4
+  },
+  {
+    "year": 112,
+    "city": "City000001",
+    "domestic": 15279,
+    "human": 361526,
+    "room": 100,
+    "infant": 8,
+    "accept": 113,
+    "seized": 10,
+    "adopt": 105,
+    "die": 10,
+    "return": 19,
+    "miss": 1,
+    "occupy": 34
+  },
+  {
+    "year": 112,
+    "city": "City000002",
+    "domestic": 118739,
+    "human": 2480681,
+    "h_visit": 8,
+    "h_roam": 4,
+    "room": 840,
+    "infant": 106,
+    "seized": 3,
+    "accept": 2165,
+    "adopt": 1646,
+    "die": 217,
+    "miss": 283,
+    "occupy": 730.8
+  },
+  {
+    "year": 112,
+    "city": "City000003",
+    "domestic": 213551,
+    "human": 3995551,
+    "h_visit": 8501,
+    "h_roam": 370,
+    "h_feed": 175,
+    "h_stop": 155,
+    "room": 1615,
+    "infant": 380,
+    "accept": 4410,
+    "seized": 37,
+    "adopt": 4249,
+    "die": 129,
+    "return": 3,
+    "miss": 147,
+    "occupy": 1033.6
+  },
+  {
+    "year": 112,
+    "city": "City000004",
+    "domestic": 150174,
+    "human": 2281464,
+    "h_visit": 6305,
+    "h_roam": 1721,
+    "h_feed": 87,
+    "h_stop": 45,
+    "room": 652,
+    "infant": 153,
+    "accept": 2798,
+    "adopt": 1131,
+    "die": 132,
+    "return": 529,
+    "miss": 1117,
+    "occupy": 730.24
+  },
+  {
+    "year": 112,
+    "city": "City000005",
+    "domestic": 43730,
+    "human": 580503,
+    "h_visit": 18,
+    "h_roam": 719,
+    "room": 162,
+    "infant": 21,
+    "accept": 567,
+    "seized": 1,
+    "adopt": 530,
+    "die": 86,
+    "return": 584,
+    "miss": 47,
+    "occupy": 131.22
+  },
+  {
+    "year": 112,
+    "city": "City000006",
+    "domestic": 25108,
+    "human": 452473,
+    "h_visit": 214,
+    "h_roam": 186,
+    "room": 250,
+    "infant": 100,
+    "accept": 387,
+    "adopt": 291,
+    "kill": 14,
+    "die": 28,
+    "return": 282,
+    "miss": 3,
+    "occupy": 170
+  },
+  {
+    "year": 112,
+    "city": "City000007",
+    "domestic": 46075,
+    "human": 535132,
+    "h_visit": 2369,
+    "h_roam": 55,
+    "h_feed": 34,
+    "h_stop": 19,
+    "room": 371,
+    "infant": 9,
+    "accept": 2396,
+    "seized": 12,
+    "adopt": 627,
+    "kill": 16,
+    "die": 68,
+    "return": 1540,
+    "miss": 29,
+    "occupy": 192.92
+  },
+  {
+    "year": 112,
+    "city": "City000008",
+    "domestic": 47789,
+    "human": 479595,
+    "h_visit": 231,
+    "h_roam": 330,
+    "room": 300,
+    "infant": 25,
+    "accept": 505,
+    "adopt": 423,
+    "kill": 19,
+    "die": 56,
+    "return": 1637,
+    "miss": 1,
+    "occupy": 342
+  },
+  {
+    "year": 112,
+    "city": "City000009",
+    "domestic": 152469,
+    "human": 2814459,
+    "h_visit": 8887,
+    "h_roam": 39,
+    "room": 800,
+    "infant": 435,
+    "accept": 2611,
+    "adopt": 1578,
+    "kill": 16,
+    "die": 334,
+    "return": 5045,
+    "miss": 61,
+    "occupy": 368
+  },
+  {
+    "year": 112,
+    "city": "City000010",
+    "domestic": 73055,
+    "human": 1245239,
+    "h_visit": 1507,
+    "h_roam": 2546,
+    "room": 239,
+    "infant": 318,
+    "seized": 3,
+    "accept": 1696,
+    "adopt": 785,
+    "kill": 2,
+    "die": 88,
+    "return": 706,
+    "miss": 110,
+    "occupy": 164.91
+  },
+  {
+    "year": 112,
+    "city": "City000011",
+    "domestic": 44872,
+    "human": 664092,
+    "h_visit": 2541,
+    "h_roam": 119,
+    "h_feed": 1,
+    "room": 300,
+    "accept": 1341,
+    "seized": 1,
+    "adopt": 753,
+    "die": 151,
+    "return": 430,
+    "miss": 7,
+    "occupy": 375
+  },
+  {
+    "year": 112,
+    "city": "City000012",
+    "domestic": 38581,
+    "human": 488158,
+    "h_visit": 16927,
+    "h_roam": 2968,
+    "room": 200,
+    "infant": 7,
+    "accept": 361,
+    "adopt": 280,
+    "kill": 3,
+    "die": 2,
+    "return": 3164,
+    "miss": 4,
+    "occupy": 118
+  },
+  {
+    "year": 112,
+    "city": "City000013",
+    "domestic": 15524,
+    "human": 262924,
+    "h_visit": 216,
+    "h_roam": 207,
+    "room": 100,
+    "infant": 11,
+    "accept": 168,
+    "adopt": 294,
+    "kill": 15,
+    "die": 11,
+    "return": 208,
+    "miss": 1,
+    "occupy": 93
+  },
+  {
+    "year": 112,
+    "city": "City000014",
+    "domestic": 113356,
+    "human": 1852997,
+    "h_roam": 118,
+    "h_feed": 4,
+    "h_stop": 4,
+    "room": 700,
+    "infant": 18,
+    "accept": 4080,
+    "adopt": 2108,
+    "die": 251,
+    "return": 5186,
+    "miss": 38,
+    "occupy": 1211
+  },
+  {
+    "year": 112,
+    "city": "City000015",
+    "domestic": 231286,
+    "human": 2728137,
+    "h_visit": 4961,
+    "h_roam": 365,
+    "room": 900,
+    "infant": 2,
+    "seized": 5,
+    "accept": 4130,
+    "adopt": 2406,
+    "die": 97,
+    "return": 1202,
+    "miss": 424,
+    "occupy": 567
+  },
+  {
+    "year": 112,
+    "city": "City000016",
+    "domestic": 67967,
+    "human": 798703,
+    "h_visit": 539,
+    "h_roam": 1455,
+    "room": 580,
+    "accept": 486,
+    "adopt": 625,
+    "kill": 12,
+    "die": 38,
+    "return": 863,
+    "miss": 15,
+    "occupy": 127.6
+  },
+  {
+    "year": 112,
+    "city": "City000017",
+    "domestic": 23974,
+    "human": 212551,
+    "h_visit": 526,
+    "h_roam": 1186,
+    "room": 104,
+    "infant": 1,
+    "accept": 243,
+    "adopt": 523,
+    "kill": 17,
+    "die": 23,
+    "return": 1344,
+    "miss": 6,
+    "occupy": 60.32
+  },
+  {
+    "year": 112,
+    "city": "City000018",
+    "domestic": 26973,
+    "human": 318892,
+    "h_visit": 1030,
+    "h_roam": 46,
+    "room": 330,
+    "infant": 12,
+    "accept": 822,
+    "seized": 6,
+    "adopt": 178,
+    "kill": 78,
+    "die": 30,
+    "return": 722,
+    "miss": 2,
+    "occupy": 237.6
+  },
+  {
+    "year": 112,
+    "city": "City000019",
+    "domestic": 20874,
+    "human": 449062,
+    "room": 270,
+    "infant": 322,
+    "accept": 2308,
+    "adopt": 657,
+    "kill": 5,
+    "die": 79,
+    "return": 1394,
+    "miss": 18,
+    "occupy": 216
+  },
+  {
+    "year": 112,
+    "city": "City000020",
+    "domestic": 5327,
+    "human": 107223,
+    "h_visit": 234,
+    "h_roam": 73,
+    "h_feed": 1,
+    "room": 348,
+    "infant": 20,
+    "accept": 692,
+    "adopt": 142,
+    "kill": 272,
+    "die": 201,
+    "return": 151,
+    "miss": 33,
+    "occupy": 424.56
+  },
+  {
+    "year": 112,
+    "city": "City000021",
+    "domestic": 5681,
+    "human": 141295,
+    "room": 200,
+    "accept": 380,
+    "adopt": 206,
+    "die": 8,
+    "return": 921,
+    "miss": 3,
+    "occupy": 190
+  },
+  {
+    "year": 112,
+    "city": "City000022",
+    "domestic": 253,
+    "human": 13983,
+    "room": 120,
+    "occupy": 56.4
+  },
+  {
+    "year": 113,
+    "city": "City000001",
+    "roaming": 3112,
+    "human": 362255,
+    "room": 100,
+    "infant": 11,
+    "accept": 203,
+    "seized": 1,
+    "adopt": 150,
+    "die": 16,
+    "return": 13,
+    "miss": 1,
+    "occupy": 54
+  },
+  {
+    "year": 113,
+    "city": "City000002",
+    "roaming": 1908,
+    "human": 2511886,
+    "h_visit": 14,
+    "h_roam": 11,
+    "room": 840,
+    "infant": 176,
+    "accept": 2147,
+    "adopt": 1883,
+    "die": 255,
+    "miss": 3,
+    "occupy": 722.4
+  },
+  {
+    "year": 113,
+    "city": "City000003",
+    "roaming": 9982,
+    "human": 4041120,
+    "h_visit": 8184,
+    "h_roam": 610,
+    "h_feed": 215,
+    "h_stop": 215,
+    "room": 1615,
+    "infant": 272,
+    "accept": 3956,
+    "seized": 16,
+    "adopt": 3775,
+    "kill": 3,
+    "die": 89,
+    "return": 3,
+    "miss": 156,
+    "occupy": 969
+  },
+  {
+    "year": 113,
+    "city": "City000004",
+    "roaming": 7893,
+    "human": 2317445,
+    "h_visit": 117,
+    "h_roam": 688,
+    "h_feed": 194,
+    "h_stop": 143,
+    "room": 652,
+    "infant": 29,
+    "accept": 854,
+    "adopt": 789,
+    "kill": 1,
+    "die": 86,
+    "return": 211,
+    "miss": 23,
+    "occupy": 665.04
+  },
+  {
+    "year": 113,
+    "city": "City000005",
+    "roaming": 2396,
+    "human": 589289,
+    "h_visit": 1481,
+    "h_roam": 1231,
+    "h_feed": 13,
+    "h_stop": 4,
+    "room": 162,
+    "infant": 65,
+    "accept": 649,
+    "adopt": 637,
+    "kill": 4,
+    "die": 64,
+    "return": 317,
+    "miss": 3,
+    "occupy": 166.86
+  },
+  {
+    "year": 113,
+    "city": "City000006",
+    "roaming": 516,
+    "human": 456475,
+    "h_visit": 369,
+    "h_roam": 51,
+    "h_feed": 5,
+    "h_stop": 2,
+    "room": 250,
+    "infant": 37,
+    "accept": 322,
+    "adopt": 239,
+    "kill": 11,
+    "die": 33,
+    "return": 151,
+    "occupy": 160
+  },
+  {
+    "year": 113,
+    "city": "City000007",
+    "roaming": 7403,
+    "human": 534575,
+    "h_visit": 3126,
+    "h_roam": 283,
+    "h_feed": 2215,
+    "h_stop": 777,
+    "room": 371,
+    "infant": 3,
+    "accept": 2194,
+    "seized": 20,
+    "adopt": 827,
+    "kill": 34,
+    "die": 65,
+    "return": 2169,
+    "miss": 24,
+    "occupy": 411.81
+  },
+  {
+    "year": 113,
+    "city": "City000008",
+    "roaming": 9644,
+    "human": 477094,
+    "h_visit": 3866,
+    "h_roam": 1060,
+    "room": 300,
+    "infant": 14,
+    "accept": 488,
+    "adopt": 492,
+    "kill": 23,
+    "die": 71,
+    "return": 1553,
+    "miss": 3,
+    "occupy": 339
+  },
+  {
+    "year": 113,
+    "city": "City000009",
+    "roaming": 8542,
+    "human": 2845909,
+    "h_visit": 4146,
+    "h_roam": 125,
+    "room": 800,
+    "infant": 320,
+    "accept": 2695,
+    "adopt": 1363,
+    "kill": 23,
+    "die": 198,
+    "return": 5188,
+    "miss": 72,
+    "occupy": 440
+  },
+  {
+    "year": 113,
+    "city": "City000010",
+    "roaming": 9313,
+    "human": 1239048,
+    "h_visit": 151,
+    "h_roam": 2775,
+    "room": 239,
+    "infant": 220,
+    "seized": 8,
+    "accept": 1541,
+    "adopt": 729,
+    "kill": 7,
+    "die": 55,
+    "return": 615,
+    "miss": 141,
+    "occupy": 157.74
+  },
+  {
+    "year": 113,
+    "city": "City000011",
+    "roaming": 4934,
+    "human": 659468,
+    "h_visit": 802,
+    "h_roam": 429,
+    "room": 300,
+    "accept": 1617,
+    "adopt": 632,
+    "die": 168,
+    "return": 813,
+    "miss": 4,
+    "occupy": 378
+  },
+  {
+    "year": 113,
+    "city": "City000012",
+    "roaming": 16944,
+    "human": 484560,
+    "h_visit": 16428,
+    "h_roam": 2835,
+    "h_feed": 7,
+    "h_stop": 1,
+    "room": 200,
+    "infant": 11,
+    "accept": 554,
+    "seized": 15,
+    "adopt": 409,
+    "kill": 1,
+    "die": 25,
+    "return": 3001,
+    "miss": 10,
+    "occupy": 166
+  },
+  {
+    "year": 113,
+    "city": "City000013",
+    "roaming": 906,
+    "human": 263584,
+    "h_visit": 139,
+    "h_roam": 273,
+    "room": 100,
+    "infant": 34,
+    "accept": 220,
+    "adopt": 253,
+    "kill": 27,
+    "die": 40,
+    "return": 236,
+    "miss": 12,
+    "occupy": 64
+  },
+  {
+    "year": 113,
+    "city": "City000014",
+    "roaming": 19990,
+    "human": 1859946,
+    "h_visit": 8098,
+    "h_roam": 82,
+    "room": 700,
+    "infant": 5,
+    "accept": 3944,
+    "adopt": 1687,
+    "die": 236,
+    "return": 4692,
+    "miss": 29,
+    "occupy": 1302
+  },
+  {
+    "year": 113,
+    "city": "City000015",
+    "roaming": 10200,
+    "human": 2737941,
+    "h_visit": 5445,
+    "h_roam": 543,
+    "room": 900,
+    "infant": 2,
+    "seized": 1,
+    "accept": 2390,
+    "adopt": 1832,
+    "die": 25,
+    "return": 688,
+    "miss": 86,
+    "occupy": 360
+  },
+  {
+    "year": 113,
+    "city": "City000016",
+    "roaming": 10024,
+    "human": 794997,
+    "h_visit": 1884,
+    "h_roam": 1470,
+    "room": 580,
+    "infant": 45,
+    "accept": 686,
+    "adopt": 653,
+    "kill": 13,
+    "die": 218,
+    "return": 1314,
+    "miss": 83,
+    "occupy": 429.2
+  },
+  {
+    "year": 113,
+    "city": "City000017",
+    "roaming": 8551,
+    "human": 211544,
+    "h_visit": 1215,
+    "h_roam": 1024,
+    "room": 104,
+    "infant": 1,
+    "accept": 216,
+    "adopt": 656,
+    "kill": 14,
+    "die": 27,
+    "return": 1262,
+    "miss": 12,
+    "occupy": 57.2
+  },
+  {
+    "year": 113,
+    "city": "City000018",
+    "roaming": 6983,
+    "human": 317489,
+    "h_visit": 1501,
+    "h_roam": 50,
+    "room": 330,
+    "infant": 75,
+    "accept": 740,
+    "seized": 7,
+    "adopt": 228,
+    "kill": 101,
+    "die": 23,
+    "return": 554,
+    "miss": 3,
+    "occupy": 227.7
+  },
+  {
+    "year": 113,
+    "city": "City000019",
+    "roaming": 1630,
+    "human": 449890,
+    "h_roam": 4,
+    "room": 270,
+    "infant": 266,
+    "accept": 1954,
+    "seized": 20,
+    "adopt": 754,
+    "kill": 7,
+    "die": 88,
+    "return": 1613,
+    "miss": 11,
+    "occupy": 194.4
+  },
+  {
+    "year": 113,
+    "city": "City000020",
+    "roaming": 520,
+    "human": 107739,
+    "h_visit": 519,
+    "h_roam": 19,
+    "room": 348,
+    "infant": 3,
+    "accept": 414,
+    "adopt": 121,
+    "kill": 95,
+    "die": 84,
+    "return": 155,
+    "miss": 3,
+    "occupy": 379.32
+  },
+  {
+    "year": 113,
+    "city": "City000021",
+    "roaming": 167,
+    "human": 144149,
+    "room": 200,
+    "accept": 319,
+    "adopt": 185,
+    "die": 9,
+    "return": 1004,
+    "occupy": 174
+  },
+  {
+    "year": 113,
+    "city": "City000022",
+    "roaming": 26,
+    "human": 14039,
+    "h_visit": 2,
+    "room": 120,
+    "accept": 1,
+    "die": 1,
+    "occupy": 57.6
+  }
+]
