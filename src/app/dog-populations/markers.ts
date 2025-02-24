@@ -62,6 +62,7 @@ export const defaultMarkerSeries = {
   name: '事件標記',
   yAxisIndex: 3,
   data: null,
+  z: 6,
   markLine: {
     symbol: 'none',
     animationDuration: 200,

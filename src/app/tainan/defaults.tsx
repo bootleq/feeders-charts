@@ -54,7 +54,7 @@ const commonSeriesSetting = {
     formatter: (params: {data: number}) => numberFormatter(params.data),
     fontFamily: fontFamily,
   },
-  z: 14,
+  z: 4,
 };
 
 

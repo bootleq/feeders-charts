@@ -58,7 +58,7 @@ const commonSeriesSetting = {
     formatter: (params: {data: number}) => numberFormatter(params.data),
     fontFamily: fontFamily,
   },
-  z: 14,
+  z: 4,
 };
 
 const commonSideAxisSeriesSetting = {
@@ -75,6 +75,7 @@ export const defaultSeriesSettings: Record<string, any> = {
   roaming: {
     ...commonSeriesSetting,
     type: 'bar',
+    z: 3,
     label: {
       show: true,
       position: 'top',
