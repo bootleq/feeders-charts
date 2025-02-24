@@ -3,6 +3,10 @@ import { metadata as layoutMetadata } from "./layout";
 import Link from 'next/link';
 import RepoLink from './RepoLink';
 import BackToFeeders from './BackToFeeders';
+import SiteIcon from '@/assets/bowl.svg'
+import {
+  ArrowLeftIcon,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: '圖表頁 目錄',
@@ -43,10 +47,20 @@ export default function Home() {
         </ul>
 
         <div className='flex flex-wrap items-center justify-center sm:justify-items-start mt-auto gap-x-12 w-full'>
-          <BackToFeeders />
+          <BackToFeeders className='group cursor-pointer flex items-center p-2 mt-auto text-2xl rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
+            <SiteIcon width={55} height={55} className='px-2 pb-1 -translate-y-[3px] group-hover:translate-y-[14px]' />
+            <span className='text-nowrap px-2'>
+              返回 Feeders
+            </span>
+          </BackToFeeders>
           <RepoLink />
         </div>
       </main>
+
+      <BackToFeeders className='cursor-pointer fixed top-0.5 right-0 px-2 text-slate-800 flex items-center text-md rounded transition hover:bg-amber-200 inline-block hover:-translate-x-1 hover:drop-shadow'>
+        <ArrowLeftIcon className='px-1 pb-1 translate-y-px' />
+        返回
+      </BackToFeeders>
     </div>
   );
 }
