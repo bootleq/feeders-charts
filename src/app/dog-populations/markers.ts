@@ -54,6 +54,8 @@ const commonLabelSetting = {
   fontSize: 16,
   fontFamily,
   color: 'inherit',
+  textBorderWidth: 4,
+  textBorderColor: 'white',
   formatter: '{b}',
 };
 
