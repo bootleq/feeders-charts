@@ -58,6 +58,7 @@ const commonSeriesSetting = {
     formatter: (params: {data: number}) => numberFormatter(params.data),
     fontFamily: fontFamily,
   },
+  animationDuration: 666,
   z: 4,
 };
 
