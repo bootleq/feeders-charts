@@ -34,6 +34,9 @@ yarn-error.log*
 data/download
 data/build
 public/combined.json
+public/meta.json
+public/tainan.json
+public/tainan.meta.json
 
 # env files (can opt-in for committing if needed)
 .env*

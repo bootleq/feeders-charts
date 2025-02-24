@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { metadata as layoutMetadata } from "./layout";
 import Link from 'next/link';
+import RepoLink from './RepoLink';
 import BackToFeeders from './BackToFeeders';
 
 export const metadata: Metadata = {
@@ -41,7 +42,10 @@ export default function Home() {
           </li>
         </ul>
 
-        <BackToFeeders />
+        <div className='flex flex-wrap items-center justify-center sm:justify-items-start mt-auto gap-x-12 w-full'>
+          <BackToFeeders />
+          <RepoLink />
+        </div>
       </main>
     </div>
   );
