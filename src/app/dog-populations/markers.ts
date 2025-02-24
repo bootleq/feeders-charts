@@ -54,6 +54,8 @@ const commonLabelSetting = {
   fontSize: 16,
   fontFamily,
   color: 'inherit',
+  textBorderWidth: 4,
+  textBorderColor: 'white',
   formatter: '{b}',
 };
 
@@ -62,6 +64,7 @@ export const defaultMarkerSeries = {
   name: '事件標記',
   yAxisIndex: 3,
   data: null,
+  z: 6,
   markLine: {
     symbol: 'none',
     animationDuration: 200,

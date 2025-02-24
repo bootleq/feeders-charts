@@ -118,7 +118,7 @@ export default function Chart() {
       R.lensPath(['series']),
       R.map(
         R.pipe(
-          R.when(
+          R.ifElse(
             R.propEq(SERIES_NAMES['roaming'], 'name'),
             R.mergeDeepRight(
               R.assoc(
@@ -126,9 +126,9 @@ export default function Chart() {
                 roaming_chart_bar ? 'bar' : 'line',
                 defaultSeriesSettings['roaming'] as object
               )
-            )
+            ),
+            R.assocPath(['label', 'show'], show_all_labels),
           ),
-          show_all_labels ? R.set(R.lensPath(['label', 'show']), true) : R.identity,
         )
       )
     );
