@@ -37,7 +37,7 @@ Use below scripts to reassemble, update:
 - `pnpm data:manually`: Transform manually collected (already built-in in repo) data
 - `pnpm data:tainan`: Fetch and transform Tainan population data
 - `pnpm data:reduce`: Normalize and combine all processed data (except tainan's)
-- `pnpm data:serve`: Copy transformed data to `public/` folder to really use them in app.
+- `pnpm data:serve`: Copy transformed data to `public/` folder to really use them in app
 
 Above scripts have hash/time checking so will stop if detect no change.
 Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `pnpm data:download:force`) to force continue.
