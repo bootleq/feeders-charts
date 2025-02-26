@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: '臺南市遊蕩犬調查情形',
+  title: '臺南市流浪犬 TNVR 成果',
   description: '根據臺南市公布的遊蕩犬調查情形，整理為視覺化圖表，也可以輸出表格',
 };
 
@@ -16,7 +16,7 @@ export default async function Page() {
     <div className="container items-center justify-items-center min-h-screen mx-auto font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-2 items-center sm:items-start">
         <h1 className='pt-3 block text-center w-full text-3xl bold'>
-          臺南市遊蕩犬調查情形
+          臺南市流浪犬 TNVR 成果
         </h1>
 
         <Chart />

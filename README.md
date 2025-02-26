@@ -128,7 +128,7 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
 ## Tainan
 
-台南市有自己調查各行政區的數量，因不易與全國縣市整合呈現，所以做成獨立的圖表頁面
+台南市有調查各行政區的 TNVR 成果，因不易與全國縣市整合呈現，所以做成獨立的圖表頁面
 
 https://feeders.pages.dev/charts/tainan
 
