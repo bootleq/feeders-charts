@@ -34,7 +34,7 @@ export default function Home() {
           </li>
           <li>
             <Link href='tainan' className='cursor-pointer p-2 rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
-              臺南市遊蕩犬調查情形
+              臺南市流浪犬 TNVR 成果
             </Link>
             <span className='inline-block mx-3 text-slate-400'>
             |

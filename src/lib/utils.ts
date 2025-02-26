@@ -26,6 +26,8 @@ export function roundNumber(digits: number, value: any) {
   return value;
 }
 
+export const numberFormatter = (number: number) => Intl.NumberFormat("zh-TW").format(number);
+
 export function tooltipClass(className?: string) {
   return `rounded box-border w-max z-[1002] bg-slate-100 ${className || ''}`;
 }

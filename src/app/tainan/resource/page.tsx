@@ -4,7 +4,7 @@ import { resources } from '@/lib/tainan_resource';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: '資料狀態 - 臺南市遊蕩犬調查情形',
+  title: '資料狀態 - 臺南市流浪犬 TNVR 成果',
   description: '臺南市遊蕩犬資料圖表，資料重新整理的時間，以及從資料來源獲取更新的時間',
 };
 
@@ -13,7 +13,7 @@ export default async function Page() {
     <div className="container min-h-screen mx-auto font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-2 items-center justify-center h-full min-h-[60vh]">
         <h1 className='pt-3 block text-center w-full text-3xl bold'>
-          臺南市遊蕩犬調查情形
+          臺南市流浪犬 TNVR 成果
           資料狀態
         </h1>
 

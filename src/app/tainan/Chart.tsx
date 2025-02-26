@@ -5,7 +5,7 @@ import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 
 import { TAINAN_DISTRICTS } from '@/lib/model';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
-import { makeYearRange, BASE_PATH } from '@/lib/utils';
+import { makeYearRange, numberFormatter, BASE_PATH } from '@/lib/utils';
 import { parseChartInputs } from '@/lib/formData';
 import { SERIES_NAMES, computers } from '@/lib/tainan_series';
 import { buildSeriesMaker } from '@/lib/makeSeries';
@@ -16,6 +16,8 @@ import { YearsInput } from './YearsInput';
 import { SeriesControl } from './SeriesControl';
 import ExportTable from '@/components/ExportTable';
 import ExportImage from '@/components/ExportImage';
+import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
+import { tooltipClass } from '@/lib/utils';
 
 import { defaultOptions } from './defaults';
 import { tableAtom, tableDialogOpenAtom } from './store';
@@ -49,6 +51,25 @@ echarts.use(
     CanvasRenderer,
   ]
 );
+
+function TotalRoamingHint({ year, qty }: {
+  year: number,
+  qty: number,
+}) {
+  return (
+    <Tooltip placement='top' offset={3} hoverProps={menuHoverProps}>
+      <TooltipTrigger>
+        <li className='inline-block px-1 rounded decoration-wavy underline-offset-4 hover:bg-white hover:text-slate-900 hover:underline cursor-help'>
+          {year} 年 {numberFormatter(qty)}
+        </li>
+      </TooltipTrigger>
+      <TooltipContentMenu className={tooltipClass('p-1 text-sm drop-shadow-md font-mixed')}>
+        80% 絕育率需要數量為
+        <span className='text-red-700 ml-1'>{numberFormatter(Math.round(qty * 0.8))}</span>
+      </TooltipContentMenu>
+    </Tooltip>
+  );
+}
 
 export default function Chart() {
   const [items, setItems] = useState<CountryItem[]>([]);
@@ -171,21 +192,32 @@ export default function Chart() {
         </button>
       </form>
 
-      <div role='menu' aria-label='資料輸出' className='flex items-center justify-end gap-x-1'>
-        {itemsReady &&
-          <>
-            <ExportTable
-              chartRef={chartRef}
-              items={items}
-              meta={meta}
-              makeSeriesFn={makeSeries}
-              allCities={TAINAN_DISTRICTS}
-              tableAtom={tableAtom}
-              dialogOpenAtom={tableDialogOpenAtom}
-            />
-            <ExportImage chartRef={chartRef} />
-          </>
-        }
+      <div className='flex items-center'>
+        <div className='p-3 sm:p-0 font-mixed text-sm text-slate-400 hover:text-slate-700'>
+          註：依農業部調查，臺南市遊蕩犬數量為：
+          <ol className='inline-flex items-center gap-x-1 text-xs'>
+            <TotalRoamingHint year={107} qty={22176} />
+            <TotalRoamingHint year={109} qty={19539} />
+            <TotalRoamingHint year={111} qty={11373} />
+            <TotalRoamingHint year={113} qty={19990} />
+          </ol>
+        </div>
+        <div role='menu' aria-label='資料輸出' className='flex items-center justify-end gap-x-1 ml-auto'>
+          {itemsReady &&
+            <>
+              <ExportTable
+                chartRef={chartRef}
+                items={items}
+                meta={meta}
+                makeSeriesFn={makeSeries}
+                allCities={TAINAN_DISTRICTS}
+                tableAtom={tableAtom}
+                dialogOpenAtom={tableDialogOpenAtom}
+              />
+              <ExportImage chartRef={chartRef} />
+            </>
+          }
+        </div>
       </div>
 
       <div id='MainChart' aria-label='主圖表' className='mt-1 mb-2 px-3 py-4 bg-white resize overflow-hidden min-[1536px]:w-[clamp(1530px,70vw,2600px)]'>
