@@ -116,7 +116,7 @@ export function MarkerControl() {
             <TooltipTrigger className='mb-1 block truncate'>
               <div className='cursor-help p-2 hover:bg-slate-100/75 hover:drop-shadow rounded self-stretch flex items-center' tabIndex={0}>
                 <div className='outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
-                  地方政府
+                  地方
                 </div>
               </div>
             </TooltipTrigger>

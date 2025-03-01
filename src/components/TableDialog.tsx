@@ -16,6 +16,7 @@ import {
   CheckIcon,
   FoldHorizontalIcon,
   UnfoldHorizontalIcon,
+  FileDownIcon,
 } from "lucide-react";
 
 const dialogCls = [
@@ -175,7 +176,7 @@ export default function TableDialog({ tableAtom, dialogOpenAtom }: {
         </button>
 
         <button type='button' className={buttonCls} onClick={onDownloadCSV}>
-          <CopyIcon className='stroke-current p-px' size={18} />
+          <FileDownIcon className='stroke-current p-px' size={18} />
           下載 CSV
         </button>
       </div>

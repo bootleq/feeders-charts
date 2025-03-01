@@ -64,7 +64,7 @@ export function SeriesControl() {
             <TooltipTrigger className='mb-1 block truncate'>
               <div className='cursor-help p-2 hover:bg-slate-100/75 hover:drop-shadow rounded self-stretch flex items-center' tabIndex={0}>
                 <div className='outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
-                  人口與家犬
+                  狗口
                 </div>
               </div>
             </TooltipTrigger>
@@ -84,7 +84,7 @@ export function SeriesControl() {
             <TooltipTrigger className='mb-1 block truncate'>
               <div className='cursor-help p-2 hover:bg-slate-100/75 hover:drop-shadow rounded self-stretch flex items-center' tabIndex={0}>
                 <div className='outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
-                  公立收容所
+                  收容所
                 </div>
               </div>
             </TooltipTrigger>
@@ -111,7 +111,7 @@ export function SeriesControl() {
             <TooltipTrigger className='mb-1 block truncate'>
               <div className='cursor-help p-2 hover:bg-slate-100/75 hover:drop-shadow rounded self-stretch flex items-center' tabIndex={0}>
                 <div className='outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
-                  熱區政策
+                  熱區
                 </div>
               </div>
             </TooltipTrigger>
