@@ -119,7 +119,7 @@ export function YearsInput({ min, max, formRef }: {
           );
         })}
         <li className='ml-auto'>
-          <Tooltip placement='bottom-end' offset={0} hoverProps={menuHoverProps}>
+          <Tooltip placement='right' offset={8} hoverProps={menuHoverProps}>
             <TooltipTrigger className='mb-1 block truncate'>
               <div className='cursor-help p-1 pt-2 hover:bg-slate-200/75 rounded self-stretch flex items-center' tabIndex={0}>
                 <div className='text-slate-400 outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
