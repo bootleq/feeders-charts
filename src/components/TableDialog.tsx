@@ -120,7 +120,7 @@ export default function TableDialog({ tableAtom, dialogOpenAtom }: {
     const csv = buildCSV(source);
     const blob = new Blob([csv], { type: 'text/csv' });
     const url = URL.createObjectURL(blob);
-    makeDownload(url,  '遊蕩犬隻估計數量.csv');
+    makeDownload(url, '資料表格.csv');
   }, [tableData, showCompact]);
 
   const tableHTML = useMemo(() => {
