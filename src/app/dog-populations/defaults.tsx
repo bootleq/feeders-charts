@@ -1,5 +1,6 @@
 import * as R from 'ramda';
 import { SERIES_NAMES } from '@/lib/series';
+import { offenceTypeKeys } from '@/lib/model';
 import { markerFormatter } from './markers';
 
 const revertedSeriesNames = R.invertObj(SERIES_NAMES);
@@ -71,6 +72,17 @@ const commonSideAxisSeriesSetting = {
     type: 'dotted',
   },
 };
+
+// Make settings like:
+// {
+//   "照護:0": commonSeriesSetting,
+//   "照護:1": commonSeriesSetting,
+// }
+const defaultEnforementSeriesSettings = R.reduce(
+  (acc: Record<string, any>, key: string) => {
+    return R.assoc(key, commonSeriesSetting, acc);
+  }, {}
+)(offenceTypeKeys);
 
 export const defaultSeriesSettings: Record<string, any> = {
   roaming: {
@@ -174,6 +186,8 @@ export const defaultSeriesSettings: Record<string, any> = {
   h_stop: { ...commonSeriesSetting, itemStyle: { color: '#3ba272', } },
   // _marker: defaultMarkerSeries,
   fallback: commonSeriesSetting,
+
+  ...defaultEnforementSeriesSettings,
 };
 
 export const defaultOptions = {

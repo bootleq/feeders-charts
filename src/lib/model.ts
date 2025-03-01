@@ -22,6 +22,11 @@ type CountryDataItem = {
   h_roam: number,   // 熱區 無主犬清查
   h_feed: number,   // 熱區 餵食者人數
   h_stop: number,   // 熱區 疏導餵食成功
+} & {
+  // Also keys in offenceTypeKeys like:
+  // "照護:0": number,
+  // "照護:1": number,
+  [K in typeof offenceTypeKeys[number]]: number;
 }
 
 type TainanDataItem = {
@@ -140,4 +145,14 @@ export const offenceTypeMapping = {
   '寵物業者管理不善':                 '管理不善',
   '未絕育及未申報':                   '未絕育',
   '寵物食品查驗':                     '食品',
-};
+} as const;
+
+// Make actual keys like:
+// [
+//  "照護:0", "照護:1",
+//  "棄養:0", "棄養:1",
+//  ...
+// ]
+export const offenceTypeKeys = Object.values(offenceTypeMapping).flatMap(
+  (name) => [`${name}:0`, `${name}:1`] as const
+) satisfies readonly string[];
