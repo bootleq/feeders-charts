@@ -218,62 +218,62 @@ async function fetchData(url) {
   return response.arrayBuffer();
 }
 
-async function saveData(subResourceName, data) {
-  try {
-    const filePath = downloadPath(subResourceName, `raw.pdf`);
-    const buffer = Buffer.from(data);
-    await fsp.writeFile(filePath, buffer);
-    console.log(`Data saved in ${filePath}`);
-    return filePath;
-  } catch (error) {
-    console.error(`Fail saving resource for ${subResourceName}：`, error.message);
-    throw error;
-  }
-}
-
-async function download(subResourceName, downloadPath) {
+async function download(subResourceName, dlPath, pdfPath) {
   console.log(`Download data for ${subResourceName} ...`);
-  const url = `${ENDPOINT}${downloadPath}`;
 
+  let forced = false;
+
+  const url = `${ENDPOINT}${dlPath}`;
   const remoteData = await fetchData(url);
   const needsUpdate = await checkUpdateHash(subResourceName, remoteData);
 
   if (needsUpdate) {
-    const file = await saveData(subResourceName, remoteData);
-    await writeSourceTime(subResourceName);
-    return file;
+    try {
+      const buffer = Buffer.from(remoteData);
+      await fsp.writeFile(pdfPath, buffer);
+      await writeSourceTime(subResourceName);
+      console.log(`Data saved in ${pdfPath}`);
+    } catch (error) {
+      console.error(`Fail saving resource for ${subResourceName}：`, error.message);
+      throw error;
+    }
   } else {
     console.log(`Remote data for '${subResourceName}' has no change.`);
 
     if (Number(process.env.DATA_CONTINUE_WHEN_SAME_HASH)) {
+      forced = true;
       console.log(chalk.yellow.bold('but still save data per request ') + chalk.red.bold('(DATA_CONTINUE_WHEN_SAME_HASH)'));
-      return await saveData(subResourceName, remoteData);
     }
   }
+
+  return [needsUpdate, forced];
 }
 
 (async function main() {
   console.log("Prepare law_enforce data...\n");
 
   let data = [];
-  let valid = true;
   let hasChange = false;
+  let hasForced = false;
+  let valid = true;
 
-  for (const [year,, downloadPath] of sources) {
+  for (const [year,, dlPath] of sources) {
     const basename = `law_enforce_${year}`;
-    const pdf = await download(basename, downloadPath);
+    const pdfPath = downloadPath(basename, `raw.pdf`);
+    const [stale, forced] = await download(basename, dlPath, pdfPath);
 
-    if (!pdf) {
-      continue;
-    } else {
-      hasChange = true;
-    }
+    if (forced) hasForced = true;
+    if (stale) hasChange = true;
 
-    let seasonData = await parsePDF(pdf, year);
+    let seasonData = await parsePDF(pdfPath, year);
     data = [...data, ...seasonData];
   }
 
-  if (!hasChange) {
+  if (hasChange) {
+    await writeSourceTime(resourceName);
+  }
+
+  if (!hasForced && !hasChange) {
     console.log("\nAll sources have no change, aborted.");
     return;
   }
