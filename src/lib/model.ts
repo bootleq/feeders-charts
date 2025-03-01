@@ -22,6 +22,11 @@ type CountryDataItem = {
   h_roam: number,   // 熱區 無主犬清查
   h_feed: number,   // 熱區 餵食者人數
   h_stop: number,   // 熱區 疏導餵食成功
+} & {
+  // Also keys in offenceTypeKeys like:
+  // "照護:0": number,
+  // "照護:1": number,
+  [K in typeof offenceTypeKeys[number]]: number;
 }
 
 type TainanDataItem = {
@@ -125,3 +130,29 @@ export function cityLookup(nameOrCode: string) {
 
   throw new Error(`Unknown city lookup: ${nameOrCode}`);
 }
+
+export const offenceTypeMapping = {
+  '飼主照護責任':                     '照護',
+  '棄養動物':                         '棄養',
+  '虐待、傷害動物':                   '虐待',
+  '非經許可展演動物':                 '無照展演',
+  '宰殺犬貓或販售犬貓屠體':           '宰殺',
+  '不當捕捉方式':                     '捕捉方式', // (含獸鋏、金屬套索等)
+  '製造、販賣、陳列或輸出入獸鋏':     '散布獸鋏',
+  '未辦理寵物登記':                   '未寵登',
+  '犬隻疏縱':                         '疏縱', // (含具攻擊性犬管理)
+  '未經許可經營寵物繁殖、買賣及寄養': '無照繁殖',
+  '寵物業者管理不善':                 '管理不善',
+  '未絕育及未申報':                   '未絕育',
+  '寵物食品查驗':                     '食品',
+} as const;
+
+// Make actual keys like:
+// [
+//  "照護:0", "照護:1",
+//  "棄養:0", "棄養:1",
+//  ...
+// ]
+export const offenceTypeKeys = Object.values(offenceTypeMapping).flatMap(
+  (name) => [`${name}:0`, `${name}:1`] as const
+) satisfies readonly string[];

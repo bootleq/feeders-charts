@@ -147,4 +147,3 @@ async function download(subResourceName, downloadPath) {
 
   console.log("\nDone.");
 })();
-

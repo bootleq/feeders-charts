@@ -34,10 +34,11 @@ Use below scripts to reassemble, update:
 - `pnpm data:human_pop`: Fetch and transform human_population data
 - `pnpm data:shelter_pet`: Fetch and transform shelter detail data
 - `pnpm data:heat_map`: Fetch and transform heat map data
+- `pnpm data:law`: Fetch and transform animal protect act enforcement data
 - `pnpm data:manually`: Transform manually collected (already built-in in repo) data
 - `pnpm data:tainan`: Fetch and transform Tainan population data
 - `pnpm data:reduce`: Normalize and combine all processed data (except tainan's)
-- `pnpm data:serve`: Copy transformed data to `public/` folder to really use them in app.
+- `pnpm data:serve`: Copy transformed data to `public/` folder to really use them in app
 
 Above scripts have hash/time checking so will stop if detect no change.
 Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `pnpm data:download:force`) to force continue.
@@ -78,6 +79,11 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
   https://www.pet.gov.tw/Wandering/HeatMapV1.aspx
 
   名叫熱區圖，其實是農業部「遊蕩犬管控精進策略」的成績資料
+
+- 各縣市政府執行動物保護法案件情形 (2022 ~ 2024)  
+  https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab11
+
+  原資料有分四個季度，但我們合併為各年度
 
 
 ### 以下為人工收集資料，並建檔於 `data` 目錄中：

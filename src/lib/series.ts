@@ -1,4 +1,18 @@
+import * as R from 'ramda';
+import { offenceTypeKeys } from '@/lib/model';
 import type { SeriesData, Computer } from '@/lib/makeSeries';
+
+// Make name mappings like:
+// {
+//  "照護:0": "照護",
+//  "照護:1": "照護（罰",
+// }
+const enforementSeriesNames = R.reduce(
+  (acc: Record<string, any>, key: string) => {
+    const [name, type] = key.split(':', 2);
+    return R.assoc(key, `${name}${type === '1' ? '（罰' : ''}`, acc);
+  }, {}
+)(offenceTypeKeys);
 
 export const SERIES_NAMES: Record<string, string> = {
   roaming: '遊蕩犬估計',
@@ -21,6 +35,8 @@ export const SERIES_NAMES: Record<string, string> = {
   h_feed: '熱區餵食',
   h_stop: '疏導餵食',
   // _marker: '事件標記', // this will be added in addition to normal data series process
+
+  ...enforementSeriesNames,
 } as const;
 
 export const computers: Record<string, Computer> = {
