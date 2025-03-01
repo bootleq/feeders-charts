@@ -4,6 +4,7 @@ import fetch from 'node-fetch';
 import pdfTableExtractor from 'pdf-table-extractor';
 import chalk from 'chalk';
 import { cityLookup, offenceTypeMapping } from '@/lib/model';
+import { lawEnforceTable } from '@/lib/resource';
 import { testSamplesExist } from './utils';
 import {
   downloadPath,
@@ -13,14 +14,6 @@ import {
 } from './data_source';
 
 const resourceName = 'law_enforce';
-
-const ENDPOINT = 'https://animal.moa.gov.tw/public/upload/';
-
-const sources = [
-  [111, '111年第4季各縣市政府執行動物保護法案件情形', 'Know_ListFile/230131023314250066MCVLE.pdf'],
-  [112, '112年第4季各縣市政府執行動物保護法案件情形', 'Know_ListFile/240124025231435389Z2YE9.pdf'],
-  [113, '113年第4季各縣市政府執行動物保護法案件情形', 'Know_ListFile/2501220506217727348RKWP.pdf'],
-];
 
 async function extractPDFTable(file) {
   return new Promise((resolve, reject) => {
@@ -218,12 +211,11 @@ async function fetchData(url) {
   return response.arrayBuffer();
 }
 
-async function download(subResourceName, dlPath, pdfPath) {
+async function download(subResourceName, url, pdfPath) {
   console.log(`Download data for ${subResourceName} ...`);
 
   let forced = false;
 
-  const url = `${ENDPOINT}${dlPath}`;
   const remoteData = await fetchData(url);
   const needsUpdate = await checkUpdateHash(subResourceName, remoteData);
 
@@ -257,10 +249,10 @@ async function download(subResourceName, dlPath, pdfPath) {
   let hasForced = false;
   let valid = true;
 
-  for (const [year,, dlPath] of sources) {
+  for (const [year,, url] of lawEnforceTable) {
     const basename = `law_enforce_${year}`;
     const pdfPath = downloadPath(basename, `raw.pdf`);
-    const [stale, forced] = await download(basename, dlPath, pdfPath);
+    const [stale, forced] = await download(basename, url, pdfPath);
 
     if (forced) hasForced = true;
     if (stale) hasChange = true;

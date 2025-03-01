@@ -41,6 +41,26 @@ const shelter_reports_resources = shelter_reports_table.reduce((acc, [year, titl
     }};
 }, {});
 
+const moaGovEnforcementLink = 'https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab11';
+
+export const lawEnforceTable = [
+  [111, '111年第4季各縣市政府執行動物保護法案件情形', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/230131023314250066MCVLE.pdf'],
+  [112, '112年第4季各縣市政府執行動物保護法案件情形', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/240124025231435389Z2YE9.pdf'],
+  [113, '113年第4季各縣市政府執行動物保護法案件情形', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/2501220506217727348RKWP.pdf'],
+];
+
+const lawEnforceTableResources = lawEnforceTable.reduce((acc, [year, title]) => {
+  const name = `law_enforce_${year}`;
+  return {
+    ...acc,
+    ...{
+      [name]: {
+        title,
+        docUrl: moaGovEnforcementLink,
+      },
+    }};
+}, {});
+
 export type ResourceEntry = {
   title: string,
   docUrl?: string
@@ -79,4 +99,9 @@ export const resources: Record<string, ResourceEntry> = {
     title: '整理後的資料',
   },
   ...shelter_reports_resources,
+  ...lawEnforceTableResources,
+  law_enforce: {
+    title: '各縣市政府執行動物保護法案件情形（合併）',
+    docUrl: moaGovEnforcementLink,
+  },
 } as const;
