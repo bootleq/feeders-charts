@@ -163,6 +163,23 @@ const tipShoushanInc = (<>
   高雄壽山調查遊蕩犬增加 <code>318%</code>
 </>);
 
+const tipLaws = {
+  '照護': (<>飼主照護責任<br />動保法第 5 條第 2 項</>),
+  '棄養': (<>棄養動物<br />動保法第 5 條第 3 項</>),
+  '虐待': (<>虐待、傷害動物<br />動保法第 5 條第 2 項、第 6 條</>),
+  '無照展演': (<>非經許可展演動物<br />動保法第 6-1 條第 1 款</>),
+  '宰殺': (<>宰殺犬貓或販售犬貓屠體<br />動保法第 12 條第 3 項第 1 款</>),
+  '捕捉方式': (<>不當捕捉方式（含獸鋏、金屬套索等）<br />動保法第 14-1 條第 1 項</>),
+
+  '散布獸鋏': (<>製造、販賣、陳列或輸出入獸鋏<br />動保法第 14-2 條</>),
+  '未寵登': (<>未辦理寵物登記<br />動保法第 9 條</>),
+  '疏縱': (<>犬隻疏縱（含具攻擊性犬管理）<br />動保法第 20 條</>),
+  '無照繁殖': (<>未經許可經營寵物繁殖、買賣及寄養<br />動保法第 22 條第 1 項</>),
+  '管理不善': (<>寵物業者管理不善<br />動保法第 22 條第 2 項、第 22-2 條</>),
+  '未絕育': (<>未絕育及未申報<br />動保法第 22 條第 3 項、第 22 條第 4 項</>),
+  '食品': (<>寵物食品查驗<br />動保法第 22-3 條、第 22-4 條、第 22-5 條</>),
+};
+
 const dict: Record<string, React.JSX.Element|string> = {
   roaming: tipRoaming,
   human: tipHuman,
@@ -200,10 +217,13 @@ const dict: Record<string, React.JSX.Element|string> = {
   '民雄收容所運送事件': tipShelterShip,
   '簡稚澄事件': tipEuthSuicide,
   '壽山流浪狗倍增': tipShoushanInc,
+
+  ...tipLaws,
 };
 
 export const MenuDescTooltip = ({ name, children }: { name: string|undefined, children: React.ReactNode }) => {
-  const body = name && dict[name];
+  const [key, suffix] = name ? name.split(':', 2) : [,];
+  const body = key && dict[key];
   const hoverProps = {
     ...menuHoverProps,
     restMs: 300,
@@ -211,7 +231,7 @@ export const MenuDescTooltip = ({ name, children }: { name: string|undefined, ch
 
   if (body) {
     return (
-      <Tooltip placement='left' offset={-5} hoverProps={hoverProps}>
+      <Tooltip placement={suffix === '1' ? 'right' : 'left'} offset={-5} hoverProps={hoverProps}>
         <TooltipTrigger>
           {children}
         </TooltipTrigger>
