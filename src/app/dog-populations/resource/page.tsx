@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Status from '@/components/Status';
 import { resources } from '@/lib/resource';
 import Link from 'next/link';
+import {
+  ArrowLeftIcon,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: '資料狀態 - 全國遊蕩犬統計',
@@ -24,6 +27,11 @@ export default async function Page() {
           返回
         </Link>
       </main>
+
+      <Link href='/' className='cursor-pointer fixed top-0.5 right-0 px-2 text-slate-800 flex items-center text-md rounded transition hover:bg-amber-200 inline-block hover:-translate-x-1 hover:drop-shadow'>
+        <ArrowLeftIcon className='px-1 pb-1 translate-y-px' />
+        返回
+      </Link>
     </div>
   );
 }

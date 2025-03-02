@@ -26,6 +26,7 @@ const manuallyResources = [
   'heat_map',
   'shelter_pet',
   'law_enforce',
+  'workforce',
 ];
 
 async function normalize( resourceName ) {

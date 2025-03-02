@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import { SERIES_NAMES } from '@/lib/series';
-import { offenceTypeKeys } from '@/lib/model';
+import { offenceTypeKeys, workforceTypeKeys } from '@/lib/model';
 import { markerFormatter } from './markers';
 
 const revertedSeriesNames = R.invertObj(SERIES_NAMES);
@@ -83,6 +83,12 @@ const defaultEnforementSeriesSettings = R.reduce(
     return R.assoc(key, commonSeriesSetting, acc);
   }, {}
 )(offenceTypeKeys);
+
+const defaultWorkforceSeriesSettings = R.reduce(
+  (acc: Record<string, any>, key: string) => {
+    return R.assoc(key, commonSeriesSetting, acc);
+  }, {}
+)(workforceTypeKeys);
 
 export const defaultSeriesSettings: Record<string, any> = {
   roaming: {
@@ -188,6 +194,7 @@ export const defaultSeriesSettings: Record<string, any> = {
   fallback: commonSeriesSetting,
 
   ...defaultEnforementSeriesSettings,
+  ...defaultWorkforceSeriesSettings,
 };
 
 export const defaultOptions = {

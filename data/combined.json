@@ -4236,7 +4236,13 @@
     "die": 29,
     "return": 13,
     "miss": 17,
-    "occupy": 46
+    "occupy": 46,
+    "ft_shelter": 3,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 1,
+    "ft_inspct": 1,
+    "pt_inspct": 1
   },
   {
     "year": 110,
@@ -4250,7 +4256,13 @@
     "adopt": 1944,
     "die": 182,
     "miss": 70,
-    "occupy": 680.4
+    "occupy": 680.4,
+    "ft_shelter": 30,
+    "pt_shelter": 0,
+    "ft_vet": 11,
+    "pt_vet": 0,
+    "ft_inspct": 12,
+    "pt_inspct": 0
   },
   {
     "year": 110,
@@ -4266,7 +4278,13 @@
     "return": 14,
     "miss": 303,
     "occupy": 1211.25,
-    "seized": 1
+    "seized": 1,
+    "ft_shelter": 78,
+    "pt_shelter": 0,
+    "ft_vet": 14,
+    "pt_vet": 9,
+    "ft_inspct": 7,
+    "pt_inspct": 13
   },
   {
     "year": 110,
@@ -4282,7 +4300,13 @@
     "die": 202,
     "return": 992,
     "miss": 680,
-    "occupy": 586.8
+    "occupy": 586.8,
+    "ft_shelter": 23,
+    "pt_shelter": 0,
+    "ft_vet": 8,
+    "pt_vet": 0,
+    "ft_inspct": 10,
+    "pt_inspct": 4
   },
   {
     "year": 110,
@@ -4297,7 +4321,13 @@
     "die": 26,
     "return": 163,
     "miss": 23,
-    "occupy": 147.42
+    "occupy": 147.42,
+    "ft_shelter": 3,
+    "pt_shelter": 0,
+    "ft_vet": 0,
+    "pt_vet": 1,
+    "ft_inspct": 0,
+    "pt_inspct": 1
   },
   {
     "year": 110,
@@ -4313,7 +4343,13 @@
     "die": 21,
     "return": 347,
     "miss": 40,
-    "occupy": 170
+    "occupy": 170,
+    "ft_shelter": 7,
+    "pt_shelter": 3,
+    "ft_vet": 1,
+    "pt_vet": 3,
+    "ft_inspct": 2,
+    "pt_inspct": 0
   },
   {
     "year": 110,
@@ -4329,7 +4365,13 @@
     "die": 110,
     "return": 1363,
     "miss": 288,
-    "occupy": 115.01
+    "occupy": 115.01,
+    "ft_shelter": 6,
+    "pt_shelter": 1,
+    "ft_vet": 2,
+    "pt_vet": 0,
+    "ft_inspct": 4,
+    "pt_inspct": 0
   },
   {
     "year": 110,
@@ -4346,7 +4388,13 @@
     "die": 79,
     "return": 893,
     "miss": 94,
-    "occupy": 330
+    "occupy": 330,
+    "ft_shelter": 9,
+    "pt_shelter": 0,
+    "ft_vet": 3,
+    "pt_vet": 0,
+    "ft_inspct": 7,
+    "pt_inspct": 0
   },
   {
     "year": 110,
@@ -4363,7 +4411,13 @@
     "die": 236,
     "return": 3712,
     "miss": 329,
-    "occupy": 392
+    "occupy": 392,
+    "ft_shelter": 32,
+    "pt_shelter": 0,
+    "ft_vet": 13,
+    "pt_vet": 2,
+    "ft_inspct": 8,
+    "pt_inspct": 4
   },
   {
     "year": 110,
@@ -4379,7 +4433,13 @@
     "die": 28,
     "return": 412,
     "miss": 89,
-    "occupy": 169.69
+    "occupy": 169.69,
+    "ft_shelter": 6,
+    "pt_shelter": 0,
+    "ft_vet": 2,
+    "pt_vet": 0,
+    "ft_inspct": 1,
+    "pt_inspct": 0
   },
   {
     "year": 110,
@@ -4392,7 +4452,13 @@
     "adopt": 41,
     "die": 78,
     "miss": 10,
-    "occupy": 378
+    "occupy": 378,
+    "ft_shelter": 15,
+    "pt_shelter": 0,
+    "ft_vet": 0,
+    "pt_vet": 4,
+    "ft_inspct": 6,
+    "pt_inspct": 1
   },
   {
     "year": 110,
@@ -4408,7 +4474,13 @@
     "die": 74,
     "return": 1207,
     "miss": 213,
-    "occupy": 62
+    "occupy": 62,
+    "ft_shelter": 3,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 7,
+    "ft_inspct": 2,
+    "pt_inspct": 7
   },
   {
     "year": 110,
@@ -4424,7 +4496,13 @@
     "die": 34,
     "return": 53,
     "miss": 20,
-    "occupy": 51
+    "occupy": 51,
+    "ft_shelter": 7,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 0,
+    "ft_inspct": 1,
+    "pt_inspct": 1
   },
   {
     "year": 110,
@@ -4439,7 +4517,13 @@
     "die": 418,
     "return": 4127,
     "miss": 23,
-    "occupy": 1015
+    "occupy": 1015,
+    "ft_shelter": 18,
+    "pt_shelter": 0,
+    "ft_vet": 11,
+    "pt_vet": 13,
+    "ft_inspct": 5,
+    "pt_inspct": 9
   },
   {
     "year": 110,
@@ -4455,7 +4539,13 @@
     "die": 154,
     "return": 885,
     "miss": 705,
-    "occupy": 747
+    "occupy": 747,
+    "ft_shelter": 9,
+    "pt_shelter": 0,
+    "ft_vet": 10,
+    "pt_vet": 0,
+    "ft_inspct": 4,
+    "pt_inspct": 3
   },
   {
     "year": 110,
@@ -4470,7 +4560,13 @@
     "die": 33,
     "return": 298,
     "miss": 40,
-    "occupy": 75.4
+    "occupy": 75.4,
+    "ft_shelter": 2,
+    "pt_shelter": 0,
+    "ft_vet": 0,
+    "pt_vet": 2,
+    "ft_inspct": 10,
+    "pt_inspct": 3
   },
   {
     "year": 110,
@@ -4486,7 +4582,13 @@
     "die": 17,
     "return": 1239,
     "miss": 32,
-    "occupy": 68.64
+    "occupy": 68.64,
+    "ft_shelter": 3,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 5,
+    "ft_inspct": 3,
+    "pt_inspct": 3
   },
   {
     "year": 110,
@@ -4502,7 +4604,13 @@
     "die": 5,
     "return": 190,
     "miss": 53,
-    "occupy": 112.2
+    "occupy": 112.2,
+    "ft_shelter": 2,
+    "pt_shelter": 0,
+    "ft_vet": 0,
+    "pt_vet": 1,
+    "ft_inspct": 1,
+    "pt_inspct": 1
   },
   {
     "year": 110,
@@ -4519,7 +4627,13 @@
     "return": 803,
     "miss": 170,
     "occupy": 221.4,
-    "seized": 1
+    "seized": 1,
+    "ft_shelter": 10,
+    "pt_shelter": 1,
+    "ft_vet": 3,
+    "pt_vet": 2,
+    "ft_inspct": 4,
+    "pt_inspct": 17
   },
   {
     "year": 110,
@@ -4535,7 +4649,13 @@
     "die": 93,
     "return": 86,
     "miss": 169,
-    "occupy": 591.6
+    "occupy": 591.6,
+    "ft_shelter": 9,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 3,
+    "ft_inspct": 1,
+    "pt_inspct": 0
   },
   {
     "year": 110,
@@ -4550,7 +4670,13 @@
     "die": 36,
     "return": 945,
     "miss": 44,
-    "occupy": 84
+    "occupy": 84,
+    "ft_shelter": 3,
+    "pt_shelter": 1,
+    "ft_vet": 2,
+    "pt_vet": 1,
+    "ft_inspct": 8,
+    "pt_inspct": 0
   },
   {
     "year": 110,
@@ -4561,7 +4687,13 @@
     "room": 120,
     "accept": 6,
     "adopt": 1,
-    "occupy": 55.2
+    "occupy": 55.2,
+    "ft_shelter": 3,
+    "pt_shelter": 1,
+    "ft_vet": 1,
+    "pt_vet": 1,
+    "ft_inspct": 5,
+    "pt_inspct": 4
   },
   {
     "year": 111,
@@ -4592,7 +4724,13 @@
     "無照繁殖:1": 1,
     "管理不善:0": 8,
     "未絕育:0": 95,
-    "未絕育:1": 4
+    "未絕育:1": 4,
+    "ft_shelter": 3,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 1,
+    "ft_inspct": 2,
+    "pt_inspct": 1
   },
   {
     "year": 111,
@@ -4625,7 +4763,13 @@
     "管理不善:0": 3,
     "管理不善:1": 2,
     "未絕育:0": 8,
-    "未絕育:1": 26
+    "未絕育:1": 26,
+    "ft_shelter": 30,
+    "pt_shelter": 0,
+    "ft_vet": 11,
+    "pt_vet": 0,
+    "ft_inspct": 12,
+    "pt_inspct": 0
   },
   {
     "year": 111,
@@ -4662,7 +4806,13 @@
     "管理不善:1": 22,
     "未絕育:0": 127,
     "未絕育:1": 48,
-    "食品:0": 1
+    "食品:0": 1,
+    "ft_shelter": 66,
+    "pt_shelter": 46,
+    "ft_vet": 17,
+    "pt_vet": 13,
+    "ft_inspct": 7,
+    "pt_inspct": 13
   },
   {
     "year": 111,
@@ -4694,7 +4844,13 @@
     "管理不善:1": 4,
     "未絕育:0": 1194,
     "未絕育:1": 4,
-    "食品:0": 1
+    "食品:0": 1,
+    "ft_shelter": 19,
+    "pt_shelter": 0,
+    "ft_vet": 8,
+    "pt_vet": 0,
+    "ft_inspct": 9,
+    "pt_inspct": 5
   },
   {
     "year": 111,
@@ -4720,7 +4876,13 @@
     "疏縱:0": 35,
     "無照繁殖:0": 1,
     "未絕育:0": 10,
-    "未絕育:1": 2
+    "未絕育:1": 2,
+    "ft_shelter": 3,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 1,
+    "ft_inspct": 0,
+    "pt_inspct": 2
   },
   {
     "year": 111,
@@ -4753,7 +4915,13 @@
     "管理不善:0": 5,
     "管理不善:1": 8,
     "未絕育:0": 7,
-    "未絕育:1": 2
+    "未絕育:1": 2,
+    "ft_shelter": 6,
+    "pt_shelter": 1,
+    "ft_vet": 1,
+    "pt_vet": 0,
+    "ft_inspct": 2,
+    "pt_inspct": 0
   },
   {
     "year": 111,
@@ -4788,7 +4956,13 @@
     "管理不善:1": 4,
     "未絕育:0": 18,
     "未絕育:1": 6,
-    "食品:0": 1
+    "食品:0": 1,
+    "ft_shelter": 6,
+    "pt_shelter": 0,
+    "ft_vet": 3,
+    "pt_vet": 0,
+    "ft_inspct": 1,
+    "pt_inspct": 1
   },
   {
     "year": 111,
@@ -4814,7 +4988,13 @@
     "未寵登:0": 13,
     "疏縱:0": 52,
     "疏縱:1": 5,
-    "未絕育:0": 13
+    "未絕育:0": 13,
+    "ft_shelter": 9,
+    "pt_shelter": 0,
+    "ft_vet": 3,
+    "pt_vet": 0,
+    "ft_inspct": 7,
+    "pt_inspct": 0
   },
   {
     "year": 111,
@@ -4852,7 +5032,13 @@
     "管理不善:1": 72,
     "未絕育:0": 72,
     "未絕育:1": 15,
-    "食品:0": 3
+    "食品:0": 3,
+    "ft_shelter": 32,
+    "pt_shelter": 0,
+    "ft_vet": 10,
+    "pt_vet": 0,
+    "ft_inspct": 17,
+    "pt_inspct": 4
   },
   {
     "year": 111,
@@ -4883,7 +5069,13 @@
     "疏縱:1": 17,
     "無照繁殖:0": 1,
     "未絕育:0": 3,
-    "未絕育:1": 1
+    "未絕育:1": 1,
+    "ft_shelter": 1,
+    "pt_shelter": 0,
+    "ft_vet": 2,
+    "pt_vet": 0,
+    "ft_inspct": 1,
+    "pt_inspct": 0
   },
   {
     "year": 111,
@@ -4915,7 +5107,13 @@
     "疏縱:1": 5,
     "無照繁殖:0": 5,
     "未絕育:0": 2,
-    "未絕育:1": 1
+    "未絕育:1": 1,
+    "ft_shelter": 10,
+    "pt_shelter": 0,
+    "ft_vet": 4,
+    "pt_vet": 0,
+    "ft_inspct": 5,
+    "pt_inspct": 1
   },
   {
     "year": 111,
@@ -4944,7 +5142,13 @@
     "管理不善:0": 11,
     "未絕育:0": 76,
     "未絕育:1": 2,
-    "食品:0": 2
+    "食品:0": 2,
+    "ft_shelter": 4,
+    "pt_shelter": 15,
+    "ft_vet": 1,
+    "pt_vet": 5,
+    "ft_inspct": 2,
+    "pt_inspct": 6
   },
   {
     "year": 111,
@@ -4968,7 +5172,13 @@
     "無照繁殖:0": 1,
     "無照繁殖:1": 1,
     "未絕育:0": 2,
-    "未絕育:1": 1
+    "未絕育:1": 1,
+    "ft_shelter": 7,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 0,
+    "ft_inspct": 2,
+    "pt_inspct": 0
   },
   {
     "year": 111,
@@ -5000,7 +5210,13 @@
     "管理不善:0": 21,
     "管理不善:1": 1,
     "未絕育:0": 37,
-    "未絕育:1": 9
+    "未絕育:1": 9,
+    "ft_shelter": 21,
+    "pt_shelter": 6,
+    "ft_vet": 16,
+    "pt_vet": 32,
+    "ft_inspct": 7,
+    "pt_inspct": 9
   },
   {
     "year": 111,
@@ -5036,7 +5252,13 @@
     "管理不善:0": 19,
     "管理不善:1": 12,
     "未絕育:0": 37,
-    "未絕育:1": 2
+    "未絕育:1": 2,
+    "ft_shelter": 24,
+    "pt_shelter": 0,
+    "ft_vet": 12,
+    "pt_vet": 15,
+    "ft_inspct": 10,
+    "pt_inspct": 10
   },
   {
     "year": 111,
@@ -5074,7 +5296,13 @@
     "管理不善:0": 5,
     "管理不善:1": 3,
     "未絕育:0": 22,
-    "未絕育:1": 21
+    "未絕育:1": 21,
+    "ft_shelter": 3,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 0,
+    "ft_inspct": 4,
+    "pt_inspct": 11
   },
   {
     "year": 111,
@@ -5098,7 +5326,13 @@
     "疏縱:0": 46,
     "疏縱:1": 2,
     "未絕育:0": 2,
-    "未絕育:1": 2
+    "未絕育:1": 2,
+    "ft_shelter": 3,
+    "pt_shelter": 0,
+    "ft_vet": 2,
+    "pt_vet": 4,
+    "ft_inspct": 3,
+    "pt_inspct": 3
   },
   {
     "year": 111,
@@ -5124,7 +5358,13 @@
     "未寵登:0": 2,
     "疏縱:0": 53,
     "無照繁殖:0": 2,
-    "未絕育:0": 1
+    "未絕育:0": 1,
+    "ft_shelter": 9,
+    "pt_shelter": 0,
+    "ft_vet": 2,
+    "pt_vet": 0,
+    "ft_inspct": 3,
+    "pt_inspct": 2
   },
   {
     "year": 111,
@@ -5149,7 +5389,13 @@
     "虐待:0": 1,
     "疏縱:0": 5,
     "疏縱:1": 10,
-    "無照繁殖:0": 1
+    "無照繁殖:0": 1,
+    "ft_shelter": 6,
+    "pt_shelter": 3,
+    "ft_vet": 1,
+    "pt_vet": 2,
+    "ft_inspct": 4,
+    "pt_inspct": 17
   },
   {
     "year": 111,
@@ -5175,7 +5421,13 @@
     "疏縱:1": 14,
     "無照繁殖:0": 4,
     "管理不善:0": 2,
-    "未絕育:0": 8
+    "未絕育:0": 8,
+    "ft_shelter": 10,
+    "pt_shelter": 7,
+    "ft_vet": 0,
+    "pt_vet": 1,
+    "ft_inspct": 3,
+    "pt_inspct": 1
   },
   {
     "year": 111,
@@ -5193,7 +5445,13 @@
     "occupy": 104,
     "未寵登:0": 1,
     "疏縱:0": 1,
-    "疏縱:1": 1
+    "疏縱:1": 1,
+    "ft_shelter": 5,
+    "pt_shelter": 0,
+    "ft_vet": 4,
+    "pt_vet": 1,
+    "ft_inspct": 8,
+    "pt_inspct": 0
   },
   {
     "year": 111,
@@ -5204,7 +5462,13 @@
     "room": 120,
     "accept": 4,
     "adopt": 3,
-    "occupy": 56.4
+    "occupy": 56.4,
+    "ft_shelter": 3,
+    "pt_shelter": 3,
+    "ft_vet": 1,
+    "pt_vet": 1,
+    "ft_inspct": 2,
+    "pt_inspct": 0
   },
   {
     "year": 112,
@@ -5233,7 +5497,13 @@
     "無照繁殖:0": 6,
     "管理不善:0": 6,
     "未絕育:0": 279,
-    "未絕育:1": 9
+    "未絕育:1": 9,
+    "ft_shelter": 5,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 0,
+    "ft_inspct": 1,
+    "pt_inspct": 4
   },
   {
     "year": 112,
@@ -5269,7 +5539,13 @@
     "無照繁殖:1": 2,
     "管理不善:0": 2,
     "未絕育:0": 29,
-    "未絕育:1": 79
+    "未絕育:1": 79,
+    "ft_shelter": 41,
+    "pt_shelter": 0,
+    "ft_vet": 11,
+    "pt_vet": 6,
+    "ft_inspct": 12,
+    "pt_inspct": 11
   },
   {
     "year": 112,
@@ -5311,7 +5587,13 @@
     "管理不善:1": 62,
     "未絕育:0": 636,
     "未絕育:1": 134,
-    "食品:0": 2
+    "食品:0": 2,
+    "ft_shelter": 65,
+    "pt_shelter": 4,
+    "ft_vet": 9,
+    "pt_vet": 20,
+    "ft_inspct": 15,
+    "pt_inspct": 13
   },
   {
     "year": 112,
@@ -5340,7 +5622,13 @@
     "疏縱:0": 686,
     "無照繁殖:0": 3,
     "管理不善:0": 1,
-    "未絕育:0": 1361
+    "未絕育:0": 1361,
+    "ft_shelter": 20,
+    "pt_shelter": 0,
+    "ft_vet": 8,
+    "pt_vet": 0,
+    "ft_inspct": 4,
+    "pt_inspct": 9
   },
   {
     "year": 112,
@@ -5366,7 +5654,13 @@
     "未寵登:0": 4,
     "疏縱:0": 73,
     "無照繁殖:0": 6,
-    "未絕育:0": 12
+    "未絕育:0": 12,
+    "ft_shelter": 4,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 1,
+    "ft_inspct": 1,
+    "pt_inspct": 3
   },
   {
     "year": 112,
@@ -5402,7 +5696,13 @@
     "管理不善:0": 4,
     "管理不善:1": 8,
     "未絕育:0": 9,
-    "未絕育:1": 13
+    "未絕育:1": 13,
+    "ft_shelter": 7,
+    "pt_shelter": 1,
+    "ft_vet": 1,
+    "pt_vet": 0,
+    "ft_inspct": 2,
+    "pt_inspct": 0
   },
   {
     "year": 112,
@@ -5436,7 +5736,13 @@
     "無照繁殖:0": 5,
     "管理不善:0": 2,
     "未絕育:0": 47,
-    "未絕育:1": 3
+    "未絕育:1": 3,
+    "ft_shelter": 10,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 1,
+    "ft_inspct": 11,
+    "pt_inspct": 0
   },
   {
     "year": 112,
@@ -5468,7 +5774,13 @@
     "未寵登:1": 1,
     "疏縱:0": 30,
     "未絕育:0": 18,
-    "未絕育:1": 3
+    "未絕育:1": 3,
+    "ft_shelter": 10,
+    "pt_shelter": 0,
+    "ft_vet": 3,
+    "pt_vet": 0,
+    "ft_inspct": 7,
+    "pt_inspct": 0
   },
   {
     "year": 112,
@@ -5506,7 +5818,13 @@
     "管理不善:0": 37,
     "管理不善:1": 32,
     "未絕育:0": 113,
-    "未絕育:1": 18
+    "未絕育:1": 18,
+    "ft_shelter": 39,
+    "pt_shelter": 0,
+    "ft_vet": 11,
+    "pt_vet": 0,
+    "ft_inspct": 17,
+    "pt_inspct": 12
   },
   {
     "year": 112,
@@ -5537,7 +5855,13 @@
     "疏縱:0": 97,
     "疏縱:1": 11,
     "未絕育:0": 1,
-    "未絕育:1": 1
+    "未絕育:1": 1,
+    "ft_shelter": 5,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 1,
+    "ft_inspct": 13,
+    "pt_inspct": 0
   },
   {
     "year": 112,
@@ -5569,7 +5893,13 @@
     "無照繁殖:0": 7,
     "管理不善:0": 2,
     "未絕育:0": 3,
-    "未絕育:1": 2
+    "未絕育:1": 2,
+    "ft_shelter": 21,
+    "pt_shelter": 0,
+    "ft_vet": 10,
+    "pt_vet": 4,
+    "ft_inspct": 5,
+    "pt_inspct": 7
   },
   {
     "year": 112,
@@ -5603,7 +5933,13 @@
     "管理不善:1": 1,
     "未絕育:0": 34,
     "未絕育:1": 3,
-    "食品:0": 3
+    "食品:0": 3,
+    "ft_shelter": 5,
+    "pt_shelter": 13,
+    "ft_vet": 8,
+    "pt_vet": 0,
+    "ft_inspct": 8,
+    "pt_inspct": 8
   },
   {
     "year": 112,
@@ -5624,7 +5960,13 @@
     "照護:0": 2,
     "棄養:0": 1,
     "虐待:0": 2,
-    "疏縱:0": 1
+    "疏縱:0": 1,
+    "ft_shelter": 9,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 1,
+    "ft_inspct": 4,
+    "pt_inspct": 0
   },
   {
     "year": 112,
@@ -5658,7 +6000,13 @@
     "無照繁殖:0": 11,
     "管理不善:0": 23,
     "未絕育:0": 39,
-    "未絕育:1": 2
+    "未絕育:1": 2,
+    "ft_shelter": 18,
+    "pt_shelter": 0,
+    "ft_vet": 13,
+    "pt_vet": 30,
+    "ft_inspct": 7,
+    "pt_inspct": 8
   },
   {
     "year": 112,
@@ -5694,7 +6042,13 @@
     "管理不善:0": 8,
     "未絕育:0": 289,
     "未絕育:1": 19,
-    "食品:0": 2
+    "食品:0": 2,
+    "ft_shelter": 27,
+    "pt_shelter": 0,
+    "ft_vet": 11,
+    "pt_vet": 30,
+    "ft_inspct": 10,
+    "pt_inspct": 25
   },
   {
     "year": 112,
@@ -5729,7 +6083,13 @@
     "管理不善:0": 6,
     "管理不善:1": 6,
     "未絕育:0": 14,
-    "未絕育:1": 17
+    "未絕育:1": 17,
+    "ft_shelter": 2,
+    "pt_shelter": 0,
+    "ft_vet": 2,
+    "pt_vet": 2,
+    "ft_inspct": 11,
+    "pt_inspct": 6
   },
   {
     "year": 112,
@@ -5758,7 +6118,13 @@
     "疏縱:1": 3,
     "管理不善:0": 1,
     "未絕育:0": 1,
-    "未絕育:1": 1
+    "未絕育:1": 1,
+    "ft_shelter": 6,
+    "pt_shelter": 4,
+    "ft_vet": 1,
+    "pt_vet": 2,
+    "ft_inspct": 5,
+    "pt_inspct": 4
   },
   {
     "year": 112,
@@ -5788,7 +6154,13 @@
     "疏縱:1": 1,
     "無照繁殖:0": 3,
     "管理不善:0": 1,
-    "未絕育:0": 4
+    "未絕育:0": 4,
+    "ft_shelter": 10,
+    "pt_shelter": 0,
+    "ft_vet": 2,
+    "pt_vet": 1,
+    "ft_inspct": 9,
+    "pt_inspct": 9
   },
   {
     "year": 112,
@@ -5811,7 +6183,13 @@
     "未寵登:1": 3,
     "疏縱:0": 4,
     "疏縱:1": 11,
-    "未絕育:1": 1
+    "未絕育:1": 1,
+    "ft_shelter": 6,
+    "pt_shelter": 3,
+    "ft_vet": 1,
+    "pt_vet": 1,
+    "ft_inspct": 4,
+    "pt_inspct": 17
   },
   {
     "year": 112,
@@ -5841,7 +6219,13 @@
     "無照繁殖:0": 2,
     "管理不善:0": 1,
     "未絕育:0": 37,
-    "未絕育:1": 2
+    "未絕育:1": 2,
+    "ft_shelter": 14,
+    "pt_shelter": 2,
+    "ft_vet": 1,
+    "pt_vet": 3,
+    "ft_inspct": 1,
+    "pt_inspct": 1
   },
   {
     "year": 112,
@@ -5857,7 +6241,13 @@
     "occupy": 190,
     "照護:0": 41,
     "虐待:0": 1,
-    "疏縱:0": 4
+    "疏縱:0": 4,
+    "ft_shelter": 4,
+    "pt_shelter": 0,
+    "ft_vet": 4,
+    "pt_vet": 1,
+    "ft_inspct": 8,
+    "pt_inspct": 1
   },
   {
     "year": 112,
@@ -5865,7 +6255,13 @@
     "domestic": 253,
     "human": 13983,
     "room": 120,
-    "occupy": 56.4
+    "occupy": 56.4,
+    "ft_shelter": 1,
+    "pt_shelter": 3,
+    "ft_vet": 1,
+    "pt_vet": 0,
+    "ft_inspct": 2,
+    "pt_inspct": 1
   },
   {
     "year": 113,
@@ -5894,7 +6290,15 @@
     "管理不善:0": 3,
     "未絕育:0": 52,
     "未絕育:1": 13,
-    "食品:0": 1
+    "食品:0": 1,
+    "ft_shelter": 4,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 0,
+    "ft_inspct": 3,
+    "pt_inspct": 2,
+    "ft_etc": 3,
+    "pt_etc": 0
   },
   {
     "year": 113,
@@ -5930,7 +6334,15 @@
     "管理不善:0": 9,
     "管理不善:1": 4,
     "未絕育:0": 26,
-    "未絕育:1": 58
+    "未絕育:1": 58,
+    "ft_shelter": 41,
+    "pt_shelter": 0,
+    "ft_vet": 11,
+    "pt_vet": 2,
+    "ft_inspct": 17,
+    "pt_inspct": 6,
+    "ft_etc": 38,
+    "pt_etc": 0
   },
   {
     "year": 113,
@@ -5970,7 +6382,15 @@
     "管理不善:0": 168,
     "管理不善:1": 84,
     "未絕育:0": 79,
-    "未絕育:1": 115
+    "未絕育:1": 115,
+    "ft_shelter": 54,
+    "pt_shelter": 0,
+    "ft_vet": 11,
+    "pt_vet": 5,
+    "ft_inspct": 17,
+    "pt_inspct": 3,
+    "ft_etc": 26,
+    "pt_etc": 5
   },
   {
     "year": 113,
@@ -6008,7 +6428,15 @@
     "管理不善:1": 5,
     "未絕育:0": 1492,
     "未絕育:1": 17,
-    "食品:0": 69
+    "食品:0": 69,
+    "ft_shelter": 30,
+    "pt_shelter": 0,
+    "ft_vet": 8,
+    "pt_vet": 0,
+    "ft_inspct": 18,
+    "pt_inspct": 3,
+    "ft_etc": 35,
+    "pt_etc": 2
   },
   {
     "year": 113,
@@ -6036,7 +6464,15 @@
     "未寵登:0": 4,
     "疏縱:0": 108,
     "無照繁殖:0": 2,
-    "未絕育:0": 9
+    "未絕育:0": 9,
+    "ft_shelter": 6,
+    "pt_shelter": 1,
+    "ft_vet": 1,
+    "pt_vet": 2,
+    "ft_inspct": 6,
+    "pt_inspct": 2,
+    "ft_etc": 9,
+    "pt_etc": 2
   },
   {
     "year": 113,
@@ -6077,7 +6513,15 @@
     "管理不善:1": 11,
     "未絕育:0": 6,
     "未絕育:1": 7,
-    "食品:0": 1
+    "食品:0": 1,
+    "ft_shelter": 8,
+    "pt_shelter": 3,
+    "ft_vet": 1,
+    "pt_vet": 0,
+    "ft_inspct": 3,
+    "pt_inspct": 0,
+    "ft_etc": 11,
+    "pt_etc": 0
   },
   {
     "year": 113,
@@ -6115,7 +6559,15 @@
     "管理不善:0": 5,
     "未絕育:0": 183,
     "未絕育:1": 2,
-    "食品:0": 5
+    "食品:0": 5,
+    "ft_shelter": 11,
+    "pt_shelter": 0,
+    "ft_vet": 4,
+    "pt_vet": 1,
+    "ft_inspct": 15,
+    "pt_inspct": 1,
+    "ft_etc": 0,
+    "pt_etc": 0
   },
   {
     "year": 113,
@@ -6143,7 +6595,15 @@
     "疏縱:0": 123,
     "無照繁殖:0": 1,
     "未絕育:0": 28,
-    "未絕育:1": 2
+    "未絕育:1": 2,
+    "ft_shelter": 11,
+    "pt_shelter": 0,
+    "ft_vet": 4,
+    "pt_vet": 0,
+    "ft_inspct": 22,
+    "pt_inspct": 0,
+    "ft_etc": 7,
+    "pt_etc": 0
   },
   {
     "year": 113,
@@ -6183,7 +6643,15 @@
     "管理不善:1": 72,
     "未絕育:0": 205,
     "未絕育:1": 22,
-    "食品:0": 2
+    "食品:0": 2,
+    "ft_shelter": 36,
+    "pt_shelter": 0,
+    "ft_vet": 11,
+    "pt_vet": 0,
+    "ft_inspct": 26,
+    "pt_inspct": 0,
+    "ft_etc": 22,
+    "pt_etc": 0
   },
   {
     "year": 113,
@@ -6213,7 +6681,15 @@
     "散布獸鋏:1": 1,
     "疏縱:0": 111,
     "疏縱:1": 6,
-    "無照繁殖:0": 1
+    "無照繁殖:0": 1,
+    "ft_shelter": 7,
+    "pt_shelter": 0,
+    "ft_vet": 2,
+    "pt_vet": 1,
+    "ft_inspct": 16,
+    "pt_inspct": 0,
+    "ft_etc": 3,
+    "pt_etc": 0
   },
   {
     "year": 113,
@@ -6245,7 +6721,15 @@
     "管理不善:0": 4,
     "管理不善:1": 1,
     "未絕育:0": 5,
-    "未絕育:1": 6
+    "未絕育:1": 6,
+    "ft_shelter": 17,
+    "pt_shelter": 0,
+    "ft_vet": 6,
+    "pt_vet": 4,
+    "ft_inspct": 11,
+    "pt_inspct": 0,
+    "ft_etc": 0,
+    "pt_etc": 0
   },
   {
     "year": 113,
@@ -6284,7 +6768,15 @@
     "管理不善:0": 3,
     "管理不善:1": 1,
     "未絕育:0": 164,
-    "未絕育:1": 4
+    "未絕育:1": 4,
+    "ft_shelter": 4,
+    "pt_shelter": 0,
+    "ft_vet": 6,
+    "pt_vet": 0,
+    "ft_inspct": 12,
+    "pt_inspct": 3,
+    "ft_etc": 20,
+    "pt_etc": 0
   },
   {
     "year": 113,
@@ -6302,7 +6794,15 @@
     "return": 236,
     "miss": 12,
     "occupy": 64,
-    "棄養:0": 2
+    "棄養:0": 2,
+    "ft_shelter": 7,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 0,
+    "ft_inspct": 4,
+    "pt_inspct": 0,
+    "ft_etc": 14,
+    "pt_etc": 0
   },
   {
     "year": 113,
@@ -6338,7 +6838,15 @@
     "管理不善:1": 1,
     "未絕育:0": 39,
     "未絕育:1": 8,
-    "食品:0": 1
+    "食品:0": 1,
+    "ft_shelter": 21,
+    "pt_shelter": 0,
+    "ft_vet": 10,
+    "pt_vet": 25,
+    "ft_inspct": 5,
+    "pt_inspct": 5,
+    "ft_etc": 33,
+    "pt_etc": 0
   },
   {
     "year": 113,
@@ -6376,7 +6884,15 @@
     "管理不善:0": 15,
     "管理不善:1": 4,
     "未絕育:0": 59,
-    "未絕育:1": 40
+    "未絕育:1": 40,
+    "ft_shelter": 31,
+    "pt_shelter": 0,
+    "ft_vet": 12,
+    "pt_vet": 0,
+    "ft_inspct": 19,
+    "pt_inspct": 26,
+    "ft_etc": 24,
+    "pt_etc": 0
   },
   {
     "year": 113,
@@ -6413,7 +6929,15 @@
     "管理不善:0": 10,
     "管理不善:1": 1,
     "未絕育:0": 24,
-    "未絕育:1": 25
+    "未絕育:1": 25,
+    "ft_shelter": 12,
+    "pt_shelter": 0,
+    "ft_vet": 3,
+    "pt_vet": 0,
+    "ft_inspct": 18,
+    "pt_inspct": 7,
+    "ft_etc": 12,
+    "pt_etc": 0
   },
   {
     "year": 113,
@@ -6444,7 +6968,15 @@
     "無照繁殖:0": 1,
     "管理不善:0": 1,
     "未絕育:0": 3,
-    "未絕育:1": 3
+    "未絕育:1": 3,
+    "ft_shelter": 6,
+    "pt_shelter": 0,
+    "ft_vet": 1,
+    "pt_vet": 0,
+    "ft_inspct": 5,
+    "pt_inspct": 2,
+    "ft_etc": 11,
+    "pt_etc": 0
   },
   {
     "year": 113,
@@ -6474,7 +7006,15 @@
     "未寵登:0": 3,
     "疏縱:0": 140,
     "疏縱:1": 2,
-    "未絕育:0": 2
+    "未絕育:0": 2,
+    "ft_shelter": 10,
+    "pt_shelter": 0,
+    "ft_vet": 2,
+    "pt_vet": 1,
+    "ft_inspct": 26,
+    "pt_inspct": 0,
+    "ft_etc": 1,
+    "pt_etc": 1
   },
   {
     "year": 113,
@@ -6501,7 +7041,15 @@
     "疏縱:0": 3,
     "疏縱:1": 9,
     "無照繁殖:0": 1,
-    "無照繁殖:1": 2
+    "無照繁殖:1": 2,
+    "ft_shelter": 4,
+    "pt_shelter": 4,
+    "ft_vet": 1,
+    "pt_vet": 1,
+    "ft_inspct": 4,
+    "pt_inspct": 12,
+    "ft_etc": 7,
+    "pt_etc": 1
   },
   {
     "year": 113,
@@ -6529,7 +7077,15 @@
     "無照繁殖:0": 1,
     "管理不善:0": 1,
     "未絕育:0": 188,
-    "未絕育:1": 1
+    "未絕育:1": 1,
+    "ft_shelter": 13,
+    "pt_shelter": 1,
+    "ft_vet": 0,
+    "pt_vet": 4,
+    "ft_inspct": 4,
+    "pt_inspct": 1,
+    "ft_etc": 6,
+    "pt_etc": 0
   },
   {
     "year": 113,
@@ -6542,7 +7098,15 @@
     "die": 9,
     "return": 1004,
     "occupy": 174,
-    "照護:0": 63
+    "照護:0": 63,
+    "ft_shelter": 4,
+    "pt_shelter": 0,
+    "ft_vet": 4,
+    "pt_vet": 1,
+    "ft_inspct": 8,
+    "pt_inspct": 0,
+    "ft_etc": 0,
+    "pt_etc": 1
   },
   {
     "year": 113,
@@ -6555,6 +7119,14 @@
     "die": 1,
     "occupy": 57.6,
     "未寵登:0": 1,
-    "疏縱:0": 1
+    "疏縱:0": 1,
+    "ft_shelter": 1,
+    "pt_shelter": 3,
+    "ft_vet": 1,
+    "pt_vet": 0,
+    "ft_inspct": 2,
+    "pt_inspct": 0,
+    "ft_etc": 0,
+    "pt_etc": 1
   }
 ]

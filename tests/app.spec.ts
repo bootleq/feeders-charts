@@ -12,7 +12,7 @@ test('首頁、資料狀態頁之間導覽', async ({ page }) => {
   await expect(page).toHaveTitle(/^資料狀態 - 全國遊蕩犬統計/);
   await expect(page).toHaveURL('/dog-populations/resource/');
   await expect(page.getByText('遊蕩犬熱區圖')).toBeVisible();
-  await page.getByRole('link', { name: '返回'}).click();
+  await page.getByRole('link', { name: '返回'}).and(page.locator('a.fixed')).click();
 
   await expect(page).toHaveURL('/');
   await page.getByRole('listitem')

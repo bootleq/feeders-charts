@@ -1,7 +1,7 @@
 import * as R from 'ramda';
 import { atom } from 'jotai';
 import { SERIES_NAMES } from '@/lib/series';
-import { offenceTypeKeys } from '@/lib/model';
+import { offenceTypeKeys, workforceTypeKeys } from '@/lib/model';
 import type { TableRow, CheckboxSet } from '@/components/types';
 
 const initialExcludeSeries = [
@@ -13,6 +13,7 @@ const initialExcludeSeries = [
   'occupy',
   'h_stop',
   ...offenceTypeKeys,
+  ...workforceTypeKeys,
 ];
 
 export const seriesChecksAtom = atom<CheckboxSet>(

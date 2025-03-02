@@ -85,7 +85,8 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
   原資料有分四個季度，但我們合併為各年度
 
-  另農委會曾於 [100][縣市執法情況 - 100 年]、[101][縣市執法情況 - 101 年] 年公布案件總數，但缺乏細節，所以就不採用
+- 各縣市動物保護業務人力 (2021 ~ 2024)  
+  https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab4
 
 
 ### 以下為人工收集資料，並建檔於 `data` 目錄中：

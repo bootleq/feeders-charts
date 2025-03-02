@@ -6,6 +6,10 @@ import ProgressBar from './ProgressBar';
 import { SITE_NAME, APP_URL, present } from '@/lib/utils';
 import "./globals.css";
 
+if (!APP_URL) {
+  throw new Error('Missing APP_URL.');
+}
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

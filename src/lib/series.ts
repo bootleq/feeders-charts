@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { offenceTypeKeys } from '@/lib/model';
+import { offenceTypeKeys, workforceTypeMapping } from '@/lib/model';
 import type { SeriesData, Computer } from '@/lib/makeSeries';
 
 // Make name mappings like:
@@ -13,6 +13,20 @@ const enforementSeriesNames = R.reduce(
     return R.assoc(key, `${name}${type === '1' ? '（罰' : ''}`, acc);
   }, {}
 )(offenceTypeKeys);
+
+const workforceSeriesNames = R.pipe(
+  R.toPairs,
+  R.reduce(
+    (acc: Record<string, string>, pair) => {
+      const [key, name] = pair;
+      return {
+        ...acc,
+        [`ft_${String(key)}`]: `${name}`,
+        [`pt_${String(key)}`]: `${name}（兼職）`,
+      };
+    }, {}
+  )
+)(workforceTypeMapping);
 
 export const SERIES_NAMES: Record<string, string> = {
   roaming: '遊蕩犬估計',
@@ -37,6 +51,7 @@ export const SERIES_NAMES: Record<string, string> = {
   // _marker: '事件標記', // this will be added in addition to normal data series process
 
   ...enforementSeriesNames,
+  ...workforceSeriesNames,
 } as const;
 
 export const computers: Record<string, Computer> = {
