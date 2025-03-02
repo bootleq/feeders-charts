@@ -1,6 +1,7 @@
 "use client"
 
 import { Tooltip, TooltipTrigger, TooltipContent, menuHoverProps } from '@/components/Tooltip';
+import type { Placement } from '@floating-ui/react';
 
 // 遊蕩犬
 const tipRoaming = (<>
@@ -230,7 +231,7 @@ const dict: Record<string, React.JSX.Element|string> = {
 };
 
 export const MenuDescTooltip = ({ name, children }: { name: string|undefined, children: React.ReactNode }) => {
-  let key, alt, placement = 'bottom';
+  let key, alt, placement: Placement = 'bottom';
 
   if (name?.startsWith('ft_') || name?.startsWith('pt_')) {
     [alt, key] = name ? name.split('_', 2) : [,];

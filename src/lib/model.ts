@@ -121,7 +121,10 @@ export const LEGACY_CITY_MAPPING = {
 
 const revertCityMapping = R.invertObj(CITY_MAPPING);
 
-export function cityLookup(nameOrCode: string, silent?: boolean) {
+export function cityLookup(nameOrCode: string, silent: true): string | undefined;
+export function cityLookup(nameOrCode: string, silent: false): string;
+export function cityLookup(nameOrCode: string): string;
+export function cityLookup(nameOrCode: string, silent = false) {
   if (R.has(nameOrCode, CITY_MAPPING)) {
     return CITY_MAPPING[nameOrCode];
   }
