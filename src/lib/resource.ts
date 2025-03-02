@@ -61,6 +61,15 @@ const lawEnforceTableResources = lawEnforceTable.reduce((acc, [year, title]) => 
     }};
 }, {});
 
+const moaWorkforceLink = 'https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab4';
+
+export const workForceTable = [
+  [110, '110年4月各縣市動物保護業務人力統計表',  'https://animal.moa.gov.tw/public/upload/Know_ListFile/220511094438712076M2B9T.pdf'],
+  [111, '111年10月各縣市動物保護業務人力統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/221229103502641266SBXNC.pdf'],
+  [112, '112年10月各縣市動物保護業務人力統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/231208043131215611YEHKE.pdf'],
+  [113, '113年10月各縣市動物保護業務人力統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/241129061152849406ELCCZ.pdf'],
+];
+
 export type ResourceEntry = {
   title: string,
   docUrl?: string
@@ -103,5 +112,9 @@ export const resources: Record<string, ResourceEntry> = {
   law_enforce: {
     title: '各縣市政府執行動物保護法案件情形（合併）',
     docUrl: moaGovEnforcementLink,
+  },
+  workforce: {
+    title: '各縣市動物保護業務人力',
+    docUrl: moaWorkforceLink,
   },
 } as const;

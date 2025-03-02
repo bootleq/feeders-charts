@@ -119,7 +119,7 @@ export const LEGACY_CITY_MAPPING = {
 
 const revertCityMapping = R.invertObj(CITY_MAPPING);
 
-export function cityLookup(nameOrCode: string) {
+export function cityLookup(nameOrCode: string, silent?: boolean) {
   if (R.has(nameOrCode, CITY_MAPPING)) {
     return CITY_MAPPING[nameOrCode];
   }
@@ -127,6 +127,8 @@ export function cityLookup(nameOrCode: string) {
   if (R.has(nameOrCode, revertCityMapping)) {
     return revertCityMapping[nameOrCode];
   }
+
+  if (silent) return undefined;
 
   throw new Error(`Unknown city lookup: ${nameOrCode}`);
 }
