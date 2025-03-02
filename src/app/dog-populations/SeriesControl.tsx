@@ -2,7 +2,7 @@ import * as R from 'ramda';
 import { useMemo } from 'react';
 import { useAtom } from 'jotai';
 import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
-import { offenceTypeMapping, workforceTypeMapping, workforceTypeKeys } from '@/lib/model';
+import { offenceTypeMapping, offenceTypeKeys, workforceTypeMapping, workforceTypeKeys } from '@/lib/model';
 import { seriesChecksAtom } from './store';
 import { CheckboxMenuItem } from '@/components/CheckboxMenuItem';
 import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
@@ -31,8 +31,6 @@ import {
   Clock2Icon,
 } from "lucide-react";
 
-const offenceNames = Object.values(offenceTypeMapping);
-
 export function SeriesControl() {
   const [seriesSet, setSeriesSet] = useAtom(seriesChecksAtom);
 
@@ -50,9 +48,9 @@ export function SeriesControl() {
       population: makeFn(['roaming', 'domestic', 'human', 'human100']),
       shelter: makeFn(['accept', 'adopt', 'kill', 'die', 'miss', 'room', 'occupy', 'occupy100', 'infant', 'seized', 'return',]),
       heatMap: makeFn(['h_visit', 'h_roam', 'h_feed', 'h_stop']),
-      enforcement: makeFn(R.chain((name: string) => [`${name}:0`, `${name}:1`], offenceNames)),
-      enforcement0: makeFn(R.map((name: string) => `${name}:0`, offenceNames)),
-      enforcement1: makeFn(R.map((name: string) => `${name}:1`, offenceNames)),
+      enforcement: makeFn(offenceTypeKeys),
+      enforcement0: makeFn(offenceTypeKeys.filter(k => k.endsWith(':0'))),
+      enforcement1: makeFn(offenceTypeKeys.filter(k => k.endsWith(':1'))),
       workforce: makeFn(workforceTypeKeys),
       workforceFt: makeFn(workforceTypeKeys.filter(k => k.startsWith('ft_'))),
       workforcePt: makeFn(workforceTypeKeys.filter(k => k.startsWith('pt_'))),
@@ -143,7 +141,7 @@ export function SeriesControl() {
             <TooltipContentMenu className={tooltipClass('text-sm drop-shadow-md')}>
               <div className={tooltipMenuCls()}>
                 {
-                  offenceNames.map((name: string) => {
+                  Object.entries(offenceTypeMapping).map(([, name]) => {
                     return (
                       <div className='grid grid-cols-2 w-full' key={name}>
                         <SeriesMenuItem Icon={WhistleIcon} iconClass='opacity-60' name={`${name}:0`}>
