@@ -180,6 +180,13 @@ const tipLaws = {
   '食品': (<>寵物食品查驗<br />動保法第 22-3 條、第 22-4 條、第 22-5 條</>),
 };
 
+const tipWorkforce = {
+  shelter: (<>收容所管理人員</>),
+  vet: (<>駐公立動物收容處所獸醫師</>),
+  inspct: (<>動物保護檢查員</>),
+  etc: (<>執行其他動物保護業務之人員</>),
+};
+
 const dict: Record<string, React.JSX.Element|string> = {
   roaming: tipRoaming,
   human: tipHuman,
@@ -219,10 +226,20 @@ const dict: Record<string, React.JSX.Element|string> = {
   '壽山流浪狗倍增': tipShoushanInc,
 
   ...tipLaws,
+  ...tipWorkforce,
 };
 
 export const MenuDescTooltip = ({ name, children }: { name: string|undefined, children: React.ReactNode }) => {
-  const [key, suffix] = name ? name.split(':', 2) : [,];
+  let key, alt, placement = 'bottom';
+
+  if (name?.startsWith('ft_') || name?.startsWith('pt_')) {
+    [alt, key] = name ? name.split('_', 2) : [,];
+    placement = alt == 'ft' ? 'left' : 'right';
+  } else if (name && /:\d$/.test(name)) {
+    [key, alt] = name ? name.split(':', 2) : [,];
+    placement = alt == '0' ? 'left' : 'right';
+  }
+
   const body = key && dict[key];
   const hoverProps = {
     ...menuHoverProps,
@@ -231,7 +248,7 @@ export const MenuDescTooltip = ({ name, children }: { name: string|undefined, ch
 
   if (body) {
     return (
-      <Tooltip placement={suffix === '1' ? 'right' : 'left'} offset={-5} hoverProps={hoverProps}>
+      <Tooltip placement={placement} offset={-5} hoverProps={hoverProps}>
         <TooltipTrigger>
           {children}
         </TooltipTrigger>
