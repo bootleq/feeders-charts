@@ -2,7 +2,7 @@ import * as R from 'ramda';
 import { useMemo } from 'react';
 import { useAtom } from 'jotai';
 import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
-import { offenceTypeMapping } from '@/lib/model';
+import { offenceTypeMapping, workforceTypeMapping, workforceTypeKeys } from '@/lib/model';
 import { seriesChecksAtom } from './store';
 import { CheckboxMenuItem } from '@/components/CheckboxMenuItem';
 import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
@@ -27,6 +27,8 @@ import {
   BabyIcon,
   BanIcon,
   HammerIcon,
+  PersonStandingIcon,
+  Clock2Icon,
 } from "lucide-react";
 
 const offenceNames = Object.values(offenceTypeMapping);
@@ -51,6 +53,9 @@ export function SeriesControl() {
       enforcement: makeFn(R.chain((name: string) => [`${name}:0`, `${name}:1`], offenceNames)),
       enforcement0: makeFn(R.map((name: string) => `${name}:0`, offenceNames)),
       enforcement1: makeFn(R.map((name: string) => `${name}:1`, offenceNames)),
+      workforce: makeFn(workforceTypeKeys),
+      workforceFt: makeFn(workforceTypeKeys.filter(k => k.startsWith('ft_'))),
+      workforcePt: makeFn(workforceTypeKeys.filter(k => k.startsWith('pt_'))),
     };
   }, [seriesSet, setSeriesSet]);
 
@@ -156,6 +161,41 @@ export function SeriesControl() {
                   <SeriesMenuItem sub onClick={toggles.enforcement1}>所有裁罰</SeriesMenuItem>
                 </div>
                 <SeriesMenuItem sub onClick={toggles.enforcement}>全選／不選</SeriesMenuItem>
+              </div>
+            </TooltipContentMenu>
+          </Tooltip>
+        </li>
+
+        <li>
+          <Tooltip placement='bottom-end' offset={0} hoverProps={menuHoverProps}>
+            <TooltipTrigger className='mb-1 block truncate'>
+              <div className='cursor-help p-2 hover:bg-slate-100/75 hover:drop-shadow rounded self-stretch flex items-center' tabIndex={0}>
+                <div className='outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
+                  人力
+                </div>
+              </div>
+            </TooltipTrigger>
+            <TooltipContentMenu className={tooltipClass('text-sm drop-shadow-md')}>
+              <div className={tooltipMenuCls()}>
+                {
+                  Object.entries(workforceTypeMapping).map(([key, name]) => {
+                    return (
+                      <div className='grid grid-cols-2 w-full' key={key}>
+                        <SeriesMenuItem Icon={PersonStandingIcon} iconClass='opacity-60' name={`ft_${key}`}>
+                          {name}
+                        </SeriesMenuItem>
+                        <SeriesMenuItem Icon={Clock2Icon} iconClass='opacity-50' name={`pt_${key}`}>
+                          兼職
+                        </SeriesMenuItem>
+                      </div>
+                    );
+                  })
+                }
+                <div className='grid grid-cols-2 w-full'>
+                  <SeriesMenuItem sub onClick={toggles.workforceFt}>所有專任</SeriesMenuItem>
+                  <SeriesMenuItem sub onClick={toggles.workforcePt}>所有兼職</SeriesMenuItem>
+                </div>
+                <SeriesMenuItem sub onClick={toggles.workforce}>全選／不選</SeriesMenuItem>
               </div>
             </TooltipContentMenu>
           </Tooltip>

@@ -27,6 +27,8 @@ type CountryDataItem = {
   // "照護:0": number,
   // "照護:1": number,
   [K in typeof offenceTypeKeys[number]]: number;
+} & {
+  [K in typeof workforceTypeKeys[number]]: number;
 }
 
 type TainanDataItem = {
@@ -157,4 +159,22 @@ export const offenceTypeMapping = {
 // ]
 export const offenceTypeKeys = Object.values(offenceTypeMapping).flatMap(
   (name) => [`${name}:0`, `${name}:1`] as const
+) satisfies readonly string[];
+
+export const workforceTypeMapping = {
+  shelter: '收容所管理', // 收容所管理人員
+  vet:     '獸醫師',     // 駐公立動物收容處所獸醫師
+  inspct:  '檢查員',     // 動物保護檢查員
+  etc:     '其他業務',   // 執行其他動物保護業務之人員
+} as const;
+
+// Make actual keys as:
+// [
+//  'ft_shelter', 'pt_shelter',
+//  'ft_vet', 'pt_vet',
+//  'ft_inspct', 'pt_inspct',
+//  'ft_etc', 'pt_etc',
+// ]
+export const workforceTypeKeys = Object.keys(workforceTypeMapping).flatMap(
+  k => [`ft_${k}`, `pt_${k}`] as const
 ) satisfies readonly string[];
