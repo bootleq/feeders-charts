@@ -3,7 +3,7 @@ import type { CheckboxSet } from '@/components/types';
 import { MarkerTips } from './MarkerTips';
 import styles from './page.module.scss';
 
-const fontFamily = "'Noto Mono TC', var(--font-geist-mono), 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace";
+const fontFamily = "'Noto Mono TC', var(--font-digits), 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace";
 
 export const markerFormatter = (marker: string, name: string) => {
   const predefined = MarkerTips[name];
