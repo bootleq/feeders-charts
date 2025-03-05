@@ -7,11 +7,18 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
   --font-space: 'BootleqSpace';
+  --font-digits: 'GeistMonoDigits';
 }
 
 @font-face {
   font-family: 'BootleqSpace';
   src: url('/assets/BootleqSpace.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GeistMonoDigits';
+  src: url('/assets/GeistMonoDigits.woff2') format('woff2');
   font-display: swap;
 }
 
@@ -37,6 +44,6 @@ body {
   }
 
   .font-mixed {
-    font-family: var(--font-space), var(--font-geist-mono), 'Microsoft JhengHei', 'Noto Sans TC', 'PingFang', 'LiHei Pro', 'Meiryo', 'MS Gothic', sans-serif;
+    font-family: var(--font-space), var(--font-digits), var(--font-geist-sans), 'Microsoft JhengHei', 'Noto Sans TC', 'PingFang', 'LiHei Pro', 'Meiryo', 'MS Gothic', sans-serif;
   }
 }

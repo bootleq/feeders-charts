@@ -127,7 +127,8 @@ export const MarkerTips: Record<string, string> = {
       <li>無主犬已清查 278 隻，捕捉絕育收容 229 隻，處置率 82.4%</li>
     </ul>
     <p>
-      執行狀況不透明，但 2024 年舉辦<a href='https://feeders.pages.dev/facts/2024-09-25_182' title='2024-09-25: 農業部生態熱區徵求創新方案，獎金 8 萬元 - 事實記錄 - Feeders（暫名）'>徵求創新方案</a>，透露遇上瓶頸。
+      執行狀況不透明，但 2024 年舉辦
+      <a href='https://feeders.pages.dev/facts/2024-09-25_182' title='2024-09-25: 農業部生態熱區徵求創新方案，獎金 8 萬元 - 事實記錄 - Feeders（暫名）'>徵求創新方案</a>，透露遇上瓶頸。
     </p>
   `,
 

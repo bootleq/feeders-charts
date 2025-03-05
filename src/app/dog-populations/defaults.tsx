@@ -6,7 +6,7 @@ import { markerFormatter } from './markers';
 const revertedSeriesNames = R.invertObj(SERIES_NAMES);
 
 export const fontFamily = "'Noto Mono TC', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'";
-const mixedFontFamily = "var(--font-space), var(--font-geist-mono), 'Microsoft JhengHei', 'Noto Sans TC', sans-serif";
+const mixedFontFamily = "var(--font-space), var(--font-digits), var(--font-geist-sans), 'Microsoft JhengHei', 'Noto Sans TC', 'PingFang', 'LiHei Pro', 'Meiryo', 'MS Gothic', sans-serif";
 
 export const numberFormatter = (number: number) => Intl.NumberFormat("zh-TW").format(number);
 
@@ -118,7 +118,7 @@ export const defaultSeriesSettings: Record<string, any> = {
     tooltip: {
       ...tooltipOptions,
       textStyle: {
-        fontFamily: 'var(--font-geist-mono)',
+        fontFamily: mixedFontFamily,
       },
       valueFormatter: (num: number) => {
         const wan = numberFormatter(Math.floor(num / 10000));
@@ -140,7 +140,7 @@ export const defaultSeriesSettings: Record<string, any> = {
     tooltip: {
       ...tooltipOptions,
       textStyle: {
-        fontFamily: 'var(--font-geist-mono)',
+        fontFamily: mixedFontFamily,
       },
       valueFormatter: (number: number) => {
         return `${number.toFixed(2)}<span style='font-family:var(--font-geist-sans)'> 隻</span>`
