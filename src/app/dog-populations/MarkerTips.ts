@@ -49,8 +49,7 @@ export const MarkerTips: Record<string, string> = {
       2017-02-01 正式上路。
     </p>
     <p>
-      後續參考報導者 The Reporter + 窩窩專題：
-      <a target='_blank' href='https://www.twreporter.org/topics/6-years-after-no-kill-policy-adopted' title='零撲殺上路六年：當生命不再倒數十二夜，流浪犬何處為家？ - 報導者 The Reporter'>零撲殺上路六年：當生命不再倒數十二夜，流浪犬何處為家？</a>
+      後續參考報導者 The Reporter + 窩窩專題：<a target='_blank' href='https://www.twreporter.org/topics/6-years-after-no-kill-policy-adopted' title='零撲殺上路六年：當生命不再倒數十二夜，流浪犬何處為家？ - 報導者 The Reporter'>零撲殺上路六年：當生命不再倒數十二夜，流浪犬何處為家？</a>
     </p>
   `,
 
@@ -184,15 +183,14 @@ export const MarkerTips: Record<string, string> = {
       <small>（註：目前許多頁面變成亂碼）</small>
     </p>
     <p>
-      詳見<a href='https://www.east.org.tw/action/1285' target='_blank' title='公布全台326縣市鄉鎮流浪犬貓捕捉、收容現況調查，控訴政府集體、大規模虐待流浪犬貓'>動社發表文章</a>。
+      詳見 <a href='https://www.east.org.tw/action/1285' target='_blank' title='公布全台326縣市鄉鎮流浪犬貓捕捉、收容現況調查，控訴政府集體、大規模虐待流浪犬貓'>動社發表文章</a>。
     </p>
   `,
 
   '動團安樂死聲明': html`
     <p>
       零撲殺後，民眾仍然有汙名化「安樂死」的情形。
-      多個動團表態支持基於動物福利人道安樂死：
-      <a target='_blank' href='https://www.spca.org.tw/post/zhen-dui-gong-li-shou-rong-chu-suo-dong-wu-ren-dao-chu-li-ji-zhi-zhi-luo-shi-dong-bao-tuan-ti-lian-he-sheng?fbclid=IwZXh0bgNhZW0CMTAAAR1ym-foOaOqbc50ypN5BRj2oGyv9fttlr7aki_3jjPzpoqPBaFpLlUhhQE_aem_xqbZ4cM26PGsw_KLyxkCww' title='針對公立收容處所動物人道處理機制之落實：動保團體聯合聲明'>針對公立收容處所動物人道處理機制之落實：動保團體聯合聲明</a>
+      多個動團表態支持基於動物福利人道安樂死：<a target='_blank' href='https://www.spca.org.tw/post/zhen-dui-gong-li-shou-rong-chu-suo-dong-wu-ren-dao-chu-li-ji-zhi-zhi-luo-shi-dong-bao-tuan-ti-lian-he-sheng?fbclid=IwZXh0bgNhZW0CMTAAAR1ym-foOaOqbc50ypN5BRj2oGyv9fttlr7aki_3jjPzpoqPBaFpLlUhhQE_aem_xqbZ4cM26PGsw_KLyxkCww' title='針對公立收容處所動物人道處理機制之落實：動保團體聯合聲明'>針對公立收容處所動物人道處理機制之落實：動保團體聯合聲明</a>
     </p>
   `,
 
@@ -302,7 +300,7 @@ export const MarkerTips: Record<string, string> = {
       2018 後大約每兩隻救傷就有一隻來自犬攻擊，已取代獸鋏（1993 ~ 2009 期間約 70%）成為最大威脅。
     </p>
     <p>
-      參考報導者  <a target='_blank' href='https://www.twreporter.org/a/6-years-after-no-kill-policy-adopted-conflict-with-wildlife#:~:text=犬隻攻擊已成穿山甲最大威脅' title='野外棲地誰的家──犬殺頻傳，遊蕩犬與野生動物衝突下的生態與公衛危機 - 報導者 The Reporter'>野外棲地誰的家──犬殺頻傳，遊蕩犬與野生動物衝突下的生態與公衛危機</a>
+      參考報導者 <a target='_blank' href='https://www.twreporter.org/a/6-years-after-no-kill-policy-adopted-conflict-with-wildlife#:~:text=犬隻攻擊已成穿山甲最大威脅' title='野外棲地誰的家──犬殺頻傳，遊蕩犬與野生動物衝突下的生態與公衛危機 - 報導者 The Reporter'>野外棲地誰的家──犬殺頻傳，遊蕩犬與野生動物衝突下的生態與公衛危機</a>
     </p>
   `,
   '壽山流浪狗倍增': html`

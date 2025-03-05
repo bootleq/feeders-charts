@@ -39,9 +39,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  preload(`${BASE_PATH}/assets/BootleqSpace.woff2`, {
-    as: 'font',
-  });
+  preload(`${BASE_PATH}/assets/GeistMonoDigits.woff2`, { as: 'font' });
+  preload(`${BASE_PATH}/assets/BootleqSpace.woff2`, { as: 'font' });
 
   return (
     <html lang="zh-TW">
