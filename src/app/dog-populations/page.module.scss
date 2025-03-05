@@ -43,7 +43,11 @@
   }
 
   a[href] {
+    --icon-width: 1em;
+
     color: #0c4a6e;
+    position: relative;
+    padding-left: calc(var(--icon-width) * 1.125);
 
     &:hover {
       color: black;
@@ -51,15 +55,15 @@
     }
 
     &::before {
-      content: '';
+      content: url('/assets/paper-clip.svg');
       display: inline-block;
-      width: 12px;
-      height: 12px;
-      background-image: url('/assets/paper-clip.svg');
-      background-size: cover;
-      background-position: center;
-      margin-right: 2px;
-      // vertical-align: middle;
+      width: var(--icon-width);
+      height: 100%;
+      transform: scale(0.9);
+      transform-origin: 50% 0.25lh;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   }
 
