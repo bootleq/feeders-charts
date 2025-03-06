@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@bprogress/next':
+        specifier: ^3.2.4
+        version: 3.2.4(next@15.1.6(@babel/core@7.26.7)(@playwright/test@1.50.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.84.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@floating-ui/react':
         specifier: ^0.27.3
         version: 0.27.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -29,9 +32,6 @@ importers:
       next:
         specifier: 15.1.6
         version: 15.1.6(@babel/core@7.26.7)(@playwright/test@1.50.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.84.0)
-      next-nprogress-bar:
-        specifier: ^2.3.16
-        version: 2.3.16
       ramda:
         specifier: ^0.30.1
         version: 0.30.1
@@ -672,6 +672,22 @@ packages:
   '@babel/types@7.26.7':
     resolution: {integrity: sha512-t8kDRGrKXyp6+tjUh7hw2RLyclsW4TRoRvRHtSyAX9Bb5ldlFh+90YAYY6awRXrlB4G5G2izNeGySpATlFzmOg==}
     engines: {node: '>=6.9.0'}
+
+  '@bprogress/core@1.2.4':
+    resolution: {integrity: sha512-dFhKl6MgwBgRZG7U9BbeDBMKjUgQ0s3JDCBwLBUZSZS/1wYGLkV9zl7T7wt4ddv49GWe358HyG3yQcsN+nJYig==}
+
+  '@bprogress/next@3.2.4':
+    resolution: {integrity: sha512-s3ScGO/OVedphwwvwRpILRg5kWjjQG3M42TeJZOyD/QPSqzyCO+5WEjvjjdtT2qHafDBeq351e446vbcLq6vYw==}
+    peerDependencies:
+      next: '>=13.0.0'
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+
+  '@bprogress/react@1.1.8':
+    resolution: {integrity: sha512-D2JOO45IWCnVxvIkCpNx2Qmrn7QtX3UIIaybOF763fezeD2YMDdk9zWx9Q6k+3XbJRbTo01n0coDDgBBNqDSaA==}
+    peerDependencies:
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
 
   '@csstools/cascade-layer-name-parser@2.0.4':
     resolution: {integrity: sha512-7DFHlPuIxviKYZrOiwVU/PiHLm3lLUR23OMuEEtfEOQTOp9hzQ2JjdY6X5H18RVuUPJqSCI+qNnD5iOLMVE0bA==}
@@ -3316,9 +3332,6 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  next-nprogress-bar@2.3.16:
-    resolution: {integrity: sha512-/otM20uuAvLZdnPStx12Qc/aZT7EwSMZX3VyQfIbrxOaNr8Lg0YzzS9TRw4HG5XfqfEoad0dpRV2M1sn6H/yfQ==}
-
   next@15.1.6:
     resolution: {integrity: sha512-Hch4wzbaX0vKQtalpXvUiw5sYivBy4cm5rzUKrBnUB/y436LGrvOUqYvlSeNVCWFO/770gDlltR9gqZH62ct4Q==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
@@ -3374,9 +3387,6 @@ packages:
   normalize-range@0.1.2:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
-
-  nprogress@0.2.0:
-    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
 
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
@@ -5276,6 +5286,22 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
+
+  '@bprogress/core@1.2.4': {}
+
+  '@bprogress/next@3.2.4(next@15.1.6(@babel/core@7.26.7)(@playwright/test@1.50.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.84.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@bprogress/core': 1.2.4
+      '@bprogress/react': 1.1.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      next: 15.1.6(@babel/core@7.26.7)(@playwright/test@1.50.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.84.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
+  '@bprogress/react@1.1.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      '@bprogress/core': 1.2.4
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
 
   '@csstools/cascade-layer-name-parser@2.0.4(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)':
     dependencies:
@@ -8188,10 +8214,6 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next-nprogress-bar@2.3.16:
-    dependencies:
-      nprogress: 0.2.0
-
   next@15.1.6(@babel/core@7.26.7)(@playwright/test@1.50.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.84.0):
     dependencies:
       '@next/env': 15.1.6
@@ -8273,8 +8295,6 @@ snapshots:
   normalize-path@3.0.0: {}
 
   normalize-range@0.1.2: {}
-
-  nprogress@0.2.0: {}
 
   nth-check@2.1.1:
     dependencies:

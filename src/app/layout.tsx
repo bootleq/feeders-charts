@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { preload } from 'react-dom';
 import { BASE_PATH } from '@/lib/utils';
-import ProgressBar from './ProgressBar';
+import ProgressProvider from './ProgressBar';
 import { SITE_NAME, APP_URL, present } from '@/lib/utils';
 import "./globals.css";
 
@@ -47,8 +47,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} antialiased`}
       >
-        <ProgressBar />
-        {children}
+        <ProgressProvider>
+          {children}
+        </ProgressProvider>
       </body>
     </html>
   );
