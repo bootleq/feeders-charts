@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE_NAME } from '@/lib/utils';
 import { metadata as layoutMetadata } from "./layout";
 import Link from 'next/link';
 import RepoLink from './RepoLink';
@@ -8,7 +9,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: '圖表頁 目錄',
+  title: `圖表頁 目錄 - ${SITE_NAME}`,
   description: layoutMetadata.description,
 };
 

@@ -1,9 +1,10 @@
 import { test, expect } from '@playwright/test';
+import { SITE_NAME } from '@/lib/utils';
 import { dogPopulationsTableRow } from './app.spec.ts-data';
 
 test('首頁、資料狀態頁之間導覽', async ({ page }) => {
   await page.goto('/');
-  await expect(page).toHaveTitle(/^圖表頁 目錄/);
+  await expect(page).toHaveTitle(`圖表頁 目錄 - ${SITE_NAME}`);
 
   await page.getByRole('listitem')
     .filter({ has: page.getByRole('link', { name: '全國遊蕩犬統計'}) })
