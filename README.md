@@ -36,8 +36,8 @@ Use below scripts to reassemble, update:
 - `pnpm data:heat_map`: Fetch and transform heat map data
 - `pnpm data:law`: Fetch and transform animal protect act enforcement data
 - `pnpm data:manually`: Transform manually collected (already built-in in repo) data
-- `pnpm data:tainan`: Fetch and transform Tainan population data
-- `pnpm data:reduce`: Normalize and combine all processed data (except tainan's)
+- `pnpm data:tainan`: Fetch and transform Tainan TNVR report data
+- `pnpm data:reduce`: Normalize and combine all processed data (except Tainan's)
 - `pnpm data:serve`: Copy transformed data to `public/` folder to really use them in app
 
 Above scripts have hash/time checking so will stop if detect no change.
