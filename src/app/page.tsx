@@ -23,24 +23,24 @@ export default function Home() {
 
         <ul className='sm:list-disc list-outside text-center sm:text-left text-2xl ml-4 sm:ml-0 space-y-8 sm:space-y-0'>
           <li>
-            <Link href='dog-populations' className='cursor-pointer p-2 rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
+            <Link href='dog-populations/' className='cursor-pointer p-2 rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
               全國遊蕩犬統計
             </Link>
             <span className='inline-block mx-3 text-slate-400 -skew-x-[18deg] sm:skew-0'>
             |
             </span>
-            <Link href='dog-populations/resource' className='cursor-pointer p-2 rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
+            <Link href='dog-populations/resource/' className='cursor-pointer p-2 rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
               資料狀態
             </Link>
           </li>
           <li>
-            <Link href='tainan' className='cursor-pointer p-2 rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
+            <Link href='tainan/' className='cursor-pointer p-2 rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
               臺南市流浪犬 TNVR 成果
             </Link>
             <span className='inline-block mx-3 text-slate-400 -skew-x-[18deg] sm:skew-0'>
             |
             </span>
-            <Link href='tainan/resource' className='cursor-pointer p-2 rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
+            <Link href='tainan/resource/' className='cursor-pointer p-2 rounded transition hover:bg-amber-200 inline-block hover:-translate-y-1 hover:drop-shadow'>
               資料狀態
             </Link>
           </li>
