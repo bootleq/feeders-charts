@@ -231,7 +231,7 @@ const dict: Record<string, React.JSX.Element|string> = {
 };
 
 export const MenuDescTooltip = ({ name, children }: { name: string|undefined, children: React.ReactNode }) => {
-  let key, alt, placement: Placement = 'bottom';
+  let key, alt, placement: Placement = 'left';
 
   if (name?.startsWith('ft_') || name?.startsWith('pt_')) {
     [alt, key] = name ? name.split('_', 2) : [,];
@@ -239,6 +239,8 @@ export const MenuDescTooltip = ({ name, children }: { name: string|undefined, ch
   } else if (name && /:\d$/.test(name)) {
     [key, alt] = name ? name.split(':', 2) : [,];
     placement = alt == '0' ? 'left' : 'right';
+  } else {
+    key = name;
   }
 
   const body = key && dict[key];
