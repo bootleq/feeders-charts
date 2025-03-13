@@ -4,7 +4,7 @@ import { zhTW } from 'date-fns/locale';
 
 const appURLCfg = process.env.NEXT_PUBLIC_APP_URL;
 
-export const SITE_NAME = 'Feeders（暫名）';
+export const SITE_NAME = 'Feeders';
 export const APP_URL = appURLCfg && new URL(appURLCfg);
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
