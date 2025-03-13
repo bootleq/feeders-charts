@@ -21,7 +21,7 @@ export function RepresentControl() {
     <div className='flex flex-wrap items-center pb-0.5'>
       <ul className='flex items-center justify-around gap-2 flex-wrap max-w-[26rem]'>
         <li>
-          <Tooltip placement='bottom-end' offset={0} hoverProps={menuHoverProps}>
+          <Tooltip placement='bottom-end' offset={0} hoverProps={menuHoverProps} role='menu'>
             <TooltipTrigger className='mb-1 block truncate'>
               <div className='cursor-help p-2 hover:bg-slate-100/75 hover:drop-shadow rounded self-stretch flex items-center' tabIndex={0}>
                 <div className='outline-blue-400 peer-checked:text-slate-700 peer-focus-visible:outline'>
