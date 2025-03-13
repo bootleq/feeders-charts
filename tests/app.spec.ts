@@ -39,6 +39,13 @@ test('全國遊蕩犬統計', async ({ page }) => {
   await yearsInput.getByLabel('88').click({ force: true });
   await yearsInput.getByLabel('91').click({ force: true, modifiers: ['Shift'] });
 
+  // 選單說明
+  const shelterMenu = page.getByRole('menu', { name: '收容所' });
+  await page.getByRole('group', { name: '資料項目' }).getByText('收容所').hover();
+  await expect(shelterMenu).toBeVisible();
+  await shelterMenu.locator('label:has-text("在養數")').hover();
+  await expect(page.getByRole('tooltip').filter({ has: page.getByText('推算出當年的在養數') })).toBeVisible();
+
   // 套用
   await page.getByRole('button', { name: '套用' }).click();
 

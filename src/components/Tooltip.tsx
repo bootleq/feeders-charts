@@ -204,7 +204,10 @@ export const TooltipContentMenu = React.forwardRef<
             ...context.floatingStyles,
             ...style
           }}
-          {...context.getFloatingProps(props)}
+          {...context.getFloatingProps({
+            role: 'menu',
+            ...props
+          })}
         />
       </FloatingFocusManager>
     </FloatingPortal>
