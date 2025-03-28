@@ -208,7 +208,7 @@ export const MarkerTips: Record<string, string> = {
       <li>絕育 8,578 隻</li>
     </ul>
     <p>
-      2024 有再執行數狗
+      2024 有再執行數狗，結果減量 45.9%（樣區犬數 1,497 → 810 隻）
     </p>
   `,
 
