@@ -91,20 +91,6 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
 ### 以下為人工收集資料，並建檔於 `data` 目錄中：
 
-- 112年度全國家犬貓數量調查結果統計表  
-  https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000817?parentID=Tab0000143
-
-  2023 年的「家犬」資料還未加入「年度犬貓統計表」，故先手動處理
-
-  `data/populations_112.csv`
-
-- 113年各縣市遊蕩犬估計數調查結果  
-  https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000864?parentID=Tab0000143
-
-  2024 年的「遊蕩犬」資料還未加入「年度犬貓統計表」，故先手動處理
-
-  `data/populations_113.csv`
-
 - 民國 96 年以前的資料
 
   「收容所資料」未找到正式來源，故採用台灣之心 HOTAC 網站[整理數字][HOTAC 2020]，其資料來源為「行政院農委會動植物防疫檢疫局-統計年報」

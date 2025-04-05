@@ -89,11 +89,11 @@ export const resources: Record<string, ResourceEntry> = {
     docUrl: 'https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx',
   },
   populations_112: {
-    title: '112年度全國家犬貓數量調查結果統計表',
+    title: '112年度全國家犬貓數量調查結果統計表（2025 4 月停用）',
     docUrl: 'https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000817?parentID=Tab0000143',
   },
   populations_113: {
-    title: '113年各縣市遊蕩犬估計數調查結果',
+    title: '113年各縣市遊蕩犬估計數調查結果（2025 4 月停用）',
     docUrl: 'https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000864?parentID=Tab0000143',
   },
   countrywide: {

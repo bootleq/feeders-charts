@@ -19,8 +19,6 @@ import { normalizeByJq } from './normalizers/jq';
 import { normalizePopulation } from './normalizers/population_jq';
 
 const manuallyResources = [
-  'populations_112',
-  'populations_113',
   'countrywide',
   'human_population',
   'heat_map',
@@ -76,11 +74,6 @@ function validate(resourceName, items) {
   const validators = {
     population: (data) => {
       if (data.some(({ year, roaming, domestic }) => {
-        if (year > 111) {
-          console.error(`Unexpected data, we assume 112 (2023), 113 (2024) population data not included yet.`);
-          return true;
-        }
-
         if (year === 90) {
           if (roaming || !domestic) {
             console.error(`Unexpected data,  year 90 (2001) should only contain "roaming".`);
