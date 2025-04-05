@@ -2,6 +2,7 @@
 
 import * as R from 'ramda';
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
+import Link from 'next/link';
 
 import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
@@ -41,6 +42,8 @@ import {
 import { CanvasRenderer } from 'echarts/renderers';
 
 import {
+  XIcon,
+  CircleAlertIcon,
   CornerDownLeftIcon,
 } from "lucide-react";
 
@@ -61,6 +64,7 @@ echarts.use(
 
 export default function Chart() {
   const [items, setItems] = useState<CountryItem[]>([]);
+  const [showAlert, setShowAlert] = useState(true);
   const chartRef = useRef<ReactEChartsCore>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const formCacheRepresent = useRef('');
@@ -209,6 +213,10 @@ export default function Chart() {
     chart.setOption(newOptions);
   }, [items, meta, makeSeries, updateYearAxis, updateLegends, updateRepresent, updateMarker]);
 
+  const onCloseAlert = () => {
+    setShowAlert(false);
+  };
+
   const itemsReady = R.isNotEmpty(items) && R.isNotNil(meta);
 
   return (
@@ -247,6 +255,20 @@ export default function Chart() {
           套用
         </button>
       </form>
+
+      {showAlert &&
+        <div className='flex items-center gap-x-2 w-fit bg-red-200 rounded-lg p-2 mx-2 md:mx-auto'>
+          <CircleAlertIcon size={22} className='flex-shrink-0' />
+          <p>
+            由於
+            <Link href='https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx' className='underline' title='全國動物收容管理系統'>動物收容統計表（詳表）</Link>
+            在 2024 之前的「可收容量」和「在養佔比」資料來源錯誤，以致這裡的「可收容量」「在養數」「收容壓力」也連帶錯誤（比實際低），近期會進行修正。
+          </p>
+          <button className='btn p-px ml-auto rounded-full hover:scale-125 hover:drop-shadow' aria-label='關閉' onClick={onCloseAlert}>
+            <XIcon className='stroke-slate-700 stroke-2' height={22} />
+          </button>
+        </div>
+      }
 
       <div role='menu' aria-label='資料輸出' className='flex items-center justify-end gap-x-1'>
         {itemsReady &&
