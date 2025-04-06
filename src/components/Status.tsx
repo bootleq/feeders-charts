@@ -64,13 +64,13 @@ export default function Status({ scope, resources }: {
   }
 
   const { combined, sources } = data;
-  const rowCls = 'grid grid-cols-2 py-1 gap-x-2 hover:bg-amber-200 place-items-center ';
+  const rowCls = 'grid sm:grid-cols-2 py-1 gap-x-2 hover:bg-amber-200 place-items-center ';
   const dtCls = 'flex items-center px-2';
   const ddCls = 'text-center';
 
   return (
     <div>
-      <h2 className='mt-6 mb-2 text-2xl py-3 text-center flex items-center justify-center'>
+      <h2 className='mt-4 mb-2 text-2xl py-1 text-center flex items-center justify-center'>
         資料組合時間
         <Tooltip>
           <TooltipTrigger>
@@ -84,7 +84,7 @@ export default function Status({ scope, resources }: {
         </Tooltip>
       </h2>
 
-      <dl className='mt-8 font-mixed'>
+      <dl className='font-mixed'>
         <div className={`${rowCls}`}>
           <dt className={dtCls}>
             現在時間
@@ -104,7 +104,7 @@ export default function Status({ scope, resources }: {
         </div>
       </dl>
 
-      <h2 className='mt-6 mb-2 text-2xl py-3 text-center flex items-center justify-center'>
+      <h2 className='mt-8 mb-2 text-2xl py-1 text-center flex items-center justify-center'>
         各資料來源的更新時間
         <Tooltip>
           <TooltipTrigger>

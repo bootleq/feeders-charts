@@ -26,7 +26,7 @@ export default async function Page() {
         </h1>
 
         <div className=''>
-          <h2 id='revisions' className='mt-6 mb-2 text-2xl py-3 text-center flex items-center justify-center'>
+          <h2 id='revisions' className='mt-3 mb-2 text-2xl py-1 text-center flex items-center justify-center'>
             修訂記錄
             <Tooltip>
               <TooltipTrigger>
@@ -40,13 +40,13 @@ export default async function Page() {
             </Tooltip>
           </h2>
 
-          <ol className='font-mixed list-decimal'>
+          <ol className='font-mixed list-decimal list-inside md:list-outside px-3 md:px-0'>
             <li>
-              <div className=''>
+              <div className='inline'>
                 <span className='mr-1'>2025-04-06</span>
                 <Link href='https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx' className='underline underline-offset-4' title='全國動物收容管理系統'>全國動物收容管理系統</Link>提供的「可留容最大值」歷史數字錯誤
               </div>
-              <div className='flex items-center text-sm p-1 px-2 my-1 ring-1 rounded'>
+              <div className='flex items-center text-sm p-1 px-2 my-1 ring-1 ring-slate-300 bg-gray-200 rounded'>
                 較早年度的最大收容量都被高估了，導致看起來收容壓力沒那麼大，詳見
                 <Link
                   target='_blank' className={revisionLinkCls}
