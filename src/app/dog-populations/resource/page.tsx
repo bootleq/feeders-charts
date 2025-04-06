@@ -6,7 +6,6 @@ import Link from 'next/link';
 
 import {
   ArrowLeftIcon,
-  ExternalLinkIcon,
   InfoIcon,
 } from "lucide-react";
 

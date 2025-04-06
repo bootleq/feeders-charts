@@ -7,7 +7,7 @@ import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/Tooltip';
 
 import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
-import { makeYearRange, tooltipClass, BASE_PATH } from '@/lib/utils';
+import { makeYearRange, BASE_PATH } from '@/lib/utils';
 import { parseChartInputs } from '@/lib/formData';
 import { SERIES_NAMES, computers } from '@/lib/series';
 import { buildSeriesMaker } from '@/lib/makeSeries';
