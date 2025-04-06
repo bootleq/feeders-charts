@@ -15,7 +15,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const revisionLinkCls = 'inline-flex items-center gap-x-1 p-1 rounded-md w-fit text-indigo-900 opacity-80 hover:opacity-100 hover:bg-purple-200';
+  const revisionTitleLinkCls = 'rounded-md w-fit text-cyan-800 hover:text-slate-900 hover:bg-purple-100';
+  const revisionLinkCls = 'inline-flex items-center gap-x-1 p-1 rounded-md w-fit text-blue-900 opacity-80 hover:opacity-100 hover:bg-purple-200';
 
   return (
     <div className="container min-h-screen mx-auto font-[family-name:var(--font-geist-sans)]">
@@ -43,10 +44,10 @@ export default async function Page() {
             <li>
               <div className='inline'>
                 <span className='mr-1'>2025-04-06</span>
-                <Link href='https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx' className='underline underline-offset-4' title='全國動物收容管理系統'>全國動物收容管理系統</Link>提供的「可留容最大值」歷史數字錯誤
+                <Link href='https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx' className={revisionTitleLinkCls}>全國動物收容管理系統</Link>提供的「可留容最大值」歷史數字錯誤
               </div>
               <div className='flex items-center text-sm p-1 px-2 my-1 ring-1 ring-slate-300 bg-gray-200 rounded'>
-                較早年度的最大收容量都被高估了，導致看起來收容壓力沒那麼大，詳見
+                較早年度的最大收容量被高估了，導致看起來收容壓力沒那麼大，詳見
                 <Link
                   target='_blank' className={revisionLinkCls}
                   href='https://github.com/bootleq/feeders-charts/issues/1'
