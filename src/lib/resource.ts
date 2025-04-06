@@ -89,6 +89,10 @@ export const resources: Record<string, ResourceEntry> = {
     title: '動物收容統計表（詳表）（108 ~ 113 年）',
     docUrl: 'https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx',
   },
+  shelter_details: {
+    title: '全國公立動物收容所收容處理情形統計表(細項)',
+    docUrl: 'https://data.gov.tw/dataset/73396',
+  },
   populations_112: {
     title: '112年度全國家犬貓數量調查結果統計表',
     docUrl: 'https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000817?parentID=Tab0000143',
