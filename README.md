@@ -69,6 +69,18 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
   來自「全國動物收容管理系統」的詳細資料
 
+- 全國公立動物收容所收容處理情形統計表(細項) (106 ~ 113 年)  
+  https://data.gov.tw/dataset/73396
+
+  比起前述「動物收容統計表（詳表）」，資料較不齊全  
+  所以只採用該詳表需要訂正的部分，即「(犬) 可留容最大值」和「(犬) 在養占可留容比例」；
+  另仍有部分年度（~ 108）是缺失的，改為人工整理補上（見 `data/shelter_occupy_106_108.csv`）
+
+  部分欄位在前幾年並沒有資料：
+
+  - 出所：回置從 107 開始
+  - 可留容最大值從 109 開始
+
 - 戶籍登記人口數(人)  
   https://winstacity.dgbas.gov.tw/DgbasWeb/ZWeb/StateFile_ZWeb.aspx
 
@@ -121,20 +133,6 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
   https://data.gov.tw/dataset/41236
 
   和動保資訊網提供的數字對不起來，年度也不齊全
-
-- 全國公立動物收容所收容處理情形統計表(細項) (106 ~ 113 年)  
-  https://data.gov.tw/dataset/73396
-
-  比起「動物收容統計表（詳表）」（全國動物收容管理系統），資料較不齊全  
-  所以只採用詳表需要訂正的部分，即「(犬) 可留容最大值」和「(犬) 在養占可留容比例」；
-  另仍有部分年度（~ 108）是缺失的，改為人工整理補上（見 `data/shelter_occupy_106_108.csv）
-
-  TODO: 這段要移出「最終未使用」部分
-
-  部分欄位在前幾年並沒有資料：
-
-  - 出所：回置從 107 開始
-  - 可留容最大值從 109 開始
 
 
 
