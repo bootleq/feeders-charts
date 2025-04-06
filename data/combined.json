@@ -3042,7 +3042,9 @@
     "accept": 816,
     "adopt": 747,
     "die": 72,
-    "human": 372100
+    "human": 372100,
+    "room": 150,
+    "occupy": 85
   },
   {
     "year": 106,
@@ -3053,7 +3055,9 @@
     "adopt": 2817,
     "kill": 179,
     "die": 168,
-    "human": 2695704
+    "human": 2695704,
+    "room": 610,
+    "occupy": 619
   },
   {
     "year": 106,
@@ -3063,7 +3067,9 @@
     "accept": 7678,
     "adopt": 7205,
     "die": 433,
-    "human": 3979208
+    "human": 3979208,
+    "room": 1865,
+    "occupy": 1378
   },
   {
     "year": 106,
@@ -3074,7 +3080,9 @@
     "adopt": 2874,
     "kill": 21,
     "die": 219,
-    "human": 2147763
+    "human": 2147763,
+    "room": 340,
+    "occupy": 405
   },
   {
     "year": 106,
@@ -3085,7 +3093,9 @@
     "adopt": 448,
     "kill": 29,
     "die": 25,
-    "human": 547481
+    "human": 547481,
+    "room": 32,
+    "occupy": 40
   },
   {
     "year": 106,
@@ -3096,7 +3106,9 @@
     "adopt": 321,
     "kill": 9,
     "die": 25,
-    "human": 437337
+    "human": 437337,
+    "room": 120,
+    "occupy": 79
   },
   {
     "year": 106,
@@ -3107,7 +3119,9 @@
     "adopt": 956,
     "kill": 26,
     "die": 115,
-    "human": 559189
+    "human": 559189,
+    "room": 140,
+    "occupy": 137
   },
   {
     "year": 106,
@@ -3118,7 +3132,9 @@
     "adopt": 475,
     "kill": 7,
     "die": 78,
-    "human": 505163
+    "human": 505163,
+    "room": 300,
+    "occupy": 314
   },
   {
     "year": 106,
@@ -3129,7 +3145,9 @@
     "adopt": 3854,
     "kill": 82,
     "die": 677,
-    "human": 2767239
+    "human": 2767239,
+    "room": 500,
+    "occupy": 451
   },
   {
     "year": 106,
@@ -3140,7 +3158,9 @@
     "adopt": 519,
     "kill": 44,
     "die": 107,
-    "human": 1287146
+    "human": 1287146,
+    "room": 161,
+    "occupy": 137
   },
   {
     "year": 106,
@@ -3151,7 +3171,9 @@
     "adopt": 463,
     "kill": 6,
     "die": 49,
-    "human": 694873
+    "human": 694873,
+    "room": 250,
+    "occupy": 250
   },
   {
     "year": 106,
@@ -3162,7 +3184,9 @@
     "adopt": 234,
     "kill": 14,
     "die": 56,
-    "human": 515320
+    "human": 515320,
+    "room": 110,
+    "occupy": 119
   },
   {
     "year": 106,
@@ -3173,7 +3197,9 @@
     "adopt": 605,
     "kill": 37,
     "die": 46,
-    "human": 269874
+    "human": 269874,
+    "room": 32,
+    "occupy": 36
   },
   {
     "year": 106,
@@ -3183,7 +3209,9 @@
     "accept": 6417,
     "adopt": 6397,
     "die": 525,
-    "human": 1886033
+    "human": 1886033,
+    "room": 700,
+    "occupy": 362
   },
   {
     "year": 106,
@@ -3194,7 +3222,9 @@
     "adopt": 3802,
     "kill": 11,
     "die": 424,
-    "human": 2779371
+    "human": 2779371,
+    "room": 650,
+    "occupy": 507
   },
   {
     "year": 106,
@@ -3205,7 +3235,9 @@
     "adopt": 965,
     "kill": 33,
     "die": 273,
-    "human": 835792
+    "human": 835792,
+    "room": 200,
+    "occupy": 177
   },
   {
     "year": 106,
@@ -3216,7 +3248,9 @@
     "adopt": 1132,
     "kill": 15,
     "die": 4,
-    "human": 220802
+    "human": 220802,
+    "room": 240,
+    "occupy": 12
   },
   {
     "year": 106,
@@ -3227,7 +3261,9 @@
     "adopt": 500,
     "kill": 8,
     "die": 49,
-    "human": 330911
+    "human": 330911,
+    "room": 100,
+    "occupy": 89
   },
   {
     "year": 106,
@@ -3238,7 +3274,9 @@
     "adopt": 883,
     "kill": 159,
     "die": 240,
-    "human": 457538
+    "human": 457538,
+    "room": 330,
+    "occupy": 308
   },
   {
     "year": 106,
@@ -3249,7 +3287,9 @@
     "adopt": 330,
     "kill": 38,
     "die": 50,
-    "human": 103263
+    "human": 103263,
+    "room": 120,
+    "occupy": 104
   },
   {
     "year": 106,
@@ -3260,7 +3300,9 @@
     "adopt": 304,
     "kill": 45,
     "die": 37,
-    "human": 135114
+    "human": 135114,
+    "room": 80,
+    "occupy": 64
   },
   {
     "year": 106,
@@ -3270,7 +3312,9 @@
     "accept": 13,
     "adopt": 4,
     "die": 5,
-    "human": 12595
+    "human": 12595,
+    "room": 120,
+    "occupy": 40
   },
   {
     "year": 107,
@@ -3281,6 +3325,8 @@
     "adopt": 451,
     "die": 57,
     "human": 371458,
+    "room": 100,
+    "occupy": 85,
     "seized": 6,
     "return": 1,
     "miss": 20
@@ -3295,6 +3341,8 @@
     "kill": 3,
     "die": 131,
     "human": 2683257,
+    "room": 610,
+    "occupy": 846,
     "miss": 38
   },
   {
@@ -3306,6 +3354,8 @@
     "adopt": 5855,
     "die": 337,
     "human": 3986689,
+    "room": 1615,
+    "occupy": 1285,
     "return": 12,
     "miss": 88
   },
@@ -3319,6 +3369,8 @@
     "kill": 26,
     "die": 120,
     "human": 2188017,
+    "room": 425,
+    "occupy": 589,
     "return": 884,
     "miss": 288
   },
@@ -3331,6 +3383,8 @@
     "adopt": 328,
     "die": 32,
     "human": 552169,
+    "room": 32,
+    "occupy": 42,
     "return": 13,
     "miss": 3
   },
@@ -3344,6 +3398,8 @@
     "kill": 6,
     "die": 42,
     "human": 441132,
+    "room": 90,
+    "occupy": 81,
     "miss": 3
   },
   {
@@ -3356,6 +3412,8 @@
     "kill": 23,
     "die": 171,
     "human": 553807,
+    "room": 220,
+    "occupy": 43,
     "return": 565,
     "miss": 26
   },
@@ -3369,6 +3427,8 @@
     "kill": 1,
     "die": 28,
     "human": 501051,
+    "room": 300,
+    "occupy": 305,
     "seized": 2,
     "miss": 1
   },
@@ -3382,6 +3442,8 @@
     "kill": 24,
     "die": 721,
     "human": 2787070,
+    "room": 500,
+    "occupy": 438,
     "seized": 26,
     "return": 2479,
     "miss": 36
@@ -3395,6 +3457,8 @@
     "adopt": 509,
     "die": 36,
     "human": 1282458,
+    "room": 161,
+    "occupy": 119,
     "seized": 3,
     "miss": 25
   },
@@ -3407,6 +3471,8 @@
     "adopt": 486,
     "die": 76,
     "human": 690373,
+    "room": 250,
+    "occupy": 444,
     "miss": 3
   },
   {
@@ -3419,6 +3485,8 @@
     "kill": 3,
     "die": 34,
     "human": 511182,
+    "room": 110,
+    "occupy": 113,
     "miss": 4
   },
   {
@@ -3431,6 +3499,8 @@
     "kill": 5,
     "die": 11,
     "human": 269398,
+    "room": 32,
+    "occupy": 32,
     "seized": 10,
     "miss": 2
   },
@@ -3443,6 +3513,8 @@
     "adopt": 4339,
     "die": 261,
     "human": 1886522,
+    "room": 700,
+    "occupy": 741,
     "return": 2219,
     "miss": 14
   },
@@ -3455,6 +3527,8 @@
     "adopt": 3394,
     "die": 239,
     "human": 2776912,
+    "room": 800,
+    "occupy": 728,
     "seized": 36,
     "miss": 260
   },
@@ -3468,6 +3542,8 @@
     "kill": 1,
     "die": 1,
     "human": 829939,
+    "room": 100,
+    "occupy": 90,
     "seized": 1,
     "miss": 2
   },
@@ -3481,6 +3557,8 @@
     "kill": 7,
     "die": 8,
     "human": 219540,
+    "room": 120,
+    "occupy": 19,
     "miss": 6
   },
   {
@@ -3493,6 +3571,8 @@
     "kill": 11,
     "die": 24,
     "human": 329237,
+    "room": 100,
+    "occupy": 86,
     "seized": 4,
     "return": 115,
     "miss": 2
@@ -3507,6 +3587,8 @@
     "kill": 24,
     "die": 134,
     "human": 456607,
+    "room": 330,
+    "occupy": 246,
     "miss": 333
   },
   {
@@ -3519,6 +3601,8 @@
     "kill": 37,
     "die": 75,
     "human": 104073,
+    "room": 160,
+    "occupy": 149,
     "miss": 13
   },
   {
@@ -3531,6 +3615,8 @@
     "kill": 1,
     "die": 30,
     "human": 137456,
+    "room": 80,
+    "occupy": 62,
     "return": 480
   },
   {
@@ -3541,7 +3627,9 @@
     "accept": 27,
     "adopt": 24,
     "die": 3,
-    "human": 12880
+    "human": 12880,
+    "room": 120,
+    "occupy": 40
   },
   {
     "year": 108,
@@ -3549,6 +3637,8 @@
     "domestic": 16812,
     "roaming": 0,
     "human": 370155,
+    "room": 100,
+    "occupy": 57,
     "seized": 39,
     "accept": 413,
     "adopt": 368,
@@ -3561,6 +3651,8 @@
     "domestic": 140959,
     "roaming": 0,
     "human": 2668572,
+    "room": 610,
+    "occupy": 1185,
     "accept": 2983,
     "adopt": 2422,
     "kill": 3,
@@ -3574,6 +3666,8 @@
     "domestic": 211383,
     "roaming": 0,
     "human": 3995717,
+    "room": 1615,
+    "occupy": 1523,
     "seized": 1,
     "accept": 6688,
     "adopt": 5952,
@@ -3587,6 +3681,8 @@
     "domestic": 131010,
     "roaming": 0,
     "human": 2220872,
+    "room": 652,
+    "occupy": 683,
     "accept": 5085,
     "adopt": 2249,
     "kill": 22,
@@ -3600,6 +3696,8 @@
     "domestic": 46940,
     "roaming": 0,
     "human": 557010,
+    "room": 114,
+    "occupy": 120,
     "seized": 64,
     "accept": 510,
     "adopt": 324,
@@ -3613,6 +3711,8 @@
     "domestic": 39056,
     "roaming": 0,
     "human": 445635,
+    "room": 90,
+    "occupy": 186,
     "accept": 640,
     "adopt": 241,
     "kill": 11,
@@ -3626,6 +3726,8 @@
     "domestic": 41954,
     "roaming": 0,
     "human": 548863,
+    "room": 220,
+    "occupy": 165,
     "accept": 1355,
     "adopt": 361,
     "kill": 5,
@@ -3639,6 +3741,8 @@
     "domestic": 51506,
     "roaming": 0,
     "human": 497031,
+    "room": 300,
+    "occupy": 279,
     "seized": 1,
     "accept": 463,
     "adopt": 296,
@@ -3653,6 +3757,8 @@
     "domestic": 150907,
     "roaming": 0,
     "human": 2803894,
+    "room": 500,
+    "occupy": 445,
     "accept": 8361,
     "adopt": 4686,
     "kill": 48,
@@ -3666,6 +3772,8 @@
     "domestic": 80138,
     "roaming": 0,
     "human": 1277824,
+    "room": 161,
+    "occupy": 370,
     "seized": 26,
     "accept": 2100,
     "adopt": 1047,
@@ -3679,6 +3787,8 @@
     "domestic": 58899,
     "roaming": 0,
     "human": 686022,
+    "room": 250,
+    "occupy": 386,
     "seized": 267,
     "accept": 819,
     "adopt": 728,
@@ -3691,6 +3801,8 @@
     "domestic": 50274,
     "roaming": 0,
     "human": 507068,
+    "room": 110,
+    "occupy": 139,
     "seized": 13,
     "accept": 227,
     "adopt": 107,
@@ -3705,6 +3817,8 @@
     "domestic": 15584,
     "roaming": 0,
     "human": 268622,
+    "room": 100,
+    "occupy": 62,
     "seized": 1,
     "accept": 313,
     "adopt": 266,
@@ -3718,6 +3832,8 @@
     "domestic": 85038,
     "roaming": 0,
     "human": 1883831,
+    "room": 700,
+    "occupy": 999,
     "accept": 8277,
     "adopt": 4075,
     "die": 398,
@@ -3730,6 +3846,8 @@
     "domestic": 196423,
     "roaming": 0,
     "human": 2773533,
+    "room": 800,
+    "occupy": 811,
     "seized": 7,
     "accept": 5331,
     "adopt": 4926,
@@ -3742,6 +3860,8 @@
     "domestic": 105977,
     "roaming": 0,
     "human": 825406,
+    "room": 100,
+    "occupy": 87,
     "seized": 5,
     "accept": 883,
     "adopt": 453,
@@ -3755,6 +3875,8 @@
     "domestic": 31167,
     "roaming": 0,
     "human": 218919,
+    "room": 120,
+    "occupy": 24,
     "accept": 529,
     "adopt": 519,
     "kill": 1,
@@ -3766,6 +3888,8 @@
     "domestic": 33860,
     "roaming": 0,
     "human": 327968,
+    "room": 100,
+    "occupy": 48,
     "accept": 507,
     "adopt": 259,
     "kill": 20,
@@ -3779,6 +3903,8 @@
     "domestic": 37904,
     "roaming": 0,
     "human": 455221,
+    "room": 330,
+    "occupy": 283,
     "accept": 1534,
     "adopt": 936,
     "kill": 14,
@@ -3791,6 +3917,8 @@
     "domestic": 4629,
     "roaming": 0,
     "human": 104440,
+    "room": 160,
+    "occupy": 276,
     "accept": 588,
     "adopt": 261,
     "die": 265
@@ -3801,6 +3929,8 @@
     "domestic": 6573,
     "roaming": 0,
     "human": 139273,
+    "room": 200,
+    "occupy": 145,
     "accept": 818,
     "adopt": 266,
     "kill": 5,
@@ -3814,6 +3944,8 @@
     "domestic": 448,
     "roaming": 0,
     "human": 13056,
+    "room": 120,
+    "occupy": 52,
     "accept": 23,
     "adopt": 9,
     "die": 1

@@ -54,7 +54,7 @@
     "sourceCheckedAt": "2025-02-17T08:32:12.150Z"
   },
   "combined": {
-    "builtAt": "2025-04-06T02:25:10.820Z"
+    "builtAt": "2025-04-06T07:24:11.602Z"
   },
   "law_enforce_111": {
     "sourceCheckedAt": "2025-02-26T07:59:28.875Z"
@@ -73,5 +73,8 @@
   },
   "shelter_details": {
     "sourceCheckedAt": "2025-04-06T01:28:31.096Z"
+  },
+  "shelter_occupy_106_108": {
+    "sourceCheckedAt": "2025-04-06T05:05:05.200Z"
   }
 }
