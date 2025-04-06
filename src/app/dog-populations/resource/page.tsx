@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import Status from '@/components/Status';
 import { resources } from '@/lib/resource';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/Tooltip';
 import Link from 'next/link';
+
 import {
   ArrowLeftIcon,
+  ExternalLinkIcon,
+  InfoIcon,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -12,12 +16,49 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
+  const revisionLinkCls = 'inline-flex items-center gap-x-1 p-1 rounded-md w-fit text-indigo-900 opacity-80 hover:opacity-100 hover:bg-purple-200';
+
   return (
     <div className="container min-h-screen mx-auto font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-2 items-center justify-center h-full min-h-[60vh]">
         <h1 className='pt-3 block text-center w-full text-3xl bold'>
           全國遊蕩犬統計 資料狀態
         </h1>
+
+        <div className=''>
+          <h2 className='mt-6 mb-2 text-2xl py-3 text-center flex items-center justify-center'>
+            修訂記錄
+            <Tooltip>
+              <TooltipTrigger>
+                <div className='cursor-help p-1 ml-0.5 rounded self-stretch flex'>
+                  <InfoIcon size={24} className='stroke-slate-600 cursor-help' />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent className='p-2 rounded box-border w-max z-[1002] bg-slate-100 drop-shadow-xl'>
+                比較重大的數值變動（主要是既有資料勘誤，而不是新增資料）會列在這裡
+              </TooltipContent>
+            </Tooltip>
+          </h2>
+
+          <ol className='font-mixed list-decimal'>
+            <li>
+              <div className=''>
+                <span className='mr-1'>2025-04-06</span>
+                <Link href='https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx' className='underline underline-offset-4' title='全國動物收容管理系統'>全國動物收容管理系統</Link>提供的「可留容最大值」歷史數字錯誤
+              </div>
+              <div className='flex items-center text-sm p-1 px-2 my-1 ring-1 rounded'>
+                較早年度的最大收容量都被高估了，導致看起來收容壓力沒那麼大，詳見
+                <Link
+                  target='_blank' className={revisionLinkCls}
+                  href='https://github.com/bootleq/feeders-charts/issues/1'
+                  title='「全國動物收容管理系統」提供的「可留容最大值」歷史數字錯誤 · Issue #1 · bootleq/feeders-charts'
+                >
+                  issue #1
+                </Link>
+              </div>
+            </li>
+          </ol>
+        </div>
 
         <div className='flex items-center my-3 mx-auto flex-1'>
           <Status scope='' resources={resources} />

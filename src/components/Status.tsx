@@ -70,6 +70,20 @@ export default function Status({ scope, resources }: {
 
   return (
     <div>
+      <h2 className='mt-6 mb-2 text-2xl py-3 text-center flex items-center justify-center'>
+        資料組合時間
+        <Tooltip>
+          <TooltipTrigger>
+            <div className='cursor-help p-1 ml-0.5 rounded self-stretch flex'>
+              <InfoIcon size={24} className='stroke-slate-600 cursor-help' />
+            </div>
+          </TooltipTrigger>
+          <TooltipContent className='p-2 rounded box-border w-max z-[1002] bg-slate-100 drop-shadow-xl'>
+            目前是由人工發動資料的重整，發動時間會顯示在這裡
+          </TooltipContent>
+        </Tooltip>
+      </h2>
+
       <dl className='mt-8 font-mixed'>
         <div className={`${rowCls}`}>
           <dt className={dtCls}>
