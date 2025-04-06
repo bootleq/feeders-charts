@@ -100,6 +100,10 @@ export const resources: Record<string, ResourceEntry> = {
     title: '民國 96 年以前的資料',
     docUrl: 'https://docs.google.com/spreadsheets/d/1ajrN-ok3wnSI8X2-ntRRX9W8B2rXIz5ScnZWyUzt-G4/edit?gid=0#gid=0',
   },
+  shelter_occupy_106_108: {
+    title: '民國 106 ~ 108 年的「最大容留數」和「在養數」資料',
+    docUrl: 'https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab3',
+  },
   heat_map: {
     title: '遊蕩犬熱區圖 (2023 ~ 2024)',
     docUrl: 'https://www.pet.gov.tw/Wandering/HeatMapV1.aspx',

@@ -60,7 +60,55 @@ const resources = [
       ];
       return testSamplesExist(samples, data);
     },
-  }
+  },
+  {
+    basename: 'shelter_occupy_106_108',
+    parserOptions: {
+      skipLines: 1,
+      headers: [
+        'city',
+        '106_room', '106_occupy',
+        '107_room', '107_occupy',
+        '108_room', '108_occupy',
+      ],
+      mapValues: ({ header, value }) => {
+        switch (header) {
+          case 'city':
+            return cityCodeMapping.get(value);
+            break;
+          default:
+            return Number(value.toString().replaceAll(',', ''));
+            break;
+        }
+      },
+    },
+    postProcess: (data) => {
+      return data.reduce((acc, obj) => {
+        [106, 107, 108].forEach(year => {
+          const { city } = obj;
+          const room = obj[`${year}_room`];
+          const occupy = obj[`${year}_occupy`];
+          acc.push({
+            year,
+            city,
+            room,
+            occupy,
+          });
+        });
+
+        return acc;
+      }, []);
+    },
+    validator: (data) => {
+      const samples = [
+        // https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab3
+        {year: 106, city: 'City000003', room: 1865, occupy: 1378}, // 新北市
+        {year: 107, city: 'City000002', room:  610, occupy:  846}, // 台北市
+        {year: 108, city: 'City000006', room:   90, occupy:  186}, // 新竹市
+      ];
+      return testSamplesExist(samples, data);
+    },
+  },
 ];
 
 async function parseCSV(file, csvOptions = {}) {

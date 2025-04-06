@@ -59,9 +59,10 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
   「動物保護資訊網」每年公布的統計數字，多為 Excel 檔案
 
-  因後述「詳表」較完整，所以這邊只採用 97 ~ 107 年的資料
+  因後述「詳表」較完整，所以這邊只採用：
 
-  TODO: 仍須尋找 106 ~ 108 年的詳表「最大容留數」資料
+  - 97 ~ 107 年的資料
+  - 106 ~ 108 年的「最大留容數」和「在養數」資料有用，但為求簡便，這部分以人工方式整理（見後述 `data/shelter_occupy_106_108.csv`），而非自動解析報表
 
 - 動物收容統計表（詳表）（108 ~ 113 年）  
   https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx
@@ -93,6 +94,16 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
 ### 以下為人工收集資料，並建檔於 `data` 目錄中：
 
+- 民國 106 ~ 108 年的「最大容留數」和「在養數」資料
+
+  這三年的收容資料並未包含在 data.gov.tw 或 www.pet.gov.tw，應該是因為當年沒有將犬／貓分開計算，
+  但可以在 animal.moa.gov.tw 找到零星資料，所以手動整理到[個人文章][全國遊蕩犬數量整理成圖表]附錄的 [google doc 文件][年度資料 gdoc]  
+  https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab3
+
+  但仍無法區分犬／貓，而會是合併的數字
+
+  `data/shelter_occupy_106_108.csv`
+
 - 民國 96 年以前的資料
 
   「收容所資料」未找到正式來源，故採用台灣之心 HOTAC 網站[整理數字][HOTAC 2020]，其資料來源為「行政院農委會動植物防疫檢疫局-統計年報」
@@ -115,8 +126,8 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
   https://data.gov.tw/dataset/73396
 
   比起「動物收容統計表（詳表）」（全國動物收容管理系統），資料較不齊全  
-  所以只採用詳表需要訂正的部分，即「(犬) 可留容最大值」和「(犬) 在養占可留容比例」，
-  另仍有部分年度（~ 108）是缺失的
+  所以只採用詳表需要訂正的部分，即「(犬) 可留容最大值」和「(犬) 在養占可留容比例」；
+  另仍有部分年度（~ 108）是缺失的，改為人工整理補上（見 `data/shelter_occupy_106_108.csv）
 
   TODO: 這段要移出「最終未使用」部分
 
