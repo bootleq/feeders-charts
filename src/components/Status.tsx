@@ -107,10 +107,16 @@ export default function Status({ scope, resources }: {
       <dl className='font-mixed'>
         {sources.map(([name, checkedAt]) => {
           const link = resources[name]?.docUrl;
+          const reminder = resources[name]?.reminder;
           return (
             <div key={name} className={rowCls}>
               <dt className={dtCls}>
                 {resources[name]?.title}
+                { reminder &&
+                  <span className='text-red-800 text-sm'>
+                    （{reminder}）
+                  </span>
+                }
                 { link &&
                   <Link href={link} target='_blank' className='inline-block px-2 opacity-70 hover:opacity-100 hover:scale-110'>
                     <ExternalLinkIcon size={18} />

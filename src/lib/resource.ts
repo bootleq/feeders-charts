@@ -72,7 +72,8 @@ export const workForceTable = [
 
 export type ResourceEntry = {
   title: string,
-  docUrl?: string
+  docUrl?: string,
+  reminder?: string,
 };
 
 export const resources: Record<string, ResourceEntry> = {
@@ -89,12 +90,14 @@ export const resources: Record<string, ResourceEntry> = {
     docUrl: 'https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx',
   },
   populations_112: {
-    title: '112年度全國家犬貓數量調查結果統計表（2025 4 月停用）',
+    title: '112年度全國家犬貓數量調查結果統計表',
     docUrl: 'https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000817?parentID=Tab0000143',
+    reminder: '已於 2025-04-05 停用'
   },
   populations_113: {
-    title: '113年各縣市遊蕩犬估計數調查結果（2025 4 月停用）',
+    title: '113年各縣市遊蕩犬估計數調查結果',
     docUrl: 'https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000864?parentID=Tab0000143',
+    reminder: '已於 2025-04-05 停用'
   },
   countrywide: {
     title: '民國 96 年以前的資料',
