@@ -56,7 +56,7 @@ async function combine( resourceNames ) {
 
   for (const file of inFiles) {
     if (!fs.existsSync(file)) {
-      console.error(`Aborted, missing file ${file}`);
+      console.error(chalk.red.bold(`Aborted, missing file ${file}`));
       return false;
     }
   }
@@ -65,7 +65,7 @@ async function combine( resourceNames ) {
     const script = path.resolve('scripts/combine.jq');
     return await jqProcess(script, inFiles);
   } catch (error) {
-    console.error('Fail combining：', error.message);
+    console.error(chalk.red.bold('Fail combining：', error.message));
     throw error;
   }
 }
@@ -145,7 +145,7 @@ function validate(resourceName, items) {
   for (const rc of allResources) {
     const sourceTime = await readSourceTime(rc);
     if (!sourceTime) {
-      console.error(`Error: missing sourceCheckedAt record for '${rc}'`);
+      console.error(chalk.red.bold(`Error: missing sourceCheckedAt record for '${rc}'`));
       console.log('Aborted.');
       return;
     }
@@ -160,14 +160,14 @@ function validate(resourceName, items) {
     const now = new Date();
 
     if (needsUpdate) {
-      console.log(`Write file to ${outFile}...`);
+      console.log(chalk.gray(`Write file to ${outFile}...`));
       await fsp.writeFile(outFile, newContent);
       await writeMeta('', ['combined', 'builtAt'], now.toJSON());
     } else {
       console.log(`Combined data has no change.`);
       if (Number(process.env.DATA_CONTINUE_WHEN_SAME_HASH)) {
         console.log(chalk.yellow.bold('but still save data per request ') + chalk.red.bold('(DATA_CONTINUE_WHEN_SAME_HASH)'));
-        console.log(`Write file to ${outFile}...`);
+        console.log(chalk.gray(`Write file to ${outFile}...`));
         await fsp.writeFile(outFile, newContent);
       } else {
         return;
