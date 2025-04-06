@@ -54,7 +54,7 @@ test('全國遊蕩犬統計', async ({ page }) => {
   const menuItemByCities = tableMenu.getByLabel('區域逐年詳情');
   const dialog = page.getByLabel('資料表格對話框');
 
-  await page.getByRole('menu', { name: '資料輸出' }).getByLabel('製作表格').hover();
+  await page.getByRole('menu', { name: '圖表工具列' }).getByLabel('製作表格').hover();
   await expect(tableMenu).toBeVisible();
   await expect(menuItemByCities).toBeVisible();
   await menuItemByCities.click({ force: true });
@@ -94,7 +94,7 @@ test('臺南市流浪犬 TNVR 成果', async ({ page }) => {
   const tableMenu = page.getByRole('menu', { name:'製作表格' });
   const menuItemByCities = tableMenu.getByLabel('區域逐年詳情');
 
-  await page.getByRole('menu', { name: '資料輸出' }).getByLabel('製作表格').hover();
+  await page.getByRole('menu', { name: '圖表工具列' }).getByLabel('製作表格').hover();
   await expect(tableMenu).toBeVisible();
   await expect(menuItemByCities).toBeVisible();
   await menuItemByCities.click({ force: true });

@@ -72,7 +72,8 @@ export const workForceTable = [
 
 export type ResourceEntry = {
   title: string,
-  docUrl?: string
+  docUrl?: string,
+  reminder?: string,
 };
 
 export const resources: Record<string, ResourceEntry> = {
@@ -88,17 +89,27 @@ export const resources: Record<string, ResourceEntry> = {
     title: '動物收容統計表（詳表）（108 ~ 113 年）',
     docUrl: 'https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx',
   },
+  shelter_details: {
+    title: '全國公立動物收容所收容處理情形統計表(細項)',
+    docUrl: 'https://data.gov.tw/dataset/73396',
+  },
   populations_112: {
-    title: '112年度全國家犬貓數量調查結果統計表（2025 4 月停用）',
+    title: '112年度全國家犬貓數量調查結果統計表',
     docUrl: 'https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000817?parentID=Tab0000143',
+    reminder: '已於 2025-04-05 停用'
   },
   populations_113: {
-    title: '113年各縣市遊蕩犬估計數調查結果（2025 4 月停用）',
+    title: '113年各縣市遊蕩犬估計數調查結果',
     docUrl: 'https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000864?parentID=Tab0000143',
+    reminder: '已於 2025-04-05 停用'
   },
   countrywide: {
     title: '民國 96 年以前的資料',
     docUrl: 'https://docs.google.com/spreadsheets/d/1ajrN-ok3wnSI8X2-ntRRX9W8B2rXIz5ScnZWyUzt-G4/edit?gid=0#gid=0',
+  },
+  shelter_occupy_106_108: {
+    title: '民國 106 ~ 108 年的「最大容留數」和「在養數」資料',
+    docUrl: 'https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab3',
   },
   heat_map: {
     title: '遊蕩犬熱區圖 (2023 ~ 2024)',

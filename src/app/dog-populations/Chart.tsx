@@ -3,6 +3,7 @@
 import * as R from 'ramda';
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import Link from 'next/link';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/Tooltip';
 
 import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
@@ -45,6 +46,7 @@ import {
   XIcon,
   CircleAlertIcon,
   CornerDownLeftIcon,
+  LibraryBigIcon,
 } from "lucide-react";
 
 echarts.use(
@@ -64,7 +66,7 @@ echarts.use(
 
 export default function Chart() {
   const [items, setItems] = useState<CountryItem[]>([]);
-  const [showAlert, setShowAlert] = useState(true);
+  const [showAlert, setShowAlert] = useState(false);
   const chartRef = useRef<ReactEChartsCore>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const formCacheRepresent = useRef('');
@@ -270,7 +272,19 @@ export default function Chart() {
         </div>
       }
 
-      <div role='menu' aria-label='資料輸出' className='flex items-center justify-end gap-x-1'>
+      <div role='menu' aria-label='圖表工具列' className='flex items-center justify-end gap-x-1'>
+        <Tooltip placement='right' offset={3}>
+          <TooltipTrigger>
+            <Link href='/dog-populations/resource/#revisions' className='p-2 mr-auto rounded opacity-50 hover:opacity-100 hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
+              <LibraryBigIcon size={20} tabIndex={0} />
+              <span className='sr-only'>修訂記錄</span>
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent className='font-mixed px-2 py-1 rounded box-border text-sm leading-relaxed w-fit max-w-[55vw] sm:max-w-[20vw] z-[1002] bg-neutral-50 drop-shadow-xl'>
+            前往「資料狀態」頁面，檢視較重要的變更記錄
+          </TooltipContent>
+        </Tooltip>
+
         {itemsReady &&
           <>
             <ExportTable

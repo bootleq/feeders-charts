@@ -64,13 +64,27 @@ export default function Status({ scope, resources }: {
   }
 
   const { combined, sources } = data;
-  const rowCls = 'grid grid-cols-2 py-1 gap-x-2 hover:bg-amber-200 place-items-center ';
+  const rowCls = 'grid sm:grid-cols-2 py-1 gap-x-2 hover:bg-amber-200 place-items-center ';
   const dtCls = 'flex items-center px-2';
   const ddCls = 'text-center';
 
   return (
     <div>
-      <dl className='mt-8 font-mixed'>
+      <h2 className='mt-4 mb-2 text-2xl py-1 text-center flex items-center justify-center'>
+        資料組合時間
+        <Tooltip>
+          <TooltipTrigger>
+            <div className='cursor-help p-1 ml-0.5 rounded self-stretch flex'>
+              <InfoIcon size={24} className='stroke-slate-600 cursor-help' />
+            </div>
+          </TooltipTrigger>
+          <TooltipContent className='p-2 rounded box-border w-max z-[1002] bg-slate-100 drop-shadow-xl'>
+            目前是由人工發動資料的重整，發動時間會顯示在這裡
+          </TooltipContent>
+        </Tooltip>
+      </h2>
+
+      <dl className='font-mixed'>
         <div className={`${rowCls}`}>
           <dt className={dtCls}>
             現在時間
@@ -90,7 +104,7 @@ export default function Status({ scope, resources }: {
         </div>
       </dl>
 
-      <h2 className='mt-6 mb-2 text-2xl py-3 text-center flex items-center justify-center'>
+      <h2 className='mt-8 mb-2 text-2xl py-1 text-center flex items-center justify-center'>
         各資料來源的更新時間
         <Tooltip>
           <TooltipTrigger>
@@ -107,10 +121,16 @@ export default function Status({ scope, resources }: {
       <dl className='font-mixed'>
         {sources.map(([name, checkedAt]) => {
           const link = resources[name]?.docUrl;
+          const reminder = resources[name]?.reminder;
           return (
             <div key={name} className={rowCls}>
               <dt className={dtCls}>
                 {resources[name]?.title}
+                { reminder &&
+                  <span className='text-red-800 text-sm'>
+                    （{reminder}）
+                  </span>
+                }
                 { link &&
                   <Link href={link} target='_blank' className='inline-block px-2 opacity-70 hover:opacity-100 hover:scale-110'>
                     <ExternalLinkIcon size={18} />

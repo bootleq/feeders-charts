@@ -5,6 +5,10 @@ export async function jqProcess(jqScript: string, inputFiles: string|Array<strin
   const files = Array.isArray(inputFiles) ? inputFiles : [inputFiles];
   const filesArg = files.length > 1 ? ['--slurp', ...files] : files;
   const process = spawn('jq', ['-f', jqScript, ...filesArg]);
+
+  process.stdout.setEncoding('utf-8');
+  process.stderr.setEncoding('utf-8');
+
   let output = '';
   let error = '';
 

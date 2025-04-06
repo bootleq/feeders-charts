@@ -2,6 +2,9 @@
 
 import { Tooltip, TooltipTrigger, TooltipContent, menuHoverProps } from '@/components/Tooltip';
 import type { Placement } from '@floating-ui/react';
+import {
+  CircleAlertIcon,
+} from "lucide-react";
 
 // 遊蕩犬
 const tipRoaming = (<>
@@ -79,6 +82,15 @@ const tipDie = (<>
 // 逃脫等
 const tipMiss = '逃脫及「其他原因」出所數';
 
+const roomNote108 = (
+  <div className='flex items-center mt-2 text-slate-900'>
+    <CircleAlertIcon className='inline mr-1 h-4 w-fit flex-shrink-0' />
+    <p>
+      106 ~ 108 年資料來源未區分犬／貓，數字是<span className='text-red-800'>犬貓加總值</span>
+    </p>
+  </div>
+);
+
 // 可收容量
 const tipRoom = (<>
   （犬）<strong>可留容最大值</strong>
@@ -86,6 +98,7 @@ const tipRoom = (<>
   各縣市提報的容量，多假設在養犬屬大型犬時的最大容許值；
   <br />
   依欄舍設計不同，實際也可能彈性運用
+  {roomNote108}
 </>);
 
 // 在養數
@@ -93,9 +106,11 @@ const tipOccupy = (<>
   由「在養占可留容比例」與「可容留最大值」推算出當年的在養數（只算犬，貓不算）
   <br />
   其中「在養數」也包含「委託代養」
+  {roomNote108}
 </>);
 const tipOccupy100 = (<>
   「在養數」占「可收容量」的比例
+  {roomNote108}
 </>);
 
 // 回置
@@ -255,7 +270,7 @@ export const MenuDescTooltip = ({ name, children }: { name: string|undefined, ch
         <TooltipTrigger>
           {children}
         </TooltipTrigger>
-        <TooltipContent className='font-mixed px-2 py-1 rounded box-border text-sm leading-relaxed w-fit max-w-[20vw] z-[1002] bg-neutral-50 drop-shadow-xl'>
+        <TooltipContent className='font-mixed px-2 py-1 rounded box-border text-sm leading-relaxed w-fit max-w-[55vw] sm:max-w-[20vw] z-[1002] bg-neutral-50 drop-shadow-xl'>
           {body}
         </TooltipContent>
       </Tooltip>

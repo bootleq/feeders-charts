@@ -202,7 +202,7 @@ export default function Chart() {
             <TotalRoamingHint year={113} qty={19990} />
           </ol>
         </div>
-        <div role='menu' aria-label='資料輸出' className='flex items-center justify-end gap-x-1 ml-auto'>
+        <div role='menu' aria-label='圖表工具列' className='flex items-center justify-end gap-x-1 ml-auto'>
           {itemsReady &&
             <>
               <ExportTable

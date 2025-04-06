@@ -2,6 +2,7 @@ import * as R from 'ramda';
 import fs from 'node:fs';
 import fsp from 'node:fs/promises';
 import * as XLSX from 'xlsx';
+import chalk from 'chalk';
 
 import { CITY_MAPPING, LEGACY_CITY_MAPPING } from '@/lib/model';
 import { downloadableSources, downloadPath, buildingPath } from '../data_source';
@@ -139,6 +140,6 @@ export async function normalizeShelterXLSX(resourceName: string) {
 
   validate(items, year);
 
-  console.log(`Write file to ${outFile}...`);
+  console.log(chalk.gray(`Write file to ${outFile}...`));
   await fsp.writeFile(outFile, JSON.stringify(items, null, 2));
 }
