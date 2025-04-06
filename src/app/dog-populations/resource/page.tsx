@@ -26,7 +26,7 @@ export default async function Page() {
         </h1>
 
         <div className=''>
-          <h2 className='mt-6 mb-2 text-2xl py-3 text-center flex items-center justify-center'>
+          <h2 id='revisions' className='mt-6 mb-2 text-2xl py-3 text-center flex items-center justify-center'>
             修訂記錄
             <Tooltip>
               <TooltipTrigger>
