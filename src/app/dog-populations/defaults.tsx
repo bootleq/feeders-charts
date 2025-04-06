@@ -17,13 +17,18 @@ function defaultTooltipFormatter(params: any) {
     return markerFormatter(marker, name);
   }
 
-  const vFormatter = R.path([revertedSeriesNames[seriesName], 'tooltip', 'valueFormatter'], defaultSeriesSettings) || numberFormatter;
+  const series = revertedSeriesNames[seriesName];
+  const vFormatter = R.path([series, 'tooltip', 'valueFormatter'], defaultSeriesSettings) || numberFormatter;
+
+  const vSuffix = ['106', '107', '108'].includes(name) && ['room', 'occupy', 'occupy100'].includes(series) ?
+    '<span>（犬與貓）</span>' : '';
+
   return [
     `<div style='display:flex;align-items:center'>`,
     marker,
     `<span>${seriesName}</span>`,
     '</div>',
-    `<strong style='display:block;text-align:right'>${vFormatter(value)}</strong>`,
+    `<div style='display:block;text-align:right'><strong>${vFormatter(value)}</strong>${vSuffix}</div>`,
   ].join('')
 };
 
@@ -161,6 +166,7 @@ export const defaultSeriesSettings: Record<string, any> = {
     itemStyle: { color: '#a684ff', },
     tooltip: {
       ...tooltipOptions,
+      formatter: defaultTooltipFormatter,
       valueFormatter: R.pipe(Math.round, numberFormatter),
     },
     label: {
