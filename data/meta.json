@@ -39,7 +39,7 @@
     "sourceCheckedAt": "2025-02-17T08:29:17.177Z"
   },
   "shelter_pet": {
-    "sourceCheckedAt": "2025-02-18T08:58:09.842Z"
+    "sourceCheckedAt": "2025-04-06T01:58:57.365Z"
   },
   "populations_112": {
     "sourceCheckedAt": "2025-02-17T08:31:43.109Z"
@@ -54,7 +54,7 @@
     "sourceCheckedAt": "2025-02-17T08:32:12.150Z"
   },
   "combined": {
-    "builtAt": "2025-04-05T14:30:19.186Z"
+    "builtAt": "2025-04-06T02:25:10.820Z"
   },
   "law_enforce_111": {
     "sourceCheckedAt": "2025-02-26T07:59:28.875Z"
@@ -70,5 +70,8 @@
   },
   "workforce": {
     "sourceCheckedAt": "2025-03-02T11:11:50.898Z"
+  },
+  "shelter_details": {
+    "sourceCheckedAt": "2025-04-06T01:28:31.096Z"
   }
 }
