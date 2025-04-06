@@ -272,7 +272,7 @@ export default function Chart() {
         </div>
       }
 
-      <div role='menu' aria-label='資料輸出' className='flex items-center justify-end gap-x-1'>
+      <div role='menu' aria-label='圖表工具列' className='flex items-center justify-end gap-x-1'>
         <Tooltip placement='right' offset={3}>
           <TooltipTrigger>
             <Link href='/dog-populations/resource/#revisions' className='p-2 mr-auto rounded opacity-50 hover:opacity-100 hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
