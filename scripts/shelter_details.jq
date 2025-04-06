@@ -1,4 +1,5 @@
-group_by(.rpt_year, .rpt_country_code)
+map(select(.max_stay_dog_num > 0 and .rpt_year < 114))
+| group_by(.rpt_year, .rpt_country_code)
 | map({
   year:    .[0].rpt_year,                # 年度
   city:    .[0].rpt_country_code,        # 縣市代碼
@@ -25,18 +26,18 @@ group_by(.rpt_year, .rpt_country_code)
   #   .out_sd_num + .out_jd_num
   # ) | add,
 
-  return:  map(.out_rl_num) | add,       # 釋回原地／絕育後回置
-  miss: map(                             # 其他出所（逃脫、其他）
-    .out_ec_num + .out_el_num
-  ) | add,
+  # return:  map(.out_rl_num) | add,       # 釋回原地／絕育後回置
+  # miss: map(                             # 其他出所（逃脫、其他）
+  #   .out_ec_num + .out_el_num
+  # ) | add,
   #
   # s_sum:   map(.fe_sum_num) | max,       # 在養數_小計
 
-  occupy: map(                           # 在養數
-    select(.rpt_month == 12) |   # 只取 12 月（年底）的值
+  occupy: (                           # 在養數
+    max_by(.rpt_month) |
     (
       .end_dog_max_percent |     # 犬_在養占可留容比例
       sub("%"; "") | tonumber    # "86.00%" 轉為數字 86
     ) * .max_stay_dog_num / 100  # 根據「可留容最大值（犬）」計算在養數
-  ) | first
+  )
 })

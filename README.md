@@ -61,6 +61,8 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
   因後述「詳表」較完整，所以這邊只採用 97 ~ 107 年的資料
 
+  TODO: 仍須尋找 106 ~ 108 年的詳表「最大容留數」資料
+
 - 動物收容統計表（詳表）（108 ~ 113 年）  
   https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx
 
@@ -112,7 +114,11 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 - 全國公立動物收容所收容處理情形統計表(細項) (106 ~ 113 年)  
   https://data.gov.tw/dataset/73396
 
-  比起「全國動物收容管理系統」，資料較不齊全，所以不採用
+  比起「動物收容統計表（詳表）」（全國動物收容管理系統），資料較不齊全  
+  所以只採用詳表需要訂正的部分，即「(犬) 可留容最大值」和「(犬) 在養占可留容比例」，
+  另仍有部分年度（~ 108）是缺失的
+
+  TODO: 這段要移出「最終未使用」部分
 
   部分欄位在前幾年並沒有資料：
 

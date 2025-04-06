@@ -11,6 +11,8 @@ const basename = 'shelter_pet';
 
 const API_URL = 'https://www.pet.gov.tw/handler/AnimalsCore.ashx';
 
+const skipRoomAndOccupy = true; // when true, "room" should be taken from "shelter_details"
+
 const unsafeAgent = new https.Agent({
   rejectUnauthorized: false,
 });
@@ -142,6 +144,8 @@ function translateFields(reportItems, year, reportType) {
           } catch {
             // no matching city, skip
           }
+        } else if (skipRoomAndOccupy && (field === 'room' || field.startsWith('occupy['))) {
+          // skip
         } else if (/\[.*]$/.test(field)) { // fields like `kill[1]` require special handling
           const prefix = field.split('[', 2)[0];
 
@@ -172,7 +176,7 @@ function translateFields(reportItems, year, reportType) {
     });
 
     // 2nd pass
-    if (obj['room'] && occupyRatio) {
+    if (!skipRoomAndOccupy && obj['room'] && occupyRatio) {
       obj['occupy'] = obj['room'] * occupyRatio / 100;
     }
 
@@ -187,7 +191,7 @@ function translateFields(reportItems, year, reportType) {
 function validate(data) {
   let valid = true;
 
-  const samples = [
+  let samples = [
     { year: 107, city: 'City000004', room: 652, accept: 3725, adopt: 2233, kill: 26, die: 120, return:  884, miss: 288, occupy: 534.64 }, // 桃園市 2018，犬在養率 82% (652 * .82 = 534.64)
     { year: 108, city: 'City000016', room: 580, accept:  883, adopt:  453, kill:  6, die:   6, return:  426, occupy: 127.6 },             // 屏東縣 2019，犬在養率 22% (580 * .22 = 127.6)
     { year: 109, city: 'City000009', room: 800, accept: 7610, adopt: 3417, kill: 25, die: 351, return: 3921, miss: 38, occupy: 344 },     // 臺中市 2020，犬在養率 43% (800 * .43 = 344)
@@ -200,6 +204,10 @@ function validate(data) {
     { year: 113, city: 'City000014', room: 700, accept: 6729 - 2785,
       adopt: 1687, die: 236, miss: 29, occupy: 1302 }, // 臺南市 2024，犬在養率 186% (700 * 1.86 = 1302)，注意 "accept"（收容隻數）需減去「入所絕育」公母共 2785 隻
   ];
+
+  if (skipRoomAndOccupy) {
+    samples = samples.map(R.omit(['room', 'occupy']));
+  }
 
   valid = testSamplesExist(samples, data);
 

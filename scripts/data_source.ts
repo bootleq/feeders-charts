@@ -42,6 +42,14 @@ export const downloadableSources: Sources = {
     normalizer: 'population_jq',
   },
   ...shelter_reports,
+  shelter_details: {
+    title: '全國公立動物收容所收容處理情形統計表(細項)',
+    docUrl: 'https://data.gov.tw/dataset/73396',
+    name: 'shelter_details',
+    url: 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=p9yPwrCs2OtC',
+    extname: 'json',
+    normalizer: 'jq',
+  },
 }
 
 export const unusedSources = {
@@ -50,14 +58,6 @@ export const unusedSources = {
     docUrl: 'https://data.gov.tw/dataset/41236',
     name: 'shelter',
     url: 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=DyplMIk3U1hf',
-    extname: 'json',
-    normalizer: 'jq',
-  },
-  shelter_details: {
-    title: '全國公立動物收容所收容處理情形統計表(細項)',
-    docUrl: 'https://data.gov.tw/dataset/73396',
-    name: 'shelter_details',
-    url: 'https://data.moa.gov.tw/Service/OpenData/TransService.aspx?UnitId=p9yPwrCs2OtC',
     extname: 'json',
     normalizer: 'jq',
   },

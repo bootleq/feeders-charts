@@ -91,16 +91,32 @@ function validate(resourceName, items) {
 
       return true;
     },
-    shelter_details: (data) => { // NOTE: unused, use shelter_pet instead
+    shelter_details: (data) => { // NOTE: only pick "room" related fields, otherwise use shelter_pet instead
+      let valid = true;
       // Note doesn't 100% match below sources:
       // https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx
       // https://data.gov.tw/dataset/73396
       const samples = [
-        { year: 113, city: 'City000002', room: 840, return: 0, miss: 5, occupy: 722.4 },    // 臺北市 2024，犬在養率 86% (近 722.4 / 860 = 84%)
-        { year: 111, city: 'City000010', room: 239, return: 0, miss: 110, occupy: 160.13 }, // 彰化縣 2022，犬在養率 67% (近 160.13 / 239 = 67%)
-        { year: 107, city: "City000004", room: 0, return: 871, miss: 270, occupy: 0 },      // 桃園市 2018，犬在養率無法計算（缺最大留容數資料）
+        { year: 113, city: 'City000002', room:  840, occupy: 722.4 },   // 臺北市 2024，犬在養率  86% (近 722.4 / 860 = 84%)
+        { year: 112, city: 'City000002', room:  450, occupy: 729 },     // 臺北市 2024，犬在養率 162% (近 729   / 450 = 162%)
+        { year: 111, city: 'City000010', room:  239, occupy: 160.13 },  // 彰化縣 2022，犬在養率  67% (近 160.13 / 239 = 67%)
+        { year: 109, city: 'City000003', room: 1615, occupy: 1308.15 }, // 新北市 2018，犬在養率  81% (近 1308.15 / 1615 = 81%)
       ];
-      return testSamplesExist(samples, data);
+      if (!testSamplesExist(samples, data)) valid = false;
+
+      if (valid && data.some(({ year, city }) => {
+        if (year < 109) {
+          console.error(`Unexpected data, should only pick year >= 109 (2010).`);
+          return true;
+        } else if (year === 108 && city === 'City000004') {
+          console.error(`Unexpected data, should not take 桃園市 2017 (City000004 /108) record because lacking of 最大留容數 data.`);
+          return true;
+        }
+      })) {
+        valid = false;
+      }
+
+      return valid;
     },
   }
 
