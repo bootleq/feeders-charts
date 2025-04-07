@@ -43,6 +43,10 @@ body {
     writing-mode: vertical-lr;
   }
 
+  .text-balance {
+    text-wrap: balance;
+  }
+
   .font-mixed {
     font-family: var(--font-space), var(--font-digits), var(--font-geist-sans), 'Microsoft JhengHei', 'Noto Sans TC', 'PingFang', 'LiHei Pro', 'Meiryo', 'MS Gothic', sans-serif;
   }
