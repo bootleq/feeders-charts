@@ -1,13 +1,19 @@
 "use client"
 
+const latestRevDate = new Date('2025-04-06T23:00:00+08:00'); // 最後勘誤時間，需手動維護
+
 import * as R from 'ramda';
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import Link from 'next/link';
+import { useAtom } from 'jotai';
+import { atomWithStorage } from 'jotai/utils';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/Tooltip';
+import { formatDistanceToNow } from 'date-fns';
+import { zhTW } from 'date-fns/locale';
 
 import { CITY_MAPPING } from '@/lib/model';
 import type { CountryItem, ItemsMeta } from '@/lib/model';
-import { makeYearRange, BASE_PATH } from '@/lib/utils';
+import { present, makeYearRange, BASE_PATH } from '@/lib/utils';
 import { parseChartInputs } from '@/lib/formData';
 import { SERIES_NAMES, computers } from '@/lib/series';
 import { buildSeriesMaker } from '@/lib/makeSeries';
@@ -45,6 +51,7 @@ import { CanvasRenderer } from 'echarts/renderers';
 import {
   XIcon,
   CircleAlertIcon,
+  MoveLeftIcon,
   CornerDownLeftIcon,
   LibraryBigIcon,
 } from "lucide-react";
@@ -64,9 +71,13 @@ echarts.use(
   ]
 );
 
+const notedRevDateAtom = atomWithStorage('feeders.chart.notedRevDate', new Date(2024, 1, 1));
+
 export default function Chart() {
   const [items, setItems] = useState<CountryItem[]>([]);
   const [showAlert, setShowAlert] = useState(false);
+  const [revSince, setRevSince] = useState('');
+  const [notedRevDate, setNotedRevDate] = useAtom(notedRevDateAtom);
   const chartRef = useRef<ReactEChartsCore>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const formCacheRepresent = useRef('');
@@ -95,6 +106,21 @@ export default function Chart() {
       .then((res) => res.json())
       .then(setItems);
   }, []);
+
+  useEffect(() => {
+    if (!notedRevDate || notedRevDate < latestRevDate) {
+      const v = formatDistanceToNow(
+        latestRevDate,
+        {
+          locale: zhTW,
+          addSuffix: true,
+        }
+      ).replace('大約', '').trim();
+      setRevSince(v);
+    } else {
+      setRevSince('');
+    }
+  }, [notedRevDate]);
 
   const updateYearAxis = useCallback((minYear: number, maxYear: number) => {
     const yearsRange = makeYearRange(minYear, maxYear);
@@ -218,6 +244,9 @@ export default function Chart() {
   const onCloseAlert = () => {
     setShowAlert(false);
   };
+  const onCloseRevNote = () => {
+    setNotedRevDate(latestRevDate);
+  };
 
   const itemsReady = R.isNotEmpty(items) && R.isNotNil(meta);
 
@@ -273,17 +302,32 @@ export default function Chart() {
       }
 
       <div role='menu' aria-label='圖表工具列' className='flex items-center justify-end gap-x-1'>
-        <Tooltip placement='right' offset={3}>
-          <TooltipTrigger>
-            <Link href='/dog-populations/resource/#revisions' className='p-2 mr-auto rounded opacity-50 hover:opacity-100 hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
-              <LibraryBigIcon size={20} tabIndex={0} />
-              <span className='sr-only'>修訂記錄</span>
-            </Link>
-          </TooltipTrigger>
-          <TooltipContent className='font-mixed px-2 py-1 rounded box-border text-sm leading-relaxed w-fit max-w-[55vw] sm:max-w-[20vw] z-[1002] bg-neutral-50 drop-shadow-xl'>
-            前往「資料狀態」頁面，檢視較重要的變更記錄
-          </TooltipContent>
-        </Tooltip>
+
+        <div className='flex items-center mr-auto'>
+          <Tooltip offset={3}>
+            <TooltipTrigger>
+              <Link href='/dog-populations/resource/#revisions' className='p-2 rounded opacity-50 hover:opacity-100 hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
+                <LibraryBigIcon size={20} tabIndex={0} />
+                <span className='sr-only'>修訂記錄</span>
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent className='font-mixed px-2 py-1 rounded box-border text-sm leading-relaxed w-fit max-w-[55vw] sm:max-w-[20vw] z-[1002] bg-neutral-50 drop-shadow-xl'>
+              前往「資料狀態」頁面，檢視較重要的變更記錄
+            </TooltipContent>
+          </Tooltip>
+
+          {present(revSince) &&
+            <div className='mr-auto flex items-center gap-x-1 w-fit bg-red-200 rounded-lg py-1 px-2'>
+              <MoveLeftIcon size={20} className='flex-shrink-0 hidden sm:block' />
+              <p className='font-bold text-balance text-center text-sm sm:text-base'>
+                資料勘誤於：{revSince}
+              </p>
+              <button className='flex items-center text-sm btn bg-neutral-50 p-px px-1.5 sm:text-nowrap ml-1 sm:ml-3 rounded-lg drop-shadow hover:bg-white hover:drop-shadow-lg' aria-label='不要再顯示' onClick={onCloseRevNote}>
+                不再顯示
+              </button>
+            </div>
+          }
+        </div>
 
         {itemsReady &&
           <>
