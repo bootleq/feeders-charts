@@ -51,7 +51,6 @@ export default async function Page() {
                 <Link
                   target='_blank' className={revisionLinkCls}
                   href='https://github.com/bootleq/feeders-charts/issues/1'
-                  title='「全國動物收容管理系統」提供的「可留容最大值」歷史數字錯誤 · Issue #1 · bootleq/feeders-charts'
                 >
                   issue #1
                 </Link>
