@@ -43,6 +43,22 @@ export default async function Page() {
           <ol className='font-mixed list-decimal list-inside md:list-outside px-3 md:px-0'>
             <li>
               <div className='inline'>
+                <span className='mr-1'>2025-07-07</span>
+                政府資料開放平台<Link href='https://data.gov.tw/dataset/41771' className={revisionTitleLinkCls}>年度犬貓統計表</Link>提供的 109 年數字有 6 個縣市錯置
+
+              </div>
+              <div className='flex items-center text-sm p-1 px-2 my-1 ring-1 ring-slate-300 bg-gray-200 rounded'>
+                澎湖縣、連江縣、金門縣、嘉義市、新竹市、基隆市 109 年的數字顛倒，詳見
+                <Link
+                  target='_blank' className={revisionLinkCls}
+                  href='https://github.com/bootleq/feeders-charts/issues/3'
+                >
+                  issue #3
+                </Link>
+              </div>
+            </li>
+            <li>
+              <div className='inline'>
                 <span className='mr-1'>2025-04-06</span>
                 <Link href='https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx' className={revisionTitleLinkCls}>全國動物收容管理系統</Link>提供的「可留容最大值」歷史數字錯誤
               </div>
