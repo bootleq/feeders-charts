@@ -40,7 +40,7 @@ export default async function Page() {
             </Tooltip>
           </h2>
 
-          <ol className='font-mixed list-decimal list-inside md:list-outside px-3 md:px-0'>
+          <ol reversed className='font-mixed list-decimal list-inside md:list-outside px-3 md:px-0'>
             <li>
               <div className='inline'>
                 <span className='mr-1'>2025-07-07</span>
