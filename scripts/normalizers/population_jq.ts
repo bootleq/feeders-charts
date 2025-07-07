@@ -6,21 +6,23 @@ import { jqProcess } from '../utils';
 import type { CountryItem } from '@/lib/model';
 import { downloadPath, buildingPath } from '../data_source';
 
-// Same as "jq" normalizer but has special fix filter
+// Same as "jq" normalizer but has special fix filters
 
 // Original year 90 seems incorrect if we agree the number is for year 93
 // https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000198?parentID=Tab0000004
-function fixYear93(items: CountryItem[]) {
+const fixYear93 = R.map(
+  R.when(
+    R.propEq(90, 'year'),
+    R.juxt([
+      R.dissoc('roaming'), // this keeps 90's domestic data
+      R.pipe(R.dissoc('domestic'), R.assoc('year', 93)), // then add another entry for 93
+    ])
+  )
+);
+
+function patch(items: CountryItem[]) {
   return R.pipe(
-    R.map(
-      R.when(
-        R.propEq(90, 'year'),
-        R.juxt([
-          R.dissoc('roaming'), // this keeps 90's domestic data
-          R.pipe(R.dissoc('domestic'), R.assoc('year', 93)), // then add another entry for 93
-        ]),
-      ),
-    ),
+    fixYear93,
     R.flatten,
   )(items);
 }
@@ -38,10 +40,10 @@ export async function normalizePopulation(resourceName: string) {
     const outFile = buildingPath(resourceName, 'json');
     const result = await jqProcess(script, inFile);
 
-    const result93 = fixYear93(result);
+    const patched = patch(result);
 
-    await fsp.writeFile(outFile, JSON.stringify(result93, null, 2));
-    return result93;
+    await fsp.writeFile(outFile, JSON.stringify(patched, null, 2));
+    return patched;
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.error(`Fail normalizing ${resourceName}：`, error.message);
