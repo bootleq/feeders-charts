@@ -56,7 +56,7 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
     以符合「93年全國流浪狗狗數及92年公立動物收容所收容數總表」  
     https://animal.moa.gov.tw/Frontend/Know/Detail/LT00000198?parentID=Tab0000004
 
-  - 109 年有 6 個縣市遊蕩犬數字誤植，程式也會特別調整掉，見 #3
+  - 109 年有 6 個縣市遊蕩犬數字誤植，程式也會特別調整掉，見 [#3][]
 
 - 公立動物收容所統計（97 ~ 113 年，只採用到 107 年）  
   https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab3
@@ -191,6 +191,7 @@ then feeders should manage following tasks.
 
 [feeders.pages.dev]: https://feeders.pages.dev/
 [feeders repo]: https://github.com/bootleq/feeders
+[#3]: https://github.com/bootleq/feeders-charts/issues/3
 [HOTAC 2020]: https://www.hotac.org.tw/news-4169
 [EAST 2009]: https://www.east.org.tw/sites/east/files/content/upload/File/2009-ISSUES/20091104.pdf
 [全國遊蕩犬數量整理成圖表]: https://bootleq.blogspot.com/2024/09/taiwan-roaming-dog-populations-chart.html
