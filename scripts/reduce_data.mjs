@@ -77,7 +77,7 @@ function validate(resourceName, items) {
       if (data.some(({ year, roaming, domestic }) => {
         if (year === 90) {
           if (roaming || !domestic) {
-            console.error(`Unexpected data,  year 90 (2001) should only contain "roaming".`);
+            console.error(`Unexpected data, year 90 (2001) should only contain "roaming".`);
             return true;
           }
         } else if (year === 93) {
