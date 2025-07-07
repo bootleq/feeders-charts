@@ -74,10 +74,12 @@ async function combine( resourceNames ) {
 function validate(resourceName, items) {
   const validators = {
     population: (data) => {
+      let valid = true;
+
       if (data.some(({ year, roaming, domestic }) => {
         if (year === 90) {
           if (roaming || !domestic) {
-            console.error(`Unexpected data,  year 90 (2001) should only contain "roaming".`);
+            console.error(`Unexpected data, year 90 (2001) should only contain "roaming".`);
             return true;
           }
         } else if (year === 93) {
@@ -87,10 +89,20 @@ function validate(resourceName, items) {
           }
         }
       })) {
-        return false;
+        valid = false;
       }
 
-      return true;
+      const samples = [
+        { year: 109, city: 'City000020', roaming: 1053}, // 澎湖縣
+        { year: 109, city: 'City000022', roaming:    0}, // 連江縣
+        { year: 109, city: 'City000021', roaming:  204}, // 金門縣
+        { year: 109, city: 'City000013', roaming: 1173}, // 嘉義市
+        { year: 109, city: 'City000006', roaming:  890}, // 新竹市
+        { year: 109, city: 'City000001', roaming: 3225}, // 基隆市
+      ];
+      if (!testSamplesExist(samples, data)) valid = false;
+
+      return valid;
     },
     shelter_details: (data) => { // NOTE: only pick "room" related fields, otherwise use shelter_pet instead
       let valid = true;
