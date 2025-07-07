@@ -76,6 +76,7 @@ const notedRevDateAtom = atomWithStorage('feeders.chart.notedRevDate', new Date(
 export default function Chart() {
   const [items, setItems] = useState<CountryItem[]>([]);
   const [showAlert, setShowAlert] = useState(false);
+  const [formError, setFormError] = useState<string|null>(null);
   const [revSince, setRevSince] = useState('');
   const [notedRevDate, setNotedRevDate] = useAtom(notedRevDateAtom);
   const chartRef = useRef<ReactEChartsCore>(null);
@@ -218,9 +219,17 @@ export default function Chart() {
       years = [];
     }
 
-    const newSeries = makeSeries(items, meta, seriesSet, { cities, years })['_'];
-    const seriesArray = Object.keys(seriesSet).map(name => newSeries[name]);
-    let newOptions = { series: seriesArray };
+    let newOptions;
+
+    try {
+      const newSeries = makeSeries(items, meta, seriesSet, { cities, years })['_'];
+      const seriesArray = Object.keys(seriesSet).map(name => newSeries[name]);
+      newOptions = { series: seriesArray };
+    } catch (error) {
+      console.error('makeSeries failed', error);
+      setFormError(error instanceof Error ? error.message : '未知的錯誤');
+      return;
+    }
 
     const minYear = years.length ? years[0] : meta.minYear;
     const maxYear = years.length ? years[years.length - 1] : meta.maxYear;
@@ -247,12 +256,15 @@ export default function Chart() {
   const onCloseRevNote = () => {
     setNotedRevDate(latestRevDate);
   };
+  const onCloseFormError = () => {
+    setFormError(null);
+  };
 
   const itemsReady = R.isNotEmpty(items) && R.isNotNil(meta);
 
   return (
     <div className='min-w-lg min-h-80 w-full max-w-[100vw]'>
-      <form id='MainForm' ref={formRef} onSubmit={onApply} className='w-min flex flex-wrap items-start justify-start gap-x-4 gap-y-3 my-1 mx-auto max-w-full text-sm'>
+      <form id='MainForm' ref={formRef} onSubmit={onApply} className={`relative w-min flex flex-wrap items-start justify-start gap-x-4 gap-y-3 my-1 mx-auto max-w-full text-sm ${formError && 'cursor-not-allowed'}`}>
         <div className='w-max max-w-[90vw] md:max-w-[90vw] flex flex-wrap gap-x-4'>
           <fieldset className='flex items-center border-2 border-transparent hover:border-slate-400 rounded p-2'>
             <legend className='font-bold px-1.5'>縣市</legend>
@@ -285,6 +297,24 @@ export default function Chart() {
           <CornerDownLeftIcon size={20} className='pl-1 pb-1' />
           套用
         </button>
+
+        {formError &&
+          <div className='absolute z-[1003] flex flex-wrap items-center justify-center w-full h-full'>
+            <div className='flex items-center justify-center gap-3 w-full h-full md:w-3/5 md:h-4/5 max-h-[40vh] px-6 py-4 shadow-[10px_20px_20px_14px_rgba(0,0,0,0.5)] text-lg bg-pink-100/70 backdrop-blur-sm ring ring-3 ring-offset-1 rounded cursor-auto'>
+              <CircleAlertIcon size={32} className='flex-shrink-0' />
+              <p className='leading-loose'>
+                發生未預期的錯誤，敬請見諒。
+                <span className='text-slate-500'>（錯誤訊息會顯示在主控台）</span>
+                <br />
+                您可前往 Issues 回報問題：<Link href='https://github.com/bootleq/feeders-charts' className='underline' target='_blank'>GitHub 專案網址</Link>
+              </p>
+
+              <button className='btn p-px ml-auto rounded-full hover:scale-125 hover:drop-shadow' aria-label='關閉' onClick={onCloseFormError}>
+                <XIcon className='stroke-slate-700 stroke-2' height={22} />
+              </button>
+            </div>
+          </div>
+        }
       </form>
 
       {showAlert &&
