@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import fsp from 'node:fs/promises';
 import path from "path";
 import { jqProcess } from '../utils';
+import { cityLookup } from '@/lib/model';
 import type { CountryItem } from '@/lib/model';
 import { downloadPath, buildingPath } from '../data_source';
 
@@ -20,8 +21,36 @@ const fixYear93 = R.map(
   )
 );
 
+// In year 109 there were 6 cities have qty misplaced
+// https://github.com/bootleq/feeders-charts/issues/3
+const YEAR_109_PLACE_CORRECTION: Record<string, number> = {
+  'City000020': 1053,  // 澎湖縣
+  'City000022':    0,  // 連江縣
+  'City000021':  204,  // 金門縣
+  'City000013': 1173,  // 嘉義市
+  'City000006':  890,  // 新竹市
+  'City000001': 3225   // 基隆市
+};
+const fixYear109Misplace = (items: CountryItem[]) => {
+  return items.map(i => {
+    if (i.year === 109 && Object.keys(YEAR_109_PLACE_CORRECTION).includes(i.city)) {
+      const qty = YEAR_109_PLACE_CORRECTION[i.city];
+      if (R.type(qty) !== 'Number') {
+        throw new Error(`Unexpected year 109 correction of ${i.city}.`);
+      }
+      return {
+        ...i,
+        roaming: qty
+      }
+    }
+    return i;
+  })
+  return items;
+}
+
 function patch(items: CountryItem[]) {
   return R.pipe(
+    fixYear109Misplace,
     fixYear93,
     R.flatten,
   )(items);
