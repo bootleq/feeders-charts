@@ -63,7 +63,13 @@ function collect({ items, yearRange, validYears, validCities, computers, require
     const computer = computers[name];
 
     citiesSeries = R.mapObjIndexed((obj: Series) => {
-      const cityArgs = computer.depends.map(key => obj[key]?.data);
+      const cityArgs = computer.depends.map(key => {
+        if (obj[key]) {
+          return obj[key].data;
+        } else {
+          return [];
+        }
+      });
 
       return R.set(
         R.lensPath([name, 'data']),
