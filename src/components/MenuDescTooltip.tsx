@@ -91,6 +91,15 @@ const roomNote108 = (
   </div>
 );
 
+const roomNoteOccupy = (
+  <div className='flex items-center mt-2 text-slate-900'>
+    <CircleAlertIcon className='inline mr-1 h-4 w-fit flex-shrink-0' />
+    <p>
+      已知部分收容所數字未反映現實（見 GitHub #4）
+    </p>
+  </div>
+);
+
 // 可收容量
 const tipRoom = (<>
   （犬）<strong>可留容最大值</strong>
@@ -107,10 +116,12 @@ const tipOccupy = (<>
   <br />
   其中「在養數」也包含「委託代養」
   {roomNote108}
+  {roomNoteOccupy}
 </>);
 const tipOccupy100 = (<>
   「在養數」占「可收容量」的比例
   {roomNote108}
+  {roomNoteOccupy}
 </>);
 
 // 回置

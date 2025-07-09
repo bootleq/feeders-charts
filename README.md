@@ -73,6 +73,8 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
   來自「全國動物收容管理系統」的詳細資料
 
+  已知問題：部分收容所「在養量」未反映現實，見 [#4][]
+
 - 全國公立動物收容所收容處理情形統計表(細項) (106 ~ 113 年)  
   https://data.gov.tw/dataset/73396
 
@@ -192,6 +194,7 @@ then feeders should manage following tasks.
 [feeders.pages.dev]: https://feeders.pages.dev/
 [feeders repo]: https://github.com/bootleq/feeders
 [#3]: https://github.com/bootleq/feeders-charts/issues/3
+[#4]: https://github.com/bootleq/feeders-charts/issues/4
 [HOTAC 2020]: https://www.hotac.org.tw/news-4169
 [EAST 2009]: https://www.east.org.tw/sites/east/files/content/upload/File/2009-ISSUES/20091104.pdf
 [全國遊蕩犬數量整理成圖表]: https://bootleq.blogspot.com/2024/09/taiwan-roaming-dog-populations-chart.html
