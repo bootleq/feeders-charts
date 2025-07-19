@@ -114,7 +114,7 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
 - 民國 106 ~ 108 年的「最大容留數」和「在養數」資料
 
-  這三年的收容資料並未包含在 data.gov.tw 或 www.pet.gov.tw，應該是因為當年沒有將犬／貓分開計算，
+  這三年的收容資料並未包含在 data.gov.tw 或 pet.gov.tw，應該是因為當年沒有將犬／貓分開計算，
   但可以在 animal.moa.gov.tw 找到零星資料，所以手動整理到[個人文章][全國遊蕩犬數量整理成圖表]附錄的 [google doc 文件][年度資料 gdoc]  
   https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab3
 
