@@ -1,8 +1,8 @@
 # Feeders Charts
 
-Interactive charts in [feeders.pages.dev][] ([repo][feeders repo]).
+Interactive charts in [feeders.fyi][] ([repo][feeders repo]).
 
-Visit online: https://feeders.pages.dev/charts/
+Visit online: https://feeders.fyi/charts/
 
 This app is built as static export, thus can be deployed elsewhere.
 
@@ -146,7 +146,7 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
 台南市有調查各行政區的 TNVR 成果，因不易與全國縣市整合呈現，所以做成獨立的圖表頁面
 
-https://feeders.pages.dev/charts/tainan
+https://feeders.fyi/charts/tainan
 
 - 臺南市遊蕩犬調查情形 (108 ~ 112 年)  
   https://data.tainan.gov.tw/dataset/straydogs
@@ -191,7 +191,7 @@ then feeders should manage following tasks.
 
 
 
-[feeders.pages.dev]: https://feeders.pages.dev/
+[feeders.fyi]: https://feeders.fyi/
 [feeders repo]: https://github.com/bootleq/feeders
 [#3]: https://github.com/bootleq/feeders-charts/issues/3
 [#4]: https://github.com/bootleq/feeders-charts/issues/4

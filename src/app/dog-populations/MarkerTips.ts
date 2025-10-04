@@ -12,7 +12,7 @@ export const MarkerTips: Record<string, string> = {
         對於早期遊蕩犬數量大幅下降，有見解認為「垃圾不落地」就是主因。
       </p>
       <p>
-        參考 <a target='_blank' href='https://feeders.pages.dev/facts/2009-08-11_65' title='2009-08-11: 北縣流浪狗降幅全國第一 - 事實記錄 - Feeders'>2009-08-11: 北縣流浪狗降幅全國第一</a>
+        參考 <a target='_blank' href='https://feeders.fyi/facts/2009-08-11_65' title='2009-08-11: 北縣流浪狗降幅全國第一 - 事實記錄 - Feeders'>2009-08-11: 北縣流浪狗降幅全國第一</a>
       </p>
       <p>
         政策於 95 年已擴及全國，但有地方差異，例如 108 年的監察報告指出，全國仍有 75 條路線未實施垃圾不落地（主為偏鄉或山地鄉），分布於臺南市、彰化縣、南投縣、苗栗縣等。
@@ -127,7 +127,7 @@ export const MarkerTips: Record<string, string> = {
     </ul>
     <p>
       執行狀況不透明，但 2024 年舉辦
-      <a href='https://feeders.pages.dev/facts/2024-09-25_182' title='2024-09-25: 農業部生態熱區徵求創新方案，獎金 8 萬元 - 事實記錄 - Feeders'>徵求創新方案</a>，透露遇上瓶頸。
+      <a href='https://feeders.fyi/facts/2024-09-25_182' title='2024-09-25: 農業部生態熱區徵求創新方案，獎金 8 萬元 - 事實記錄 - Feeders'>徵求創新方案</a>，透露遇上瓶頸。
     </p>
   `,
 
@@ -288,7 +288,7 @@ export const MarkerTips: Record<string, string> = {
       暴露出收容所將壓力轉給民間狗場的問題，經調查，2014 起兩年間多送了 3,400 隻動物給民間狗場（算認養），是該所收容數的 22.6 倍。
     </p>
     <p>
-      參考 <a target='_blank' href='https://feeders.pages.dev/facts/2016-04-25_118' title='2016-04-25: 嘉義民雄收容所運送 71 隻犬貓，36 狗熱衰竭而死 - 事實記錄 - Feeders'>2016-04-25: 嘉義民雄收容所運送 71 隻犬貓，36 狗熱衰竭而死</a>
+      參考 <a target='_blank' href='https://feeders.fyi/facts/2016-04-25_118' title='2016-04-25: 嘉義民雄收容所運送 71 隻犬貓，36 狗熱衰竭而死 - 事實記錄 - Feeders'>2016-04-25: 嘉義民雄收容所運送 71 隻犬貓，36 狗熱衰竭而死</a>
     </p>
   `,
   '犬攻擊穿山甲倍增': html`
