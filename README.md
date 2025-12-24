@@ -149,7 +149,7 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 https://feeders.fyi/charts/tainan
 
 - 臺南市遊蕩犬調查情形 (108 ~ 112 年)  
-  https://data.tainan.gov.tw/dataset/straydogs
+  https://data.tainan.gov.tw/DataSet/Detail/b8109af1-650c-42d0-9633-d75b9eff1ce1
 
   採用檔案如：108 年臺南市各行政區執行流浪犬TNVR成果表，我們使用 CSV 格式
 
