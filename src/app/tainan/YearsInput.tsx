@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { makeYearRange } from '@/lib/utils';
 import {
@@ -7,6 +7,7 @@ import {
   GrabIcon,
 } from "lucide-react";
 import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
+import useListToggleFocus from '@/hooks/useListToggleFocus';
 
 const YearPresets: Record<string, [any, (value: number) => boolean]> = {
   'all': [GrabIcon, R.gt(0)],
@@ -32,6 +33,8 @@ export function YearsInput({ min, max, formRef }: {
   max: number,
   formRef: React.RefObject<HTMLFormElement | null>,
 }) {
+  const listRef = useRef<HTMLUListElement | null>(null);
+  const onMiddleClick = useListToggleFocus(listRef);
   const [handle, setHandle] = useState<number | null>();
   const yearRange = makeYearRange(min, max);
   const textCls = [
@@ -89,11 +92,11 @@ export function YearsInput({ min, max, formRef }: {
 
   return (
     <div className='flex flex-wrap items-center justify-center pb-0.5 w-full'>
-      <ul className='flex items-center justify-around flex-wrap max-w-[26rem]'>
+      <ul ref={listRef} className='flex items-center justify-around flex-wrap max-w-[26rem]'>
         {yearRange.map((year) => {
           return (
             <li key={year} className={handle ? 'select-none' : ''}>
-              <label className='cursor-pointer px-1 py-2 block rounded relative transition hover:bg-amber-200 hover:drop-shadow' data-year={year} onClick={onClickYear}>
+              <label className='cursor-pointer px-1 py-2 block rounded relative transition hover:bg-amber-200 hover:drop-shadow' data-year={year} onClick={onClickYear} onMouseDown={onMiddleClick}>
                 { year === handle &&
                   <Tooltip placement='top' hoverProps={menuHoverProps}>
                     <TooltipTrigger className='mb-1 block truncate'>

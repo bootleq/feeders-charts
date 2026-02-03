@@ -1,7 +1,8 @@
 import * as R from 'ramda';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { makeYearRange } from '@/lib/utils';
+import useListToggleFocus from '@/hooks/useListToggleFocus';
 import {
   MenuIcon,
   ScaleIcon,
@@ -47,6 +48,9 @@ export function YearsInput({ min, max, formRef }: {
     'peer-checked:[border-image-source:linear-gradient(to_right,transparent_30%,#888_30%,#888_70%,transparent_70%)]',
     'peer-focus-visible:outline outline-offset-2 outline-blue-400',
   ].join(' ');
+
+  const listRef = useRef<HTMLUListElement | null>(null);
+  const onMiddleClick = useListToggleFocus(listRef);
 
   const onClickYear = useCallback((e: React.MouseEvent<HTMLLabelElement>) => {
     const label = e.currentTarget;
@@ -95,11 +99,11 @@ export function YearsInput({ min, max, formRef }: {
 
   return (
     <div className='flex flex-wrap items-center pb-0.5'>
-      <ul className='flex items-center justify-around flex-wrap max-w-[26rem]'>
+      <ul ref={listRef} className='flex items-center justify-around flex-wrap max-w-[26rem]'>
         {yearRange.map((year) => {
           return (
             <li key={year} className={handle ? 'select-none' : ''}>
-              <label className='cursor-pointer px-1 py-2 block rounded relative transition hover:bg-amber-200 hover:drop-shadow' data-year={year} onClick={onClickYear}>
+              <label className='cursor-pointer px-1 py-2 block rounded relative transition hover:bg-amber-200 hover:drop-shadow' data-year={year} onClick={onClickYear} onMouseDown={onMiddleClick}>
                 { year === handle &&
                   <Tooltip placement='top' hoverProps={menuHoverProps}>
                     <TooltipTrigger className='mb-1 block truncate'>
