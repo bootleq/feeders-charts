@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef } from 'react';
 import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { CITY_MAPPING, cityLookup } from '@/lib/model';
 import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
+import useListToggleFocus from '@/hooks/useListToggleFocus';
 import styles from './page.module.scss';
 
 import {
@@ -47,31 +48,13 @@ export function CitiesInput({ formRef }: {
     'peer-focus-visible:outline outline-offset-2 outline-blue-400',
   ].join(' ');
 
+  const onMiddleClick = useListToggleFocus(listRef);
+
   useEffect(() => {
     const box = document.querySelector('li.writing-vertical')?.closest('ul');
     if (box && box.offsetHeight > 400) {
       box.style.flexFlow = 'initial'; // workaround for Firefox
     }
-  }, []);
-
-  const onMiddleClick = useCallback((e: React.MouseEvent<HTMLElement>) => {
-    if (e.button !== 1) return; // "middle" click
-
-    const $target = e.target as HTMLElement;
-    const $currentInput = $target.closest('li')?.querySelector('input[type="checkbox"]') as HTMLInputElement | null;
-    if (!$currentInput) return;
-
-    e.preventDefault();
-
-    const $inputs = listRef.current?.querySelectorAll('input[type="checkbox"]') as NodeListOf<HTMLInputElement> | null;
-    const value = $currentInput.value;
-
-    $currentInput.checked = true;
-    $inputs?.forEach(($i ) => {
-      if ($i.checked && $i.value !== value) {
-        $i.checked = false;
-      }
-    });
   }, []);
 
   const onPickPreset = useCallback((e: React.MouseEvent<HTMLElement>) => {
