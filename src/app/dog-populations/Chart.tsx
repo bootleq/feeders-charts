@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { useAtom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/Tooltip';
+import { Popover, PopoverTrigger, PopoverContent } from '@/components/Popover';
 import { formatDistanceToNow } from 'date-fns';
 import { zhTW } from 'date-fns/locale';
 
@@ -50,6 +51,7 @@ import { CanvasRenderer } from 'echarts/renderers';
 
 import {
   XIcon,
+  SparkleIcon,
   CircleAlertIcon,
   MoveLeftIcon,
   CornerDownLeftIcon,
@@ -293,7 +295,29 @@ export default function Chart() {
           <RepresentControl />
         </fieldset>
 
-        <button type='submit' className='self-center p-3 pl-8 xl:pl-14 pb-4 mx-auto xl:mr-0 rounded hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
+        <Popover placement='bottom'>
+          <PopoverTrigger>
+            <button type='button' className='group self-center p-3 pb-4 ml-auto rounded hover:bg-amber-200 hover:drop-shadow-2xl'>
+              <SparkleIcon size={20} className='pl-1 pb-1 opacity-45 hover:opacity-100' />
+              <span className='invisible group-hover:visible'>提示</span>
+            </button>
+          </PopoverTrigger>
+          <PopoverContent className='font-mixed p-2 rounded box-border text-sm leading-relaxed w-fit max-w-[90vw] sm:max-w-[60vw] xl:max-w-[30vw] 2xl:max-w-[20vw] z-[1002] bg-neutral-50 drop-shadow-xl'>
+            <div className='mb-2'>
+              表單操作：
+            </div>
+            <ul className='list-disc list-outside ml-4 space-y-2'>
+              <li>
+                選擇條件時（例如各縣市），按下滑鼠<strong>中鍵</strong>可以「只選它 1 個」，同選單中的其他選項會全部被取消。
+              </li>
+              <li>
+                選擇「年度」時，選項上方會出現小記號，這時按下 <kbd>Shift</kbd> 再點選另一年分，會將兩者之間的年全部選取／取消。
+              </li>
+            </ul>
+          </PopoverContent>
+        </Popover>
+
+        <button type='submit' className='self-center p-3 pl-8 xl:pl-14 pb-4  xl:mr-0 rounded hover:bg-amber-200 transition duration-[50ms] hover:scale-110 hover:drop-shadow active:scale-100'>
           <CornerDownLeftIcon size={20} className='pl-1 pb-1' />
           套用
         </button>

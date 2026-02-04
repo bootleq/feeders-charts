@@ -1,7 +1,8 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { Tooltip, TooltipTrigger, TooltipContentMenu, menuHoverProps } from '@/components/Tooltip';
 import { CITY_MAPPING, cityLookup } from '@/lib/model';
 import { tooltipClass, tooltipMenuCls } from '@/lib/utils';
+import useListToggleFocus from '@/hooks/useListToggleFocus';
 import styles from './page.module.scss';
 
 import {
@@ -40,11 +41,14 @@ function CityPresetItem({ dataKey, children, iconClass }: {
 export function CitiesInput({ formRef }: {
   formRef: React.RefObject<HTMLFormElement | null>,
 }) {
+  const listRef = useRef<HTMLUListElement | null>(null);
   const textCls = [
     'pb-2 border-gray-400/0 border-b-4 text-slate-400',
     'peer-checked:text-slate-900 font-sans',
     'peer-focus-visible:outline outline-offset-2 outline-blue-400',
   ].join(' ');
+
+  const onMiddleClick = useListToggleFocus(listRef);
 
   useEffect(() => {
     const box = document.querySelector('li.writing-vertical')?.closest('ul');
@@ -79,11 +83,11 @@ export function CitiesInput({ formRef }: {
 
   return (
     <div className='flex items-center pb-0.5'>
-      <ul className='flex flex-wrap items-center'>
+      <ul ref={listRef} className='flex flex-wrap items-center'>
         {
           Object.entries(CITY_MAPPING).map(([code, name]) => (
             <li key={code} className='writing-vertical relative'>
-              <label className='cursor-pointer px-1 py-2 block rounded transition hover:bg-amber-200 hover:-translate-y-1 hover:drop-shadow'>
+              <label onMouseDown={onMiddleClick} className='cursor-pointer px-1 py-2 block rounded transition hover:bg-amber-200 hover:-translate-y-1 hover:drop-shadow'>
                 <input type='checkbox' name='cities' value={code} defaultChecked={true} className={`peer mb-1 sr-only ${styles['city-btn']}`} />
                 <span className={textCls}>
                   {name}
