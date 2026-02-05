@@ -63,7 +63,7 @@
     "sourceCheckedAt": "2025-02-26T07:59:30.750Z"
   },
   "law_enforce": {
-    "sourceCheckedAt": "2025-03-01T09:30:48.662Z"
+    "sourceCheckedAt": "2026-02-05T03:34:11.068Z"
   },
   "law_enforce_112": {
     "sourceCheckedAt": "2025-03-01T09:30:48.221Z"
@@ -76,5 +76,8 @@
   },
   "shelter_occupy_106_108": {
     "sourceCheckedAt": "2025-04-06T05:05:05.200Z"
+  },
+  "law_enforce_114": {
+    "sourceCheckedAt": "2026-02-05T03:34:10.905Z"
   }
 }

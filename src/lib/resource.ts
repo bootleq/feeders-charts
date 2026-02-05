@@ -47,6 +47,7 @@ export const lawEnforceTable = [
   [111, '111年第4季各縣市政府執行動物保護法案件情形', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/230131023314250066MCVLE.pdf'],
   [112, '112年第4季各縣市政府執行動物保護法案件情形', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/240124025231435389Z2YE9.pdf'],
   [113, '113年第4季各縣市政府執行動物保護法案件情形', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/2501220506217727348RKWP.pdf'],
+  [114, '114年第4季各縣市政府執行動物保護法案件情形', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/260130091811352106NFN9S.pdf'],
 ];
 
 const lawEnforceTableResources = lawEnforceTable.reduce((acc, [year, title]) => {
