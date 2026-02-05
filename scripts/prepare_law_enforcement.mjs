@@ -83,6 +83,30 @@ function validate(data) {
       "未絕育:0":   17 + 48 + 90 + 50,  // 205
       "未絕育:1":    7 +  1 + 14,       // 22
     }, // 臺中市 113
+    {
+      year: 114,
+      city: 'City000007',
+      "照護:0": 196,
+      "照護:1": 1,
+      "棄養:0": 15,
+      "棄養:1": 7,
+      "虐待:0": 32,
+      "宰殺:0": 1,
+      "捕捉方式:0": 69,
+      "捕捉方式:1": 1,
+      "散布獸鋏:0": 1,
+      "散布獸鋏:1": 1,
+      "未寵登:0": 74,
+      "未寵登:1": 1,
+      "疏縱:0": 201,
+      "疏縱:1": 10,
+      "無照繁殖:0": 5,
+      "管理不善:0": 8,
+      "管理不善:1": 2,
+      "未絕育:0": 79,
+      "未絕育:1": 2,
+      "食品:0": 1
+    }, // 苗栗縣 114
   ];
 
   valid = testSamplesExist(samples, data);
@@ -122,11 +146,17 @@ function parseSeason4(pageTables) {
     const [header, ...bodyRows] = rows;
 
     // Columns were laid like:
-    //  新北市                     臺北市
-    //  第4季 第3季 第2季 第1季 x  ...
+    // Type 1 (< 114):
+    //    新北市,      ,       ,      ,  , 臺北市, ...
+    //    第4季,  第3季,  第2季, 第1季, x, 第4季,  ...
+    // Type 2 (114):
+    //    新北市,      ,       , ...,  臺北市, ...
+    //    合計,   第4季,  第3季, ...,  小計,  ...
     let currentCity = '';
     let seasonCount = 0;
     const headerOffset = 3;
+
+    const hasTotalColumn = ['合計', '小計'].includes(rows[1].slice(headerOffset)[0]);
 
     // Store column info in shape: [ [citycode, columnIndex], ... ]
     const cityIdxes = header.slice(headerOffset).reduce((acc, name, idx) => {
@@ -134,9 +164,18 @@ function parseSeason4(pageTables) {
         currentCity = cityLookup(name);
         seasonCount = 0;
       }
-      if (currentCity.length && seasonCount < 4) { // 只收 4 ~ 1 季，忽略多餘的「與前一季相比」欄位
-        acc.push([currentCity, idx + headerOffset]);
-        seasonCount += 1;
+      if (currentCity.length) {
+        if (hasTotalColumn) {
+          if (seasonCount === 0) { // 只收一次，不需分季
+            acc.push([currentCity, idx + headerOffset]);
+          }
+          seasonCount = 5;
+        } else {
+          if (seasonCount < 4) { // 只收 4 ~ 1 季，忽略多餘的「與前一季相比」欄位
+            acc.push([currentCity, idx + headerOffset]);
+            seasonCount += 1;
+          }
+        }
       }
       return acc;
     }, []);
