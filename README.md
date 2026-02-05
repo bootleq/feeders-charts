@@ -97,7 +97,7 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
   註：人口資料和動保資訊網提供的數字略有落差
 
-- 遊蕩犬熱區圖 (2023 ~ 2024)  
+- 遊蕩犬熱區圖 (2023 ~ 2025)  
   https://www.pet.gov.tw/Wandering/HeatMapV1.aspx
 
   名叫熱區圖，其實是農業部「遊蕩犬管控精進策略」的成績資料
