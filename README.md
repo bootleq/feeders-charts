@@ -101,8 +101,8 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
   名叫熱區圖，其實是農業部「遊蕩犬管控精進策略」的成績資料
 
-- 各縣市政府執行動物保護法案件情形 (2022 ~ 2024)  
-  https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab11
+- 各縣市政府執行動物保護法案件情形 (2022 ~ 2025)  
+  https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab10
 
   原資料有分四個季度，但我們合併為各年度
 
