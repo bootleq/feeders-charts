@@ -7220,6 +7220,7 @@
   {
     "year": 114,
     "city": "City000001",
+    "human": 361441,
     "room": 100,
     "infant": 18,
     "accept": 371,
@@ -7257,6 +7258,7 @@
   {
     "year": 114,
     "city": "City000002",
+    "human": 2490869,
     "h_visit": 11,
     "room": 840,
     "infant": 214,
@@ -7300,6 +7302,7 @@
   {
     "year": 114,
     "city": "City000003",
+    "human": 4047001,
     "h_visit": 12448,
     "h_roam": 1022,
     "h_feed": 413,
@@ -7349,6 +7352,7 @@
   {
     "year": 114,
     "city": "City000004",
+    "human": 2338648,
     "h_visit": 1,
     "h_roam": 1768,
     "room": 652,
@@ -7396,6 +7400,7 @@
   {
     "year": 114,
     "city": "City000005",
+    "human": 594641,
     "h_visit": 281,
     "h_roam": 654,
     "room": 162,
@@ -7436,6 +7441,7 @@
   {
     "year": 114,
     "city": "City000006",
+    "human": 457242,
     "h_visit": 1096,
     "h_roam": 27,
     "room": 250,
@@ -7479,6 +7485,7 @@
   {
     "year": 114,
     "city": "City000007",
+    "human": 532854,
     "h_visit": 2275,
     "h_roam": 1229,
     "h_feed": 1,
@@ -7523,6 +7530,7 @@
   {
     "year": 114,
     "city": "City000008",
+    "human": 472299,
     "h_visit": 233,
     "h_roam": 1119,
     "room": 300,
@@ -7562,6 +7570,7 @@
   {
     "year": 114,
     "city": "City000009",
+    "human": 2860601,
     "h_visit": 7,
     "h_roam": 128,
     "room": 800,
@@ -7610,6 +7619,7 @@
   {
     "year": 114,
     "city": "City000010",
+    "human": 1225675,
     "h_roam": 1528,
     "room": 239,
     "infant": 221,
@@ -7647,6 +7657,7 @@
   {
     "year": 114,
     "city": "City000011",
+    "human": 658427,
     "h_visit": 958,
     "h_roam": 612,
     "room": 300,
@@ -7687,6 +7698,7 @@
   {
     "year": 114,
     "city": "City000012",
+    "human": 478786,
     "h_visit": 15260,
     "h_roam": 3054,
     "room": 200,
@@ -7729,6 +7741,7 @@
   {
     "year": 114,
     "city": "City000013",
+    "human": 262177,
     "h_visit": 2,
     "h_roam": 361,
     "room": 100,
@@ -7754,6 +7767,7 @@
   {
     "year": 114,
     "city": "City000014",
+    "human": 1858651,
     "h_roam": 245,
     "room": 700,
     "infant": 626,
@@ -7796,6 +7810,7 @@
   {
     "year": 114,
     "city": "City000015",
+    "human": 2731412,
     "h_visit": 440,
     "h_roam": 508,
     "h_feed": 344,
@@ -7843,6 +7858,7 @@
   {
     "year": 114,
     "city": "City000016",
+    "human": 789239,
     "h_visit": 973,
     "h_roam": 540,
     "room": 580,
@@ -7886,6 +7902,7 @@
   {
     "year": 114,
     "city": "City000017",
+    "human": 210219,
     "h_visit": 2922,
     "h_roam": 979,
     "room": 104,
@@ -7923,6 +7940,7 @@
   {
     "year": 114,
     "city": "City000018",
+    "human": 315374,
     "h_visit": 1211,
     "h_roam": 4,
     "room": 330,
@@ -7964,6 +7982,7 @@
   {
     "year": 114,
     "city": "City000019",
+    "human": 449212,
     "h_visit": 21,
     "h_roam": 67,
     "room": 270,
@@ -8008,6 +8027,7 @@
   {
     "year": 114,
     "city": "City000020",
+    "human": 107901,
     "h_visit": 1072,
     "h_roam": 23,
     "room": 348,
@@ -8043,6 +8063,7 @@
   {
     "year": 114,
     "city": "City000021",
+    "human": 143601,
     "room": 200,
     "accept": 326,
     "adopt": 224,
@@ -8064,6 +8085,7 @@
   {
     "year": 114,
     "city": "City000022",
+    "human": 13950,
     "room": 120,
     "accept": 13,
     "adopt": 11,
