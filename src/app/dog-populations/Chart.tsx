@@ -1,6 +1,6 @@
 "use client"
 
-const latestRevDate = new Date('2025-07-07T16:44:44+08:00'); // 最後勘誤時間，需手動維護
+const latestRevDate = new Date('2026-02-05T16:13:38+08:00'); // 最後勘誤時間，需手動維護
 
 import * as R from 'ramda';
 import { useState, useCallback, useEffect, useRef, useMemo } from 'react';

@@ -113,8 +113,12 @@ export const resources: Record<string, ResourceEntry> = {
     title: '民國 106 ~ 108 年的「最大容留數」和「在養數」資料',
     docUrl: 'https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab3',
   },
+  workforce_114: {
+    title: '民國 106 ~ 108 年的「最大容留數」和「在養數」資料',
+    docUrl: moaWorkforceLink,
+  },
   heat_map: {
-    title: '遊蕩犬熱區圖 (2023 ~ 2024)',
+    title: '遊蕩犬熱區圖 (2023 ~ 2025)',
     docUrl: 'https://www.pet.gov.tw/Wandering/HeatMapV1.aspx',
   },
   combined: {
