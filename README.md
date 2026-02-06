@@ -69,18 +69,23 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
   - 97 ~ 107 年的資料
   - 106 ~ 108 年的「最大留容數」和「在養數」資料有用，但為求簡便，這部分以人工方式整理（見後述 `data/shelter_occupy_106_108.csv`），而非自動解析報表
 
-- 動物收容統計表（詳表）（108 ~ 113 年）  
+- 動物收容統計表（詳表）（108 ~ 114 年）  
   https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx
 
   來自「全國動物收容管理系統」的詳細資料
 
-  已知問題：部分收容所「在養量」未反映現實，見 [#4][]
+  已知問題：
+
+  - 舊的「可留容最大值」數字錯誤 [#2][]，解法是改用下述 data.gov.tw 的統計表（除了最新一年的資料）
+  - 部分收容所「在養量」未反映現實，見 [#4][]
 
 - 全國公立動物收容所收容處理情形統計表(細項) (106 ~ 113 年)  
   https://data.gov.tw/dataset/73396
 
   比起前述「動物收容統計表（詳表）」，資料較不齊全  
   所以只採用該詳表需要訂正的部分，即「(犬) 可留容最大值」和「(犬) 在養占可留容比例」；
+  但由於這份資料更新較慢，所以「最新一年」仍會使用 pet.gov.tw 詳表，待資料更新後再調整
+
   另仍有部分年度（~ 108）是缺失的，改為人工整理補上（見 `data/shelter_occupy_106_108.csv`）
 
   部分欄位在前幾年並沒有資料：
@@ -205,6 +210,7 @@ then feeders should manage following tasks.
 
 [feeders.fyi]: https://feeders.fyi/
 [feeders repo]: https://github.com/bootleq/feeders
+[#2]: https://github.com/bootleq/feeders-charts/issues/2
 [#3]: https://github.com/bootleq/feeders-charts/issues/3
 [#4]: https://github.com/bootleq/feeders-charts/issues/4
 [HOTAC 2020]: https://www.hotac.org.tw/news-4169
