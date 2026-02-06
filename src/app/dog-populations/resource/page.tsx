@@ -47,7 +47,11 @@ export default async function Page() {
                 <Link href='https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx' className={revisionTitleLinkCls}>動物收容統計表（詳表）</Link>舊資料有 12 處小幅變更
               </div>
               <div className='flex items-center text-sm p-1 px-2 my-1 ring-1 ring-slate-300 bg-gray-200 rounded'>
-                112、113 年的數字有微幅變動，共 12 處，可能只是官方資料修正
+                112、113 年的數字有微幅變動，共 12 處（詳見
+                <Link
+                  target='_blank' className={`${revisionLinkCls} pr-0`}
+                  href='https://github.com/bootleq/feeders-charts/commit/a9bb398bc224567d64204cdce95720ba45abc2d3'
+                >diff</Link>），可能只是官方資料修正
               </div>
             </li>
             <li>
