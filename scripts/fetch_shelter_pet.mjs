@@ -11,7 +11,10 @@ const basename = 'shelter_pet';
 
 const API_URL = 'https://www.pet.gov.tw/handler/AnimalsCore.ashx';
 
-const skipRoomAndOccupy = true; // when true, "room" should be taken from "shelter_details"
+// When true, "room" and "occupy" should be taken from "shelter_details"
+const skipRoomAndOccupyFn = (rocYear) => {
+  return !rocYear || rocYear < 114;
+};
 
 const unsafeAgent = new https.Agent({
   rejectUnauthorized: false,
@@ -131,6 +134,7 @@ function translateFields(reportItems, year, reportType) {
     let occupyRatio;
     const obj = {};
     const rocYear = year - 1911;
+    const skipRoomAndOccupy = skipRoomAndOccupyFn(rocYear);
 
     Object.entries(item).forEach(([key, value]) => {
       const field = REPORT_FIELDS[reportType][key];
@@ -203,11 +207,18 @@ function validate(data) {
     { year: 113, city: 'City000002', room: 840, accept: 2147, adopt: 1883, die: 255, miss: 3, occupy: 722.4 }, // 臺北市 2024，犬在養率 86% (840 * .86 = 722.4)
     { year: 113, city: 'City000014', room: 700, accept: 6729 - 2785,
       adopt: 1687, die: 236, miss: 29, occupy: 1302 }, // 臺南市 2024，犬在養率 186% (700 * 1.86 = 1302)，注意 "accept"（收容隻數）需減去「入所絕育」公母共 2785 隻
+
+    { year: 114, city: 'City000003', room: 1615, accept: 4086,
+      adopt: 3830, seized: 10, kill: 1, die: 143, miss: 150, occupy: 888.25 }, // 新北市 2025，犬在養率 55% (1615 * 0.55 = 888.25)
   ];
 
-  if (skipRoomAndOccupy) {
-    samples = samples.map(R.omit(['room', 'occupy']));
-  }
+  samples = R.map(
+    R.when(
+      R.pipe(R.prop('year'), skipRoomAndOccupyFn),
+      R.omit(['room', 'occupy'])
+    ),
+    samples
+  );
 
   valid = testSamplesExist(samples, data);
 
@@ -252,7 +263,7 @@ async function fetchYears(years, reportType) {
   console.log("Fetch shelter detail data from pet.gov.tw ...\n");
 
   const head = await fetchYears([2018, 2019, 2020], 3);
-  const tail = await fetchYears([2022, 2023, 2024], 4);
+  const tail = await fetchYears([2022, 2023, 2024, 2025], 4);
 
   // 110 年資料改版特殊處理，需分為三月前後
   const mixHead = await fetchYearData(2021, 3);

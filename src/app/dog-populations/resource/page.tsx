@@ -43,6 +43,15 @@ export default async function Page() {
           <ol reversed className='font-mixed list-decimal list-inside md:list-outside px-3 md:px-0'>
             <li>
               <div className='inline'>
+                <span className='mr-1'>2026-02-06</span>
+                <Link href='https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx' className={revisionTitleLinkCls}>動物收容統計表（詳表）</Link>舊資料有 12 處小幅變更
+              </div>
+              <div className='flex items-center text-sm p-1 px-2 my-1 ring-1 ring-slate-300 bg-gray-200 rounded'>
+                112、113 年的數字有微幅變動，共 12 處，可能只是官方資料修正
+              </div>
+            </li>
+            <li>
+              <div className='inline'>
                 <span className='mr-1'>2025-07-07</span>
                 政府資料開放平台<Link href='https://data.gov.tw/dataset/41771' className={revisionTitleLinkCls}>年度犬貓統計表</Link>提供的 109 年數字有 6 個縣市錯置
 

@@ -35,6 +35,7 @@ Use below scripts to reassemble, update:
 - `pnpm data:shelter_pet`: Fetch and transform shelter detail data
 - `pnpm data:heat_map`: Fetch and transform heat map data
 - `pnpm data:law`: Fetch and transform animal protect act enforcement data
+- `pnpm data:worker`: Fetch and transform workforce data
 - `pnpm data:manually`: Transform manually collected (already built-in in repo) data
 - `pnpm data:tainan`: Fetch and transform Tainan TNVR report data
 - `pnpm data:reduce`: Normalize and combine all processed data (except Tainan's)
@@ -68,18 +69,23 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
   - 97 ~ 107 年的資料
   - 106 ~ 108 年的「最大留容數」和「在養數」資料有用，但為求簡便，這部分以人工方式整理（見後述 `data/shelter_occupy_106_108.csv`），而非自動解析報表
 
-- 動物收容統計表（詳表）（108 ~ 113 年）  
+- 動物收容統計表（詳表）（108 ~ 114 年）  
   https://www.pet.gov.tw/AnimalApp/ReportAnimalsAcceptFront.aspx
 
   來自「全國動物收容管理系統」的詳細資料
 
-  已知問題：部分收容所「在養量」未反映現實，見 [#4][]
+  已知問題：
+
+  - 舊的「可留容最大值」數字錯誤 [#2][]，解法是改用下述 data.gov.tw 的統計表（除了最新一年的資料）
+  - 部分收容所「在養量」未反映現實，見 [#4][]
 
 - 全國公立動物收容所收容處理情形統計表(細項) (106 ~ 113 年)  
   https://data.gov.tw/dataset/73396
 
   比起前述「動物收容統計表（詳表）」，資料較不齊全  
   所以只採用該詳表需要訂正的部分，即「(犬) 可留容最大值」和「(犬) 在養占可留容比例」；
+  但由於這份資料更新較慢，所以「最新一年」仍會使用 pet.gov.tw 詳表，待資料更新後再調整
+
   另仍有部分年度（~ 108）是缺失的，改為人工整理補上（見 `data/shelter_occupy_106_108.csv`）
 
   部分欄位在前幾年並沒有資料：
@@ -96,18 +102,20 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
   註：人口資料和動保資訊網提供的數字略有落差
 
-- 遊蕩犬熱區圖 (2023 ~ 2024)  
+- 遊蕩犬熱區圖 (2023 ~ 2025)  
   https://www.pet.gov.tw/Wandering/HeatMapV1.aspx
 
   名叫熱區圖，其實是農業部「遊蕩犬管控精進策略」的成績資料
 
-- 各縣市政府執行動物保護法案件情形 (2022 ~ 2024)  
-  https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab11
+- 各縣市政府執行動物保護法案件情形 (2022 ~ 2025)  
+  https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab10
 
   原資料有分四個季度，但我們合併為各年度
 
 - 各縣市動物保護業務人力 (2021 ~ 2024)  
   https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab4
+
+  2025 年的 PDF 有問題，所以先不使用
 
 
 ### 以下為人工收集資料，並建檔於 `data` 目錄中：
@@ -131,6 +139,15 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
   其他含 88 年遊蕩犬資料等，CSV 統整資料取自[個人文章][全國遊蕩犬數量整理成圖表]附錄的 [google doc 文件][年度資料 gdoc]
 
   `data/countrywide.csv`
+
+- 民國 114 年的動保業務人力統計表
+
+  因「各縣市動物保護業務人力」2025 年 PDF 格式有問題，所以先手動整理到 [google doc 文件][年度資料 gdoc]  
+
+  問題 PDF「114年10月各縣市動物保護業務人力統計表」  
+  https://animal.moa.gov.tw/public/upload/Know_ListFile/251121051124443519TDE23.PDF
+
+  `data/workforce_114.csv`
 
 
 ### 以下有機會處理，但最終未使用：
@@ -193,6 +210,7 @@ then feeders should manage following tasks.
 
 [feeders.fyi]: https://feeders.fyi/
 [feeders repo]: https://github.com/bootleq/feeders
+[#2]: https://github.com/bootleq/feeders-charts/issues/2
 [#3]: https://github.com/bootleq/feeders-charts/issues/3
 [#4]: https://github.com/bootleq/feeders-charts/issues/4
 [HOTAC 2020]: https://www.hotac.org.tw/news-4169

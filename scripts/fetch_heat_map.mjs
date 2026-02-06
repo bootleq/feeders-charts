@@ -125,7 +125,7 @@ async function fetchYearData(year) {
   console.log("Fetch heat map data from pet.gov.tw ...\n");
 
   const results = [];
-  for (const year of [2023, 2024]) {
+  for (const year of [2023, 2024, 2025]) {
     results.push(await fetchYearData(year));
   }
   const data = R.unnest(results);

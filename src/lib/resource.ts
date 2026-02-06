@@ -47,6 +47,7 @@ export const lawEnforceTable = [
   [111, '111年第4季各縣市政府執行動物保護法案件情形', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/230131023314250066MCVLE.pdf'],
   [112, '112年第4季各縣市政府執行動物保護法案件情形', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/240124025231435389Z2YE9.pdf'],
   [113, '113年第4季各縣市政府執行動物保護法案件情形', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/2501220506217727348RKWP.pdf'],
+  [114, '114年第4季各縣市政府執行動物保護法案件情形', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/260130091811352106NFN9S.pdf'],
 ];
 
 const lawEnforceTableResources = lawEnforceTable.reduce((acc, [year, title]) => {
@@ -68,6 +69,7 @@ export const workForceTable = [
   [111, '111年10月各縣市動物保護業務人力統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/221229103502641266SBXNC.pdf'],
   [112, '112年10月各縣市動物保護業務人力統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/231208043131215611YEHKE.pdf'],
   [113, '113年10月各縣市動物保護業務人力統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/241129061152849406ELCCZ.pdf'],
+  // [114, '114年10月各縣市動物保護業務人力統計表', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/251121051124443519TDE23.PDF'], // malformed, can't use
 ];
 
 export type ResourceEntry = {
@@ -111,8 +113,12 @@ export const resources: Record<string, ResourceEntry> = {
     title: '民國 106 ~ 108 年的「最大容留數」和「在養數」資料',
     docUrl: 'https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab3',
   },
+  workforce_114: {
+    title: '民國 106 ~ 108 年的「最大容留數」和「在養數」資料',
+    docUrl: moaWorkforceLink,
+  },
   heat_map: {
-    title: '遊蕩犬熱區圖 (2023 ~ 2024)',
+    title: '遊蕩犬熱區圖 (2023 ~ 2025)',
     docUrl: 'https://www.pet.gov.tw/Wandering/HeatMapV1.aspx',
   },
   combined: {
