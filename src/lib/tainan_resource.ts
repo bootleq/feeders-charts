@@ -1,6 +1,6 @@
 import type { ResourceEntry } from './resource';
 
-const tainanGovStrayLink = 'https://data.tainan.gov.tw/dataset/straydogs';
+const tainanGovStrayLink = 'https://data.tainan.gov.tw/DataSet/Detail/b8109af1-650c-42d0-9633-d75b9eff1ce1';
 
 export const resources: Record<string, ResourceEntry> = {
   tainan_tnvr_report_108: { title: '108年臺南市各行政區執行流浪犬TNVR成果表', docUrl: tainanGovStrayLink, },

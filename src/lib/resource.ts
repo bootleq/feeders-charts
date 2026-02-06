@@ -41,7 +41,7 @@ const shelter_reports_resources = shelter_reports_table.reduce((acc, [year, titl
     }};
 }, {});
 
-const moaGovEnforcementLink = 'https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab11';
+const moaGovEnforcementLink = 'https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab10';
 
 export const lawEnforceTable = [
   [111, '111年第4季各縣市政府執行動物保護法案件情形', 'https://animal.moa.gov.tw/public/upload/Know_ListFile/230131023314250066MCVLE.pdf'],
