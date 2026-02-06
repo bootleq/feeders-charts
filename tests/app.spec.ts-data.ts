@@ -104,9 +104,18 @@ const TaipeiTrRaw = [
   255,
   ,
   86,
-  14,
+  13,
   11,
-  ''
+  ,
+  2012,
+  1813,
+  6,
+  206,
+  ,
+  87,
+  11,
+  ,
+  ,
 ];
 
 export const dogPopulationsTableRow = Array.from(TaipeiTrRaw).map((n) => (n ? `${n}` : ''));
