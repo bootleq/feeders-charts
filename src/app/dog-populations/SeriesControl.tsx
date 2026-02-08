@@ -101,7 +101,7 @@ export function SeriesControl() {
                 <SeriesMenuItem Icon={Grid2x2Icon} name='room'>可收容量</SeriesMenuItem>
                 <SeriesMenuItem Icon={Grid2x2XIcon} name='occupy'>在養數</SeriesMenuItem>
                 <SeriesMenuItem sub name='occupy100'>收容壓力</SeriesMenuItem>
-                <SeriesMenuItem Icon={BabyIcon} name='infant'>幼犬入所</SeriesMenuItem>
+                <SeriesMenuItem Icon={BabyIcon} name='infant'>幼齡入所</SeriesMenuItem>
                 <SeriesMenuItem Icon={BanIcon} name='seized'>依法沒入</SeriesMenuItem>
                 <SeriesMenuItem Icon={TruckIcon} name='return'>回置</SeriesMenuItem>
                 <SeriesMenuItem sub onClick={toggles.shelter}>全選／不選</SeriesMenuItem>
