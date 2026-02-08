@@ -174,8 +174,10 @@ export const PopoverTrigger = React.forwardRef<
 
 export const PopoverContent = React.forwardRef<
   HTMLDivElement,
-  React.HTMLProps<HTMLDivElement>
->(function PopoverContent({ style, ...props }, propRef) {
+  React.HTMLProps<HTMLDivElement> & {
+    arrowProps?: Partial<React.ComponentProps<typeof FloatingArrow>>
+  }
+>(function PopoverContent({ style, arrowProps, ...props }, propRef) {
   const { context: floatingContext, arrowRef, ...context } = usePopoverContext();
   const ref = useMergeRefs([context.refs.setFloating, propRef]);
 
@@ -196,6 +198,7 @@ export const PopoverContent = React.forwardRef<
             ref={(node: any) => { if (node) arrowRef.current = node; }}
             context={floatingContext}
             className={ARROW_CLASSNAME}
+            {...arrowProps}
           />
         </div>
       </FloatingFocusManager>
