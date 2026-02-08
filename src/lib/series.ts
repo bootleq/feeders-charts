@@ -33,7 +33,7 @@ export const SERIES_NAMES: Record<string, string> = {
   domestic: '家犬',
   human: '人口',
   human100: '每百人',
-  infant: '幼犬',
+  infant: '幼齡',
   seized: '沒入',
   accept: '收容',
   adopt: '認領',

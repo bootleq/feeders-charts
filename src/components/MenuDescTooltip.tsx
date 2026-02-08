@@ -38,11 +38,21 @@ const tipDomestic = (<>
   每兩年統計一次，估計值，非實數
 </>);
 
-// 幼犬
+// 幼齡
 const tipInfant = (<>
-  <strong>幼犬入所數</strong>，在入所原因「政府處理案件」和「拾獲送交」中，分類為「幼齡無自理能力」者
-  <br />
-  110 年 3 月後才有這個欄位
+  <strong>幼齡入所數</strong>，在入所原因「政府處理案件」和「拾獲送交」中，分類為「幼齡無自理能力」者
+  <div className='flex items-center mt-2 text-slate-900'>
+    <CircleAlertIcon className='inline mr-1 h-4 w-fit flex-shrink-0' />
+    <p>
+      <strong>無法區分</strong>犬／貓
+    </p>
+  </div>
+  <div className='flex items-center mt-2 text-slate-900'>
+    <CircleAlertIcon className='inline mr-1 h-4 w-fit flex-shrink-0' />
+    <p>
+      110 年 3 月後才有這個欄位
+    </p>
+  </div>
 </>);
 
 // 沒入
