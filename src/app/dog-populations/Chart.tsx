@@ -302,7 +302,7 @@ export default function Chart() {
               <span className='invisible group-hover:visible'>提示</span>
             </button>
           </PopoverTrigger>
-          <PopoverContent className='font-mixed p-2 rounded box-border text-sm leading-relaxed w-fit max-w-[90vw] sm:max-w-[60vw] xl:max-w-[30vw] 2xl:max-w-[20vw] z-[1002] bg-neutral-50 drop-shadow-xl'>
+          <PopoverContent className='font-mixed p-3 pb-5 rounded box-border text-sm leading-relaxed w-fit max-w-[90vw] sm:max-w-[60vw] xl:max-w-[30vw] 2xl:max-w-[20vw] z-[1002] bg-neutral-50 drop-shadow-xl' arrowProps={{ className: 'fill-neutral-50'}}>
             <div className='mb-2'>
               表單操作：
             </div>
