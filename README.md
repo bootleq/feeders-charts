@@ -112,10 +112,8 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
   原資料有分四個季度，但我們合併為各年度
 
-- 各縣市動物保護業務人力 (2021 ~ 2024)  
+- 各縣市動物保護業務人力 (2021 ~ 2025)  
   https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab4
-
-  2025 年的 PDF 有問題，所以先不使用
 
 
 ### 以下為人工收集資料，並建檔於 `data` 目錄中：
@@ -139,15 +137,6 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
   其他含 88 年遊蕩犬資料等，CSV 統整資料取自[個人文章][全國遊蕩犬數量整理成圖表]附錄的 [google doc 文件][年度資料 gdoc]
 
   `data/countrywide.csv`
-
-- 民國 114 年的動保業務人力統計表
-
-  因「各縣市動物保護業務人力」2025 年 PDF 格式有問題，所以先手動整理到 [google doc 文件][年度資料 gdoc]  
-
-  問題 PDF「114年10月各縣市動物保護業務人力統計表」  
-  https://animal.moa.gov.tw/public/upload/Know_ListFile/251121051124443519TDE23.PDF
-
-  `data/workforce_114.csv`
 
 
 ### 以下有機會處理，但最終未使用：

@@ -109,41 +109,6 @@ const resources = [
       return testSamplesExist(samples, data);
     },
   },
-  {
-    basename: 'workforce_114',
-    parserOptions: {
-      skipLines: 2,
-      headers: [
-        'city',
-        'ft_shelter', 'pt_shelter',
-        'ft_vet',     'pt_vet',
-        'ft_inspct',  'pt_inspct',
-        'ft_etc',     'pt_etc',
-      ],
-      mapValues: ({ header, value }) => {
-        switch (header) {
-          case 'city':
-            return cityCodeMapping.get(value);
-            break;
-          default:
-            return Number(value.toString().replaceAll(',', ''));
-            break;
-        }
-      },
-    },
-    postProcess: (data) => {
-      return data.map(obj => ({ ...obj, year: 114 }));
-    },
-    validator: (data) => {
-      const samples = [
-        // https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab4
-        {year: 114, city: 'City000003', ft_inspct: 24, pt_inspct: 6}, // 新北市
-        {year: 114, city: 'City000005', ft_inspct: 6, pt_inspct: 2}, // 新竹縣
-        {year: 114, city: 'City000015', ft_vet: 16, pt_vet: 15}, // 高雄市
-      ];
-      return testSamplesExist(samples, data);
-    },
-  },
 ];
 
 async function parseCSV(file, csvOptions = {}) {
