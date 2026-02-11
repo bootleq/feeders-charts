@@ -25,7 +25,6 @@ const manuallyResources = [
   'shelter_occupy_106_108',
   'shelter_pet',
   'workforce',
-  'workforce_114',
   'law_enforce',
 ];
 
