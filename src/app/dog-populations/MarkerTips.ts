@@ -267,8 +267,22 @@ export const MarkerTips: Record<string, string> = {
     </p>
     <ul>
       <li>絕育率 52% → （還未完成）</li>
-      <li>家訪 5,718 戶</li>
-      <li>絕育 1,329 隻</li>
+      <li>家訪 7,856 戶</li>
+      <li>絕育 4,796 隻</li>
+    </ul>
+  `,
+  '相信動物苗栗': html`
+    <p>
+      2025 年 7 月進入苗栗
+    </p>
+    <p>
+      執行期間 2025-今
+      <small>（<a target='_blank' href='https://www.faithforanimals.org.tw/tnvr-project/miaoli'>來源</a>）</small>
+    </p>
+    <ul>
+      <li>絕育率 68% → （還未完成）</li>
+      <li>家訪 3,120 戶</li>
+      <li>絕育 872 隻</li>
     </ul>
   `,
 
