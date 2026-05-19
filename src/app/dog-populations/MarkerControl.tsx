@@ -64,6 +64,7 @@ export function MarkerControl() {
         '相信動物基隆',
         '相信動物桃園',
         '相信動物新竹',
+        '相信動物苗栗',
         '動團安樂死聲明',
       ]),
       event: makeFn([
@@ -148,6 +149,7 @@ export function MarkerControl() {
                 <MenuItem sub name='相信動物基隆'>相信動物 基隆市</MenuItem>
                 <MenuItem sub name='相信動物桃園'>相信動物 桃園市</MenuItem>
                 <MenuItem sub name='相信動物新竹'>相信動物 新竹縣市</MenuItem>
+                <MenuItem sub name='相信動物苗栗'>相信動物 苗栗縣</MenuItem>
                 <MenuItem Icon={MicIcon} name='動團安樂死聲明'>動團聲明落實安樂死</MenuItem>
                 <MenuItem sub onClick={toggles.org}>全選／不選</MenuItem>
               </div>

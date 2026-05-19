@@ -350,6 +350,28 @@ const MARKS: Record<string, MARK> = {
       ],
     ],
   },
+  '相信動物苗栗': {
+    type: 'Area',
+    data: [
+      [
+        {
+          name: '相信動物苗栗',
+          xAxis: '114', yAxis: 70,
+          itemStyle: {
+            color: { image: createPattern('rgba(255, 241, 102, 0.95)'), repeat: 'repeat', },
+          },
+          label: sharedLabelSetting['相信動物'],
+          tooltip: {
+            borderColor: 'rgba(166, 95, 0, 1)',
+          },
+          emphasis: {
+            label: { ...sharedLabelSetting['相信動物'], color: 'darkblue', backgroundColor: 'gold' },
+          },
+        },
+        { xAxis: 'max', yAxis: 60 }
+      ],
+    ],
+  },
 
   '電影《十二夜》上映': {
     data: [{ name: '電影《十二夜》上映', xAxis: '102', lineStyle: { color: '#00b8db', }, label: { ...commonLabelSetting, distance: [5, -60], }, }],
