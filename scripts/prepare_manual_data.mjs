@@ -109,6 +109,35 @@ const resources = [
       return testSamplesExist(samples, data);
     },
   },
+  {
+    basename: 'domestic_114',
+    parserOptions: {
+      skipLines: 1,
+      headers: ['city', 'domestic', null],  // skip column 3 (cat)
+      mapValues: ({ header, value }) => {
+        switch (header) {
+          case 'city':
+            return cityCodeMapping.get(value);
+            break;
+          default:
+            return Number(value.toString().replaceAll(',', ''));
+            break;
+        }
+      },
+    },
+    postProcess: (data) => {
+      return data.map(obj => ({ ...obj, year: 114 }));
+    },
+    validator: (data) => {
+      const samples = [
+        // https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab3
+        {year: 114, city: 'City000003', domestic: 249803}, // 新北市
+        {year: 114, city: 'City000002', domestic: 135956}, // 台北市
+        {year: 114, city: 'City000006', domestic:  21645}, // 新竹市
+      ];
+      return testSamplesExist(samples, data);
+    },
+  },
 ];
 
 async function parseCSV(file, csvOptions = {}) {

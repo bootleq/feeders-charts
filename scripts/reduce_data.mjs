@@ -23,6 +23,7 @@ const manuallyResources = [
   'human_population',
   'heat_map',
   'shelter_occupy_106_108',
+  'domestic_114',
   'shelter_pet',
   'workforce',
   'law_enforce',

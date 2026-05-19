@@ -138,6 +138,12 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
   `data/countrywide.csv`
 
+- 114 年家犬數量
+
+  官方於 2026/4/20 公布，但「年度犬貓統計表」可能要隔年才會更新，所以先手動整理到附錄 [google doc 文件][年度資料 gdoc]
+
+  `data/domestic_114.csv`
+
 
 ### 以下有機會處理，但最終未使用：
 
