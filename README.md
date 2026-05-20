@@ -59,6 +59,8 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
   - 109 年有 6 個縣市遊蕩犬數字誤植，程式也會特別調整掉，見 [#3][]
 
+  - 最新一年的家犬資料公布後，要等很久才會加入此資料集，所以我們會先手動處理，見後述人工收集部分
+
 - 公立動物收容所統計（97 ~ 113 年，只採用到 107 年）  
   https://animal.moa.gov.tw/Frontend/Know/PageTabList?TabID=31B05CB46007226417F0F5FB8A80096E#tab3
 
@@ -138,7 +140,7 @@ Use `DATA_CONTINUE_WHEN_SAME_HASH=1` or append `:force` to each script (e.g., `p
 
   `data/countrywide.csv`
 
-- 114 年家犬數量
+- 民國 114 年家犬數量
 
   官方於 2026/4/20 公布，但「年度犬貓統計表」可能要隔年才會更新，所以先手動整理到附錄 [google doc 文件][年度資料 gdoc]
 
