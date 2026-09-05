@@ -1,16 +1,71 @@
-// 執行方式：pnpm exec tsx scripts/fetch_shelter_pet_monthly.mjs
-// 輸出：data/build/shelter_pet_monthly_<縣市名>.csv（縣市名依 CITY_CODE 而定，目前為「臺南市」）
+// 執行方式：pnpm exec tsx scripts/fetch_shelter_pet_monthly.mjs --city <縣市名或代碼> [--start YYYY-MM]
+//   --city   必填，接受「臺中市」或「City000009」等形式
+//   --start  選填，起始年月，預設 2021-03（新版報表格式起始月份）
+// 輸出：data/build/shelter_pet_monthly_<縣市名>.csv
 
+import { parseArgs } from 'node:util';
 import fsp from 'node:fs/promises';
 import fetch from 'node-fetch';
 import https from 'https';
-import { cityLookup } from '@/lib/model';
+import { cityLookup, CITY_MAPPING } from '@/lib/model';
 import { buildingPath } from './data_source';
 
-const CITY_CODE = 'City000014'; // 台南市，未來如需換城市改這裡即可
-const START = { year: 2024, month: 9 };
+const DEFAULT_START = { year: 2021, month: 3 };
 
 const API_URL = 'https://www.pet.gov.tw/handler/AnimalsCore.ashx';
+
+function parseCliOptions() {
+  let values;
+  try {
+    ({ values } = parseArgs({
+      options: {
+        city: { type: 'string' },
+        start: { type: 'string' },
+      },
+    }));
+  } catch (error) {
+    console.error(error.message);
+    process.exit(1);
+  }
+
+  if (!values.city) {
+    console.error('缺少必要參數 --city <縣市名或代碼>');
+    process.exit(1);
+  }
+
+  let cityName;
+  try {
+    // --city 可傳名稱或代碼，統一解析成正規縣市名（fetchMonthRow 用來比對 API 的 cityName）
+    const code = CITY_MAPPING[values.city] ? values.city : cityLookup(values.city);
+    cityName = CITY_MAPPING[code];
+  } catch {
+    console.error(`未知的縣市：${values.city}`);
+    process.exit(1);
+  }
+
+  let start = { ...DEFAULT_START };
+  if (values.start !== undefined) {
+    const matched = /^(\d{4})-(\d{2})$/.exec(values.start.trim());
+    if (!matched) {
+      console.error(`--start 格式錯誤（需為 YYYY-MM）：${values.start}`);
+      process.exit(1);
+    }
+    start = { year: Number(matched[1]), month: Number(matched[2]) };
+    if (start.month < 1 || start.month > 12) {
+      console.error(`--start 月份超出範圍：${values.start}`);
+      process.exit(1);
+    }
+  }
+
+  const now = new Date();
+  const current = { year: now.getFullYear(), month: now.getMonth() + 1 };
+  if (start.year > current.year || (start.year === current.year && start.month > current.month)) {
+    console.error(`--start（${start.year}-${pad2(start.month)}）晚於當前月份`);
+    process.exit(1);
+  }
+
+  return { cityName, start };
+}
 
 const unsafeAgent = new https.Agent({
   rejectUnauthorized: false,
@@ -54,8 +109,14 @@ async function request(params, retriesLeft = 3) {
   if (result['Success']) {
     return JSON.parse(result['Message']);
   } else {
+    // API 偶爾對正常查詢回「查無資料」（疑似負載/限流），非真的沒資料，故先重試
+    if (retriesLeft > 0) {
+      console.error(`Request failed (${result['ErrorMessage']}), retrying... (${retriesLeft} left)`);
+      await sleep(2000);
+      return request(params, retriesLeft - 1);
+    }
     console.error('Request failed, message:', result['ErrorMessage']);
-    throw new Error('Request failed')
+    throw new Error('Request failed');
   }
 }
 
@@ -99,17 +160,25 @@ function sum(...values) {
 (async function main() {
   console.log("Fetch monthly shelter detail data from pet.gov.tw ...\n");
 
-  const cityName = cityLookup(CITY_CODE);
+  const { cityName, start } = parseCliOptions();
+  console.log(`City: ${cityName}, start from ${start.year}-${pad2(start.month)}\n`);
+
   const now = new Date();
   const current = { year: now.getFullYear(), month: now.getMonth() + 1 };
 
   const rows = [];
-  let cursor = { ...START };
+  let cursor = { ...start };
 
   while (!isAfter(cursor, current)) {
     const row = await fetchMonthRow(cursor.year, cursor.month, cityName);
 
     if (!row) {
+      if (rows.length === 0) {
+        console.log(`No data for ${cursor.year}-${pad2(cursor.month)} (${cityName}) yet, skipping.`);
+        cursor = nextMonth(cursor);
+        await sleep(300);
+        continue;
+      }
       console.log(`No data found for ${cursor.year}-${pad2(cursor.month)} (${cityName}), stop here.`);
       break;
     }
